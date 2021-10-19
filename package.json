@@ -1,7 +1,7 @@
 {
-  "name": "js-task-boilerplate",
+  "name": "node_bulls-and-cows",
   "version": "1.0.0",
-  "description": "js task boilerplate",
+  "description": "Bulls and cows game",
   "main": "src/sum.js",
   "scripts": {
     "init": "mate-scripts init",
