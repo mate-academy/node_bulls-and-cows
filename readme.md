@@ -9,6 +9,7 @@ Implement `Bulls and cows` game so the user can run and play it using command li
 - `bull` - guessed digit is on its place (index)
 - `cow` - guessed digit exists in the number but the place (index) is wrong
 - the game ends when the numbers is found
+- Please create separate modules for generating a number, calculating bulls and cows, input/output operations
 
 ## Example
 Computer makes `1234`, user prints `1345`. The result is one `bull` (guessed
