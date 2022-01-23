@@ -4,7 +4,10 @@ module.exports = {
     jest: true
   },
   rules: {
-    'no-proto': 0
+    'no-proto': 0,
+    'no-console': 'off',
+    "prefer-promise-reject-errors": "off",
   },
-  plugins: ['jest']
+  plugins: ['jest'],
+  parser: "babel-eslint",
 };
