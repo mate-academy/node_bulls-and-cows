@@ -1,1 +1,4 @@
-'use strict';
+
+import { createTerminal } from './createTerminal.js';
+
+createTerminal();
