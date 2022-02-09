@@ -10,11 +10,11 @@ const terminal = readline.createInterface({
 const question = (args) => 
   new Promise((resolve, reject) => terminal.question(args, resolve, reject));
 
-const generatedNumber = (Math.random().toFixed(DIGITS_COUNT) * 10000);
-  
 const DIGITS_COUNT = 4;
 const BULL = 'BULL';
 const COW = 'COW';
+
+const generatedNumber = (Math.random().toFixed(DIGITS_COUNT) * 10000);
 
 function paramsValidation(args) {
   return args.length === DIGITS_COUNT && Number.isInteger(+args[0]);
