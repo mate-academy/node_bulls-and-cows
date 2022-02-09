@@ -1,16 +1,16 @@
-export const generateNumber = () => {
-  const number = [];
+export const generateRandomNumber = (numSize) => {
+  const numbers = [];
   let newNum = '';
   let i = 0;
 
-  while (i < 4) {
+  while (i < numSize) {
     newNum = Math.ceil(Math.random() * 9);
 
-    if (!number.includes(newNum)) {
-      number[i] = newNum;
+    if (!numbers.includes(newNum)) {
+      numbers.push(newNum);
       i++;
     }
   }
 
-  return number.join('');
+  return numbers.join('');
 };

@@ -1,4 +1,4 @@
-import { generateNumber } from './generateNumber.js';
+import { generateRandomNumber } from './generateNumber.js';
 import { compareNumber } from './compareNumber.js';
 import readline from 'readline';
 
@@ -7,13 +7,13 @@ export const createTerminal = () => {
     input: process.stdin,
     output: process.stdout,
   });
-
-  const generatedNum = generateNumber();
+  const numSize = 4;
+  const generatedNum = generateRandomNumber(numSize);
 
   terminal.question(
-    'Please guess a number of 4 different digits -  ',
+    `Please guess a number of ${numSize} different digits -  `,
     (answer) => {
-      if (answer.length !== 4 || !+answer) {
+      if (answer.length !== numSize || !+answer) {
         console.log('Incorrect input');
         terminal.close();
 
@@ -22,7 +22,7 @@ export const createTerminal = () => {
 
       console.log('User: ', answer);
       console.log('Computer: ', generatedNum);
-      console.log(compareNumber(generatedNum, answer));
+      console.log(compareNumber(generatedNum, answer, numSize));
       terminal.close();
     });
 };

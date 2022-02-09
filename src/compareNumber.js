@@ -1,8 +1,8 @@
-export const compareNumber = (random, user) => {
+export const compareNumber = (random, user, numSize) => {
   let bull = 0;
   let cow = 0;
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < numSize; i++) {
     if (random[i] === user[i]) {
       bull++;
       continue;
