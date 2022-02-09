@@ -7,10 +7,12 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-const question = (args) => new Promise((res) => terminal.question(args, res));
-const DIGITS_COUNT = 4;
+const question = (args) => 
+  new Promise((resolve, reject) => terminal.question(args, resolve, reject));
 
 const generatedNumber = (Math.random().toFixed(DIGITS_COUNT) * 10000);
+  
+const DIGITS_COUNT = 4;
 const BULL = 'BULL';
 const COW = 'COW';
 
@@ -30,19 +32,17 @@ function roleCheck({
     if (number === digitToFind &&
       index === digitIndex) {
         bullIndex = index;
-        return;
       }
 
     if (number === digitToFind &&
       index !== digitIndex) {
         cowIndex = index;
-        return;
-      } 
+      }
   });
 
-  if (bullIndex) {
+  if (bullIndex !== null) {
     return { role: BULL, reservedIndex: bullIndex };
-  } else if (cowIndex) {
+  } else if (cowIndex !== null) {
     return { role: COW, reservedIndex: cowIndex };
   } else {
     return { role: null, reservedIndex: null };
@@ -99,7 +99,7 @@ async function game(text) {
         terminal.write(`${cows === 1 ? 'cow' : 'cows'}: ${cows} ` +
           `${bulls === 1 ? 'bull' : 'bulls'}: ${bulls} \n`);
 
-        game('Try again ;) \n');
+        game(`${bulls > 0 || cows > 0 ? 'Nice try!' : '' } Try again \n`);
       }
     };
 };
