@@ -2,8 +2,7 @@
   "name": "node_bulls-and-cows",
   "version": "1.0.0",
   "description": "Bulls and cows game",
-  "type": "module",
-  "exports": "./src/app.js",
+  "main": "src/app.js",
   "scripts": {
     "init": "mate-scripts init",
     "start": "mate-scripts start",
@@ -27,6 +26,6 @@
     "projectType": "javascript"
   },
   "dependencies": {
-    "chalk": "^5.0.1"
+    "chalk": "^4.1.2"
   }
 }
