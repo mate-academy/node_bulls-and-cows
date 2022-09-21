@@ -20,7 +20,12 @@ const calculation = (ques) => {
       }
     }
     // eslint-disable-next-line max-len
-    console.log('\n', '=========================================', '\n', '\n', 'Mysstery number: ', random, '\n', '\n', '     You choice: ', answer, '\n', '\n', '          bulls: ', bulls, '\n', '\n', '           cows: ', cows);
+
+    console.log('\n', '=========================================', '\n', '\n',
+      'Mysstery number: ', random, '\n', '\n',
+      '     You choice: ', answer, '\n', '\n',
+      '          bulls: ', bulls, '\n', '\n',
+      '           cows: ', cows);
   } else {
     console.log('Invalid data: Enter please correct 4 digit!!!');
   }
