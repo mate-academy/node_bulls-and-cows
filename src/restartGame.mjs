@@ -1,7 +1,7 @@
-import { startGame } from './startGame.js';
-import { terminal } from './terminal.js';
-import { gameOptions } from './app.js';
-import { generateSecret } from './generateSecret.js';
+import { startGame } from './startGame.mjs';
+import { terminal } from './terminal.mjs';
+import { gameOptions } from './app.mjs';
+import { generateSecret } from './generateSecret.mjs';
 
 export const restartGame = () => {
   terminal.question('Do you want to start new game? y/n: ', (guess) => {

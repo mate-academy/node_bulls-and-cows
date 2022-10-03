@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { restartGame } from './restartGame.js';
-import { getGuess } from './getGuess.js';
+import { restartGame } from './restartGame.mjs';
+import { getGuess } from './getGuess.mjs';
 
 const nextRoundMessage = 'Please, enter your next guess: ';
 

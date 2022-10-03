@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-import { getGuess } from './getGuess.js';
-import { generateSecret } from './generateSecret.js';
-import { compareGuessSecret } from './compareGuessSecret.js';
-import { validateGuess } from './validateGuess.js';
+import { getGuess } from './getGuess.mjs';
+import { generateSecret } from './generateSecret.mjs';
+import { compareGuessSecret } from './compareGuessSecret.mjs';
+import { validateGuess } from './validateGuess.mjs';
 
 export const startGame = async(gameOptions, secret) => {
   let secret_ = secret;

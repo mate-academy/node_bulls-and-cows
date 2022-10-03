@@ -1,4 +1,4 @@
-import { terminal } from './terminal.js';
+import { terminal } from './terminal.mjs';
 
 export const getGuess = (message) => {
   return new Promise((resolve) => {

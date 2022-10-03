@@ -1,5 +1,5 @@
-import { getGuess } from './getGuess.js';
-import { gameOptions } from './app.js';
+import { getGuess } from './getGuess.mjs';
+import { gameOptions } from './app.mjs';
 
 const errorMessageWrongNumberOfDigits = '4 different digits are required! '
 + `Please, enter your guess: `;

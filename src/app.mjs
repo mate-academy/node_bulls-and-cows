@@ -1,4 +1,4 @@
-import { startGame } from './startGame.js';
+import { startGame } from './startGame.mjs';
 
 export const gameOptions = {
   level: 4,

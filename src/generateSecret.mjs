@@ -1,4 +1,4 @@
-import { gameOptions } from './app.js';
+import { gameOptions } from './app.mjs';
 
 export const generateSecret = () => {
   const secret = new Set();

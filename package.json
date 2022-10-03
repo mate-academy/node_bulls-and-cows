@@ -2,7 +2,7 @@
   "name": "node_bulls-and-cows",
   "version": "1.0.0",
   "description": "Bulls and cows game",
-  "main": "src/app.js",
+  "main": "src/app.mjs",
   "scripts": {
     "init": "mate-scripts init",
     "start": "mate-scripts start",
@@ -11,7 +11,7 @@
     "update": "mate-scripts update",
     "postinstall": "npm run update",
     "test": "npm run lint && npm run test:only",
-    "game": "node ./src/app.js"
+    "game": "node ./src/app.mjs"
   },
   "author": "Mate academy",
   "license": "GPL-3.0",
