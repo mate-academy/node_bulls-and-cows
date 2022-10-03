@@ -23,9 +23,9 @@ export const startGame = async(gameOptions, secret) => {
   + '\n'
   + `Please, enter ${gameOptions.level} different digits: `;
 
-  console.log('* -----------------------------------*');
-  console.log('* Current secret -', secret_);
-  console.log('* -----------------------------------*');
+  // console.log('* -----------------------------------*');
+  // console.log('* Current secret -', secret_);
+  // console.log('* -----------------------------------*');
 
   const guess = await validateGuess(
     await getGuess(startGameMessage), gameOptions.level
