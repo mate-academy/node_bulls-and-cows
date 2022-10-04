@@ -1,14 +1,18 @@
+/* eslint-disable no-console */
 'use strict';
 
-let number = Math.round(Math.random() * 10);
+function getRandom(min, max) {
+  return Math.round(Math.random() * (max - min) + min);
+}
 
-let randomNumber = '';
+let number = getRandom(0, 9);
+let randomNumber = `${getRandom(1, 9)}`;
 
 while (randomNumber.length < 4) {
   if (!randomNumber.includes(number)) {
     randomNumber += number;
   } else {
-    number = Math.round(Math.random() * 10);
+    number = getRandom(0, 9);
   }
 }
 
