@@ -4,10 +4,10 @@ import { getGuess } from './getGuess.mjs';
 
 const nextRoundMessage = 'Please, enter your next guess: ';
 
-export const compareGuessSecret = async(guess, secret, level) => {
+export const compareGuessSecret = async  ( guess, secret, level) => {
   let bulls = 0;
   let cows = 0;
-  const answer = guess.split('').map((digit) => +digit);
+  const answer = guess.split('').map( (digit) => +digit );
 
   for (let i = 0; i < secret.length; i++) {
     if (secret.includes(answer[i])) {

@@ -14,8 +14,8 @@
     "postinstall": "npm run update",
     "test": "npm run lint && npm run test:only",
     "game": "node ./src/app.mjs",
-    "fix-style": "npm run format && npm run lint:write",
     "prepare": "husky install",
+    "fix-style": "lint-staged && npm run format && npm run lint:write",
     "pre-commit": "lint-staged"
   },
   "author": "Mate academy",
