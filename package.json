@@ -6,14 +6,15 @@
   "scripts": {
     "init": "mate-scripts init",
     "start": "mate-scripts start",
-    "lint": "eslint ./src/* --fix",
+    "lint": "eslint ./src/*",
+    "lint:write": "eslint ./src/* --fix",
     "format": "prettier --write . --ignore-path .gitignore",
     "test:only": "mate-scripts test",
     "update": "mate-scripts update",
     "postinstall": "npm run update",
     "test": "npm run lint && npm run test:only",
     "game": "node ./src/app.mjs",
-    "fix-format": "npm run format && npm run lint",
+    "fix-style": "npm run format && npm run lint:write",
     "prepare": "husky install"
   },
   "author": "Mate academy",
@@ -28,6 +29,7 @@
     "eslint-plugin-node": "^8.0.1",
     "husky": "^8.0.1",
     "jest": "^24.7.0",
+    "lint-staged": "^13.0.3",
     "prettier": "2.7.1"
   },
   "mateAcademy": {
@@ -35,5 +37,10 @@
   },
   "dependencies": {
     "nodemon": "^2.0.20"
+  },
+  "lint-stage": {
+    "*.{js,jsx,mjs}": [
+      "npm run lint"
+    ]
   }
 }
