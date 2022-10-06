@@ -6,7 +6,7 @@
   "scripts": {
     "init": "mate-scripts init",
     "start": "mate-scripts start",
-    "lint": "eslint ./src/*",
+    "lint": "mate-scripts lint",
     "lint:write": "eslint ./src/* --fix",
     "format": "prettier --write . --ignore-path .gitignore",
     "test:only": "mate-scripts test",
@@ -15,8 +15,8 @@
     "test": "npm run lint && npm run test:only",
     "game": "node ./src/app.mjs",
     "prepare": "husky install",
-    "fix-style": "lint-staged && npm run format && npm run lint:write",
-    "pre-commit": "lint-staged"
+    "fix-style": "npm run format && npm run lint:write",
+    "lint-stage": "npx --no-install lint-staged"
   },
   "author": "Mate academy",
   "license": "GPL-3.0",
@@ -41,7 +41,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,mjs}": [
-      "npm run lint"
+      "eslint ./src/*"
     ]
   }
 }

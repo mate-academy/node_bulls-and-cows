@@ -3,15 +3,19 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: "airbnb-base",
+  extends: 'airbnb-base',
   overrides: [],
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: 'latest',
   },
   rules: {
-    "no-plusplus": "off",
-    "import/extensions": "off",
-    "import/prefer-default-export": "off",
-    "import/no-cycle": ["error", { maxDepth: 1 }],
+    'no-plusplus': 'off',
+    'import/extensions': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-cycle': ['error', { maxDepth: 1 }],
+    'linebreak-style': [
+      'error',
+      process.platform === 'win32' ? 'windows' : 'unix',
+    ],
   },
 };
