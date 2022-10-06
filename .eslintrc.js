@@ -12,6 +12,6 @@ module.exports = {
     "no-plusplus": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off",
-    "import/no-cycle": ["error", { maxDepth: 1 }]
+    "import/no-cycle": ["error", { maxDepth: 1 }],
   },
 };
