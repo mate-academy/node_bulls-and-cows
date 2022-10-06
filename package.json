@@ -6,22 +6,29 @@
   "scripts": {
     "init": "mate-scripts init",
     "start": "mate-scripts start",
-    "lint": "mate-scripts lint",
+    "lint": "eslint ./src/* --fix",
+    "format": "prettier --write . --ignore-path .gitignore",
     "test:only": "mate-scripts test",
     "update": "mate-scripts update",
     "postinstall": "npm run update",
     "test": "npm run lint && npm run test:only",
-    "game": "node ./src/app.mjs"
+    "game": "node ./src/app.mjs",
+    "fix-format": "npm run format && npm run lint",
+    "prepare": "husky install"
   },
   "author": "Mate academy",
   "license": "GPL-3.0",
   "devDependencies": {
     "@mate-academy/eslint-config": "*",
-    "@mate-academy/scripts": "^0.9.7",
-    "eslint": "^5.16.0",
+    "@mate-academy/scripts": "^1.2.8",
+    "eslint": "^8.24.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-node": "^8.0.1",
-    "jest": "^24.7.0"
+    "husky": "^8.0.1",
+    "jest": "^24.7.0",
+    "prettier": "2.7.1"
   },
   "mateAcademy": {
     "projectType": "javascript"

@@ -8,7 +8,7 @@ export const restartGame = () => {
     if (guess.toLowerCase() === 'n') {
       terminal.close();
     } else if (guess.toLowerCase() === 'y') {
-      const secret = generateSecret();
+      const secret = generateSecret(gameOptions.level);
 
       startGame(gameOptions, secret);
     } else {

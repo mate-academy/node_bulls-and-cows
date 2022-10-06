@@ -1,9 +1,7 @@
-import { gameOptions } from './app.mjs';
-
-export const generateSecret = () => {
+export const generateSecret = (level) => {
   const secret = new Set();
 
-  while (secret.size < gameOptions.level) {
+  while (secret.size < level) {
     const number = Math.floor(Math.random() * 10);
 
     secret.add(number);
