@@ -15,7 +15,8 @@
     "test": "npm run lint && npm run test:only",
     "game": "node ./src/app.mjs",
     "fix-style": "npm run format && npm run lint:write",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "author": "Mate academy",
   "license": "GPL-3.0",
