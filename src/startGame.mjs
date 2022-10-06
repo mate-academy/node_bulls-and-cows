@@ -14,6 +14,8 @@ export const startGame = async (gameOptions, secret) => {
     + 'one `bull` (guessed digit `1` is on it`s place) and 2 `cows` \n'
     + '(digits `3` and `4` are present but on wrong places) \n'
     + '\n'
+    + 'Type "exit" to interrupt game \n'
+    + '\n'
     + `Please, enter ${gameOptions.level} different digits: `;
 
   console.log('* -----------------------------------*');
