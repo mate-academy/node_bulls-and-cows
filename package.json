@@ -38,7 +38,7 @@
   "dependencies": {
     "nodemon": "^2.0.20"
   },
-  "lint-stage": {
+  "lint-staged": {
     "*.{js,jsx,mjs}": [
       "npm run lint"
     ]
