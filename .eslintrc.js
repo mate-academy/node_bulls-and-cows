@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    es2021: true,
+    es2022: true,
     node: true,
   },
   extends: 'airbnb-base',
@@ -13,5 +13,6 @@ module.exports = {
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'import/no-cycle': ['error', { maxDepth: 1 }],
+    'implicit-arrow-linebreak': ['error', 'beside'],
   },
 };
