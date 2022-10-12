@@ -7,14 +7,15 @@ function cntBullsAndCows(randomNum, userNum) {
   for (let i = 0; i < randomNum.length; i += 1) {
     if (randomNum[i] === userNum[i]) {
       bullsCnt += 1;
-    } else if (randomNum.includes(userNum[i])) {
+      continue;
+    }
+
+    if (randomNum.includes(userNum[i])) {
       cowsCnt += 1;
     }
   }
 
   return `Bulls => ${bullsCnt} and Cows => ${cowsCnt}`;
-
-  // return [bullsCnt, cowsCnt];
 };
 
 module.exports.cntBullsAndCows = cntBullsAndCows;
