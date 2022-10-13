@@ -8,11 +8,9 @@ function cow(userInput) {
   const arrInput = userInput.split('');
   const arrNumber = randomNumber.split('');
 
-  for (let i = 0; i < arrInput.length; i++) {
-    for (let j = 0; j < arrNumber.length; j++) {
-      if (arrInput[i] === arrNumber[j]) {
-        count += 1;
-      }
+  for (let i = 0; i < arrNumber.length; ++i) {
+    if (arrInput[i] !== arrNumber[i] && arrNumber.includes(arrInput[i])) {
+      ++count;
     }
   }
 

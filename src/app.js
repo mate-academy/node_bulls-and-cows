@@ -4,6 +4,7 @@
 const readline = require('readline');
 const { bull } = require('./bull');
 const { cow } = require('./cow');
+const { randomNumber } = require('./getRandomNumber');
 
 const terminal = readline.createInterface({
   input: process.stdin,
@@ -11,16 +12,19 @@ const terminal = readline.createInterface({
 });
 
 const question = () => {
-  terminal.question('\nEnter 4 different digits:   ', userInput => {
+  terminal.question('\nEnter 4 different digits: ', userInput => {
     if (userInput.length !== 4) {
       console.log(`Error: you entered ${userInput.length} digit('s)`);
       question();
+    } else if (userInput === randomNumber) {
+      console.log(`You won!`);
+      terminal.close();
     } else {
       const bulls = bull(userInput);
       const cows = cow(userInput);
 
       console.log(`The result is ${bulls} bull('s) and ${cows} cow('s)`);
-      terminal.close();
+      question();
     }
   });
 };

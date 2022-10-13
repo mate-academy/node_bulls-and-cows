@@ -8,11 +8,11 @@ function bull(userInput) {
   const arrInput = userInput.split('');
   const arrNumber = randomNumber.split('');
 
-  arrInput.filter((value, index) => {
-    if (value === arrNumber[index]) {
+  for (let i = 0; i < arrNumber.length; ++i) {
+    if (arrInput[i] === randomNumber[i]) {
       ++count;
     }
-  });
+  }
 
   return count;
 }
