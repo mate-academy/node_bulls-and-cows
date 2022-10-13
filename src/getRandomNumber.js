@@ -3,7 +3,7 @@
 function getRandomNumber() {
   let result = '';
 
-  for (let i = 0; result.length !== 4; i++) {
+  while (result.length !== 4) {
     const value = Math.floor(Math.random() * 9) + 1;
 
     if (!result.includes(value)) {

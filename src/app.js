@@ -11,8 +11,6 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-console.log(randomNumber);
-
 const question = () => {
   terminal.question('\nEnter 4 different digits: ', userInput => {
     if (!(/^(?:(\d)(?!.*\1)){4}$/.test(userInput))) {
@@ -26,7 +24,7 @@ const question = () => {
       const bulls = bull(userInput);
       const cows = cow(userInput);
 
-      console.log(`The result is ${bulls} bull('s) and ${cows} cow('s)`);
+      console.log(`Amount of bulls: ${bulls}\nAmount of cows: ${cows}`);
       question();
     }
   });
