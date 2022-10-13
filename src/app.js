@@ -11,10 +11,13 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
+console.log(randomNumber);
+
 const question = () => {
   terminal.question('\nEnter 4 different digits: ', userInput => {
-    if (userInput.length !== 4) {
-      console.log(`Error: you entered ${userInput.length} digit('s)`);
+    if (!(/^(?:(\d)(?!.*\1)){4}$/.test(userInput))) {
+      console.log(`Error: you entered wrong combination`);
+
       question();
     } else if (userInput === randomNumber) {
       console.log(`You won!`);
