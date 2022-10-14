@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const readline = require('readline');
@@ -8,7 +9,10 @@ const userInterface = readline.createInterface({
 });
 
 const randomNumbers = Math.round(Math.random() * 10000).toString();
+
 let str = '';
+
+const randomCopy = randomNumbers.split('');
 
 userInterface.question('Write 4 digits ', (number) => {
   const formatNumber = number.toString();
@@ -18,14 +22,22 @@ userInterface.question('Write 4 digits ', (number) => {
   }
 
   for (let i = 0; i < formatNumber.length; i++) {
-    if (number[i] === randomNumbers[i]) {
+    if (formatNumber[i] === randomNumbers[i]) {
       str += 'bull ';
-    } else {
+
+      continue;
+    }
+
+    const isExist = randomCopy.find(num => num === formatNumber[i]);
+
+    if (isExist) {
       str += 'cows ';
+
+      continue;
     }
   }
 
-  console.log(randomNumbers);
+  console.log('Random numbers: ' + randomNumbers);
 
   console.log(str);
 
