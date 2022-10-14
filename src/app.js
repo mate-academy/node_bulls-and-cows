@@ -18,7 +18,15 @@ userInterface.question('Write 4 digits ', (number) => {
   const formatNumber = number.toString();
 
   if (formatNumber.length !== 4) {
-    throw Error('You writed not 4 digits');
+    console.log('You writed not 4 digits');
+
+    userInterface.close();
+  }
+
+  if (!Number.isInteger(number)) {
+    console.log('Please, write a number');
+
+    userInterface.close();
   }
 
   for (let i = 0; i < formatNumber.length; i++) {
