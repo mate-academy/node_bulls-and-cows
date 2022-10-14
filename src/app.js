@@ -39,7 +39,7 @@ function bullsAndCowsGame() {
       }
       rl.write(countBullsAndCows(number, userNumber) + '\n');
     } else {
-      rl.write(`Your should enter a number of ${numberLenght}`
+      rl.write(`Your should enter a number of ${numberLenght} `
         + 'different digits!\n');
     }
     rl.write('Try again...\n');
