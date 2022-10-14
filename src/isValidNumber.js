@@ -7,7 +7,7 @@ function isValidNumber(num, numLenght) {
 
   for (let i = 0; i < numLenght; i++) {
     if (i !== num.lastIndexOf(num[i])
-    || !'123456789'.includes(num[i])) {
+    || !'0123456789'.includes(num[i])) {
       return false;
     }
   }

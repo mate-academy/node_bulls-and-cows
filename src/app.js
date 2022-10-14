@@ -10,7 +10,7 @@ const { getNumber } = require('./getNumber');
 const { isValidNumber } = require('./isValidNumber');
 const { countBullsAndCows } = require('./countBullsAndCows');
 
-const digits = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const numberLenght = 4;
 const number = getNumber(digits, numberLenght);
 let turn = 0;
