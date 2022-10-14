@@ -43,11 +43,3 @@ userInterface.question('Write 4 digits ', (number) => {
 
   userInterface.close();
 });
-
-// function generateRandomNumber() {
-//   return Math.round(Math.random() * 10000);
-// }
-
-// function calculatingBullsAndCows() {
-
-// }
