@@ -71,6 +71,9 @@ const letsGo = function() {
 
       console.log(result);
 
+      console.log('Bull = ' + result.filter(el => el === 'bull').length
+        + '; Cows = ' + result.filter(el => el === 'cow').length);
+
       if (result.every(el => el === 'bull')) {
         console.log('You are win!!!');
         play.close();
