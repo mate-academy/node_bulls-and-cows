@@ -1,23 +1,16 @@
 /* eslint-disable no-console */
 'use strict';
 
+const { randomNumber } = require('./randomNumber');
 const readline = require('readline');
+const { countBullCow } = require('./countBullCow');
 
 const play = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const task = [];
-
-while (task.length < 4) {
-  const random = Math.floor(Math.random() * 10);
-
-  if (!task.includes(random)) {
-    task.push(random);
-  }
-}
-
+const task = randomNumber();
 let result = [];
 let count = 10;
 
@@ -55,24 +48,7 @@ const letsGo = function() {
 
         return 'Game over';
       }
-
-      for (let i = 0; i < 4; i++) {
-        if (task[i] === Number(userVersion[i])) {
-          result.push('bull');
-          continue;
-        }
-
-        if (task.includes(Number(userVersion[i]))) {
-          result.push('cow');
-          continue;
-        }
-        result.push('?');
-      }
-
-      console.log(result);
-
-      console.log('Bull = ' + result.filter(el => el === 'bull').length
-        + '; Cows = ' + result.filter(el => el === 'cow').length);
+      result = countBullCow(task, userVersion);
 
       if (result.every(el => el === 'bull')) {
         console.log('You are win!!!');
