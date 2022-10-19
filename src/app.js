@@ -2,52 +2,53 @@
 'use strict';
 
 const readline = require('readline');
+const { randomNumber } = require('./randomNumber');
 
-const userInterface = readline.createInterface({
+const terminal = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const randomNumbers = Math.round(Math.random() * 10000).toString();
-
 let str = '';
 
-const randomCopy = randomNumbers.split('');
+const result = randomNumber();
 
-userInterface.question('Write 4 digits ', (number) => {
-  const formatNumber = number.toString();
+terminal.question('Write 4 digits ', (number) => {
+  const userNumber = number.toString();
 
-  if (formatNumber.length !== 4) {
+  if (userNumber.length !== 4) {
     console.log('You writed not 4 digits');
 
-    userInterface.close();
+    terminal.close();
   }
 
-  if (!Number.isInteger(number)) {
-    console.log('Please, write a number');
+  if ([...new Set(userNumber)].length !== userNumber.length) {
+    console.log('You need to write 4 different digits!');
 
-    userInterface.close();
+    terminal.close();
   }
 
-  for (let i = 0; i < formatNumber.length; i++) {
-    if (formatNumber[i] === randomNumbers[i]) {
-      str += 'bull ';
+  for (let i = 0; i < userNumber.length; i++) {
+    if (userNumber[i] === result[i]) {
+      str += `${userNumber[i]} - bull, `;
 
       continue;
     }
 
-    const isExist = randomCopy.find(num => num === formatNumber[i]);
+    const isExist = result.split('').find(num => num === userNumber[i]);
 
     if (isExist) {
-      str += 'cows ';
+      str += `${userNumber[i]} - cows, `;
 
       continue;
+    } else {
+      str += 'nothing, ';
     }
   }
 
-  console.log('Random numbers: ' + randomNumbers);
+  console.log('Random numbers: ' + result);
 
   console.log(str);
 
-  userInterface.close();
+  terminal.close();
 });
