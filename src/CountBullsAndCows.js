@@ -4,6 +4,7 @@ function countBullsAndCows(randomNum, numFromUser) {
   if (randomNum.length !== numFromUser.length) {
     return 'number length should be equal';
   }
+  // eslint-disable-next-line no-console
   console.log(+numFromUser);
 
   if (!Number.isFinite(+numFromUser) && !Number.isInteger(+numFromUser)) {

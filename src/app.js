@@ -13,6 +13,7 @@ const myInterface = readline.createInterface({
 myInterface.question(
   'try to guess the 4 digit number ',
   (answer) => {
+    // eslint-disable-next-line no-console
     console.log(countBullsAndCows(randomNumber, answer));
     process.exit();
   });
