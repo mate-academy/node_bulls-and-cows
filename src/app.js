@@ -19,16 +19,20 @@ const game = () => {
     if (answer.length !== 4) {
       console.log(styles`${red}Please enter a number with 4 digits${x}`);
       game();
-    } else if (answer === randomNumber.toString()) {
+    } else if (isNaN(+answer)) {
+      console.log(styles`${red}Please enter a NUMBER${x}`);
+      game();
+    } else if (answer !== [...new Set(answer)].join('')) {
+      console.log(styles`${red}Please enter a number with unique digits${x}`);
+      game();
+    } else if (answer === randomNumber) {
       console.log(styles`${green}You guessed correctly!${x}`);
       terminal.close();
     } else {
-      const bulls = answer
-        .split('')
-        .filter((item, index) => item === randomNumber.toString()[index]).length;
-      const cows = answer
-        .split('')
-        .filter((item) => randomNumber.toString().includes(item)).length - bulls;
+      const bulls = [...answer]
+        .filter((item, index) => item === randomNumber[index]).length;
+      const cows = [...answer]
+        .filter((item) => randomNumber.includes(item)).length - bulls;
 
       console
         .log(styles`${red}You guessed incorrectly!${x}` + ` Cows: ${cows} Bulls: ${bulls}`);
@@ -37,19 +41,4 @@ const game = () => {
   });
 };
 
-const isFirstTime = () => {
-  terminal.question('Is this your first time? (y/n) ', (answer) => {
-    if (answer === 'y') {
-      console.log('Welcome!');
-      game();
-    } else if (answer === 'n') {
-      console.log('Welcome back!');
-      terminal.close();
-    } else {
-      console.log(red('Please enter y or n'));
-      isFirstTime();
-    }
-  });
-};
-
-isFirstTime();
+game();
