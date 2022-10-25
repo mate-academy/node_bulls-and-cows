@@ -27,10 +27,15 @@ const startGame = () =>
       } = countBullsAndCows({ userNumber });
 
       if (isCorrect) {
-        console.log(`You guessed all the numbers in ${countOfAttempts} tries. Congratulations, you won!\n`);
+        console.log(
+          `You guessed all the numbers in ${countOfAttempts} tries.`
+          + ` Congratulations, you won!\n`,
+        );
         interfaceOfGame.close();
       } else {
-        console.log(`You guessed ${countOfBulls} bulls and ${countOfCows} cows\n`);
+        console.log(
+          `You guessed ${countOfBulls} bulls and ${countOfCows} cows\n`,
+        );
         countOfAttempts += 1;
         typeOfQuestions = KEY_QUESTIONS.try_again;
         startGame();
@@ -44,6 +49,9 @@ const startGame = () =>
 console.log('\nRules:');
 console.log('You need to guess the 4-digit number that the computer guessed');
 console.log(`'bull' - guessed digit is on its place (index)`);
-console.log(`'cow' - guessed digit exists in the number but the place (index)\n`);
+
+console.log(
+  `'cow' - guessed digit exists in the number but the place (index)\n`,
+);
 
 startGame();
