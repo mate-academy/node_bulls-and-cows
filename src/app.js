@@ -19,17 +19,17 @@ const userAnswer = () => {
         .every((number) => number === numFromUser.toString().split('')[0])
     ) {
       terminal.write(
-        `You can't enter 4 same digits!!! \nattempt #${attemptCnt} \n` +
-          countBullsAndCows(randomNumbers, numFromUser) +
-          '\n'
+        `You can't enter 4 same digits!!! \nattempt #${attemptCnt} \n`
+          + countBullsAndCows(randomNumbers, numFromUser)
+          + '\n'
       );
       attemptCnt += 1;
       userAnswer();
     } else if (numFromUser.length === 4) {
       terminal.write(
-        `attempt #${attemptCnt} \n` +
-          countBullsAndCows(randomNumbers, numFromUser) +
-          '\n'
+        `attempt #${attemptCnt} \n`
+          + countBullsAndCows(randomNumbers, numFromUser)
+          + '\n'
       );
       attemptCnt += 1;
       userAnswer();
