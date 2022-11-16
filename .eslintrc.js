@@ -4,7 +4,11 @@ module.exports = {
     jest: true
   },
   rules: {
-    'no-proto': 0
+    'no-proto': 0,
+    'no-console': 'off',
   },
-  plugins: ['jest']
+  plugins: ['jest'],
+  parserOptions: {
+    "sourceType": "module",
+  }
 };
