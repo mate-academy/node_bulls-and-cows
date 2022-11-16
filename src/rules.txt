@@ -1,0 +1,6 @@
+****RULES****
+Give me exactly 4 different digits
+by 1 to 5 without the spaces (like 1234 or 1352)
+And I will show the result in bulls and cows, where:
+  -> bull - guessed digit is on its place;
+  -> cow - guessed digit exists in the number but the place is wrong;
