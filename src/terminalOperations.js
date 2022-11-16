@@ -3,14 +3,14 @@
 const readline = require('readline');
 
 const { generateNumber } = require('./generateNumber');
-const { bullsAndCows } = require('./bullsAndCows');
+const { calculateBullsAndCows } = require('./calculateBullsAndCows');
+
+const terminal = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 const terminalOperations = () => {
-  const terminal = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-
   terminal.question('Try to guess: ', (guess) => {
     for (const char of guess) {
       if ((guess.indexOf(char) !== guess.lastIndexOf(char))
@@ -22,9 +22,11 @@ const terminalOperations = () => {
 
     const randomNumber = generateNumber();
 
-    bullsAndCows(randomNumber, guess);
-
-    terminal.close();
+    if (calculateBullsAndCows(randomNumber, guess)) {
+      terminal.close();
+    } else {
+      terminalOperations();
+    }
   });
 };
 
