@@ -16,7 +16,8 @@ const interactWithTerminal = () => {
       if ((guess.indexOf(char) !== guess.lastIndexOf(char))
       || isNaN(+char)
       || guess.length !== 4) {
-        throw new Error('Incorrect input');
+        throw new Error(`Incorrect input
+       You have to enter 4 different digits!`);
       }
     }
 

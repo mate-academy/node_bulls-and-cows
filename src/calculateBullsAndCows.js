@@ -13,16 +13,9 @@ const calculateBullsAndCows = (randomNumber, guess) => {
     if (randomNumber[i] === guess[i]) {
       bulls++;
     } else {
-      if (numbers[+guess[i]] > 0) {
+      if (randomNumber.includes(guess[i])) {
         cows++;
       }
-
-      if (numbers[+randomNumber[i]] < 0) {
-        cows++;
-      }
-
-      numbers[+randomNumber[i]]++;
-      numbers[+guess[i]]--;
     }
   }
 
