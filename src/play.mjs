@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import readline from 'readline';
-import getHint from './getHint.js';
-import validInput from './validInput.js';
+import getHint from './getHint.mjs';
+import validInput from './validInput.mjs';
 
-export const play = (secretNumber) => {
+export default function play(secretNumber) {
   function guessNumber(guess) {
     const isValid = validInput(guess);
 
@@ -27,8 +27,8 @@ export const play = (secretNumber) => {
   });
 
   function speakWithUser(message, func) {
-    terminal.on(message, func);
+    terminal.question(message, func);
   }
 
-  return speakWithUser('What is the guessed number? ', guessNumber);
+  speakWithUser('What is the guessed number? ', guessNumber);
 };

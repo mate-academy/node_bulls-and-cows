@@ -1,5 +1,5 @@
-import generateSecretNumber from './generateSecretNumber.js';
-import { play } from './play.js';
+import generateSecretNumber from './generateSecretNumber.mjs';
+import play from './play.mjs';
 
 const secretNumber = generateSecretNumber('')()()()();
 
