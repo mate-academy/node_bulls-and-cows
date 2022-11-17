@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import readline from 'readline';
-import getHint from './getHint.mjs';
-import validInput from './validInput.mjs';
+import getHint from './getHint.js';
+import validInput from './validInput.js';
 
 export default function play(secretNumber) {
   function guessNumber(guess) {

@@ -1,4 +1,4 @@
-import generateSecretNumber from '../src/generateSecretNumber.mjs';
+import generateSecretNumber from '../src/generateSecretNumber.js';
 
 describe('Number generation tests', () => {
   test('return string', () => {

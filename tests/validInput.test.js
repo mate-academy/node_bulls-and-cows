@@ -1,4 +1,4 @@
-import validInput from '../src/validInput.mjs';
+import validInput from '../src/validInput.js';
 
 describe('Number generation tests', () => {
   test('return string', () => {

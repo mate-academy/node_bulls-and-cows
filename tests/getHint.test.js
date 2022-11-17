@@ -1,4 +1,4 @@
-import getHint from '../src/getHint.mjs';
+import getHint from '../src/getHint.js';
 
 describe('Number generation tests', () => {
   test('return string', () => {
