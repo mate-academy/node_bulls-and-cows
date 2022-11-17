@@ -1,7 +1,5 @@
-'use strict';
-
 // You may think that I invented a bicycle
-const generateSecretNumber = (initial) => {
+export default function generateSecretNumber(initial) {
   let guessNumber = initial;
   let count = 0;
 
@@ -18,5 +16,3 @@ const generateSecretNumber = (initial) => {
 
   return generateNumber;
 };
-
-module.exports.generateSecretNumber = generateSecretNumber;

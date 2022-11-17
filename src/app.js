@@ -1,7 +1,5 @@
-'use strict';
-
-const { generateSecretNumber } = require('./generateSecretNumber');
-const { play } = require('./play');
+import generateSecretNumber from './generateSecretNumber.js';
+import { play } from './play.js';
 
 const secretNumber = generateSecretNumber('')()()()();
 
