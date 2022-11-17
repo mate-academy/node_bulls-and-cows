@@ -10,7 +10,7 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-const terminalOperations = () => {
+const interactWithTerminal = () => {
   terminal.question('Try to guess: ', (guess) => {
     for (const char of guess) {
       if ((guess.indexOf(char) !== guess.lastIndexOf(char))
@@ -25,9 +25,9 @@ const terminalOperations = () => {
     if (calculateBullsAndCows(randomNumber, guess)) {
       terminal.close();
     } else {
-      terminalOperations();
+      interactWithTerminal();
     }
   });
 };
 
-module.exports = { terminalOperations };
+module.exports = { interactWithTerminal };

@@ -1,5 +1,5 @@
 'use strict';
 
-const { terminalOperations } = require('./terminalOperations');
+const { interactWithTerminal } = require('./interactWithTerminal');
 
-terminalOperations();
+interactWithTerminal();
