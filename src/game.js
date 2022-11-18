@@ -1,6 +1,9 @@
 'use strict';
 
-const game = (randomNumber, userNumber) => {
+const { randomizer } = require('./randomizer');
+const randomNumber = randomizer();
+
+const game = (userNumber) => {
   const checkUserNumber = [...new Set(userNumber)];
 
   if (checkUserNumber.length < 4 || checkUserNumber.length > 4) {
@@ -13,7 +16,7 @@ const game = (randomNumber, userNumber) => {
   const guessDigitCount = {};
 
   for (let i = 0; i < randomNumber.length; i++) {
-    if (randomNumber[i] === userNumber[i]) {
+    if (randomNumber[i] === +userNumber[i]) {
       bulls++;
     } else {
       secretDigitCount[randomNumber[i]]

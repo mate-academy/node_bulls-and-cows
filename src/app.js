@@ -2,7 +2,6 @@
 'use strict';
 
 const inquirer = require('inquirer');
-const { randomizer } = require('./randomizer');
 const { game } = require('./game');
 
 const terminal = async() => {
@@ -16,9 +15,7 @@ const terminal = async() => {
 
   const userNumber = userInput.split('');
 
-  const randomNumber = randomizer();
-
-  const games = game(randomNumber, userNumber);
+  const games = game(userNumber);
 
   if (games === true) {
     console.log('Wow, awesome!');
