@@ -1,4 +1,6 @@
-export default function getHint(secret, guess) {
+'use strict';
+
+function getHint(secret, guess) {
   let bulls = 0;
   let cows = 0;
   const secretSplit = secret.split('');
@@ -37,3 +39,5 @@ export default function getHint(secret, guess) {
 
   return `bulls: ${bulls}, cows: ${cows}, try once more: `;
 }
+
+module.exports = { getHint };

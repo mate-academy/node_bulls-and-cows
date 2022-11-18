@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "node_bulls-and-cows",
   "version": "1.0.0",
   "description": "Bulls and cows game",

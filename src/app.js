@@ -1,5 +1,6 @@
-import generateSecretNumber from './generateSecretNumber.js';
-import play from './play.js';
+'use strict';
+const { generateSecretNumber } = require('./generateSecretNumber.js');
+const { play } = require('./play.js');
 
 const secretNumber = generateSecretNumber('')()()()();
 

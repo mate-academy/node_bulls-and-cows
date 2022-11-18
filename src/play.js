@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
-import readline from 'readline';
-import getHint from './getHint.js';
-import validInput from './validInput.js';
+'use strict';
 
-export default function play(secretNumber) {
+const readline = require('readline');
+const { getHint } = require('./getHint.js');
+const { validInput } = require('./validInput.js');
+
+function play(secretNumber) {
   function guessNumber(guess) {
     const isValid = validInput(guess);
 
@@ -32,3 +34,5 @@ export default function play(secretNumber) {
 
   speakWithUser('What is the guessed number? ', guessNumber);
 };
+
+module.exports = { play }

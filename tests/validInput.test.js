@@ -1,4 +1,5 @@
-import validInput from '../src/validInput.js';
+'use strict';
+const { validInput } = require('../src/validInput.js');
 
 describe('Number generation tests', () => {
   test('return string', () => {
@@ -21,7 +22,11 @@ describe('Number generation tests', () => {
     expect(validInput('a444')).toBe('Symbols not allowed, try again: ');
   });
 
+  test('to check if inpited digits are different', () => {
+    expect(validInput('3424')).toBe('You need to enter 4 different digits, try again: ');
+  });
+
   test('return empty string if input is valid', () => {
-    expect(validInput('4444')).toBe('');
+    expect(validInput('4123')).toBe('');
   });
 });

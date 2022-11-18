@@ -1,10 +1,21 @@
-// You may think that I invented a bicycle
-export default function generateSecretNumber(initial) {
+'use strict';
+
+function generateSecretNumber(initial) {
   let guessNumber = initial;
   let count = 0;
 
   const generateNumber = () => {
-    guessNumber += Math.round(9 * Math.random());
+    let isNewNumberNotFind = true;
+
+    do {
+      const newNumber = Math.round(9 * Math.random());
+
+      if (!guessNumber.includes(newNumber)) {
+        guessNumber += newNumber;
+        isNewNumberNotFind = false;
+      }
+    } while (isNewNumberNotFind)
+
     count++;
 
     if (count === 4) {
@@ -16,3 +27,5 @@ export default function generateSecretNumber(initial) {
 
   return generateNumber;
 };
+
+module.exports = { generateSecretNumber };
