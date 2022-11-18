@@ -1,4 +1,5 @@
 'use strict';
+
 const { getHint } = require('../src/getHint.js');
 
 describe('Number generation tests', () => {

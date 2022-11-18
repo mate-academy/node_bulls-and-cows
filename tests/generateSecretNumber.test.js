@@ -1,4 +1,5 @@
 'use strict';
+
 const { generateSecretNumber } = require('../src/generateSecretNumber.js');
 
 describe('Number generation tests', () => {
