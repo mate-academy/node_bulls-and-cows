@@ -3,6 +3,10 @@ module.exports = {
   env: {
     jest: true
   },
+  parserOptions: {
+    "sourceType": "module",
+  },
+  type: "module",
   rules: {
     'no-proto': 0
   },
