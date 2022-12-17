@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
 'use strict';
 
-function checkResult(currentNumber, answerNumber) {
+function checkResult(secret, guess) {
   let bulls = 0;
   let cows = 0;
 
-  for (let i = 0; i < currentNumber.length; i++) {
-    if (currentNumber.includes(answerNumber[i])
-      && answerNumber[i] === currentNumber[i]
+  for (let i = 0; i < secret.length; i++) {
+    if (secret.includes(guess[i])
+      && guess[i] === secret[i]
     ) {
       bulls++;
     } else {
