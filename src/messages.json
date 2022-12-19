@@ -1,0 +1,11 @@
+{
+  "greeter": "Hi mate, what's your name? ",
+  "goodbye": "Okay then, see you next time. Get some rest",
+  "question": "What's your guess? ",
+  "error": "Looks like wrong number of digits. Let's try again",
+  "win": "Congrats! You've guessed it. Go get a lottery ticket now",
+  "retry": "Take another try",
+  "rules": "Here are the rules. Bulls and Cows is a game, where I think of a number and you try to guess it. The guessed number has exactly 4 different digits. For every guess that you make you get 2 values - the number of bulls and the number of cows. 1 bull means the guess contains and the target number have 1 digit in common, and in the correct position. 1 cow means the guess and the target have 1 digit in common, but not in correct position. Do you follow? ",
+  "explanation": "Okay, let me put it this way: let the target be 1234. Guessing 4321 will give 0 bulls and 4 cows. 3241 will give 1 bull and 3 cows. 4 bulls means you have won the game! Shall we play now? ",
+  "offer": "Shall we start? "
+}
