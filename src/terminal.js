@@ -11,7 +11,8 @@ const terminal = readline.createInterface({
 
 const terminalOperations = (
   message,
-  generatedNumber) => {
+  generatedNumber
+) => {
   terminal.question(
     message,
     (guess) => {

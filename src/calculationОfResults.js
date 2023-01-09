@@ -18,7 +18,7 @@ const calculationОfResults = (generatedNumber, guessNumber) => {
     result = true;
   }
 
-  const resultMessage = (bulls === 4)
+  const resultMessage = result
     ? 'You won! Congratulations!'
     : `Bulls - ${bulls}, cows - ${cows}`;
 
