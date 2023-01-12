@@ -1,15 +1,13 @@
 /* eslint-disable no-console */
-'use strict';
-
-const readline = require('readline');
-const { getBullsAndCows } = require('./getBullsAndCows');
+import readline from 'readline';
+import { getBullsAndCows } from './getBullsAndCows';
 
 const terminal = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const terminalOperation = (secretNumber) => {
+export const terminalOperation = (secretNumber) => {
   terminal.question('Try to guess a number: ', (guessNumber) => {
     const incorrectValue = guessNumber.split('').some(char => (
       guessNumber.indexOf(char) !== guessNumber.lastIndexOf(char) || isNaN(char)
@@ -22,11 +20,11 @@ const terminalOperation = (secretNumber) => {
       return;
     }
 
-    if (secretNumber === guessNumber) {
+    if (secretNumber.join('') === guessNumber) {
       console.log('Congratulations! You win!');
       terminal.close();
     } else {
-      const bullsAndCows = getBullsAndCows(secretNumber, guessNumber);
+      const bullsAndCows = getBullsAndCows(secretNumber.join(''), guessNumber);
 
       console.log(
         `bulls: ${bullsAndCows.bulls},`
@@ -37,5 +35,3 @@ const terminalOperation = (secretNumber) => {
     }
   });
 };
-
-module.exports = { terminalOperation };

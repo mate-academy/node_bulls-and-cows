@@ -1,7 +1,5 @@
-'use strict';
-
-const { getRandomNumber } = require('./getRandomNumber');
-const { terminalOperation } = require('./terminalOperation');
+import { getRandomNumber } from './getRandomNumber';
+import { terminalOperation } from './terminalOperation';
 
 const secretNumber = getRandomNumber();
 

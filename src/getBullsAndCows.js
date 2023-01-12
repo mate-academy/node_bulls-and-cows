@@ -1,6 +1,4 @@
-'use strict';
-
-const getBullsAndCows = (secret, guess) => {
+export const getBullsAndCows = (secret, guess) => {
   let bulls = 0;
   let cows = 0;
 
@@ -17,5 +15,3 @@ const getBullsAndCows = (secret, guess) => {
     cows,
   };
 };
-
-module.exports = { getBullsAndCows };
