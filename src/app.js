@@ -13,19 +13,22 @@ const random = generateNumber();
     if ((userInput.length !== 4
       || userInput.split('').some(num => isNaN(+num))
       || userInput.split('').some((e, i, arr) => arr.indexOf(e) !== i))) {
-      console.log('Wrong input!');
       numberIsCorrect = false;
-      game(randomInput);
+      terminal.close();
+
+      return 'Wrong input!';
     }
 
     const animals = compareNumbers(randomInput, userInput);
 
     if (animals.bulls === 4) {
-      console.log('Congratulations! You won!');
       terminal.close();
+
+      return 'Congratulations! You won!';
     } else if (numberIsCorrect) {
-      console.log(`Bulls: ${animals.bulls} Cows: ${animals.cows}`);
-      game(randomInput);
+      terminal.close();
+
+      return `Bulls: ${animals.bulls} Cows: ${animals.cows}`;
     }
   });
 })(random);
