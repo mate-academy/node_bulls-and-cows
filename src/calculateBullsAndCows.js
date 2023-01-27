@@ -12,7 +12,10 @@ function compareNumbers(random, input) {
   for (let i = 0; i < digitsRandom.length; i++) {
     if (digitsInput[i] === digitsRandom[i]) {
       count.bulls++;
-    } else if (digitsRandom.includes(digitsInput[i])) {
+      continue;
+    }
+
+    if (digitsRandom.includes(digitsInput[i])) {
       count.cows++;
     }
   }

@@ -9,10 +9,13 @@ const random = generateNumber();
 (function game(randomInput) {
   terminal.question('Please, enter the number: ', (userInput) => {
     let numberIsCorrect = true;
+    const digits = userInput.split('');
+    const invalidDigits = digits.some(num => isNaN(+num));
+    const hasDuplicates = digits.some((e, i, arr) => arr.indexOf(e) !== i);
 
-    if ((userInput.length !== 4
-      || userInput.split('').some(num => isNaN(+num))
-      || userInput.split('').some((e, i, arr) => arr.indexOf(e) !== i))) {
+    if (digits.length !== 4
+      || invalidDigits
+      || hasDuplicates) {
       numberIsCorrect = false;
       terminal.close();
 
@@ -25,7 +28,9 @@ const random = generateNumber();
       terminal.close();
 
       return 'Congratulations! You won!';
-    } else if (numberIsCorrect) {
+    }
+
+    if (numberIsCorrect) {
       terminal.close();
 
       return `Bulls: ${animals.bulls} Cows: ${animals.cows}`;
