@@ -1,4 +1,6 @@
-export function isDifferentNumbers(number) {
+'use strict';
+
+function isDifferentNumbers(number) {
   const obj = {};
 
   for (const num of number) {
@@ -9,9 +11,9 @@ export function isDifferentNumbers(number) {
     }
   }
 
-  if (Object.keys(obj).length !== 4) {
-    return false;
-  }
-
   return true;
 }
+
+module.exports = {
+  isDifferentNumbers,
+};

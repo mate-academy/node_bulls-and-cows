@@ -1,4 +1,6 @@
-export function isNumber(number) {
+'use stric';
+
+function isNumber(number) {
   for (let i = 0; i < number.length; i++) {
     const el = number[i];
 
@@ -9,3 +11,7 @@ export function isNumber(number) {
 
   return true;
 }
+
+module.exports = {
+  isNumber,
+};

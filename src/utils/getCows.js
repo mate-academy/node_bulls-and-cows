@@ -1,4 +1,6 @@
-export function getCows(gameDigits, userDigits) {
+'use strict';
+
+function getCows(gameDigits, userDigits) {
   let bullCounter = 0;
 
   for (let i = 0; i < gameDigits.length; i++) {
@@ -12,3 +14,7 @@ export function getCows(gameDigits, userDigits) {
 
   return bullCounter;
 }
+
+module.exports = {
+  getCows,
+};

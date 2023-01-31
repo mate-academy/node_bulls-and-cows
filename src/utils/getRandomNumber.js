@@ -1,4 +1,4 @@
-export function getRandomNumber() {
+function getRandomNumber() {
   const arr = [];
 
   while (arr.length !== 4) {
@@ -17,3 +17,7 @@ export function getRandomNumber() {
 
   return arr.join('');
 }
+
+module.exports = {
+  getRandomNumber,
+};
