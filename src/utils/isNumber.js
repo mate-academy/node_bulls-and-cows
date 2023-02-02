@@ -1,4 +1,4 @@
-'use stric';
+'use strict';
 
 function isNumber(number) {
   for (let i = 0; i < number.length; i++) {
