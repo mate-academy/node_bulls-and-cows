@@ -5,6 +5,10 @@ function isEnteredNumberValid(enteredValue) {
     return false;
   }
 
+  if (isNaN(+enteredValue)) {
+    return false;
+  }
+
   const uniqueItems = new Set(enteredValue);
 
   return uniqueItems.size === enteredValue.length;
