@@ -7,7 +7,7 @@ const isNumberValid = (number) => {
 
   const uniqueElements = new Set(number);
 
-  if (uniqueElements.length !== number.length) {
+  if (uniqueElements.size !== number.length) {
     return false;
   }
 
