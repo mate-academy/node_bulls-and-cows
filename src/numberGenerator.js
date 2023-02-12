@@ -4,14 +4,14 @@ const numberGenerator = () => {
   const number = [];
 
   while (number.length < 4) {
-    number.push(Math.floor(Math.random() * 10));
-  }
+    const generatedNumber = Math.floor(Math.random() * 10);
 
-  console.log(number.join(''));
+    if (!number.includes(generatedNumber)) {
+      number.push(generatedNumber);
+    }
+  }
 
   return number.join('');
 };
-
-numberGenerator();
 
 module.exports = { numberGenerator };

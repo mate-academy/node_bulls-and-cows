@@ -1,7 +1,7 @@
 'use strict';
 
 const isNumberValid = (number) => {
-  if (number.length !== 4 || !isNaN(+number)) {
+  if (number.length !== 4 || isNaN(+number)) {
     return false;
   }
 
