@@ -1,7 +1,7 @@
 'use strict';
 
 function getResultString(obj) {
-  if (Object.values(obj).length === 0) {
+  if (!obj.bull && !obj.cow) {
     return ('You didn\'t guess');
   }
 
