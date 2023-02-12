@@ -4,14 +4,10 @@ const bullsAndCows = (generated, entered) => {
   let bulls = 0;
   let cows = 0;
 
-  for (let i = 0; i < generated.length; i++) {
+  for (let i = 0; i < 4; i++) {
     if (generated[i] === entered[i]) {
       bulls++;
-
-      continue;
-    }
-
-    if (generated.includes(entered[i])) {
+    } else if (generated.includes(entered[i])) {
       cows++;
     }
   }
