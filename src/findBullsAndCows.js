@@ -1,14 +1,14 @@
 'use strict';
 
 const findBullsAndCows = (secret, guess) => {
-  const n = secret.length;
+  const secretLength = secret.length;
   let bulls = 0;
   let cows = 0;
 
   const secretCopy = secret.split('');
   const guessCopy = guess.split('');
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < secretLength; i++) {
     if (secretCopy[i] === guessCopy[i]) {
       secretCopy[i] = '';
       guessCopy[i] = '';
@@ -16,7 +16,7 @@ const findBullsAndCows = (secret, guess) => {
     }
   }
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < secretLength; i++) {
     if (secretCopy[i] !== '') {
       const j = guessCopy.indexOf(secretCopy[i]);
 
