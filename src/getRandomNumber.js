@@ -5,7 +5,7 @@ function getRandomNumbers() {
   let randomNumbers = '';
 
   while (randomNumbers.length < 4) {
-    const randomIndex = Math.floor(Math.random() * 10);
+    const randomIndex = Math.floor(Math.random() * numbers.length);
 
     randomNumbers += numbers[randomIndex];
 
