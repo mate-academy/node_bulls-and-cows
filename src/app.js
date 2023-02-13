@@ -1,15 +1,15 @@
 'use strict';
 
-const { calcBullAndCows } = require('./calcBullAndCows');
-const { randomNumber } = require('./rundomNumber');
-const { terminal } = require('./inOutTerminal');
+const { calcBullAndCows } = require('./helpers/calcBullAndCows');
+const { randomNumber } = require('./helpers/rundomNumber');
+const { terminal } = require('./helpers/inOutTerminal');
 
 const startGame = () => {
-  const secretNum = randomNumber();
+  const secretNumber = randomNumber();
 
   const newGame = () => {
     terminal.question('Enter a number of 4 different digits:  ', (num) => {
-      const { bulls, cows } = calcBullAndCows(secretNum, num);
+      const { bulls, cows } = calcBullAndCows(secretNumber, num);
       const digits = new Set([...num.split('')]);
 
       if (num.length !== 4 || digits.size !== 4) {
@@ -22,7 +22,7 @@ const startGame = () => {
 
       if (bulls === 4) {
         // eslint-disable-next-line no-console
-        console.log('Game over!');
+        console.log('Congratulations, you\'ve won!!!');
         terminal.close();
       } else {
         // eslint-disable-next-line no-console
