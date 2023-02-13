@@ -1,7 +1,7 @@
 'use strict';
 
-const { getRandom } = require('./getRandomNum');
-const { compareTheNumbers } = require('./compareTheNumbers');
+const { getRandom } = require('./helpers/getRandomNum');
+const { compareTheNumbers } = require('./helpers/compareTheNumbers');
 
 const randomNumber = getRandom();
 
