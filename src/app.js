@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 'use strict';
 
-const { isNumberValid } = require('./isValidNumber');
-const { getResultString } = require('./getResultString');
-const { getRandomNumbers } = require('./getRandomNumber');
+const { isNumberValid } = require('./utils/isValidNumber');
+const { getResultString } = require('./helpers/getResultString');
+const { getRandomNumbers } = require('./helpers/getRandomNumber');
+const _ = require('lodash');
 const readline = require('readline');
 
 const randomNumbers = getRandomNumbers();
@@ -18,24 +19,28 @@ terminal.question('Write your suppose', response => {
     throw new Error('Please write only 4 different numbers');
   }
 
+  const responseArray = [...response];
+
+  if (_.isEqual(randomNumbers, responseArray)) {
+    console.log('Good job!');
+
+    terminal.close();
+
+    return;
+  }
+
   const result = {
     cow: 0,
     bull: 0,
   };
 
-  for (let i = 0; i < response.length; ++i) {
-    if (response[i] === randomNumbers[i]) {
+  randomNumbers.forEach((num, id) => {
+    if (response[id] === num[id]) {
       result.bull += 1;
-    } else if (randomNumbers.includes(response[i])) {
+    } else if (num.includes(response[id])) {
       result.cow += 1;
     }
-  }
-
-  if (response === randomNumbers) {
-    console.log('Good job!');
-
-    terminal.close();
-  }
+  });
 
   console.log(getResultString(result));
 

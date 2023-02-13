@@ -12,7 +12,7 @@ function getRandomNumbers() {
     numbers.splice(randomIndex, 1);
   }
 
-  return randomNumbers;
+  return [...randomNumbers];
 }
 
 module.exports.getRandomNumbers = getRandomNumbers;
