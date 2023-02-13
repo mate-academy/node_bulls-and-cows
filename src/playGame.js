@@ -5,7 +5,7 @@ const { getBullsAndCows } = require('./calcBullsCows');
 const { generateNumber } = require('./generateNumber');
 
 exports.playGame = () => {
-  const number = generateNumber();
+  const randomNumber = generateNumber();
   let tries = 0;
 
   const playRound = () => {
@@ -18,7 +18,7 @@ exports.playGame = () => {
         return;
       }
 
-      const { bulls, cows } = getBullsAndCows(number, guess);
+      const { bulls, cows } = getBullsAndCows(randomNumber, guess);
 
       if (bulls === 4) {
         tries++;
