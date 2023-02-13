@@ -11,9 +11,9 @@ const terminal = readline.createInterface({
 });
 
 const messages = {
-  error: 'Please enter valid number (4 different digits)\nGuess the number ',
-  tryAgainMessage: 'Please, try again\nGuess the number ',
-  success: 'Well done, Game Over!',
+  error: 'Please enter valid number (4 different digits) ',
+  tryAgainMessage: 'Please, try again ',
+  success: 'Congratulation! You did it)',
 };
 
 function guessNumber(secret, message) {
