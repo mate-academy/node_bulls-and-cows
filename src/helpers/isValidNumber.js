@@ -5,20 +5,10 @@ const isValidNumber = (number) => {
     return false;
   }
 
-  const numberForValidation = number.split('');
+  const uniqueDigits = new Set(number);
 
-  for (let i = 0; i < numberForValidation.length; i++) {
-    for (let k = 0; k < numberForValidation.length; k++) {
-      let count = 0;
-
-      if (numberForValidation[i] === numberForValidation[k]) {
-        count++;
-      }
-
-      if (count > 1) {
-        return false;
-      }
-    }
+  if (uniqueDigits.size !== number.length) {
+    return false;
   }
 
   return true;
