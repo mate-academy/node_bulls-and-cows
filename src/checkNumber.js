@@ -1,20 +1,11 @@
 'use strict';
 
 function checkNumber(num) {
-  if (num.length !== 4) {
-    return false;
-  }
+  const isNumber = !isNaN(num);
+  const isLengthCorrect = num.length === 4;
+  const areDigitsDifferent = new Set(num).size === num.length;
 
-  for (let i = 0; i < num.length - 1; i++) {
-    const isDigit = !isNaN(num[i]);
-    const isDubpicate = num.slice(i + 1).includes(num[i]);
-
-    if (!isDigit || isDubpicate) {
-      return false;
-    }
-  }
-
-  return true;
+  return isNumber && isLengthCorrect && areDigitsDifferent;
 };
 
 exports.checkNumber = checkNumber;
