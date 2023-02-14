@@ -5,13 +5,13 @@ const isValidNumber = (number) => {
     return false;
   }
 
-  const numberForValifation = number.split('');
+  const numberForValidation = number.split('');
 
-  for (let i = 0; i < numberForValifation.length; i++) {
-    for (let k = 0; i < numberForValifation.length; k++) {
+  for (let i = 0; i < numberForValidation.length; i++) {
+    for (let k = 0; k < numberForValidation.length; k++) {
       let count = 0;
 
-      if (numberForValifation[i] === numberForValifation[k]) {
+      if (numberForValidation[i] === numberForValidation[k]) {
         count++;
       }
 
