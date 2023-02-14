@@ -1,6 +1,6 @@
 'use strict';
 
-const { guessTheNumber } = require('./guessTheNumber');
-const { numberGenerator } = require('./numberGenerator');
+const { guessTheNumber } = require('./Components/guessTheNumber');
+const { numberGenerator } = require('./Components/numberGenerator');
 
 guessTheNumber('Enter your number:', numberGenerator());
