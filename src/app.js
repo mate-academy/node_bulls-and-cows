@@ -27,6 +27,7 @@ const game = () => {
           tryScore++;
           // eslint-disable-next-line no-console
           console.log(`you win! you did it in ${tryScore} tries`);
+          myInterface.close();
         } else {
           tryScore++;
           // eslint-disable-next-line no-console

@@ -9,13 +9,10 @@ exports.calculateBullsCows = (winNumber, playerNumber) => {
       bulls++;
     }
 
-    if (winNumber.includes(playerNumber[i])) {
+    if (winNumber.includes(playerNumber[i])
+      && playerNumber[i] !== winNumber[i]) {
       cows++;
     }
-  }
-
-  if (bulls > 0 && cows > 0) {
-    cows = cows - bulls;
   }
 
   return {
