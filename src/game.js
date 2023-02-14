@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const readline = require('readline');
@@ -9,26 +10,23 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-const game = (secret) => {
-  terminal.question('Enter a number of 4 different digits: ', (number) => {
-    if (number.length !== 4 || new Set(number).size !== 4 || isNaN(+number)) {
-      // eslint-disable-next-line no-console
+const game = (secretNumber) => {
+  terminal.question('Enter a number of 4 different digits: ', (userNumber) => {
+    if (new Set(userNumber).size !== 4 || isNaN(+userNumber)) {
       console.log('You must enter exactly 4 different digits!');
-      game(secret);
+      game(secretNumber);
 
       return;
     }
 
-    if (number === secret) {
-      // eslint-disable-next-line no-console
+    if (userNumber === secretNumber) {
       console.log('You won!');
       terminal.close();
     } else {
-      const result = calculatedBullsAndCows(secret, number);
+      const result = calculatedBullsAndCows(secretNumber, userNumber);
 
-      // eslint-disable-next-line no-console
       console.log(`${result} Try again!`);
-      game(secret);
+      game(secretNumber);
     }
   });
 };

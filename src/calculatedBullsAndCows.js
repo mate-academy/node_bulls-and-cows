@@ -1,13 +1,13 @@
 'use strict';
 
-const calculatedBullsAndCows = (secret, guess) => {
+const calculatedBullsAndCows = (secretNumber, userNumber) => {
   let bulls = 0;
   let cows = 0;
 
   for (let i = 0; i < 4; i++) {
-    if (secret[i] === guess[i]) {
+    if (secretNumber[i] === userNumber[i]) {
       bulls++;
-    } else if (secret.includes(guess[i])) {
+    } else if (secretNumber.includes(userNumber[i])) {
       cows++;
     }
   }
