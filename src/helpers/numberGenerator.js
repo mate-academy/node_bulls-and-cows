@@ -1,6 +1,6 @@
 'use strict';
 
-const numberGeneratot = () => {
+const numberGenerator = () => {
   const randomNumber = [];
 
   while (randomNumber.length < 4) {
@@ -14,4 +14,4 @@ const numberGeneratot = () => {
   return randomNumber.join('');
 };
 
-module.exports = { numberGeneratot };
+module.exports = { numberGenerator };
