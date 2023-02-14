@@ -1,27 +1,27 @@
 'use strict';
 
-function calculateBullsAndCows(secret, guess) {
+function calculateBullsAndCows(secretNumber, userNumber) {
   const secretMap = {};
 
-  for (const c of secret) {
-    secretMap[c] = secretMap[c] || 0;
-    secretMap[c] += 1;
+  for (const digit of secretNumber) {
+    secretMap[digit] = secretMap[digit] || 0;
+    secretMap[digit] += 1;
   }
 
   let bulls = 0;
   let cows = 0;
 
-  for (let i = 0; i < guess.length; i++) {
-    if (guess[i] === secret[i] && secretMap[guess[i]] > 0) {
+  for (let i = 0; i < userNumber.length; i++) {
+    if (userNumber[i] === secretNumber[i] && secretMap[userNumber[i]] > 0) {
       bulls += 1;
-      secretMap[guess[i]]--;
+      secretMap[userNumber[i]]--;
     }
   }
 
-  for (let i = 0; i < guess.length; i++) {
-    if (guess[i] !== secret[i] && secretMap[guess[i]] > 0) {
+  for (let i = 0; i < userNumber.length; i++) {
+    if (userNumber[i] !== secretNumber[i] && secretMap[userNumber[i]] > 0) {
       cows += 1;
-      secretMap[guess[i]]--;
+      secretMap[userNumber[i]]--;
     }
   }
 
