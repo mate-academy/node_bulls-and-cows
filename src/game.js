@@ -11,14 +11,19 @@ const terminal = readline.createInterface({
 
 const game = () => {
   terminal.question('Guess a number: ', (number) => {
-    if (number.length !== 4 || isNaN(+number) || new Set(number).size !== 4) {
+    const fourUniqueDigits = 4;
+    const numberTypeNumber = Number(number);
+    const invalidNumber = number.length !== fourUniqueDigits
+    || isNaN(numberTypeNumber) || new Set(number).size !== fourUniqueDigits;
+
+    if (invalidNumber) {
       // eslint-disable-next-line no-console
       console.log('Number should includes 4 different digits, try again!');
 
       return game();
     }
 
-    if (+number === getRandom) {
+    if (numberTypeNumber === getRandom) {
       // eslint-disable-next-line no-console
       console.log('You are a winner!');
       terminal.close();

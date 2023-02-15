@@ -2,17 +2,17 @@
 
 const getRandom = function() {
   const set = new Set();
-  const num = [];
+  const numbers = [];
 
   while (set.size < 4) {
     set.add(Math.floor(Math.random() * 10));
   }
 
-  for (const i of set) {
-    num.push(i);
+  for (const number of set) {
+    numbers.push(number);
   }
 
-  return +num.join('');
+  return Number(numbers.join(''));
 };
 
 module.exports = {
