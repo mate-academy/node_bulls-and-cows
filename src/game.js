@@ -18,12 +18,13 @@ const game = () => {
 
     if (invalidNumber) {
       // eslint-disable-next-line no-console
-      console.log('Number should includes 4 different digits, try again!');
+      console.log(`Number should includes
+      ${fourUniqueDigits} different digits, try again!`);
 
       return game();
     }
 
-    if (numberTypeNumber === getRandom) {
+    if (numberTypeNumber === getRandom()) {
       // eslint-disable-next-line no-console
       console.log('You are a winner!');
       terminal.close();
