@@ -8,7 +8,7 @@ module.exports = (input, number) => {
 
   [...number].forEach((n, i) => {
     const isBull = n === input[i];
-    const isCow = !isBull && [...input].includes(n);
+    const isCow = !isBull && input.includes(n);
 
     if (isBull) {
       result.bulls++;
