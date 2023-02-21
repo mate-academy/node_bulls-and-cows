@@ -6,7 +6,7 @@ const getRandomNumber = () => {
   const randomNumber = [];
 
   while (digitsQuantity > 0) {
-    const randomDigit = Math.floor(Math.random() * (10 - 0) + 0);
+    const randomDigit = Math.floor(Math.random() * 10);
 
     if (!randomNumber.includes(randomDigit)) {
       randomNumber.push(randomDigit);
