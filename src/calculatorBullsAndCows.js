@@ -7,10 +7,8 @@ const calculateBullsAndCows = (secret, guess) => {
   for (let i = 0; i < 4; i++) {
     if (secret[i] === guess[i]) {
       bulls++;
-    } else {
-      if (guess.includes(secret[i])) {
-        cows++;
-      }
+    } else if (guess.includes(secret[i])) {
+      cows++;
     }
   }
 
