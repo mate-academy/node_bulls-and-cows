@@ -11,7 +11,7 @@ function getRandomNumber() {
     }
   }
 
-  return +numbers.join('');
+  return numbers.join('');
 }
 
 module.exports = {
