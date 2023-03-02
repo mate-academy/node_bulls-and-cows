@@ -1,16 +1,14 @@
 'use strict';
 
-const countCows = (userInput, number) => {
-  const numberStr = String(number);
-  const inputStr = String(userInput);
+const countCows = (userGuess, number) => {
   const count = {
     bulls: 0,
     cows: 0,
   };
 
-  for (let i = 0; i < 4; i++) {
-    if (numberStr.includes(inputStr[i])) {
-      numberStr[i] === inputStr[i] ? count.bulls++ : count.cows++;
+  for (let i = 0; i < number.length; i++) {
+    if (number.includes(userGuess[i])) {
+      number[i] === userGuess[i] ? count.bulls++ : count.cows++;
     }
   }
 

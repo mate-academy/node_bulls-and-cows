@@ -12,19 +12,21 @@ let qNumber = 0;
 
 const letsPlay = () => {
   terminal.question(questions[qNumber], (guess) => {
-    if (guess.length !== 4) {
+    const userGuess = String(guess).replace(/\D/g, '');
+
+    if (userGuess.length !== gameNumber.length) {
       console.log('You have to guess a 4 digits number...');
       qNumber = 1;
       letsPlay();
     } else {
-      const letsCount = countCows(gameNumber, guess);
+      const letsCount = countCows(userGuess, gameNumber);
 
       console.log(
         `Your answer had ${letsCount.bulls} Bulls and ${letsCount.cows} Cows`
       );
 
       if (letsCount.bulls === 4) {
-        console.log('You win!)');
+        console.log("You've won!");
         terminal.close();
       } else {
         console.log('Almost there...');
