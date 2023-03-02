@@ -11,12 +11,12 @@ const getValidDigits = (input) => {
     throw Error('Please only enter digits.');
   }
 
-  if (!hasUniqueDigits) {
-    throw Error('All digits should be different.');
-  }
-
   if (!has4Digits) {
     throw Error('Incorrect number of digits.');
+  }
+
+  if (!hasUniqueDigits) {
+    throw Error('All digits should be different.');
   }
 
   return digits;

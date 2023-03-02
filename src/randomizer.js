@@ -5,14 +5,12 @@ const getDigit = () => Math.floor(Math.random() * 10);
 const get4Digits = () => {
   const digits = [];
 
-  for (let i = 0; i < 4; i++) {
-    let digit = getDigit();
+  while (digits.length < 4) {
+    const digit = getDigit();
 
-    while (digits.includes(digit)) {
-      digit = getDigit();
+    if (!digits.includes(digit)) {
+      digits.push(digit);
     }
-
-    digits.push(digit);
   }
 
   return digits;

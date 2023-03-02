@@ -1,7 +1,7 @@
 'use strict';
 
 const readline = require('readline');
-const randomizer = require('./randomizer');
+const { get4Digits } = require('./randomizer');
 const { getBullsAndCows } = require('./bullsAndCows');
 const { getValidDigits } = require('./validator');
 
@@ -10,7 +10,7 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-const winningDigits = randomizer.get4Digits();
+const winningDigits = get4Digits();
 
 const handleInput = (input) => {
   try {
@@ -31,7 +31,9 @@ const handleInput = (input) => {
 };
 
 const start = () => {
-  terminal.write('Digits we generated...\n');
+  terminal.write(
+    'Starting the game, the livestock is ready to be counted...\n'
+  );
   terminal.question('Take your guess:\n', handleInput);
 };
 
