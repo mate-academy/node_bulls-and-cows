@@ -14,7 +14,7 @@ const letsPlay = () => {
   terminal.question(questions[qNumber], (guess) => {
     const userGuess = String(guess).replace(/\D/g, '');
 
-    if (userGuess.length !== gameNumber.length) {
+    if (!userGuess.match(/^\d{gameNumber.length}$/)) {
       console.log('You have to guess a 4 digits number...');
       qNumber = 1;
       letsPlay();
