@@ -56,13 +56,15 @@ const gameChecker = (playerNumber) => {
 };
 
 const restartGame = (input) => {
-  if (input.trim().toLowerCase() === 'yes') {
+  const lowerInput = input.trim().toLowerCase();
+
+  if (lowerInput === 'yes') {
     bullsAndCows();
 
     return;
   }
 
-  if (input.trim().toLowerCase() === 'no') {
+  if (lowerInput === 'no') {
     terminal.close();
 
     return;
