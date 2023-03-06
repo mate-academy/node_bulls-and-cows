@@ -8,12 +8,16 @@ const countBullsAndCows = (randomNumber, playerNumber) => {
     .toString()
     .split('')
     .forEach((num, index) => {
-      if (randomNumber.includes(num)) {
-        if (randomNumber.indexOf(num) === index) {
-          countBulls++;
-        } else {
-          countCows++;
-        }
+      const indexNum = randomNumber.indexOf(num);
+
+      if (indexNum === index) {
+        countBulls++;
+
+        return;
+      }
+
+      if (indexNum !== -1) {
+        countCows++;
       }
     });
 
