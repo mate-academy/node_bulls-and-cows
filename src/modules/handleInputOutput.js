@@ -11,20 +11,17 @@ const handleInputOutput = () => {
       output: process.stdout,
     });
 
-    // eslint-disable-next-line no-console
-    console.log(message);
+    global.console.log(message);
 
-    terminal.on('line', (UserNumber) => {
-      const uniqNumbers = new Set(UserNumber.split('').map(num => +num));
+    terminal.on('line', (userNumber) => {
+      const uniqNumbers = new Set(userNumber.split('').map(num => +num));
 
-      if (UserNumber.length > 4 || UserNumber.length < 4) {
-        // eslint-disable-next-line no-console
-        console.log('Wrong number of digits - ' + message);
+      if (userNumber.length !== 4) {
+        global.console.log('Wrong number of digits - ' + message);
       } else if ([...uniqNumbers].length !== 4) {
-        // eslint-disable-next-line no-console
-        console.log('Digits should be uniq - ' + message);
-      } else if (UserNumber.length) {
-        resolve(UserNumber);
+        global.console.log('Digits should be uniq - ' + message);
+      } else if (userNumber.length) {
+        resolve(userNumber);
         terminal.close();
       }
     });

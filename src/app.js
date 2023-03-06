@@ -12,12 +12,15 @@ const bullsAndCowsGame = async() => {
   if (userNumber) {
     const result = bullsCowsCalculator(randomDigits, userNumber);
 
-    if (result !== -1) {
-      // eslint-disable-next-line no-console
-      console.log(result);
+    if (result === 1) {
+      global.console.log(result);
+      global.console.log('You are winner !!!');
     } else {
-      // eslint-disable-next-line no-console
-      console.log('Try one more time');
+      if (result !== -1) {
+        global.console.log(result);
+      } else {
+        global.console.log('Try one more time');
+      }
 
       return bullsAndCowsGame();
     }
