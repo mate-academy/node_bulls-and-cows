@@ -1,7 +1,7 @@
 'use strict';
 
 const calculateBullsAndCows = (randomNumber, guessNumber) => {
-  const randomNumberString = randomNumber.tostring();
+  const randomNumberString = randomNumber.toString();
   const guessNumberString = guessNumber.toString();
 
   let cows = 0;
@@ -14,8 +14,24 @@ const calculateBullsAndCows = (randomNumber, guessNumber) => {
       cows++;
     }
   }
+
+  let bullsCount = '';
+  let cowsCount = '';
+
+  if (bulls === 1) {
+    bullsCount = 'bull';
+  } else {
+    bullsCount = 'bulls';
+  }
+
+  if (cows === 1) {
+    cowsCount = 'cow';
+  } else {
+    cowsCount = 'cows';
+  }
+
   // eslint-disable-next-line no-console
-  console.log(`${bulls} bulls and ${cows} cows`);
+  console.log(`${bulls} ${bullsCount} and ${cows} ${cowsCount}`);
 };
 
 module.exports = {
