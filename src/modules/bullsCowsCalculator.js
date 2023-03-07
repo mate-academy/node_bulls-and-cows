@@ -17,20 +17,10 @@ const bullsCowsCalculator = (randomDigits, userDigits) => {
     }
   }
 
-  const bullsMessage = bulls > 1 || bulls === 0 ? 'bulls' : 'bull';
-  const cowsMessage = cows > 1 || cows === 0 ? 'cows' : 'cow';
-
-  const message = `${bulls} ${bullsMessage} and ${cows} ${cowsMessage}`;
-
-  if (bulls === 0 && cows === 0) {
-    return -1;
-  }
-
-  if (bulls === 4) {
-    return 1;
-  }
-
-  return message;
+  return {
+    bulls,
+    cows,
+  };
 };
 
 exports.bullsCowsCalculator = bullsCowsCalculator;

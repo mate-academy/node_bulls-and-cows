@@ -10,14 +10,19 @@ const bullsAndCowsGame = async() => {
   const userNumber = await handleInputOutput();
 
   if (userNumber) {
-    const result = bullsCowsCalculator(randomDigits, userNumber);
+    const { bulls, cows } = bullsCowsCalculator(randomDigits, userNumber);
 
-    if (result === 1) {
-      global.console.log(result);
+    const bullsMessage = createMessage(bulls, 'bulls');
+    const cowsMessage = createMessage(cows, 'cows');
+
+    const message = `${bulls} ${bullsMessage} and ${cows} ${cowsMessage}`;
+
+    if (bulls === 4) {
+      global.console.log(message);
       global.console.log('You are winner !!!');
     } else {
-      if (result !== -1) {
-        global.console.log(result);
+      if (bulls !== 0 || cows !== 0) {
+        global.console.log(message);
       } else {
         global.console.log('Try one more time');
       }
@@ -25,6 +30,10 @@ const bullsAndCowsGame = async() => {
       return bullsAndCowsGame();
     }
   }
+};
+
+const createMessage = (value, name) => {
+  return value > 1 || value === 0 ? name : name.slice(0, name.length - 1);
 };
 
 bullsAndCowsGame();

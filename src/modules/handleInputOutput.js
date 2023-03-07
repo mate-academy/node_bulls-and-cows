@@ -14,7 +14,7 @@ const handleInputOutput = () => {
     global.console.log(message);
 
     terminal.on('line', (userNumber) => {
-      const uniqNumbers = new Set(userNumber.split('').map(num => +num));
+      const uniqNumbers = new Set(userNumber);
 
       if (userNumber.length !== 4) {
         global.console.log('Wrong number of digits - ' + message);
