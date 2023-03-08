@@ -15,20 +15,8 @@ const calculateBullsAndCows = (randomNumber, guessNumber) => {
     }
   }
 
-  let bullsCount = '';
-  let cowsCount = '';
-
-  if (bulls === 1) {
-    bullsCount = 'bull';
-  } else {
-    bullsCount = 'bulls';
-  }
-
-  if (cows === 1) {
-    cowsCount = 'cow';
-  } else {
-    cowsCount = 'cows';
-  }
+  const bullsCount = (bulls === 1) ? 'bull' : 'bulls';
+  const cowsCount = (cows === 1) ? 'cow' : 'cows';
 
   // eslint-disable-next-line no-console
   console.log(`${bulls} ${bullsCount} and ${cows} ${cowsCount}`);
