@@ -1,5 +1,7 @@
 'use strict';
 
+const { getBullsAndCowsString } = require('./getBullsAndCowsString');
+
 function calculateBullsAndCows(randomInput, userInput) {
   let bulls = 0;
   let cows = 0;
@@ -15,25 +17,8 @@ function calculateBullsAndCows(randomInput, userInput) {
     }
   }
 
-  if (bulls > 1 && cows > 1) {
   // eslint-disable-next-line no-console
-    console.log(`${bulls} bulls and ${cows} cows`);
-  }
-
-  if (bulls <= 1 && cows <= 1) {
-    // eslint-disable-next-line no-console
-    console.log(`${bulls} bull and ${cows} cow`);
-  }
-
-  if (bulls > 1 && cows <= 1) {
-    // eslint-disable-next-line no-console
-    console.log(`${bulls} bulls and ${cows} cow`);
-  }
-
-  if (bulls <= 1 && cows > 1) {
-    // eslint-disable-next-line no-console
-    console.log(`${bulls} bull and ${cows} cows`);
-  }
+  console.log(getBullsAndCowsString(bulls, cows));
 }
 
 module.exports = {

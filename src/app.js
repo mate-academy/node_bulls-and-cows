@@ -4,6 +4,9 @@ const readline = require('readline');
 
 const { getRandomNumber } = require('./getRandomNumber');
 const { calculateBullsAndCows } = require('./calculateBullsAndCows');
+const { checkLength } = require('./validation');
+const { validNumber } = require('./validation');
+const { checkDuplicates } = require('./validation');
 
 const terminal = readline.createInterface({
   input: process.stdin,
@@ -11,16 +14,16 @@ const terminal = readline.createInterface({
 });
 
 terminal.question('Guess a number: ', (number) => {
-  if (isNaN(+number)) {
-    throw Error('Please only enter digits.');
+  if (!checkLength(number)) {
+    terminal.write('Incorrect number of digits.');
   }
 
-  if (number.length !== 4) {
-    throw Error('Incorrect number of digits.');
+  if (validNumber(number)) {
+    terminal.write('Please only enter digits.');
   }
 
-  if (new Set(number).size !== 4) {
-    throw Error('Number should includes 4 different digits.');
+  if (!checkDuplicates(number)) {
+    terminal.write('Number should includes 4 different digits.');
   }
 
   const num = getRandomNumber();

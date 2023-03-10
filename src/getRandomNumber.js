@@ -1,16 +1,20 @@
 'use strict';
 
 function getRandomNumber() {
-  const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  let result = '';
+  const firstDigit = Math.floor(Math.random() * 9) + 1;
+  const otherDigits = [];
 
-  for (let i = 0; i < 4; i++) {
-    const randomIndex = Math.floor(Math.random() * digits.length);
+  while (otherDigits.length < 3) {
+    const digit = Math.floor(Math.random() * 10);
 
-    result += digits.splice(randomIndex, 1);
+    if (!otherDigits.includes(digit) && digit !== firstDigit) {
+      otherDigits.push(digit);
+    }
   }
 
-  return result;
+  const num = parseInt(`${firstDigit}${otherDigits.join('')}`);
+
+  return num;
 }
 
 module.exports = {
