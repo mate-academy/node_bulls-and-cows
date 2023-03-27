@@ -15,17 +15,26 @@ const terminal = readline.createInterface({
 
 const play = () => {
   terminal.question('\u001b[34m Guess the number ', (answer) => {
-    if (!Number(answer) || answer.length < 4) {
-      console.log(
-        '\u001b[31m Your answer have to be the NUMBERS with LENGTH 4 \n'
-      );
+    const answerArr = answer.split('');
+    let similar = false;
+
+    for (let i = 0; i < answerArr.length; i++) {
+      if (answerArr[i] === answerArr[i + 1]) {
+        similar = true;
+        break;
+      }
+    }
+
+    if (!+answer || answer.length !== 4 || similar) {
+      // eslint-disable-next-line max-len
+      console.log('\u001b[31m Your answer have to be the NUMBERS with LENGTH 4 and NOT SIMILAR \n');
       play();
-    } else if (num === Number(answer)) {
+    } else if (num === +answer) {
       console.log('\u001b[32m Greate! You won');
       terminal.close();
     } else {
       console.log(calculating(answer, num));
-      console.log(num); // To show genereted number
+      // console.log(num); // To show genereted number
       play();
     }
   });

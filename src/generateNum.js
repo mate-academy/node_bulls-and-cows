@@ -11,7 +11,7 @@ const generateNum = () => {
     }
   }
 
-  return Number(result.join(''));
+  return +result.join('');
 };
 
 module.exports = { generateNum };
