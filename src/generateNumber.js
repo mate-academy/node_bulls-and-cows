@@ -1,7 +1,17 @@
 'use strict';
 
 const generateNumber = () => {
-  return Math.floor(1000 + Math.random() * 9000).toString();
+  let randomNum = '';
+
+  while (randomNum.length < 4) {
+    const newNumber = Math.round(Math.random() * 10).toString();
+
+    if (!randomNum.includes(newNumber)) {
+      randomNum += newNumber;
+    }
+  }
+
+  return randomNum;
 };
 
 module.exports = { generateNumber };
