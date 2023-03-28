@@ -9,7 +9,7 @@ const number = generate();
 const question = 'Enter a 4-digit number: ';
 
 const checkAnswer = (message) => {
-  if (isNaN(+message)) {
+  if (isNaN(+message) || message.length !== 4) {
     console.log('Invalid enter');
     terminal.question(question, checkAnswer);
 
