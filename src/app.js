@@ -27,7 +27,7 @@ const checkAnswer = (answer) => {
   }
 
   console.log(`${bulls} bulls, ${cows} cows`);
-  terminal.question(question, checkAnswer);
+  playGame();
 };
 
 const playGame = () => {

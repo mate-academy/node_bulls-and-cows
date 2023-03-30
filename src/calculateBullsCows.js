@@ -1,20 +1,18 @@
 'use strict';
 
 const calculateBullsCows = (randomNumber, userNum) => {
-  const result = {
+  return userNum.split('').reduce((acc, number, i) => {
+    if (randomNumber[i] === number) {
+      acc.bulls++;
+    } else if (randomNumber.includes(number)) {
+      acc.cows++;
+    }
+
+    return acc;
+  }, {
     bulls: 0,
     cows: 0,
-  };
-
-  for (let i = 0; i < randomNumber.length; i++) {
-    if (randomNumber[i] === userNum[i]) {
-      result.bulls++;
-    } else if (randomNumber.includes(userNum[i])) {
-      result.cows++;
-    }
-  }
-
-  return result;
+  });
 };
 
 module.exports = { calculateBullsCows };
