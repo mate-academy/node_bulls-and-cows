@@ -7,8 +7,6 @@ const { calculateBullAndCows } = require('./calculateBullAndCows');
 
 const randomDigits = generate4Digits();
 
-console.log('randomDigits: ' + randomDigits);
-
 const handleInput = (userInput) => {
   const isUniqueDigitsAndCorrectLength = new Set(userInput).size === 4;
   const isNumber = Number.isFinite(Number(userInput));
