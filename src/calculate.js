@@ -1,22 +1,26 @@
 'use strict';
 
 const calculateCowsAndBulls = (number, answer) => {
-  let cows = 0;
-  let bulls = 0;
-
-  for (let i = 0; i < number.length; i++) {
-    if (number[i] === answer[i]) {
-      bulls++;
-      continue;
+  return answer.split('').reduce((count, char, index) => {
+    if (char === number[index]) {
+      return {
+        ...count,
+        bulls: count.bulls + 1,
+      };
     }
 
-    if (number.includes(answer[i])) {
-      cows++;
-      continue;
+    if (number.includes(char)) {
+      return {
+        ...count,
+        cows: count.cows + 1,
+      };
     }
-  }
 
-  return [bulls, cows];
+    return count;
+  }, {
+    bulls: 0,
+    cows: 0,
+  });
 };
 
 module.exports = { calculateCowsAndBulls };

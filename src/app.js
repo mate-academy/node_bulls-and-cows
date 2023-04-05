@@ -9,14 +9,14 @@ const number = generate();
 const question = 'Enter a 4-digit number: ';
 
 const checkAnswer = (message) => {
-  if (isNaN(+message) || message.length !== 4) {
+  if (isNaN(+message) || new Set(message).size !== 4) {
     console.log('Invalid enter');
     terminal.question(question, checkAnswer);
 
     return;
   }
 
-  const [bulls, cows] = calculateCowsAndBulls(number, message);
+  const { bulls, cows } = calculateCowsAndBulls(number, message);
 
   if (bulls === 4) {
     console.log('You win!');
