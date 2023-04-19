@@ -1,20 +1,12 @@
 'use strict';
 
-const calculateBullAndCows = (correct, guess) => [...guess].reduce(
-  (result, nextDigit, index) => {
-    if (nextDigit === correct[index]) {
-      result.bulls++;
+const calculateBullAndCows = (correct, guess) => guess.reduce(
+  (result, currentDigit, index) => {
+    result.bulls += currentDigit === correct[index];
 
-      return result;
-    }
-
-    if (correct.includes(nextDigit)) {
-      result.cows++;
-
-      return result;
-    }
-
-    return result;
+    result.cows += (
+      currentDigit !== correct[index] && correct.includes(currentDigit)
+    );
   },
   {
     bulls: 0,
