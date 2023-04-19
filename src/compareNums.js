@@ -2,26 +2,19 @@
 'use strict';
 
 const compareNumbers = (input, randomNum) => {
-  let bulls = 0;
-  let cows = 0;
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
 
   for (let i = 0; i < input.length; i++) {
     const isSameIndex = input[i] === randomNum[i];
 
-    if (isSameIndex) {
-      bulls++;
-    }
-
-    if (randomNum.includes(input[i]) && !isSameIndex) {
-      cows++;
-    }
+    result.bulls += isSameIndex;
+    result.cows += randomNum.includes(input[i]) && !isSameIndex;
   }
 
-  if (bulls < 4) {
-    console.log(
-      `Bulls: ${bulls}, cows: ${cows}. Try again!`
-    );
-  }
+  return result;
 };
 
 module.exports = { compareNumbers };

@@ -10,19 +10,28 @@ const randomNum = getRandomNumber();
 const playGame = () => {
   terminal.question('Guess a number: ', (input) => {
     const trimedInput = input.split(' ').join('');
-    const isValidInput = new Set(trimedInput).size === 4;
+    const isValidInputLength = new Set(trimedInput).size === 4;
 
-    if (!isValidInput || isNaN(trimedInput)) {
+    if (!isValidInputLength || isNaN(trimedInput)) {
       console.log('It has to be a number of 4 unique digits');
-    } else {
-      compareNumbers(trimedInput, randomNum);
+
+      playGame();
+
+      return;
+    }
+
+    const { bulls, cows } = compareNumbers(trimedInput, randomNum);
+
+    if (bulls < 4) {
+      console.log(
+        `Bulls: ${bulls}, cows: ${cows}. Try again!`
+      );
+      playGame();
     }
 
     if (randomNum === trimedInput) {
       console.log('Congratulations! You won!');
       terminal.close();
-    } else {
-      playGame();
     }
   });
 };
