@@ -26,10 +26,10 @@ function calculateCowsAndBulls(number) {
 
   const cows = answer.filter(item => item === 'cow').length || 0;
   const bulls = answer.filter(item => item === 'bull').length || 0;
+  const cowsAmount = cows === 1 || cows === 0 ? 'cow' : 'cows';
+  const bullsAmount = bulls === 0 || bulls === 1 ? 'bull' : 'bulls';
 
-  console.log(`You have ${cows} ${cows === 1
-    || cows === 0 ? 'cow' : 'cows'} and ${bulls} ${bulls === 0
-    || bulls === 1 ? 'bull' : 'bulls'}.`);
+  console.log(`You have ${cows} ${cowsAmount} and ${bulls} ${bullsAmount}.`);
 
   return terminal.question('Enter a 4 different digit number.', (n) => {
     return checkNumber(n);
@@ -39,9 +39,10 @@ function calculateCowsAndBulls(number) {
 function checkNumber(number) {
   let numbers = '';
   const errorMessage = 'You must enter 4 different digit number.';
+  const checkLength = number.length !== 4;
 
   for (const key of number) {
-    if (isNaN(+key / 1) || numbers.includes(key) || number.length !== 4) {
+    if (isNaN(+key / 1) || numbers.includes(key) || checkLength) {
       console.log(errorMessage);
 
       return terminal.question('Enter a 4 different digit number.', (n) => {
