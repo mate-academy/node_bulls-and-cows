@@ -29,8 +29,8 @@ const playGame = () => {
       playGame();
     }
 
-    if (randomNum === trimedInput) {
-      console.log('Congratulations! You won!');
+    if (bulls === 4) {
+      console.log('Congratulations! You have won!');
       terminal.close();
     }
   });
