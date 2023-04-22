@@ -9,8 +9,9 @@ const [
   introMessage,
   congratsMessage,
   gameOverMessage,
-  digitsError,
+  firstDigitError,
   numberError,
+  uniqueError,
 ] = messages();
 
 terminal.question(introMessage, (userInput) => {
@@ -21,15 +22,22 @@ terminal.question(introMessage, (userInput) => {
 
     const guessNumber = () => {
       terminal.question('\nEnter your guess: ', (guess) => {
-        if (guess.length !== 4) {
+        if (guess[0] === '0') {
+          terminal.write(firstDigitError);
+          guessNumber();
+
+          return;
+        }
+
+        if (/\D/.test(guess) || guess.length !== 4) {
           terminal.write(numberError);
           guessNumber();
 
           return;
         }
 
-        if (!/^[1-4]+$/.test(guess)) {
-          terminal.write(digitsError);
+        if (guess.length !== (new Set(guess)).size) {
+          terminal.write(uniqueError);
           guessNumber();
 
           return;

@@ -7,4 +7,4 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-module.exports.terminal = terminal;
+module.exports = { terminal };

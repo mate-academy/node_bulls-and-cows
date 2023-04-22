@@ -4,9 +4,11 @@ const numberGenerator = () => {
   const number = [];
 
   while (number.length < 4) {
-    number.push(
-      Math.floor(Math.random() * 5) || 1
-    );
+    const digit = Math.floor(Math.random() * 9) + 1;
+
+    if (!number.includes(digit)) {
+      number.push(digit);
+    }
   }
 
   return number.join('');

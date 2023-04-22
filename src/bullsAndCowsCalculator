@@ -19,4 +19,4 @@ const bullsAndCowsCalculator = (guess) => {
   return [bullsCount, cowsCount];
 };
 
-module.exports.bullsAndCowsCalculator = bullsAndCowsCalculator;
+module.exports = { bullsAndCowsCalculator };
