@@ -10,6 +10,7 @@ const {
   helloMessage,
   requireMessage,
   lengthError,
+  rulesMessage,
   uniqueError,
   winMessage,
 } = messages;
@@ -18,6 +19,8 @@ const randomNumber = generateNumber();
 
 userTerminal.question(helloMessage, (answer) => {
   if (answer === 'yes') {
+    console.log(rulesMessage);
+
     let attempts = 0;
 
     const game = () => {
@@ -46,8 +49,8 @@ userTerminal.question(helloMessage, (answer) => {
 
           userTerminal.write(
             `Attempts: ${attempts}`
-            + `Bulls: ${bulls}`
-            + `Cows: ${cows}.\n`
+            + ` Bulls: ${bulls} `
+            + ` Cows: ${cows}.\n`
           );
           game();
         }

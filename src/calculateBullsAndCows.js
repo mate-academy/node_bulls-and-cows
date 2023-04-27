@@ -8,7 +8,7 @@ function caclulateBullsAndCows(number, userNumber) {
     const isGuessedDigit = number.includes(digit);
     const isGuessedPosition = digit === number[index];
 
-    if (isGuessedDigit) {
+    if (isGuessedDigit && !isGuessedPosition) {
       cows += 1;
     }
 
