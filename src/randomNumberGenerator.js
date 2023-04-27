@@ -1,4 +1,5 @@
 'use strict';
+
 const { inputOutputOperation } = require('./inputOutputOperation');
 
 const randomNumberGenerator = () => {

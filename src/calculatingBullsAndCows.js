@@ -1,3 +1,5 @@
+'use strict';
+
 const calculatingBullsAndCows = (randomNumber, guessedNumber) => {
   let bulls = 0;
   let cows = 0;

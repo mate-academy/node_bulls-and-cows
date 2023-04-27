@@ -1,3 +1,5 @@
+'use strict';
+
 const readline = require('readline');
 const { calculatingBullsAndCows } = require('./calculatingBullsAndCows')
 
