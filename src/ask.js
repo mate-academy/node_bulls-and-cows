@@ -16,8 +16,7 @@ function getInput(message) {
 }
 
 function printOut(message) {
-  // eslint-disable-next-line no-console
-  console.log(message);
+  global.console.log(message);
 }
 
 module.exports = {
