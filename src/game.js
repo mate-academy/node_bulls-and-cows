@@ -37,25 +37,38 @@ const terminal = readline.createInterface({
 async function game() {
   myConsole.log('፨ Buls and cows ፨');
 
-  const number = getRandomNumber(1000, 9999).toString();
+  const number = getRandomNumber(4).toString();
   let isEnd = false;
 
   while (!isEnd) {
-    try {
-      await turn(number);
-    } catch (err) {
-      isEnd = true;
-    }
+    isEnd = await turn(number);
   }
 }
 
 async function turn(number) {
   return new Promise((resolve, reject) => {
     terminal.question('Gues my 4 digit number: ', (userInput) => {
+      if (userInput.length !== 4) {
+        myConsole.log('You have to gues 4 digit number... Lets try again', win);
+        resolve(false);
+
+        return;
+      }
+
+      const userInputDigits = userInput.split('');
+      const uniqueDigits = new Set(userInputDigits);
+
+      if (userInputDigits.length !== uniqueDigits.size) {
+        myConsole.log('All digits has to be unique {•̃_•̃}');
+        resolve(false);
+
+        return;
+      }
+
       if (userInput === number) {
         myConsole.log('You won!!!', win);
         terminal.close();
-        reject(new Error());
+        resolve(true);
 
         return;
       }
@@ -68,7 +81,7 @@ async function turn(number) {
         myConsole.log('Gues again ¯\\_(ツ)_/¯');
       }
 
-      resolve(result);
+      resolve(false);
     });
   });
 }
