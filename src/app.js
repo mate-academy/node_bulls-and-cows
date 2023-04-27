@@ -1,6 +1,11 @@
+/* eslint-disable no-console */
 'use strict';
 
-const { terminal } = require('./terminal');
+const { question } = require('./terminal');
+const { enterMessage, welcomeMessage } = require('./messages');
+
+console.log(welcomeMessage);
+
 const { handleUserAnswer } = require('./handleUserAnswer');
 
-terminal.question('Enter a number of 4 different digits: ', handleUserAnswer);
+question(enterMessage, handleUserAnswer);

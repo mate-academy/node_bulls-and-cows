@@ -7,4 +7,15 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-exports.terminal = terminal;
+const question = (text, callback) => {
+  terminal.question(text, callback);
+};
+
+const close = () => {
+  terminal.close();
+};
+
+module.exports = {
+  question,
+  close,
+};

@@ -11,7 +11,7 @@
     "update": "mate-scripts update",
     "postinstall": "npm run update",
     "test": "npm run lint && npm run test:only",
-    "nodemon": "nodemon app.js"
+    "nodemon": "nodemon src/app.js"
   },
   "author": "Mate academy",
   "license": "GPL-3.0",
