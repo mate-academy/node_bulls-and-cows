@@ -5,20 +5,21 @@ const { bullsAndCowsCalculator } = require('./bullsAndCowsCalculator');
 const { messages } = require('./messages');
 const { terminal } = require('./terminal');
 
-const [
+const {
   introMessage,
-  congratsMessage,
-  gameOverMessage,
   firstDigitError,
   numberError,
   uniqueError,
-] = messages();
+  congratsMessage,
+  gameOverMessage,
+} = messages;
+
+const numberToGuess = numberGenerator();
 
 terminal.question(introMessage, (userInput) => {
   if (userInput === 'yes') {
     let guesses = 0;
     const maxGuesses = 10;
-    const numberToGuess = numberGenerator();
 
     const guessNumber = () => {
       terminal.question('\nEnter your guess: ', (guess) => {
@@ -45,7 +46,10 @@ terminal.question(introMessage, (userInput) => {
 
         guesses++;
 
-        const [bullsCount, cowsCount] = bullsAndCowsCalculator(guess);
+        const [
+          bullsCount,
+          cowsCount,
+        ] = bullsAndCowsCalculator(guess, numberToGuess);
 
         if (bullsCount === 4) {
           terminal.write(congratsMessage);
@@ -54,7 +58,8 @@ terminal.question(introMessage, (userInput) => {
           terminal.write(`${gameOverMessage} ${numberToGuess}.\n`);
           terminal.close();
         } else {
-          terminal.write(`BULLS: ${bullsCount}, COWS: ${cowsCount}\n`);
+          terminal.write(`BULLS: ${bullsCount}, COWS: ${cowsCount}. `
+          + `There are ${maxGuesses - guesses} attempts left.\n`);
           guessNumber();
         }
       });

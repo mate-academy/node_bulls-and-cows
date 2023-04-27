@@ -1,10 +1,6 @@
 'use strict';
 
-const { numberGenerator } = require('./numberGenerator');
-
-const bullsAndCowsCalculator = (guess) => {
-  const numberToGuess = numberGenerator();
-
+const bullsAndCowsCalculator = (guess, numberToGuess) => {
   let bullsCount = 0;
   let cowsCount = 0;
 
