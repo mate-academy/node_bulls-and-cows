@@ -8,7 +8,9 @@ function generateNumbers() {
   while (futureNumber.length < TOTAL_DIGITS) {
     const randomNumber = Math.floor(Math.random() * 10);
 
-    if (!futureNumber.includes(randomNumber)) {
+    const isNumberUnique = !futureNumber.includes(randomNumber);
+
+    if (isNumberUnique) {
       futureNumber.push(randomNumber);
     }
   }

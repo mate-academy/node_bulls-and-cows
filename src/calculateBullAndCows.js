@@ -4,16 +4,20 @@ function calculateBullsAndCows(number, guessNumber) {
   let bulls = 0;
   let cows = 0;
 
-  for (let i = 0; i < number.length; i++) {
-    if (number[i] === guessNumber[i]) {
-      bulls += 1;
-      continue;
-    }
+  guessNumber
+    .split('')
+    .forEach((digit, index) => {
+      const isDigitValid = number.includes(digit);
+      const isDigitOnRightPlace = digit === number[index];
 
-    if (number.includes(guessNumber[i])) {
-      cows += 1;
-    }
-  }
+      if (isDigitOnRightPlace) {
+        bulls += 1;
+      }
+
+      if (isDigitValid) {
+        cows += 1;
+      }
+    });
 
   return {
     bulls,
