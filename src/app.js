@@ -37,8 +37,6 @@ const handle = (number) => {
     // eslint-disable-next-line no-console
     console.log('Try again:)');
     terminal.question('Guess a number: ', handle);
-
-    return;
   }
 
   if (bulls === 3) {
