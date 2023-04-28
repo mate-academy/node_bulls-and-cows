@@ -1,5 +1,6 @@
 'use strict';
 
+const WELCOME = '⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝ BULLS & COWS ⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝';
 const SEE_YOU = 'See you soon! 👋🏻';
 const ENTER_THE_NUMBER = 'Please enter the number 🖊️:   ';
 const YOU_WIN = ' ✅  Congrats You are a Winner ✅ ';
@@ -17,4 +18,5 @@ module.exports = {
   UNIQUE_NUMBER_ERROR,
   TYPEOF_ERROR,
   YOU_WIN,
+  WELCOME,
 };

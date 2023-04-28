@@ -13,12 +13,12 @@ const {
   ANSWER_ERROR,
   SEE_YOU,
   ENTER_THE_NUMBER,
+  WELCOME,
 } = require('./constants');
 
 dotenv.config();
 
 const {
-  WELCOME,
   START,
   CONTINUE,
   EXIT,
