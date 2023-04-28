@@ -5,21 +5,23 @@ const { getRandomNumber } = require('./generateRandomNumber');
 const { calculateAnimals } = require('./calculateAnimals');
 const { terminal } = require('./terminal');
 const dotenv = require('dotenv');
+const {
+  UNIQUE_NUMBER_ERROR,
+  NUMBER_LENGTH_ERROR,
+  TYPEOF_ERROR,
+  YOU_WIN,
+  ANSWER_ERROR,
+  SEE_YOU,
+  ENTER_THE_NUMBER,
+} = require('./constants');
 
 dotenv.config();
 
 const {
-  ENTER_THE_NUMBER,
   WELCOME,
-  YOU_WIN,
   START,
   CONTINUE,
-  SEE_YOU,
-  NUMBER_LENGTH_ERROR,
   EXIT,
-  UNIQUE_NUMBER_ERROR,
-  ANSWER_ERROR,
-  TYPEOF_ERROR,
 } = process.env;
 
 const randomNumber = getRandomNumber();
