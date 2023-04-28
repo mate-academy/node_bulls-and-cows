@@ -1,21 +1,21 @@
 'use strict';
 
 const numberGenerator = () => {
-  const number = [];
+  const number = new Set();
 
-  while (number.length < 4) {
-    const digit = Math.floor(Math.random() * 9);
+  while (number.size < 4) {
+    const digit = Math.floor(Math.random() * 10);
 
-    if (!number.includes(digit)) {
-      number.push(digit);
+    if (number.size === 0 && digit === 0) {
+      continue;
+    }
+
+    if (!number.has(digit)) {
+      number.add(digit);
     }
   }
 
-  if (number[0] === 0) {
-    number[0] = 1;
-  };
-
-  return number.join('');
+  return Array.from(number).join('');
 };
 
 module.exports = { numberGenerator };
