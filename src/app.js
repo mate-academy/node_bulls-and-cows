@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
 'use strict';
 
-const { terminal } = require('./terminal');
+const { terminal, print } = require('./terminal');
 const { generateRandomNumber } = require('./generator');
 const { compareNumbers } = require('./compareNumbers');
 
@@ -14,7 +13,7 @@ const playGame = () => {
       && !isNaN(formattedInput);
 
     if (!isValidNumber) {
-      console.log('Enter a number consisting of 4 different digits');
+      print('Enter a number consisting of 4 different digits');
 
       playGame();
 
@@ -24,15 +23,13 @@ const playGame = () => {
     const { bulls, cows } = compareNumbers(formattedInput, randomNumber);
 
     if (bulls < 4) {
-      console.log(
-        `You have ${bulls} bulls and ${cows} cows. Try again!`
-      );
+      print(`You have ${bulls} bulls and ${cows} cows. Try again!`);
 
       playGame();
     }
 
     if (bulls === 4) {
-      console.log('You won!');
+      print('You won!');
 
       terminal.close();
     }

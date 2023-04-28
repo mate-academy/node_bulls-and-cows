@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const readline = require('readline');
@@ -7,4 +8,11 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-module.exports = { terminal };
+const print = (message) => {
+  console.log(message);
+};
+
+module.exports = {
+  terminal,
+  print,
+};
