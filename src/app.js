@@ -1,15 +1,10 @@
 'use strict';
 
-const readline = require('readline');
-
 const { generateNumber } = require('./generateNumber');
 const { checkUsersTry } = require('./checkUsersTry');
+const { terminal } = require('./terminal');
 
 const launchGame = () => {
-  const terminal = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
   const numberToGuess = generateNumber();
 
   const askUser = () => {

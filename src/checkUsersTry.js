@@ -13,20 +13,20 @@ function checkUsersTry(usersTry, numberToGuess) {
     return 'OK';
   }
 
-  const bulls = [];
-  const cows = [];
+  let bulls = 0;
+  let cows = 0;
 
   for (let i = 0; i < usersTry.length; i++) {
     if (usersTry[i] === numberToGuess[i]) {
-      bulls.push(usersTry[i]);
+      bulls++;
     } else if (numberToGuess.includes(usersTry[i])) {
-      cows.push(usersTry[i]);
+      cows++;
     }
   }
 
   return `You have
-  bulls: ${bulls.length ? bulls.join(', ') : 'You have no bull for now'}
-  cows: ${cows.length ? cows.join(', ') : 'You have no cows for now'}`;
+  bulls: ${bulls}
+  cows: ${cows}`;
 }
 
 module.exports.checkUsersTry = checkUsersTry;
