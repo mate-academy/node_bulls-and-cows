@@ -1,25 +1,28 @@
 'use strict';
 
-const compareInputNumber = (inputNumber, x) => {
+const compareInputNumber = (inputNumber, randomNumber) => {
   let bulls = 0;
   let cows = 0;
-  const inputString = inputNumber.toString();
-  const randomString = x.toString();
 
-  for (let i = 0; i < inputString.length; i++) {
-    if (inputString[i] === randomString[i]) {
+  if (isNaN(parseInt(inputNumber))) {
+    return 'Please, enter a number!';
+  }
+
+  inputNumber.split('').forEach((currentValue, index) => {
+    if (currentValue === randomNumber[index]) {
       bulls++;
     }
 
-    if (
-      inputString[i] !== randomString[i]
-          && randomString.includes(inputString[i])
-    ) {
+    if (currentValue !== randomNumber[index]
+      && randomNumber.includes(currentValue)) {
       cows++;
     }
-  }
+  });
 
-  global.console.log(`You have ${bulls} Bulls, and ${cows} Cows`);
+  return {
+    bulls,
+    cows,
+  };
 };
 
 module.exports = { compareInputNumber };

@@ -1,17 +1,17 @@
 'use strict';
 
 function generatorRandomNumber() {
-  const numbers = [];
+  const numbers = new Set();
 
-  while (numbers.length < 4) {
+  while (numbers.size < 4) {
     const number = Math.floor(Math.random() * 10);
 
-    if (!numbers.includes(number)) {
-      numbers.push(number);
+    if (!numbers.has(number)) {
+      numbers.add(number);
     }
   }
 
-  return numbers.join('');
+  return Array.from(numbers).join('');
 };
 
 module.exports = { generatorRandomNumber };
