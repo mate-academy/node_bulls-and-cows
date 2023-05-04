@@ -5,38 +5,34 @@ const { generateRandomNumber } = require('./generateRandomNumber');
 const { isValid } = require('./isInputValid');
 const { terminal } = require('./terminal');
 const { calculateBullsAndCows } = require('./calculateCowsAndBulls');
+const messages = require('./messages.json');
+
+const playGame = () => {
+  terminal.question(
+    messages.infoMessages.startGame,
+    checkUserAnswer
+  );
+};
 
 const generetadNum = generateRandomNumber();
 
 const checkUserAnswer = (answer) => {
-  if (!isValid) {
-    console.log('Insert a number of 4 different digits');
+  if (!isValid(answer)) {
+    console.log(messages.errorMessages.invalidInput);
 
-    terminal.question(
-      'Please write a number of 4 different digits',
-      checkUserAnswer
-    );
-
-    return;
+    playGame();
   }
 
   const { bulls, cows } = calculateBullsAndCows(generetadNum, answer);
 
   if (bulls === 4) {
-    console.log(`Congratulations, you won!`);
+    console.log(messages.infoMessages.userWon);
     terminal.close();
 
     return;
   }
   console.log(`${bulls} bulls, ${cows} cows`);
   playGame();
-};
-
-const playGame = () => {
-  terminal.question(
-    'Please write a number of 4 different digits',
-    checkUserAnswer
-  );
 };
 
 playGame();
