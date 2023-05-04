@@ -5,28 +5,39 @@ const { terminal } = require('./terminal');
 const { compareNumbers } = require('./compareNumbers');
 const { randomNumber } = require('./generateNumber');
 const { isValidInput } = require('./validInput');
+const { messages } = require('./messages');
 
 const number = randomNumber();
+const {
+  nameGame,
+  wrongNNumber,
+  winMessage,
+  tryAgain,
+} = messages;
 
-console.log('This is game Bull ana Cows! You need guess a number');
+console.log(nameGame);
 
 const startGame = () => {
+  console.log(number);
+
   terminal.question('> ', (input) => {
     if (!isValidInput(input)) {
-      console.log('Wrong number! Please enter 4 different digits.');
+      console.log(wrongNNumber);
       startGame();
-    } else {
-      const guess = input.split('').map(Number);
-      const [bulls, cows] = compareNumbers(guess, number);
 
-      if (bulls === 4) {
-        console.log('Congratulations! You guessed the number!');
-        terminal.close();
-      } else {
-        console.log(`${bulls} bulls, ${cows} cows`);
-        console.log('Try again');
-        startGame();
-      }
+      return;
+    }
+
+    const guess = input.split('').map(Number);
+    const { bulls, cows } = compareNumbers(guess, number);
+
+    if (bulls === 4) {
+      console.log(winMessage);
+      terminal.close();
+    } else {
+      console.log(`${bulls} bulls, ${cows} cows`);
+      console.log(tryAgain);
+      startGame();
     }
   });
 };

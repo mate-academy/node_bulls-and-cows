@@ -2,17 +2,19 @@
 
 function compareNumbers(guess, number) {
   let bulls = 0;
-  let cows = 0;
-
-  for (let i = 0; i < guess.length; i++) {
-    if (guess[i] === number[i]) {
+  const cows = guess.reduce((count, digit, index) => {
+    if (digit === number[index]) {
       bulls++;
-    } else if (number.toString().includes(guess[i])) {
-      cows++;
+    } else if (number.includes(digit)) {
+      return count + 1;
     }
-  }
 
-  return [bulls, cows];
-};
+    return count;
+  }, 0);
+
+  return {
+    bulls, cows,
+  };
+}
 
 module.exports = { compareNumbers };

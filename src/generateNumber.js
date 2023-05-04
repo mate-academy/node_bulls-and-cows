@@ -1,17 +1,17 @@
 'use strict';
 
 const randomNumber = () => {
-  const numbers = [];
+  const numbers = new Set();
 
-  while (numbers.length < 4) {
+  while (numbers.size < 4) {
     const digit = Math.floor(Math.random() * 10);
 
-    if (!numbers.includes(digit)) {
-      numbers.push(digit);
+    if (!numbers.has(digit)) {
+      numbers.add(digit);
     }
   }
 
-  return numbers;
+  return [...numbers];
 };
 
 module.exports = { randomNumber };

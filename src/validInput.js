@@ -1,11 +1,9 @@
 'use strict';
 
 function isValidInput(input) {
-  if (input.length !== 4) {
-    return false;
-  }
+  const inputString = input.toString();
 
-  const digits = new Set(input);
+  const digits = new Set(inputString);
 
   return digits.size === 4;
 }
