@@ -1,0 +1,9 @@
+{
+    "errorMessages": {
+      "invalidInput": "Insert a number of 4 different digits"
+    },
+    "infoMessages": {
+      "startGame": "Please write a number of 4 different digits",
+      "userWon": "Congratulations, you won!"
+    }
+  }
