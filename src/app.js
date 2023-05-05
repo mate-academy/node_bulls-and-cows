@@ -1,6 +1,6 @@
 'use strict';
 
-const { TOTAL_DIGITS } = require('./constants/constants');
+const { TOTAL_DIGITS } = require('./utils/constants/constants');
 const generateNumbers = require('./generateNumbers');
 const {
   terminal,
@@ -8,6 +8,7 @@ const {
   printOut,
 } = require('./ask');
 const calculateBullsAndCows = require('./calculateBullAndCows');
+const { checkInput } = require('./utils/helpers/checkInput');
 
 const bullsAndCowsGame = async() => {
   const randomNumber = generateNumbers();
@@ -17,9 +18,7 @@ const bullsAndCowsGame = async() => {
   while (guessNumber !== randomNumber) {
     guessNumber = await getInput('Enter your guess: ');
 
-    const isValidInput = new Set(guessNumber).size !== TOTAL_DIGITS;
-
-    if (isValidInput) {
+    if (!checkInput(TOTAL_DIGITS, guessNumber)) {
       printOut(`Enter ${TOTAL_DIGITS}-digits number with unique digits.`);
       continue;
     }

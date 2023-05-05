@@ -1,6 +1,6 @@
 'use strict';
 
-const { TOTAL_DIGITS } = require('./constants/constants');
+const { TOTAL_DIGITS } = require('./utils/constants/constants');
 
 function generateNumbers() {
   const futureNumber = [];
