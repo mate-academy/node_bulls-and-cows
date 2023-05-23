@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 
 const readline = require('readline');
-const { calculatingBullsAndCows } = require('./calculatingBullsAndCows');
+const { calculateBullsAndCows } = require('./calculateBullsAndCows');
 const { generateNumber } = require('./generateNumber');
 
 const randomNumber = generateNumber();
@@ -30,7 +30,7 @@ const handleUserInput = (answer) => {
   const {
     status,
     statusString,
-  } = calculatingBullsAndCows(randomNumber, answer);
+  } = calculateBullsAndCows(randomNumber, answer);
 
   if (status) {
     console.log(`Congratulations, you win!`);
