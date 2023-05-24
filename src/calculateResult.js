@@ -1,3 +1,4 @@
+'use strict';
 const validateInput = require('./validateInput');
 
 function calculateResult(inputNumber, randomNumber) {

@@ -1,3 +1,4 @@
+'use strict';
 function validateInput(inputNumber) {
   const validationResult = [];
 
