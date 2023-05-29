@@ -1,26 +1,30 @@
 'use strict';
 
 function getHint(secret, guess) {
-  if (guess.length < 4) {
+  if (guess.length !== 4) {
     return 'Please enter 4 digits!';
   }
 
+  const uniqDigits = new Set(guess);
+
+  if (uniqDigits.size !== 4) {
+    return 'Please enter 4 unique digits!';
+  }
+
   let bulls = 0;
-  const cows = [];
-  let copySecret = secret;
+  let cows = 0;
 
   for (let i = 0; i < secret.length; i++) {
     if (secret[i] === guess[i]) {
       bulls++;
-      copySecret = secret.slice(i + 1, secret.length - i);
     } else {
-      if (copySecret.includes(guess[i]) && !cows.includes(guess[i])) {
-        cows.push(guess[i]);
+      if (secret.includes(guess[i])) {
+        cows++;
       }
     }
   }
 
-  return `bulls: ${bulls}, cows: ${cows.length}`;
+  return `bulls: ${bulls}, cows: ${cows}`;
 }
 
 module.exports.getHint = getHint;
