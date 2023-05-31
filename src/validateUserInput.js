@@ -2,7 +2,7 @@
 
 function validateUserInput(userInput) {
   const digits = userInput.split('');
-  const areNotOnlyDigits = digits.some(digit => isNaN(+digit));
+  const areNotOnlyDigits = digits.some(digit => isNaN(Number(digit)));
   const areNotDifferentDigits = digits.some((digit, index) => {
     const range = digits.slice(index + 1);
 

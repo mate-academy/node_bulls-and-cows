@@ -10,21 +10,19 @@ const terminal = readline.createInterface({
 });
 const puzzledStr = getRandomNumber();
 
-const BullsCowsGame = () => {
+const bullsCowsGame = () => {
   terminal.question('Please write your 4 different digits ', (userInput) => {
     const result = getHint(puzzledStr, userInput);
 
-    // eslint-disable-next-line no-console
-    console.log(result);
+    terminal.write(result);
 
     if (result.includes('bulls: 4')) {
-      // eslint-disable-next-line no-console
-      console.log('You are winner!');
+      terminal.write('You are winner!');
       terminal.close();
-    } else {
-      BullsCowsGame();
     }
+
+    bullsCowsGame();
   });
 };
 
-BullsCowsGame();
+bullsCowsGame();

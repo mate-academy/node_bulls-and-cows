@@ -25,7 +25,7 @@ function getHint(secret, guess) {
     i++;
   }
 
-  return 'bulls: ' + bulls + ', cows: ' + cows;
+  return `bulls: ${bulls}, cows: ${cows}`;
 }
 
 module.exports = getHint;
