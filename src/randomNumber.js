@@ -10,9 +10,12 @@ const randomNumber = () => {
 
   while (result.length < 4) {
     const randomIndex = Math.floor(Math.random() * digits.length);
+    const randomDigit = digits[randomIndex];
 
-    result += digits[randomIndex];
-    digits.splice(randomIndex, 1);
+    if (!result.includes(randomDigit)) {
+      result += randomDigit;
+      digits.splice(randomIndex, 1);
+    }
   }
 
   return result;

@@ -1,17 +1,17 @@
 'use strict';
 
-const checkNumber = (checkDigits, imputDigits) => {
+const checkNumber = (checkDigits, inputDigits) => {
   let countBulls = 0;
   let countCows = 0;
 
   checkDigits.split('').forEach((digit, index) => {
-    if (digit === imputDigits[index]) {
+    if (digit === inputDigits[index]) {
       countBulls++;
 
       return;
     }
 
-    if (imputDigits.includes(digit)) {
+    if (inputDigits.includes(digit)) {
       countCows++;
     }
   });
