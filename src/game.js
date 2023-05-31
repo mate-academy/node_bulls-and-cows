@@ -14,13 +14,15 @@ const terminal = readline.createInterface({
 const secret = generateRandomNumber();
 
 function game() {
+  console.log(secret);
+
   terminal.question('Write your number ', (writtenNumber) => {
     if (!checkWroteNumber(writtenNumber)) {
       console.log('Number should be unique. Try again');
       game();
     }
 
-    if (secret === writtenNumber) {
+    if (secret === String(writtenNumber)) {
       console.log(`You are winner!. Secret was - ${secret}`);
       terminal.close();
     }
@@ -36,5 +38,7 @@ function game() {
     }
   });
 }
+
+game();
 
 module.exports.game = game;
