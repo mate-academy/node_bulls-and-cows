@@ -4,17 +4,17 @@ const calculator = (goal, guess) => {
   let bulls = 0;
   let cows = 0;
 
-  for (let i = 0; i < guess.length; i++) {
-    if (guess[i] === goal[i]) {
+  guess.split('').forEach((digit, index) => {
+    if (digit === goal[index]) {
       bulls++;
 
-      continue;
+      return;
     }
 
-    if (goal.includes(guess[i])) {
+    if (goal.includes(digit)) {
       cows++;
     }
-  }
+  });
 
   return [bulls, cows];
 };

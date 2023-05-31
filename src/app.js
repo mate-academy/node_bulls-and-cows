@@ -20,7 +20,7 @@ function runCattleGame() {
       return runCattleGame();
     }
 
-    const [ bulls, cows ] = calculator(goal, guess);
+    const [bulls, cows] = calculator(goal, guess);
 
     if (bulls === 4) {
       console.log(`You won at last... The number is ${goal}`);
