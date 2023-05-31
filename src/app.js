@@ -28,10 +28,12 @@ function playBullsAndCows() {
       if (bulls === 4) {
         console.log('You won!');
         terminal.close();
-      } else {
-        console.log(`bulls: ${bulls}, cows: ${cows}`);
-        playBullsAndCows();
+
+        return;
       }
+
+      console.log(`bulls: ${bulls}, cows: ${cows}`);
+      playBullsAndCows();
     });
 }
 

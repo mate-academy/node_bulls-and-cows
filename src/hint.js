@@ -16,7 +16,9 @@ function getHint(secret, guess) {
       if (map[guess[i]] <= 0) {
         cows--;
       }
-    } else if (map[guess[i]] > 0) {
+    }
+
+    if (guess[i] !== secret[i] && map[guess[i]] > 0) {
       cows++;
     }
 
