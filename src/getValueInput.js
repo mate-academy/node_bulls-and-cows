@@ -8,7 +8,7 @@ function getValueInput(enteredNumber) {
   }
 
   const isNumber = numbers.every(number => {
-    return Number.isInteger(+number);
+    return Number.isInteger(Number(number));
   });
 
   if (!isNumber) {
