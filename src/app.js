@@ -9,16 +9,22 @@ const gameInterface = readline.createInterface({
   output: process.stdout,
 });
 
+const randomNumber = getRandomNumber();
+
 function cowsAndBuls() {
   gameInterface.question('Write four digit number', (num) => {
-    const result = counterResults(num, getRandomNumber());
+    const result = counterResults(num, randomNumber);
+
+    console.log(result) // eslint-disable-line
 
     if (result.includes('BULLS - 4')) {
       console.log('CONGRATULATION - YOU ARE THE WINNER') // eslint-disable-line
-    }
+      gameInterface.close();
 
-    console.log(result) // eslint-disable-line
-    gameInterface.close();
+      return;
+    } else {
+      cowsAndBuls();
+    };
   });
 }
 
