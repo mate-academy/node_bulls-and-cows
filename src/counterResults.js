@@ -25,5 +25,4 @@ function counterResults(userInput, randomNumbe) {
     COWS - ${result.cows} ||| BULLS - ${result.bulls}`;
 };
 
-counterResults('4444', '4244');
 module.exports = { counterResults };
