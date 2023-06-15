@@ -7,6 +7,8 @@ const { calculateBullsCows } = require('./actions/calculateBullsCows');
 const numberOfDigits = 4;
 const randomNum = getRandomNum();
 
+const something = '';
+
 const game = (userInput) => {
   if (String(userInput).length !== numberOfDigits) {
     console.log('Your input should be 4-digits number\n');
