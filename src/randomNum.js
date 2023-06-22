@@ -4,9 +4,9 @@ function getRandomNum() {
   const set = new Set();
 
   while (set.size < 4) {
-    const n = Math.floor(Math.random() * 10);
+    const randomNumber = Math.floor(Math.random() * 10);
 
-    set.add(n);
+    set.add(randomNumber);
   }
 
   return [...set].join('');

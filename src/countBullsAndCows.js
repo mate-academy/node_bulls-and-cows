@@ -8,9 +8,9 @@ function countBullsAndCows(inputNumber) {
 
   for (let i = 0; i < inputNumber.length; i++) {
     if (inputNumber[i] === randomNum[i]) {
-      bulls++;
+      bulls += 1;
     } else if (randomNum.includes(inputNumber[i])) {
-      cows++;
+      cows += 1;
     }
   }
 

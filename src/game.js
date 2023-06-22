@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 'use strict';
 
 const { terminal } = require('./terminal.js');
@@ -15,20 +14,11 @@ const {
 
 const game = () => {
   terminal.question(question, (inputNumber) => {
-    if (isNaN(inputNumber) || inputNumber.length !== 4) {
+    if (isNaN(inputNumber) || new Set(inputNumber).size !== 4) {
       console.log(fourDigitsError);
       game();
 
       return;
-    }
-
-    for (const n of inputNumber) {
-      if (inputNumber.indexOf(n) !== inputNumber.lastIndexOf(n)) {
-        console.log(fourDigitsError);
-        game();
-
-        return;
-      }
     }
 
     if (inputNumber === randomNum) {
