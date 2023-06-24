@@ -1,6 +1,6 @@
 'use strict';
 
-const { terminal } = require('./terminal.js');
+const { terminal, print } = require('./terminal.js');
 const { randomNum } = require('./randomNum.js');
 const { messages } = require('./messages.js');
 const { countBullsAndCows } = require('./countBullsAndCows.js');
@@ -15,20 +15,20 @@ const {
 const game = () => {
   terminal.question(question, (inputNumber) => {
     if (isNaN(inputNumber) || new Set(inputNumber).size !== 4) {
-      console.log(fourDigitsError);
+      print(fourDigitsError);
       game();
 
       return;
     }
 
     if (inputNumber === randomNum) {
-      console.log(winMessage);
+      print(winMessage);
       terminal.close();
     } else {
       const { bulls, cows } = countBullsAndCows(inputNumber);
 
       if (cows === 0 && bulls === 0) {
-        console.log(allDigitsError);
+        print(allDigitsError);
         game();
 
         return;
@@ -46,7 +46,7 @@ const game = () => {
         ? ' and '
         : '';
 
-      console.log(`${bullMessage}${separator}${cowMessage}`);
+      print(`${bullMessage}${separator}${cowMessage}`);
       game();
     }
   });

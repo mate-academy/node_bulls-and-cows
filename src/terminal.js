@@ -7,4 +7,11 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-module.exports = { terminal };
+const print = (message) => {
+  process.stdout.write(`${message}\n`);
+};
+
+module.exports = {
+  terminal,
+  print,
+};
