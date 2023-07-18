@@ -5,5 +5,5 @@ export const generateRandomNumber = () => {
     res.add(Math.floor(Math.random() * 9) + 1);
   }
 
-  return [...res].join('');
+  return Number([...res].join(''));
 }

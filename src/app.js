@@ -14,7 +14,7 @@ const playBullsAndCows = () => {
   terminal.question('Guess the number ', (userInput) => {
     calculateBullsAndCows(userInput, randomNumber);
 
-    if (userInput === randomNumber) {
+    if (Number(userInput) === randomNumber) {
       console.log('Congratulations! You have guessed the correct number');
       terminal.close();
     } else {

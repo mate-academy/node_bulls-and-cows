@@ -5,9 +5,9 @@ const correctWordInPlural = (quantity, word) => {
 export const calculateBullsAndCows = (userInput, generatedNumber) => {
   const res = [];
   const updatedUserInput = userInput.split('');
-  const updatedGeneratedNumber = generatedNumber.split('');
+  const updatedGeneratedNumber = generatedNumber.toString().split('');
 
-  if (userInput.length < 4 || userInput.length > 4) {
+  if (userInput.length !== 4) {
     throw new Error('The number should contain 4 digits');
   }
 
@@ -17,17 +17,17 @@ export const calculateBullsAndCows = (userInput, generatedNumber) => {
 
   for (let i = 0; i < 4; i++) {
     if (updatedGeneratedNumber[i] === updatedUserInput[i]) {
-      res.push('bull')
+      res.push('bull');
       continue;
     }
 
     if (updatedGeneratedNumber.includes(updatedUserInput[i])) {
-      res.push('cow')
+      res.push('cow');
     }
   }
 
-  const numberOfBulls = res.filter(value => value === 'bull').length;
-  const numberOfCows = res.filter(value => value === 'cow').length;
+  const numberOfBulls = res.reduce((count, value) => value === 'bull' ? count + 1 : count, 0);
+  const numberOfCows = res.reduce((count, value) => value === 'cow' ? count + 1 : count, 0);
   const preparedBulls = `${numberOfBulls > 0 ? `${numberOfBulls} ${correctWordInPlural(numberOfBulls, 'bull')}` : ''}`;
   const preparedCows = `${numberOfCows > 0 ? `${numberOfCows} ${correctWordInPlural(numberOfCows, 'cow')}` : ''}`;
 
