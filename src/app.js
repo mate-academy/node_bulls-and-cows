@@ -21,13 +21,15 @@ const request = () => terminal.question(
       return request();
     }
 
-    if (randomDigits === userInput) {
+    const { bulls, cows } = getBullsAndCows(userInput, randomDigits);
+
+    if (bulls === 4) {
       console.log('You won!');
 
       return terminal.close();
     }
 
-    getBullsAndCows(userInput, randomDigits);
+    console.log(`${bulls} bulls and ${cows} cows. Try again!`);
 
     return request();
   });

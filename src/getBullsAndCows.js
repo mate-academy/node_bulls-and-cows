@@ -13,7 +13,9 @@ const getBullsAndCows = (userInput, randomDigits) => {
     }
   }
 
-  console.log(`${bulls} bulls and ${cows} cows. Try again!`);
+  return ({
+    bulls, cows,
+  });
 };
 
 module.exports = getBullsAndCows;
