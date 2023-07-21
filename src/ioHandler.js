@@ -2,6 +2,7 @@
 
 function getUserInput(question) {
   const readline = require('readline');
+  const gameText = require('./constants.js');
 
   const terminal = readline.createInterface({
     input: process.stdin,
@@ -13,7 +14,7 @@ function getUserInput(question) {
       terminal.question(question, (input) => {
         if (input.length !== 4) {
           // eslint-disable-next-line no-console
-          console.log('Invalid number! Please enter a 4-digit number.');
+          console.log(gameText.invalidNum);
           getInput();
         } else {
           terminal.close();

@@ -3,6 +3,7 @@
 const generateRandomNumber = require('./randomNumberGenerator.js');
 const calculateBullsAndCows = require('./bullsAndCowsCalculator.js');
 const getUserInput = require('./ioHandler.js');
+const gameText = require('./constants.js');
 
 async function playGame() {
   const target = generateRandomNumber();
@@ -10,9 +11,7 @@ async function playGame() {
   let guessed = false;
 
   while (!guessed) {
-    const guess = await getUserInput(
-      'Enter a 4-digit number with distinct digits: '
-    );
+    const guess = await getUserInput(gameText.start);
 
     const [bulls, cows] = calculateBullsAndCows(guess, target);
 
@@ -24,7 +23,7 @@ async function playGame() {
     if (bulls === 4) {
       guessed = true;
       // eslint-disable-next-line no-console
-      console.log('Congratulations! You guessed the number!');
+      console.log(gameText.end);
     }
   }
 }
