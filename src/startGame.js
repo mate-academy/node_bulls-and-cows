@@ -13,9 +13,9 @@ function startGame(app, rl) {
   const question = 'Enter your guess (4-digit number): ';
 
   rl.question(question, (answer) => {
-    const checking = checkingUserValue(answer, rl);
+    const isValidInput = checkingUserValue(answer, rl);
 
-    if (!checking) {
+    if (!isValidInput) {
       return app();
     }
 
