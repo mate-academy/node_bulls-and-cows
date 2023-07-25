@@ -1,10 +1,11 @@
 'use strict';
 
 const calculatingBullsAndCows = (secretNumber, inputNumber) => {
+  const lengthOfTheNumber = 4;
   let cows = 0;
   let bulls = 0;
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < lengthOfTheNumber; i++) {
     if (secretNumber.includes(inputNumber[i])) {
       cows++;
     }
