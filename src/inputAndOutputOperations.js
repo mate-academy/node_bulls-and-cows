@@ -12,6 +12,8 @@ const game = (secretNumber, calculatingBullsAndCows) => {
   terminal.question('Try guess number: ', (inputNumber) => {
     if (inputNumber.length > 4 || inputNumber.length < 4) {
       console.log('Enter a four-digit number');
+
+      return game(secretNumber, calculatingBullsAndCows);
     }
 
     const result = calculatingBullsAndCows(secretNumber, inputNumber);
