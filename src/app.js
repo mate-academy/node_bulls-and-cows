@@ -1,7 +1,7 @@
 'use strict';
 
 const GameControl = require('./gameControl.js');
-const { getArrayOfrandomValues } = require('./helper.js');
+const { getRandomDigits } = require('./helper.js');
 
 const NUMBER_OF_DIGITS = 4;
 
@@ -11,34 +11,37 @@ class Game {
     this.controller = new GameControl();
   }
 
-  initialGame() {
-    this.digits = getArrayOfrandomValues(NUMBER_OF_DIGITS);
-    // this.digits = [1, 1, 1, 1];
+  initGame() {
+    this.digits = getRandomDigits(NUMBER_OF_DIGITS);
 
     this.controller.onGameStart(
       NUMBER_OF_DIGITS,
-      this.validateAnswer.bind(this)
+      this.checkAnswer.bind(this)
     );
   }
 
-  validateAnswer(someValues) {
-    const answer = someValues.split('').map(Number);
+  checkAnswer(answer) {
+    const normalizeAnswer = answer.split('').map(Number);
+
     const bulls = this.digits.filter(
-      (item, index) => item === answer[index]
+      (item, index) => item === normalizeAnswer[index]
     ).length;
+
     const cows = this.digits.filter(
-      (item, index) => answer[index] !== item && answer.includes(item)
+      (item, index) => (
+        normalizeAnswer[index] !== item && normalizeAnswer.includes(item)
+      )
     ).length;
 
     switch (bulls) {
       case NUMBER_OF_DIGITS:
-        this.controller.winGame(this.initialGame.bind(this));
+        this.controller.winGame(this.initGame.bind(this));
         break;
       default:
         this.controller.onGameContinue(
           bulls,
           cows,
-          this.validateAnswer.bind(this)
+          this.checkAnswer.bind(this)
         );
         break;
     }
@@ -47,4 +50,4 @@ class Game {
 
 const game = new Game(4);
 
-game.initialGame();
+game.initGame();

@@ -4,7 +4,7 @@ const getRandomDigit = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const getArrayOfrandomValues = (length) => {
+const getRandomDigits = (length) => {
   const result = [];
   let newValue = getRandomDigit(0, 9);
 
@@ -12,11 +12,10 @@ const getArrayOfrandomValues = (length) => {
     if (!result.includes(newValue)) {
       result.push(newValue);
     }
-
     newValue = getRandomDigit(0, 9);
   }
 
   return result;
 };
 
-module.exports = { getArrayOfrandomValues };
+module.exports = { getRandomDigits };

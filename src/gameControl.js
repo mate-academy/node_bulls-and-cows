@@ -17,18 +17,16 @@ class GameControl {
     this.terminal.question(massage, callback);
   }
 
-  onGameStart(numberOfDigits, validateAnswer) {
-    console.clear();
-
+  onGameStart(numberOfDigits, checkAnswer) {
     this.postQuestion(
       `Try to guess ${numberOfDigits} numbers: `,
-      validateAnswer
+      checkAnswer
     );
   }
 
   winGame(newGame) {
     this.terminal.question(
-      'Awsome! You find all bulls! Wont you try again?: yes/no: ',
+      'Awesome! You found all bulls! Do you want to try again?: yes/no: ',
       (answer) => {
         switch (answer) {
           case 'yes':
@@ -38,7 +36,7 @@ class GameControl {
             this.startGame(newGame);
             break;
           default:
-            console.info('Invalid input! Please enter either "yes" or "no".');
+            console.info('Invalid input! Please enter either "yes" or "no". ');
             this.startGame(newGame);
             break;
         }
@@ -56,10 +54,10 @@ class GameControl {
     });
   }
 
-  onGameContinue(bulls, cows, validateAnswer) {
+  onGameContinue(bulls, cows, checkAnswer) {
     this.terminal.question(
-      `Bulls: ${bulls}, Cows: ${cows}, try again`,
-      validateAnswer
+      `Bulls: ${bulls}, Cows: ${cows}, try again: `,
+      checkAnswer
     );
   }
 }
