@@ -10,9 +10,7 @@ function checker(userNumber, randomNumber) {
 
     if (userNumber[i] === randomNumber[i]) {
       result[i] = 'bull';
-    } else {
-      result[i] = '*';
-    };
+    }
   };
 
   return result.join(' ');
