@@ -1,6 +1,10 @@
 'use strict';
 
-const getBullsAndCows = (userInput, randomNumber) => {
+const getBullsAndCows = (userInput = '', randomNumber = '') => {
+  if (typeof(userInput) !== 'string') {
+    userInput.toString();
+  }
+
   let bulls = 0;
   let cows = 0;
 

@@ -13,7 +13,7 @@ const validateInput = (value) => {
     return false;
   }
 
-  const userNumber = new Set(value);
+  const userNumber = new Set(value.toString());
   const isNumberValid = userNumber.size === 4;
 
   if (!isNumberValid) {
