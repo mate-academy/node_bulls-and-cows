@@ -9,7 +9,7 @@ const startGame = () => {
   const number = generateRandomNumber();
 
   const tryToGuess = () => {
-    terminal.question('Enter 4 digits number: ', (guess) => {
+    terminal.question('Enter a number with 4 different digits: ', (guess) => {
       const matches = check(number, guess);
 
       if (guess.length !== 4) {
