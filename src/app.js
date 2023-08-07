@@ -4,6 +4,7 @@
 const { generateRandomNumber } = require('./generator.js');
 const { terminal } = require('./terminal.js');
 const { check } = require('./checker.js');
+const { isValidGuess } = require('./guessValidation.js');
 
 const startGame = () => {
   const number = generateRandomNumber();
@@ -12,7 +13,7 @@ const startGame = () => {
     terminal.question('Enter a number with 4 different digits: ', (guess) => {
       const matches = check(number, guess);
 
-      if (guess.length !== 4) {
+      if (guess.length !== 4 || !isValidGuess(guess)) {
         console.log('Not valid number!');
         tryToGuess();
 
