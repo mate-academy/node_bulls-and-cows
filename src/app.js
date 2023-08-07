@@ -2,7 +2,7 @@
 'use strict';
 
 const { terminal } = require('./modules/terminal');
-const { numGenerator } = require('./modules/numgenerator');
+const { numGenerator } = require('./modules/numGenerator');
 const { calculateBulls } = require('./modules/calculateBulls');
 const { calculateCows } = require('./modules/calculateCows');
 
@@ -12,6 +12,14 @@ const gameRound = () => {
   terminal.question('Guess the number: ', (answer) => {
     if (answer.length !== 4) {
       console.log('Wrong number length');
+
+      gameRound();
+
+      return;
+    }
+
+    if ([...new Set(answer.split(''))].length !== 4) {
+      console.log('Number should not contain repeating digits');
 
       gameRound();
 
