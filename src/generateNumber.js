@@ -1,14 +1,19 @@
 'use strict';
 
 function generateRandomNumber() {
-  const min = 1000;
-  const max = 9999;
+  const numbers = [];
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  while (numbers.length < 4) {
+    const randomNumber = Math.floor(Math.random() * 10);
+
+    if (!numbers.includes(randomNumber)) {
+      numbers.push(randomNumber);
+    }
+  }
+
+  return numbers.join('');
 }
 
-const value = generateRandomNumber().toString();
-
 module.exports = {
-  value,
+  generateRandomNumber,
 };

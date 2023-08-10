@@ -1,16 +1,16 @@
 /* eslint-disable no-console */
 'use strict';
 
-const { value } = require('./generateNumber.js');
-const readline = require('readline');
+const { generateRandomNumber } = require('./generateNumber.js');
 const { countBullsAndCows } = require('./countBullsAndCows.js');
+const { terminal } = require('./terminal.js');
 
-const terminal = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const value = generateRandomNumber();
+let count = 0;
 
 function playGame() {
+  count++;
+
   terminal.question('Guess the number ', (number) => {
     if (number.length !== 4) {
       console.log('It must be 4 numbers');
@@ -19,8 +19,17 @@ function playGame() {
       return;
     }
 
+    if (!checkDuplicate(number)) {
+      console.log('Duplicate digits are not allowed');
+      playGame();
+
+      return;
+    }
+
     if (number === value) {
-      console.log('You win!!!');
+      console.log(
+        `Congratulations!!! You guess!!! It took you ${count} attempts`
+      );
       terminal.close();
 
       return;
@@ -33,6 +42,18 @@ function playGame() {
     playGame();
   });
 }
+
+function checkDuplicate(str) {
+  let newStr = '';
+
+  for (let i = 0; i < str.length; i++) {
+    if (!newStr.includes(str[i])) {
+      newStr += str[i];
+    }
+  }
+
+  return str === newStr;
+};
 
 module.exports = {
   playGame,
