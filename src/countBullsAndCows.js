@@ -1,3 +1,5 @@
+'use strict';
+
 function countBullsAndCows(fourDigitRandom, enterNumber) {
   const toStringNum = enterNumber.toString();
   const toStringRandomNum = fourDigitRandom.toString();
@@ -15,7 +17,7 @@ function countBullsAndCows(fourDigitRandom, enterNumber) {
       cows++;
     }
   }
-
+  // eslint-disable-next-line no-console
   console.log(`${bulls} Bulls ${cows} Cows`);
 }
 
