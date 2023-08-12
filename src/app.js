@@ -1,12 +1,25 @@
 'use strict';
 
 const { terminal } = require('./terminal');
-const { fourDigitRandom } = require('./randomNumber');
-const { isNumber, isFourDigitNumber } = require('./checkFuncs');
+const { getFourDigitsRandom } = require('./randomNumber');
+const {
+  isNumber,
+  isFourDigitNumber,
+  isUniqeNumbers,
+} = require('./checkFuncs');
 const { countBullsAndCows } = require('./countBullsAndCows');
 
 function startGame() {
   terminal.question('Guess a four-digit number ', (enterNumber) => {
+    const checkUnique = isUniqeNumbers(enterNumber);
+    const fourDigitRandom = getFourDigitsRandom();
+
+    if (!checkUnique) {
+      // eslint-disable-next-line no-console
+      console.log('Enter digits must be unique');
+      startGame();
+      return;
+    }
     if (isNumber(+enterNumber) && isFourDigitNumber(+enterNumber)) {
       if (+enterNumber === fourDigitRandom) {
         // eslint-disable-next-line no-console
