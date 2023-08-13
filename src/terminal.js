@@ -7,9 +7,7 @@ const terminal = require('readline').createInterface({
 
 function askToGuess() {
   return new Promise((resolve) => {
-    terminal.question('Please enter your guess numeber: ', (number) => {
-      return resolve(number);
-    });
+    terminal.question('Please enter your guess numeber: ', resolve);
   });
 };
 
