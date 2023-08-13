@@ -17,7 +17,7 @@ function playGame() {
       return;
     }
 
-    if (guess.match(/[a-zA-Z]/g)) {
+    if (guess.match(/[^\d]/u)) {
       console.log('Please enter a correct number');
       playGame();
 
