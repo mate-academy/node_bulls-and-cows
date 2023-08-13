@@ -19,8 +19,8 @@ function playGame() {
       return;
     }
 
-    if (checkLetters(number)) {
-      console.log('Letters are not allowed');
+    if (!validateNumber(number)) {
+      console.log('Only numbers are allowed');
       playGame();
 
       return;
@@ -62,10 +62,10 @@ function checkDuplicate(str) {
   return str === newStr;
 };
 
-function checkLetters(str) {
-  const regExp = /[a-zA-Z]/;
+function validateNumber(val) {
+  const regExp = /^\d{4}$/;
 
-  return regExp.test(str);
+  return regExp.test(val);
 }
 
 module.exports = {
