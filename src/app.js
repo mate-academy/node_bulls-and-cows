@@ -3,18 +3,22 @@
 
 const { terminal } = require('./modules/terminal');
 const { generateNumber } = require('./modules/generateNumber');
-const { calculateBulls } = require('./modules/calculateBulls');
-const { calculateCows } = require('./modules/calculateCows');
+const { calculateBullsAndCows } = require('./modules/calculateBullsAndCows');
 
 const randomNumber = generateNumber();
 
 function playGame() {
   terminal.question('Guess a number ', (guess) => {
-    console.log(randomNumber);
-
     if (guess.length !== 4) {
       console.log('Please enter a 4-digit number');
 
+      playGame();
+
+      return;
+    }
+
+    if (guess.match(/[a-zA-Z]/g)) {
+      console.log('Please enter a correct number');
       playGame();
 
       return;
@@ -38,8 +42,7 @@ function playGame() {
       return;
     }
 
-    const bulls = calculateBulls(randomNumber, guess);
-    const cows = calculateCows(randomNumber, guess);
+    const [bulls, cows] = calculateBullsAndCows(randomNumber, guess);
 
     console.log(`You have ${bulls} bulls and ${cows} cows`);
 
