@@ -15,6 +15,9 @@ async function startGame() {
   if (userNumber.length !== 4) {
     terminal.write('\nNumber should contain 4 digits!\n');
     startGame();
+  } else if (isNaN(+userNumber)) {
+    terminal.write('\nNumber should contain only digits!\n');
+    startGame();
   } else if (isNumberHasDuplicates(userNumber)) {
     terminal.write('\nAll digits must be different!\n');
     startGame();
