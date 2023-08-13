@@ -14,6 +14,8 @@ const countBullsAndCows = (number, value) => {
     }
   }
 
+  cows -= bull;
+
   return [bull, cows];
 };
 

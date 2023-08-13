@@ -19,6 +19,13 @@ function playGame() {
       return;
     }
 
+    if (checkLetters(number)) {
+      console.log('Letters are not allowed');
+      playGame();
+
+      return;
+    }
+
     if (!checkDuplicate(number)) {
       console.log('Duplicate digits are not allowed');
       playGame();
@@ -54,6 +61,12 @@ function checkDuplicate(str) {
 
   return str === newStr;
 };
+
+function checkLetters(str) {
+  const regExp = /[a-zA-Z]/;
+
+  return regExp.test(str);
+}
 
 module.exports = {
   playGame,
