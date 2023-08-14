@@ -20,7 +20,7 @@ function terminalQuestion() {
       terminalInput.write('You win');
       terminalInput.close();
     } else {
-      terminalInput.write('  ')
+      terminalInput.write('  ');
       terminalInput.write(checkedNumberFromRandom.join(' '));
       terminalQuestion();
     }
