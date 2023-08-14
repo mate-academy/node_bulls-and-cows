@@ -12,6 +12,14 @@ const startGame = () => {
     terminal.question('Enter a number with 4 different digits: ', (guess) => {
       const matches = check(number, guess);
 
+      if (isNaN(guess)) {
+        // eslint-disable-next-line no-console
+        console.log('Invalid input. Please enter 4 different digits.');
+        tryToGuess();
+
+        return;
+      }
+
       if (guess.length !== 4 || !isValidGuess(guess)) {
         // eslint-disable-next-line no-console
         console.log('Not valid number!');
