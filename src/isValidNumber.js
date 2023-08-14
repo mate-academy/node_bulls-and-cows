@@ -14,7 +14,7 @@ const isValidNumber = (userNumber) => {
   }
 
   if (!isUniqueArray(userNumber.split(''))) {
-    throw Error('Repeated numbers in an array are not allowed');
+    throw Error('Repeated numbers are not allowed');
   }
 };
 

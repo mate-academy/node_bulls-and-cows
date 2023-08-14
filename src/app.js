@@ -3,7 +3,7 @@ import { countBullsAndCows } from './countBullsAndCows.js';
 import { terminal } from './terminal.js';
 
 function ask() {
-  terminal.question('Угадай число: ', (personNumber) => {
+  terminal.question('Guess the number: ', (personNumber) => {
     try {
       isValidNumber(personNumber);
     } catch (error) {
