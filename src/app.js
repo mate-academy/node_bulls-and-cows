@@ -1,16 +1,11 @@
 /* eslint-disable no-console */
 'use strict';
 
-const readline = require('readline');
 const { getRandomInt } = require('./getRandomInt');
 const { calculateBullsAndCows } = require('./calculateBullsAndCows');
+const { game } = require('./game');
 
 const randomNum = getRandomInt(1111, 9999);
-
-const game = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 
 const askQuestion = () => {
   game.question('Guess a number (4 different digits): ', (number) => {
@@ -40,14 +35,7 @@ const askQuestion = () => {
       return;
     }
 
-    const bullsPartMessage = result.bulls > 1
-      ? result.bulls + ' bulls'
-      : result.bulls + ' bull';
-    const cowsPartMessage = result.cows > 1
-      ? result.cows + ' cows'
-      : result.cows + ' cow';
-
-    console.log(`The result is ${bullsPartMessage} and ${cowsPartMessage}`);
+    console.log(`Bulls: ${result.bulls}, cows: ${result.cows}`);
 
     askQuestion();
   });
