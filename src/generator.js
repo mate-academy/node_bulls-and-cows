@@ -8,10 +8,12 @@ function generateNumbers() {
   const numbers = [];
   const numbersCount = process.env.NUMBERS_COUNT;
 
-  for (let i = 0; i < numbersCount; i++) {
+  while (numbers.length < numbersCount) {
     const randomDigit = Math.floor(Math.random() * 10);
 
-    numbers.push(randomDigit);
+    if (!numbers.includes(randomDigit)) {
+      numbers.push(randomDigit);
+    }
   }
 
   return numbers;
