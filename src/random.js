@@ -2,9 +2,10 @@
 
 function random() {
   let checkedValue = false;
+  const magicNumber = 4;
   const randomNum = String(Math.ceil(Math.random() * 10000));
 
-  if (randomNum.length !== 4) {
+  if (randomNum.length !== magicNumber) {
     return random();
   }
 
