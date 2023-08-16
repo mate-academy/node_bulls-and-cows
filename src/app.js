@@ -5,7 +5,7 @@ const { getRandomInt } = require('./getRandomInt');
 const { calculateBullsAndCows } = require('./calculateBullsAndCows');
 const { game } = require('./game');
 
-const randomNum = getRandomInt(1111, 9999);
+const randomNum = getRandomInt();
 
 const askQuestion = () => {
   game.question('Guess a number (4 different digits): ', (number) => {
