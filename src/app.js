@@ -17,9 +17,9 @@ function startPlay() {
     const numsFromPlayer = arg.split('').map(item => +item);
     const checkResult = checkNums(randomNumbers, numsFromPlayer);
 
-    console.log(checkResult.join(' '));
+    console.log(checkResult);
 
-    if (checkResult.every(item => item === 'bull')) {
+    if (checkResult === 'You win!') {
       terminal.close();
     } else {
       startPlay();
