@@ -1,33 +1,32 @@
 'use strict';
 
-function getBullsAndCows(guess, randomNumber) {
-  if (guess.length > 4) {
-    return 'Your number has more than 4 digits';
-  }
+const makeValidation = require('./validation').makeValidation;
 
-  if (guess.length < 4) {
-    return 'Your number has less than 4 digits';
+function getBullsAndCows(guess, randomNumber) {
+  const validation = makeValidation(guess);
+
+  if (validation) {
+    return validation;
   }
 
   let bulls = 0;
   let cows = 0;
   const target = randomNumber.split('');
-  const testLine = [...target];
 
   for (let i = 0; i < guess.length; i++) {
-    if (guess[i] === testLine[i]) {
+    if (guess[i] === target[i]) {
       bulls++;
-      testLine[i] = ' ';
+      target[i] = ' ';
     }
   }
 
   for (let i = 0; i < guess.length; i++) {
-    if (testLine.includes(guess[i])) {
+    if (target.includes(guess[i])) {
       cows++;
 
-      const cowIndex = testLine.indexOf(guess[i]);
+      const cowIndex = target.indexOf(guess[i]);
 
-      testLine[cowIndex] = ' ';
+      target[cowIndex] = ' ';
     }
   }
 
