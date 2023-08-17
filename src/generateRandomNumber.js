@@ -1,17 +1,9 @@
 'use strict';
 
 const generateRandomNumber = () => {
-  const randomDigits = [];
+  const randomNumber = Math.floor(Math.random() * 9000) + 1000;
 
-  for (let i = 0; i < 4; i++) {
-    const randomNumber = Math.floor(Math.random() * 9000) + 1000;
-
-    randomDigits.push(randomNumber);
-  }
-
-  randomDigits.sort(() => Math.random() - 0.5);
-
-  return randomDigits.join('');
+  return randomNumber.toString();
 };
 
 module.exports = { generateRandomNumber };
