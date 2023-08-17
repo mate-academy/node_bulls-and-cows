@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable max-len */
 'use strict';
 
 const readline = require('readline');
@@ -9,8 +11,15 @@ function getInput() {
       output: process.stdout,
     });
 
-    terminal.question('Please, guess a number. ', (guessNumber) => {
-      resolve(guessNumber);
+    terminal.question('Please, guess a number: ', (guessNumber) => {
+      terminal.close();
+
+      if (guessNumber.length !== 4) {
+        console.log('Invalid input. Please enter a valid number with 4 different digits.');
+        resolve(getInput());
+      } else {
+        resolve(guessNumber);
+      }
     });
   });
 }
