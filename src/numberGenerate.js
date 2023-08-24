@@ -7,11 +7,11 @@ function generateFourDigitNumber() {
     const j = Math.floor(Math.random() * (i + 1));
 
     [digits[i], digits[j]] = [digits[j], digits[i]];
-
-    const fourDigitNumber = digits.slice(0, 4).join('');
-
-    return fourDigitNumber;
   }
+
+  const fourDigitNumber = digits.slice(0, 4).join('');
+
+  return fourDigitNumber;
 }
 
 module.exports = generateFourDigitNumber;

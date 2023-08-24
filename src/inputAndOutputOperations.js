@@ -14,19 +14,37 @@ const game = (generatedNumber) => {
     if (number === generatedNumber) {
       terminal.write('You won!');
       terminal.close();
-    } else if (number.length !== 4) {
-      console.log('The number should consist of 4 digits');
-      terminal.close();
-      game(generatedNumber);
-    } else if (isNaN(number)) {
-      console.log('The number should consist only digits');
-      terminal.close();
-      game(generatedNumber);
-    } else {
-      console.log(gameCalculations(generatedNumber, number));
-      terminal.close();
-      game(generatedNumber);
     }
+
+    if (number.length !== 4) {
+      console.log('Error. The number should consist of 4 digits');
+      terminal.close();
+      game(generatedNumber);
+
+      return;
+    }
+
+    if (isNaN(number)) {
+      console.log('Error. The number should consist only digits');
+      terminal.close();
+      game(generatedNumber);
+
+      return;
+    }
+
+    const providedNumbers = new Set(number);
+
+    if (providedNumbers.size !== 4) {
+      console.log('Error. Your digits are not unique');
+      terminal.close();
+      game(generatedNumber);
+
+      return;
+    }
+
+    console.log(gameCalculations(generatedNumber, number));
+    terminal.close();
+    game(generatedNumber);
   });
 };
 
