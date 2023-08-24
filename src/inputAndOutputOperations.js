@@ -14,6 +14,8 @@ const game = (generatedNumber) => {
     if (number === generatedNumber) {
       terminal.write('You won!');
       terminal.close();
+
+      return;
     }
 
     if (number.length !== 4) {
