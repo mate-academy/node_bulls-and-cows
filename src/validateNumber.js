@@ -3,8 +3,13 @@
 const NUM_LENGTH = 4;
 
 module.exports.isNumberValid = (number) => {
-  for (let i = 1; i < NUM_LENGTH; i++) {
-    if (number[i] === number[i - 1]) {
+  const digitsArray = number.split('');
+
+  for (let i = 0; i < NUM_LENGTH; i++) {
+    if (
+      digitsArray.indexOf(digitsArray[i])
+      !== digitsArray.lastIndexOf(digitsArray[i])
+    ) {
       return false;
     }
   }
