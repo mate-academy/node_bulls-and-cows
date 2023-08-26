@@ -1,9 +1,12 @@
 /* eslint-disable no-console */
 'use strict';
 
+require('dotenv').config();
+
 const getBullsAndCows = require('./getBullsAndCows');
 const validateInput = require('./validateInput');
 const inputAndOutputOperations = require('./inputAndOutputOperations');
+const NUMBER_LENGTH = parseInt(process.env.NUMBER_LENGTH, 10);
 
 const handlePlayRound = (programNumber) => {
   inputAndOutputOperations.question('', (userNumber) => {
@@ -17,7 +20,7 @@ const handlePlayRound = (programNumber) => {
       return;
     }
 
-    if (result.bulls === 4) {
+    if (result.bulls === NUMBER_LENGTH) {
       console.log(`Congratulations! You guessed the ${programNumber}!`);
 
       inputAndOutputOperations.close();
