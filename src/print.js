@@ -1,16 +1,15 @@
 /* eslint-disable no-console */
-/* eslint-disable quotes */
-"use strict";
+'use strict';
 
-const chalk = require("chalk");
-const figlet = require("figlet");
+const chalk = require('chalk');
+const figlet = require('figlet');
 
 module.exports = {
   start: function() {
     console.log(
       chalk.bgMagenta.bold(
-        figlet.textSync("Bulls And Cows", {
-          horizontalLayout: "full",
+        figlet.textSync('Bulls And Cows', {
+          horizontalLayout: 'full',
         })
       )
     );
@@ -21,8 +20,8 @@ module.exports = {
   win: function() {
     console.log(
       chalk.bgMagenta.bold(
-        figlet.textSync("Congratulations", {
-          horizontalLayout: "full",
+        figlet.textSync('Congratulations', {
+          horizontalLayout: 'full',
         })
       )
     );

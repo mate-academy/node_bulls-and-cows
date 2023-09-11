@@ -1,5 +1,4 @@
-/* eslint-disable quotes */
-"use strict";
+'use strict';
 
 module.exports = {
   arrayOf4RandomDigits: function() {
