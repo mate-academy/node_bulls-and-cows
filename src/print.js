@@ -1,0 +1,30 @@
+/* eslint-disable no-console */
+/* eslint-disable quotes */
+"use strict";
+
+const chalk = require("chalk");
+const figlet = require("figlet");
+
+module.exports = {
+  start: function() {
+    console.log(
+      chalk.bgMagenta.bold(
+        figlet.textSync("Bulls And Cows", {
+          horizontalLayout: "full",
+        })
+      )
+    );
+  },
+  result: function(bulls, cows) {
+    console.log(chalk.bgCyan.bold(`Bulls: ${bulls}, Cows: ${cows}`));
+  },
+  win: function() {
+    console.log(
+      chalk.bgMagenta.bold(
+        figlet.textSync("Congratulations", {
+          horizontalLayout: "full",
+        })
+      )
+    );
+  },
+};
