@@ -7,7 +7,7 @@ const figlet = require('figlet');
 module.exports = {
   start: function() {
     console.log(
-      chalk.bgMagenta.bold(
+      chalk.bgMagenta(
         figlet.textSync('Bulls And Cows', {
           horizontalLayout: 'full',
         })
@@ -19,7 +19,7 @@ module.exports = {
   },
   win: function() {
     console.log(
-      chalk.bgMagenta.bold(
+      chalk.bgMagenta(
         figlet.textSync('Congratulations', {
           horizontalLayout: 'full',
         })
