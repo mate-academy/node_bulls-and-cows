@@ -5,8 +5,8 @@ const bullsAndCows = require('commander');
 const clear = require('clear');
 
 const inquire = require('./inquire');
-const generate = require('./random');
-const count = require('./count');
+const generate = require('./utils/random');
+const count = require('./utils/count');
 const print = require('./print');
 
 bullsAndCows
