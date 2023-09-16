@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 'use strict';
 
 const getBullsAndCows = (randomNumber, guessNumber) => {
@@ -18,13 +17,12 @@ const getBullsAndCows = (randomNumber, guessNumber) => {
     result = true;
   }
 
-  const resultMessage = result
-    ? 'You won! Congratulations!'
-    : `${bulls} bulls, ${cows} cows`;
-
-  console.log(resultMessage);
-
-  return result;
+  return {
+    result: result,
+    message: result
+      ? 'You won! Congratulations!'
+      : `${bulls} bulls, ${cows} cows`,
+  };
 };
 
 module.exports = { getBullsAndCows };
