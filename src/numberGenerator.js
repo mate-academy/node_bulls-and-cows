@@ -9,8 +9,7 @@ function generateRandomNumber() {
 
     randomNum += digits[randomDigitIndex];
 
-    digits = digits.slice(0, randomDigitIndex)
-      + digits.slice(randomDigitIndex + 1);
+    digits += digits.slice(randomDigitIndex, 1);
   }
 
   return randomNum;

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const readline = require('readline');
@@ -22,6 +23,7 @@ function playGame() {
     const result = calculateBullsAndCows(secretNumber, guessedNumber);
 
     if (result.bulls === 4) {
+      console.log('Congratulations you are win!!!!');
       rl.close();
     } else {
       // eslint-disable-next-line no-console
