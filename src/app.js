@@ -17,7 +17,7 @@ const handleGameStart = (enteredNumber) => {
 
   const secretNumber = numberGenerator();
 
-  console.log(secretNumber, enteredNumber);
+  console.log(`The secret number is ${secretNumber}`);
 
   if (enteredNumber === secretNumber) {
     console.log('You win!');
