@@ -5,9 +5,9 @@ const calculateResult = (answer, assumption) => {
   let cows = 0;
 
   for (let i = 0; i < 4; i++) {
-    if (answer[i] === +assumption[i]) {
+    if (+answer[i] === +assumption[i]) {
       bulls++;
-    } else if (answer.includes(+assumption[i])) {
+    } else if (answer.includes(assumption[i])) {
       cows++;
     }
   }

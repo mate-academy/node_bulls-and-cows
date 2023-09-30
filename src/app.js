@@ -25,7 +25,10 @@ const game = () => {
       return;
     }
 
-    const result = calculateResult(gemeratNumber, normalizePresume.split(''));
+    const result = calculateResult(
+      gemeratNumber.split(''),
+      normalizePresume.split(''),
+    );
 
     if (result.bulls !== 4) {
       console.log(`Bulls: ${result.bulls}, Cows: ${result.cows}`);

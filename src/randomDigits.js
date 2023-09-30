@@ -10,7 +10,7 @@ const getRandomNumber = () => {
     result.push(kitDigits.splice(indexDidit, 1));
   }
 
-  return result;
+  return result.join('');
 };
 
 module.exports = {
