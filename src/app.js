@@ -2,7 +2,7 @@
 
 const { terminal } = require('./terminal');
 const { getBullsAndCowsCount } = require('./calculation');
-const { getRandomFourDigitNumber } = require('./randomNumber');
+const { getRandomFourDigitNumber } = require('./randomizer');
 
 const randomNumber = getRandomFourDigitNumber();
 
