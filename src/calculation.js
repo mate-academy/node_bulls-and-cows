@@ -8,11 +8,11 @@ function getBullsAndCowsCount(randomNumber, userNumber) {
   for (let i = 0; i < randomNumberStr.length; i++) {
     const hasNumberIncluded = randomNumberStr.includes(userNumber[i]);
 
-    if (isNumberIncluded && randomNumberStr[i] === userNumber[i]) {
+    if (hasNumberIncluded && randomNumberStr[i] === userNumber[i]) {
       bulls++;
     }
 
-    if (isNumberIncluded && randomNumberStr[i] !== userNumber[i]) {
+    if (hasNumberIncluded && randomNumberStr[i] !== userNumber[i]) {
       cows++;
     }
   }
