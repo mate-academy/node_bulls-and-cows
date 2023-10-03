@@ -4,6 +4,7 @@
 const { terminal } = require('./terminal');
 const { generateNumber } = require('./numberGenerator');
 const { checkAnswer } = require('./checkAnswer');
+const searchedNumber = generateNumber();
 
 function gameStart() {
   terminal.question('Enter a number: ', (userInput) => {
@@ -13,8 +14,6 @@ function gameStart() {
 
       return;
     }
-
-    const searchedNumber = generateNumber();
 
     if (userInput === searchedNumber) {
       console.log('You won!', `Searched number was: ${searchedNumber}`);
