@@ -1,10 +1,17 @@
 'use strict';
 
 function getRandomFourDigitNumber() {
-  const min = 1000;
-  const max = 9999;
+  const fourDigit = [];
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  while (fourDigit.length !== 4) {
+    const randomDigit = Math.floor(Math.random() * 10);
+
+    if (!fourDigit.includes(randomDigit)) {
+      fourDigit.push(randomDigit);
+    }
+  }
+
+  return fourDigit.join('');
 }
 
 module.exports = {

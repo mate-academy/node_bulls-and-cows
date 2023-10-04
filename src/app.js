@@ -10,7 +10,7 @@ function guessNumber() {
   terminal.question(`Please guess the number (four digits): `, (userNumber) => {
     /* eslint-disable no-console */
 
-    if (userNumber.toString().length < 4) {
+    if (userNumber.toString().length !== 4) {
       console.log('Wrong number of digits');
       guessNumber();
 
@@ -26,7 +26,7 @@ function guessNumber() {
 
     const { bulls, cows } = getBullsAndCowsCount(randomNumber, userNumber);
 
-    if (randomNumber.toString() === userNumber) {
+    if (randomNumber === userNumber) {
       console.log('Congratulations! You guessed the number!');
       terminal.close();
 
