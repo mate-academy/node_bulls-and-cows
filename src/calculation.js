@@ -5,13 +5,13 @@ function getBullsAndCowsCount(randomNumber, userNumber) {
   let cows = 0;
 
   for (let i = 0; i < randomNumber.length; i++) {
-    const isNumberIncluded = randomNumber.includes(userNumber[i]);
+    const hasNumberIncluded = randomNumber.includes(userNumber[i]);
 
-    if (isNumberIncluded && randomNumber[i] === userNumber[i]) {
+    if (hasNumberIncluded && randomNumber[i] === userNumber[i]) {
       bulls++;
     }
 
-    if (isNumberIncluded && randomNumber[i] !== userNumber[i]) {
+    if (hasNumberIncluded && randomNumber[i] !== userNumber[i]) {
       cows++;
     }
   }
