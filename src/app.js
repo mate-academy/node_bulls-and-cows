@@ -8,6 +8,7 @@ function getRnd() {
 
 const randomNumber = `${getRnd()}${getRnd()}${getRnd()}${getRnd()}`;
 let win = false;
+const winBulls = 4;
 
 function bullsAndCows(userNum) {
   let bulls = 0;
@@ -21,7 +22,7 @@ function bullsAndCows(userNum) {
     }
   }
 
-  if (bulls === 4) {
+  if (bulls === winBulls) {
     win = true;
   }
 
@@ -46,6 +47,8 @@ function game() {
       console.log(`${bullsAndCows(userNumber)}\n`);
 
       if (win) {
+        // eslint-disable-next-line no-console
+        console.log(`You are winner!!!!!\n`);
         terminal.close();
 
         return;
@@ -57,18 +60,3 @@ function game() {
 }
 
 game();
-
-// while (!win) {
-//   terminal.question('To exit type \'exit\' \nWhat is your number? ',
-//     (userNumber) => {
-//       if (userNumber.concat('exit') === 0) {
-//         terminal.close();
-//       }
-//       console.log(`${bullsAndCows(userNumber)}`);
-
-//       if (win) {
-//         terminal.close();
-//       }
-//     }
-//   );
-// }
