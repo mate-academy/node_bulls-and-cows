@@ -11,6 +11,7 @@ const WINNER_MESSAGE = "Congratulations! You've guessed the number!";
 
 const MAX_NUMBER = 9999;
 const MIN_NUMBER = 1000;
+const EXPECTED_NUMBER_LENGTH = 4;
 
 module.exports = {
   DEFAULT_ANSWER_VALUE,
@@ -19,4 +20,5 @@ module.exports = {
   QUESTION,
   INVALID_INPUT_MESSAGE,
   WINNER_MESSAGE,
+  EXPECTED_NUMBER_LENGTH,
 };

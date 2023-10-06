@@ -7,13 +7,14 @@ const {
   QUESTION,
   INVALID_INPUT_MESSAGE,
   WINNER_MESSAGE,
+  EXPECTED_NUMBER_LENGTH,
 } = require('./constants');
 
 const generatedNumber = generateNumber();
 
 function askQuestion() {
   ui.question(QUESTION, (answer) => {
-    if (answer.length !== 4) {
+    if (answer.length !== EXPECTED_NUMBER_LENGTH) {
       ui.write(INVALID_INPUT_MESSAGE);
       askQuestion();
 
