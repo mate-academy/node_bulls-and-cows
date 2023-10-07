@@ -16,7 +16,7 @@ const isValid = (number) => {
     const numberCopy = [...number].slice(index + 1);
 
     if (numberCopy.includes(number[index])) {
-      return false
+      return false;
     }
   }
 
@@ -34,7 +34,7 @@ const game = (text) => {
 
       terminal.close();
     } else {
-      if (!isNaN(number) && number.length > 3 && isValid(number)) {
+      if (!isNaN(number) && number.length === 4 && isValid(number)) {
         return (game(compare(secretNumber, number)));
       } else {
         return (game('Enter valid number: '));
