@@ -12,19 +12,11 @@ const terminal = readline.createInterface(
 );
 
 const isValid = (number) => {
-  let matchAmount = 0;
+  for (let index = 0; index < number.length; index++) {
+    const numberCopy = [...number].slice(index + 1);
 
-  for (let currIndex = 0; currIndex < number.length; currIndex++) {
-    matchAmount = 0;
-
-    for (let compareIndex = 0; compareIndex < number.length; compareIndex++) {
-      if (number[currIndex] === number[compareIndex]) {
-        matchAmount++;
-      }
-    }
-
-    if (matchAmount > 1) {
-      return false;
+    if (numberCopy.includes(number[index])) {
+      return false
     }
   }
 
