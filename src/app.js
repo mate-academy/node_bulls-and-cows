@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable no-console */
 
 const {
   WRONG_INPUT_MESSAGE,
@@ -10,31 +11,36 @@ const { calculateBullsCows } = require('./calculateBullsCows');
 const { ioInterface } = require('./ioInterface');
 const { generateFixedSizeNumber } = require('./generateFixedSizeNumber');
 
-function createGameSession(numberSize) {
-  const gameNumber = generateFixedSizeNumber(numberSize);
+const generatedNumber = generateFixedSizeNumber(gameNumberSize);
 
-  ioInterface.question(WELCOME_MESSAGE, (answer) => {
+async function createGameSession(numberSize, gameNumber) {
+  while (true) {
+    const answer = await new Promise((resolve) => {
+      ioInterface.question(WELCOME_MESSAGE, resolve);
+    });
+
     if (answer.length !== numberSize || !Number(answer)) {
-      ioInterface.write(WRONG_INPUT_MESSAGE);
+      console.log(WRONG_INPUT_MESSAGE);
 
-      createGameSession();
-
-      return;
+      continue;
     }
 
     const userNumber = Number(answer);
 
     if (gameNumber === userNumber) {
-      ioInterface.write(VICTORY_MESSAGE);
-      ioInterface.close();
+      console.log(VICTORY_MESSAGE);
+      break;
     } else {
-      const [bulls, cows] = calculateBullsCows(gameNumber, userNumber);
+      const { bulls, cows } = calculateBullsCows(gameNumber, userNumber);
+      const bullsAndCowsMessage
+        = `Oopsie, there are ${bulls} bulls`
+        + ` and ${cows} cows (^◕ᴥ◕^)`;
 
-      ioInterface
-        .write(`Oopsie, there are ${bulls} bulls and ${cows} cows (^◕ᴥ◕^)`);
-      createGameSession();
+      console.log(bullsAndCowsMessage);
     }
-  });
+  }
+
+  ioInterface.close();
 }
 
-createGameSession(gameNumberSize);
+createGameSession(gameNumberSize, generatedNumber);
