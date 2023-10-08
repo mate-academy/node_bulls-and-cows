@@ -1,9 +1,11 @@
 'use strict';
 
+const { EXPECTED_NUMBER_LENGTH } = require('./constants');
+
 function generateNumber() {
   const differentRandomDigits = [];
 
-  while (differentRandomDigits.length < 4) {
+  while (differentRandomDigits.length < EXPECTED_NUMBER_LENGTH) {
     const randomDigit = Math.floor(Math.random() * 10);
 
     if (!differentRandomDigits.includes(randomDigit)) {
