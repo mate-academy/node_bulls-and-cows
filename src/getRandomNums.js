@@ -1,6 +1,6 @@
 'use strict';
 
-const MAX_LENGTH = require('./constants');
+const { MAX_LENGTH } = require('./constants');
 
 function getRandomNum() {
   return Math.floor(Math.random() * 9) + 1;

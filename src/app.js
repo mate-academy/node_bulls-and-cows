@@ -28,15 +28,17 @@ function startGame() {
       console.log('I expect a 4 digit num, love');
       console.log('fix your answer and try again');
       console.log('------------------------------');
-      startGame();
-    } else {
-      const [bulls, cows] = getBullsAndCows(correctAnswer, userInput);
 
-      console.log('------------------------------');
-      console.log(`Bulls: ${bulls}; Cows: ${cows}.`);
-      console.log('------------------------------');
-      startGame();
+      return startGame();
     }
+
+    const { bulls, cows } = getBullsAndCows(correctAnswer, userInput);
+
+    console.log('------------------------------');
+    console.log(`Bulls: ${bulls}; Cows: ${cows}.`);
+    console.log('------------------------------');
+
+    return startGame();
   });
 };
 

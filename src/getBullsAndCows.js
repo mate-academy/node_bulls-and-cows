@@ -16,7 +16,10 @@ function getBullsAndCows(correctNumber, userNumber) {
     }
   }
 
-  return [bulls, cows];
+  return {
+    bulls,
+    cows,
+  };
 }
 
 module.exports = {
