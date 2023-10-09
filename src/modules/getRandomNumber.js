@@ -1,3 +1,5 @@
+'use strict';
+
 const { MAX_NUMBER, MIN_NUMBER } = require('../constants');
 
 const getRandomNumber = () => {

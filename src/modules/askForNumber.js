@@ -1,3 +1,5 @@
+'use strict';
+
 const isNumberValid = require('./isNumberValid');
 const readline = require('readline');
 const getBullsCows = require('./getBullsCows');

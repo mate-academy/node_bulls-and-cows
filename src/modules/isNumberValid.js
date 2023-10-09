@@ -1,3 +1,5 @@
+'use strict';
+
 const { NUMBER_SIZE } = require('../constants');
 
 const isNumberValid = (num) => {
