@@ -6,12 +6,11 @@ function bullAndCowCounter(arrayOfRandomNumbers, arrayOfUserNumbers) {
 
   for (let i = 0; i < arrayOfUserNumbers.length; i++) {
     if (arrayOfRandomNumbers.includes(arrayOfUserNumbers[i])) {
-      cow++;
-    }
-
-    if (arrayOfRandomNumbers.indexOf(arrayOfUserNumbers[i]) === i) {
-      cow--;
-      bull++;
+      if (arrayOfRandomNumbers.indexOf(arrayOfUserNumbers[i]) === i) {
+        bull++;
+      } else {
+        cow++;
+      }
     }
   }
 
