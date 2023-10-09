@@ -1,3 +1,5 @@
+'use strict';
+
 const isNumberValid = require('./modules/isNumberValid');
 const getRandomNumber = require('./modules/getRandomNumber');
 const askForNumber = require('./modules/askForNumber');
