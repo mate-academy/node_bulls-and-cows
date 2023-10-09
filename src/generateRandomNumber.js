@@ -1,14 +1,15 @@
 'use strict';
 
+const { DIGITS, NUMBER_OF_DIGITS } = require('./constants');
+
 function generateRandomNumber() {
-  const digits = '0123456789'.split('');
   const numbers = [];
 
-  while (numbers.length < 4) {
-    const digitIndex = Math.floor(Math.random() * digits.length);
+  while (numbers.length < NUMBER_OF_DIGITS) {
+    const digit = Math.floor(Math.random() * DIGITS.length);
 
-    if (numbers.length === 0 || !numbers.includes(digits[digitIndex])) {
-      numbers.push(digits[digitIndex]);
+    if (!numbers.length || !numbers.includes(DIGITS[digit])) {
+      numbers.push(DIGITS[digit]);
     }
   }
 
