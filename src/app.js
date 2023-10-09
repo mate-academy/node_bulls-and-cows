@@ -5,13 +5,13 @@ const {
   WRONG_INPUT_MESSAGE,
   WELCOME_MESSAGE,
   VICTORY_MESSAGE,
-  gameNumberSize,
+  GAME_NUMBER_SIZE,
 } = require('./constants');
 const { calculateBullsCows } = require('./calculateBullsCows');
 const { ioInterface } = require('./ioInterface');
 const { generateFixedSizeNumber } = require('./generateFixedSizeNumber');
 
-const generatedNumber = generateFixedSizeNumber(gameNumberSize);
+const generatedNumber = generateFixedSizeNumber(GAME_NUMBER_SIZE);
 
 async function createGameSession(numberSize, gameNumber) {
   while (true) {
@@ -30,17 +30,17 @@ async function createGameSession(numberSize, gameNumber) {
     if (gameNumber === userNumber) {
       console.log(VICTORY_MESSAGE);
       break;
-    } else {
-      const { bulls, cows } = calculateBullsCows(gameNumber, userNumber);
-      const bullsAndCowsMessage
-        = `Oopsie, there are ${bulls} bulls`
-        + ` and ${cows} cows (^◕ᴥ◕^)`;
-
-      console.log(bullsAndCowsMessage);
     }
+
+    const { bulls, cows } = calculateBullsCows(gameNumber, userNumber);
+    const bullsAndCowsMessage
+      = `Oopsie, there are ${bulls} bulls`
+      + ` and ${cows} cows (^◕ᴥ◕^)`;
+
+    console.log(bullsAndCowsMessage);
   }
 
   ioInterface.close();
 }
 
-createGameSession(gameNumberSize, generatedNumber);
+createGameSession(GAME_NUMBER_SIZE, generatedNumber);
