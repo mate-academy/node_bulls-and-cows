@@ -1,17 +1,17 @@
 'use strict';
 
 function generateFixedSizeNumber(length) {
-  let digits = '0123456789';
-  let number = '';
+  let numberArray = [];
 
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * digits.length);
+  while (numberArray.length < length) {
+    const randomdigit = Math.floor(Math.random() * 10);
 
-    number += digits[randomIndex];
-    digits = digits.slice(0, randomIndex) + digits.slice(randomIndex + 1);
+    if (!numberArray.includes(randomdigit)) {
+      numberArray.push(randomdigit);
+    }
   }
 
-  return Number(number);
+  return Number(numberArray.join(''));
 }
 
 module.exports = {
