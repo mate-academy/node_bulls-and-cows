@@ -8,31 +8,28 @@ const {
   WIN_MESSAGE,
   INVALID_INPUT_MESSAGE,
   NUMBER_MESSAGE,
-  EXPECTED_NUMBER_LENGTH,
 } = require('./constants');
+const { isInputValid } = require('./isInputValid');
 
 const randomNumber = generateNumber();
 
 function playBullsAndCows() {
   terminal.question(NUMBER_MESSAGE, (userInput) => {
-    const userNumber = userInput;
-
-    if (userNumber === randomNumber) {
+    if (userInput === randomNumber) {
       console.log(WIN_MESSAGE);
       terminal.close();
 
       return;
     }
 
-    if (typeof +userInput !== 'number'
-      || [...new Set(userInput.split(''))].length !== EXPECTED_NUMBER_LENGTH) {
+    if (!isInputValid(userInput)) {
       console.log(INVALID_INPUT_MESSAGE);
       playBullsAndCows();
 
       return;
     }
 
-    const { bulls, cows } = countBullsAndCows(randomNumber, userNumber);
+    const { bulls, cows } = countBullsAndCows(randomNumber, userInput);
 
     console.log(`Bulls: ${bulls}; Cows: ${cows}.`);
     playBullsAndCows();

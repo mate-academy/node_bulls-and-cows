@@ -7,13 +7,14 @@ function countBullsAndCows(generatedNumber, userNumber) {
   let cows = 0;
 
   for (let i = 0; i < EXPECTED_NUMBER_LENGTH; i++) {
-    if (generatedNumber.includes(userNumber[i])
-      && generatedNumber.indexOf(userNumber[i]) === i) {
+    const hasNumber = generatedNumber.includes(userNumber[i]);
+    const isNumberBull = generatedNumber.indexOf(userNumber[i]) === i;
+
+    if (hasNumber && isNumberBull) {
       bulls += 1;
     }
 
-    if (generatedNumber.includes(userNumber[i])
-      && generatedNumber.indexOf(userNumber[i]) !== i) {
+    if (hasNumber && !isNumberBull) {
       cows += 1;
     }
   }
