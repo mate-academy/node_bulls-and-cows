@@ -12,7 +12,7 @@ const calculateBullsAndCows = (computerDigits, userDigits) => {
       bulls++;
     }
 
-    if (hasNumberIncluded && computerDigits.includes(userDigits[i])) {
+    if (hasNumberIncluded && computerDigits[i] !== userDigits[i]) {
       cows++;
     }
   }

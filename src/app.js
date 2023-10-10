@@ -6,9 +6,10 @@ const { calculateBullsAndCows } = require('./modules/calculatingBullsAndCows');
 const { userInterface } = require('./modules/userInterface');
 
 const computerDigits = generateRandomDigit();
+const MAX_DIGITS_LENGTH = 4;
 
 const isValidDigits = (digits) => {
-  if (digits.length !== 4) {
+  if (digits.length !== MAX_DIGITS_LENGTH || isNaN(+digits)) {
     return false;
   }
 
@@ -18,7 +19,7 @@ const isValidDigits = (digits) => {
   return uniqueDigits.length === digitsArr.length;
 };
 
-const question = () => {
+const startGame = () => {
   userInterface.question('Enter 4 unique digits: ', (userDigits) => {
     if (userDigits === computerDigits) {
       console.log(`You won!`);
@@ -29,14 +30,14 @@ const question = () => {
 
     if (!isValidDigits(userDigits)) {
       console.log('Invalid digits, try again');
-      question();
+      startGame();
 
       return;
     };
 
     calculateBullsAndCows(computerDigits, userDigits);
-    question();
+    startGame();
   });
 };
 
-question();
+startGame();
