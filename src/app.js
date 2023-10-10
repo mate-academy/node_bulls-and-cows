@@ -8,14 +8,14 @@ const {
   WIN_MESSAGE,
   INVALID_INPUT_MESSAGE,
   NUMBER_MESSAGE,
+  EXPECTED_NUMBER_LENGTH,
 } = require('./constants');
 
 const randomNumber = generateNumber();
-let userNumber;
 
-function bullsAndCows() {
+function playBullsAndCows() {
   terminal.question(NUMBER_MESSAGE, (userInput) => {
-    userNumber = userInput;
+    const userNumber = userInput;
 
     if (userNumber === randomNumber) {
       console.log(WIN_MESSAGE);
@@ -24,16 +24,19 @@ function bullsAndCows() {
       return;
     }
 
-    if (typeof +userInput !== 'number' || userInput.length !== 4) {
+    if (typeof +userInput !== 'number'
+      || [...new Set(userInput.split(''))].length !== EXPECTED_NUMBER_LENGTH) {
       console.log(INVALID_INPUT_MESSAGE);
-      bullsAndCows();
-    } else {
-      const [bulls, cows] = countBullsAndCows(randomNumber, userNumber);
+      playBullsAndCows();
 
-      console.log(`Bulls: ${bulls}; Cows: ${cows}.`);
-      bullsAndCows();
+      return;
     }
+
+    const { bulls, cows } = countBullsAndCows(randomNumber, userNumber);
+
+    console.log(`Bulls: ${bulls}; Cows: ${cows}.`);
+    playBullsAndCows();
   });
 }
 
-bullsAndCows();
+playBullsAndCows();

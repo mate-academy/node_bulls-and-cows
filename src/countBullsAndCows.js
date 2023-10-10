@@ -7,16 +7,21 @@ function countBullsAndCows(generatedNumber, userNumber) {
   let cows = 0;
 
   for (let i = 0; i < EXPECTED_NUMBER_LENGTH; i++) {
-    if (generatedNumber.includes(userNumber[i])) {
-      if (generatedNumber.indexOf(userNumber[i]) === i) {
-        bulls += 1;
-      } else {
-        cows += 1;
-      }
+    if (generatedNumber.includes(userNumber[i])
+      && generatedNumber.indexOf(userNumber[i]) === i) {
+      bulls += 1;
+    }
+
+    if (generatedNumber.includes(userNumber[i])
+      && generatedNumber.indexOf(userNumber[i]) !== i) {
+      cows += 1;
     }
   }
 
-  return [bulls, cows];
+  return {
+    bulls,
+    cows,
+  };
 }
 
 module.exports = { countBullsAndCows };
