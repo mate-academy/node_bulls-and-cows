@@ -1,13 +1,8 @@
 'use strict';
 
 const isNumberValid = require('./isNumberValid');
-const readline = require('readline');
 const getBullsCows = require('./getBullsCows');
-
-const terminal = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const terminal = require('./terminal');
 
 const askForNumber = (message, numberToGues) => {
   terminal.question(message, (playerNumber) => {
@@ -21,7 +16,7 @@ const askForNumber = (message, numberToGues) => {
     }
 
     if (playerNumber !== numberToGues) {
-      const [bulls, cows] = getBullsCows(playerNumber, numberToGues);
+      const { bulls, cows } = getBullsCows(playerNumber, numberToGues);
 
       // eslint-disable-next-line max-len
       askForNumber(`bulls ${bulls}, cows ${cows}\n-------------------------------\n`, numberToGues);
