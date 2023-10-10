@@ -1,9 +1,8 @@
 'use strict';
 
-function getNumbWithRandomDigits() {
-  const DIGIT_COUNT = 4;
-  const RANDOM_SCOPE = 10;
+const { DIGIT_COUNT, RANDOM_SCOPE } = require('./constants.js');
 
+function getNumbWithRandomDigits() {
   let randomDigit = '';
 
   while ((+randomDigit).toString().length < DIGIT_COUNT) {

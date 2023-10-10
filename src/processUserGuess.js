@@ -10,18 +10,30 @@ function processUserGuess(randomNumber, guess) {
   const stringRandomNumber = randomNumber.toString().split('');
   const stringGuess = guess.toString().split('');
 
-  const isBull = stringRandomNumber
-    .some((numb, index) => +numb === +stringGuess[index]);
+  const bullsCount = stringGuess.reduce((acc, numb, index) => {
+    const checkedIndex = index - acc;
+    let increaseBy = 0;
 
-  if (isBull) {
-    return 'bull';
-  }
+    if (+numb === +stringRandomNumber[checkedIndex]) {
+      stringRandomNumber.splice(checkedIndex, 1);
+      increaseBy++;
+    }
 
-  const isCow = stringRandomNumber
-    .some(numb => stringGuess.includes(numb));
+    return acc + increaseBy;
+  }, 0);
 
-  if (isCow) {
-    return 'cow';
+  const cowsCount = stringGuess.reduce((acc, numb) => {
+    let increaseBy = 0;
+
+    if (stringRandomNumber.includes(numb)) {
+      increaseBy++;
+    }
+
+    return acc + increaseBy;
+  }, 0);
+
+  if (cowsCount || bullsCount) {
+    return `bulls: ${bullsCount}, cows: ${cowsCount}`;
   }
 
   return 'Try again';
