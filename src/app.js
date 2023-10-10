@@ -4,6 +4,7 @@
 const { terminal } = require('./terminal');
 const { numberGenerator } = require('./numberGenerator');
 const { bullAndCowCounter } = require('./bullAndCowCounter');
+const { NUMBER_LENGTH } = require('../constants');
 
 const randomNumber = numberGenerator();
 const arrayOfRandomNumbers = randomNumber.split('');
@@ -23,8 +24,10 @@ function question() {
 
     const arrayOfUserNumbers = userNumber.split('');
 
-    if (arrayOfUserNumbers.length !== 4 || isNaN(+userNumber)) {
-      console.log('Your answer must be a number and the length must be 4.');
+    if (arrayOfUserNumbers.length !== NUMBER_LENGTH || isNaN(+userNumber)) {
+      console.log(
+        `Your answer must be a number and the length must be ${NUMBER_LENGTH}.`
+      );
       question();
 
       return;
@@ -34,7 +37,7 @@ function question() {
       if (
         arrayOfUserNumbers.indexOf(num) !== arrayOfUserNumbers.lastIndexOf(num)
       ) {
-        console.log('The number must have 4 different digits.');
+        console.log(`The number must have ${NUMBER_LENGTH} different digits.`);
         question();
 
         return;

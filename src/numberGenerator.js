@@ -1,16 +1,19 @@
 'use strict';
 
+const { NUMBER_LENGTH } = require('../constants');
+
 function numberGenerator() {
   const arrayOfRandomNumbers = [];
 
-  while (arrayOfRandomNumbers.length < 4) {
-    const random = Math.floor(0 + Math.random() * (9 + 1 - 0)).toString();
+  while (arrayOfRandomNumbers.length < NUMBER_LENGTH) {
+    const randomDigit = 0 + Math.random() * (9 + 1 - 0);
+    const preparedRandomDigit = Math.floor(randomDigit).toString();
 
-    if (arrayOfRandomNumbers.includes(random)) {
+    if (arrayOfRandomNumbers.includes(preparedRandomDigit)) {
       continue;
     }
 
-    arrayOfRandomNumbers.push(random);
+    arrayOfRandomNumbers.push(preparedRandomDigit);
   }
 
   return arrayOfRandomNumbers.join('');
