@@ -2,7 +2,7 @@
 
 const { generateNumber } = require('./generateNumber');
 const { calculateBullsAndCows } = require('./calculateBullsAndCows');
-const { userInterface: ui } = require('./userInterface');
+const { terminal } = require('./userInterface');
 const {
   QUESTION,
   INVALID_INPUT_MESSAGE,
@@ -13,25 +13,26 @@ const {
 const generatedNumber = generateNumber();
 
 function askQuestion() {
-  ui.question(QUESTION, (answer) => {
-    if (answer.length !== EXPECTED_NUMBER_LENGTH) {
-      ui.write(INVALID_INPUT_MESSAGE);
+  terminal.question(QUESTION, (userNumber) => {
+    if (userNumber.length !== EXPECTED_NUMBER_LENGTH) {
+      terminal.write(INVALID_INPUT_MESSAGE);
       askQuestion();
 
       return;
     }
 
-    const { bulls, cows } = calculateBullsAndCows(answer, generatedNumber);
+    if (+userNumber === generatedNumber) {
+      terminal.write(WINNER_MESSAGE);
+      terminal.close();
 
-    if (bulls === 4) {
-      ui.write(WINNER_MESSAGE);
-      ui.close();
-    } else {
-      const WRONG_GUESS_MESSAGE = `Bulls: ${bulls}, Cows: ${cows}\n`;
-
-      ui.write(WRONG_GUESS_MESSAGE);
-      askQuestion();
+      return;
     }
+
+    const { bulls, cows } = calculateBullsAndCows(userNumber, generatedNumber);
+    const WRONG_GUESS_MESSAGE = `Bulls: ${bulls}, Cows: ${cows}\n`;
+
+    terminal.write(WRONG_GUESS_MESSAGE);
+    askQuestion();
   });
 }
 

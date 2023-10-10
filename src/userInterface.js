@@ -2,11 +2,11 @@
 
 const readline = require('readline');
 
-const userInterface = readline.createInterface({
+const terminal = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
 module.exports = {
-  userInterface,
+  terminal,
 };
