@@ -7,13 +7,15 @@ function generateNumber() {
   const distinctDigits = [];
 
   while (distinctDigits.length < EXPECTED_NUMBER_LENGTH) {
-    const randomIndex = Math.floor(Math.random() * digitsToInsert.length);
+    let randomIndex = 0;
 
-    if (!distinctDigits.length && digitsToInsert[randomIndex] === 0) {
-      continue;
+    if (!distinctDigits.length) {
+      randomIndex = Math.floor(Math.random() * (digitsToInsert.length - 1) + 1);
+    } else {
+      randomIndex = Math.floor(Math.random() * digitsToInsert.length);
     }
 
-    const digitToInsert = digitsToInsert.splice(randomIndex, 1);
+    const digitToInsert = digitsToInsert.splice(randomIndex, 1)[0];
 
     distinctDigits.push(digitToInsert);
   }
