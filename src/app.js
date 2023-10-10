@@ -31,7 +31,8 @@ function playGame() {
           playGame();
         }
       } else {
-        console.log(`You have to enter the ${NUMBER_OF_DIGITS}-digit number.`);
+        console.log(`You have to enter the ${NUMBER_OF_DIGITS}-digit number `
+        + 'with no repeated digits.');
         playGame();
       }
     }
