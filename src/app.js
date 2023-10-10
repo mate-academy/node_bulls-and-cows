@@ -10,7 +10,7 @@ function gameStart() {
   terminal.question('Enter a number: ', (userInput) => {
     if (userInput.length !== 4 || !Number(userInput)) {
       console.log('Invalid number, please enter a 4 different digits');
-      terminal.question('Enter a number: ', gameStart);
+      gameStart();
 
       return;
     }

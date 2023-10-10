@@ -6,17 +6,21 @@ function checkAnswer(searchedNumber, userNumber) {
 
   const userNumberArr = userNumber.split('');
 
-  for (let i = 0; i < 4; i++) {
-    if (searchedNumber.includes(userNumberArr[i])) {
-      if (searchedNumber.indexOf(userNumberArr[i]) === i) {
-        bulls++;
-      } else {
-        cows++;
-      }
-    }
-  }
+  userNumberArr.forEach((num, index) => {
+    if (searchedNumber.indexOf(num) === index) {
+      bulls++;
 
-  return [bulls, cows];
+      return;
+    }
+
+    if (searchedNumber.includes(num)) {
+      cows++;
+    }
+  });
+
+  return {
+    bulls, cows,
+  };
 }
 
 module.exports = { checkAnswer };
