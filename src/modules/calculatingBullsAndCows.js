@@ -1,19 +1,21 @@
 'use strict';
+/* eslint-disable no-console */
 
 const calculateBullsAndCows = (computerDigits, userDigits) => {
   let bulls = 0;
   let cows = 0;
 
   for (let i = 0; i < computerDigits.length; i++) {
-    if (computerDigits[i] === userDigits[i]) {
+    const hasNumberIncluded = computerDigits.includes(userDigits[i]);
+
+    if (hasNumberIncluded && computerDigits[i] === userDigits[i]) {
       bulls++;
     }
 
-    if (computerDigits.includes(userDigits[i])) {
+    if (hasNumberIncluded && computerDigits.includes(userDigits[i])) {
       cows++;
     }
   }
-  // eslint-disable-next-line no-console
   console.log(`Bulls: ${bulls}. Cow: ${cows}!`);
 };
 

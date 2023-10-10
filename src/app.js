@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable no-console */
 
 const { generateRandomDigit } = require('./modules/generateRandomDigit');
 const { calculateBullsAndCows } = require('./modules/calculatingBullsAndCows');
@@ -20,7 +21,6 @@ const isValidDigits = (digits) => {
 const question = () => {
   userInterface.question('Enter 4 unique digits: ', (userDigits) => {
     if (userDigits === computerDigits) {
-      // eslint-disable-next-line no-console
       console.log(`You won!`);
       userInterface.close();
 
@@ -28,7 +28,6 @@ const question = () => {
     }
 
     if (!isValidDigits(userDigits)) {
-      // eslint-disable-next-line no-console
       console.log('Invalid digits, try again');
       question();
 
