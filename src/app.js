@@ -3,18 +3,20 @@
 const { generateNumber } = require('./generateNumber');
 const { calculateBullsAndCows } = require('./calculateBullsAndCows');
 const { terminal } = require('./userInterface');
+const { validateInput } = require('./validateInput');
 const {
   QUESTION,
-  INVALID_INPUT_MESSAGE,
   WINNER_MESSAGE,
-  EXPECTED_NUMBER_LENGTH,
+  INVALID_INPUT_MESSAGE,
 } = require('./constants');
 
 const generatedNumber = generateNumber();
 
 function askQuestion() {
   terminal.question(QUESTION, (userNumber) => {
-    if (userNumber.length !== EXPECTED_NUMBER_LENGTH) {
+    const isInputValid = validateInput(userNumber);
+
+    if (!isInputValid) {
       terminal.write(INVALID_INPUT_MESSAGE);
       askQuestion();
 
