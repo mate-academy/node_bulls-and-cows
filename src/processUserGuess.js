@@ -10,27 +10,21 @@ function processUserGuess(randomNumber, guess) {
   const stringRandomNumber = randomNumber.toString().split('');
   const stringGuess = guess.toString().split('');
 
-  const bullsCount = stringGuess.reduce((acc, numb, index) => {
-    const checkedIndex = index - acc;
-    let increaseBy = 0;
+  let bullsCount = 0;
+  let cowsCount = 0;
+
+  stringGuess.forEach((numb, index) => {
+    const checkedIndex = index - bullsCount;
 
     if (+numb === +stringRandomNumber[checkedIndex]) {
       stringRandomNumber.splice(checkedIndex, 1);
-      increaseBy++;
+      bullsCount++;
     }
-
-    return acc + increaseBy;
-  }, 0);
-
-  const cowsCount = stringGuess.reduce((acc, numb) => {
-    let increaseBy = 0;
 
     if (stringRandomNumber.includes(numb)) {
-      increaseBy++;
+      cowsCount++;
     }
-
-    return acc + increaseBy;
-  }, 0);
+  });
 
   if (cowsCount || bullsCount) {
     return `bulls: ${bullsCount}, cows: ${cowsCount}`;
