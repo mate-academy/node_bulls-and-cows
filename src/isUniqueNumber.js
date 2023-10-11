@@ -9,7 +9,7 @@ function isUniqueNumber(number) {
     }
   }
 
-  return true;
+  return !isNaN(number);
 }
 
 module.exports = {

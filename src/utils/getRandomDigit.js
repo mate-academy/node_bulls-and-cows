@@ -17,16 +17,6 @@ function getRandomDigits() {
   return digit;
 }
 
-// function getStat() {
-//   const arr = [];
-
-//   for (let i = 0; i < 1000000; i++) {
-//     arr.push(getRandomDigits()[1]);
-//   }
-
-//   return arr.sort((a, b) => b - a)[0];
-// }
-
 module.exports = {
   getRandomDigits,
 };

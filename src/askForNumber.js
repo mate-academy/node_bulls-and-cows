@@ -27,6 +27,7 @@ function askForNumber(question, numberToGuess) {
 
     const INCORRECT_LENGTH_MESSAGE = `Current length is ${userInput.length}, you should input only ${MAX_LENGTH} digits: `;
     const NON_UNIQUE_NUMBER = 'Your number contains non-unique digits, enter only unique: ';
+    const NUMBERS_ONLY = 'You must use only numbers: ';
 
     const messageForUser = getMessageForUser({
       [INCORRECT_LENGTH_MESSAGE]: isCorrectNumberLength,
@@ -40,13 +41,19 @@ function askForNumber(question, numberToGuess) {
       th: attempts > 3,
     });
 
-    const WON_MESSAGE = `You guessed right on the ${attempts}${correctAttemptsPostfix} try <3`;
+    if (isNaN(userInput)) {
+      askForNumber(NUMBERS_ONLY, numberToGuess);
+
+      return;
+    }
 
     if (!isUniqueNumber(userInput) || userInput.length !== MAX_LENGTH) {
       askForNumber(messageForUser, numberToGuess);
 
       return;
     }
+
+    const WON_MESSAGE = `You guessed right on the ${attempts}${correctAttemptsPostfix} try <3`;
 
     if (numberToGuess === userInput) {
       console.log(WON_MESSAGE);
