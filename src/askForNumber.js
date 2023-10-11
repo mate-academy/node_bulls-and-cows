@@ -40,6 +40,8 @@ function askForNumber(question, numberToGuess) {
       th: attempts > 3,
     });
 
+    const WON_MESSAGE = `You guessed right on the ${attempts}${correctAttemptsPostfix} try <3`;
+
     if (!isUniqueNumber(userInput) || userInput.length !== MAX_LENGTH) {
       askForNumber(messageForUser, numberToGuess);
 
@@ -47,7 +49,7 @@ function askForNumber(question, numberToGuess) {
     }
 
     if (numberToGuess === userInput) {
-      console.log(`You guessed right on the ${attempts}${correctAttemptsPostfix} try <3`);
+      console.log(WON_MESSAGE);
       terminal.close();
 
       return;
