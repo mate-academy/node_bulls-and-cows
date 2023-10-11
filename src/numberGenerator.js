@@ -1,9 +1,11 @@
 'use strict';
 
-const GET_RANDOM_DIGITS_FORMULA = Math.floor(1000 + Math.random() * 9000);
+const UPPER_VALUE = 9000;
+const BOTTOM_VALUE = 1000;
 
 function generateNumber() {
-  return GET_RANDOM_DIGITS_FORMULA.toString();
+  return Math.floor(BOTTOM_VALUE
+    + Math.random() * UPPER_VALUE).toString();
 }
 
 module.exports = { generateNumber };
