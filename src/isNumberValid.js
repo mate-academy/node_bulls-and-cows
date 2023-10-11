@@ -1,9 +1,11 @@
 'use strict';
 
+const { NUMBER_LENGTH } = require('./constants');
+
 function isNumberValid(number) {
   const num = number.split('');
 
-  if (num.length !== 4) {
+  if (num.length !== NUMBER_LENGTH) {
     return false;
   }
 

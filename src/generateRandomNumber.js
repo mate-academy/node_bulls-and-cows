@@ -1,13 +1,19 @@
 'use strict';
 
-const numberToGuess = [];
+const { NUMBER_LENGTH } = require('./constants');
 
-while (numberToGuess.length !== 4) {
-  const randomNumber = Math.floor(Math.random() * 10);
+function generateRandomNumber() {
+  const numberToGuess = [];
 
-  if (numberToGuess.indexOf(randomNumber) === -1) {
-    numberToGuess.push(randomNumber);
+  while (numberToGuess.length !== NUMBER_LENGTH) {
+    const randomNumber = Math.floor(Math.random() * 10);
+
+    if (!numberToGuess.includes(randomNumber)) {
+      numberToGuess.push(randomNumber);
+    }
   }
+
+  return numberToGuess;
 }
 
-module.exports = { numberToGuess };
+module.exports = { generateRandomNumber };

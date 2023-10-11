@@ -5,7 +5,7 @@ function countBullsAndCows(userGuess, numberToGuess) {
   let bulls = 0;
   let cows = 0;
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < numberToGuess.length; i++) {
     const currentNumber = Number(preparedGuess[i]);
 
     if (numberToGuess[i] === currentNumber) {
