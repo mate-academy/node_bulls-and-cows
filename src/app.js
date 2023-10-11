@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const { numberGenerator } = require('./numberGenerator');
@@ -5,17 +6,22 @@ const { terminal } = require('./terminal');
 const { calculator } = require('./calculator');
 const { output } = require('./output');
 
-const { INPUT_MESSAGE, OUTPUT_MESSAGE } = require('./constants');
+const {
+  INPUT_MESSAGE,
+  OUTPUT_MESSAGE,
+  REGEXP,
+  NUMBER_LENGTH,
+} = require('./constants');
 
 const generatedNums = numberGenerator();
 
 const getNumber = (userInput) => {
-  if (userInput.length !== 4) {
+  if (userInput.length !== NUMBER_LENGTH) {
     terminal.question(
       INPUT_MESSAGE.enterCorrectNumber,
       num => getNumber(num)
     );
-  } else if ((/0-9/).test(userInput)) {
+  } else if ((REGEXP).test(userInput)) {
     terminal.question(
       INPUT_MESSAGE.enterCorrectNumber,
       num => getNumber(num)
@@ -24,11 +30,9 @@ const getNumber = (userInput) => {
     const message = output(calculator(generatedNums, userInput));
 
     if (message === OUTPUT_MESSAGE.win) {
-      // eslint-disable-next-line no-console
       console.log(message);
       terminal.close();
     } else {
-      // eslint-disable-next-line no-console
       console.log(message);
       startGame();
     }

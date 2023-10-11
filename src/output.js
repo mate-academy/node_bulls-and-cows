@@ -1,15 +1,23 @@
 'use strict';
 
-const { OUTPUT_MESSAGE, bullsMessage, cowsMessage } = require('./constants');
+const {
+  OUTPUT_MESSAGE,
+  bullsMessage,
+  cowsMessage,
+  NUMBER_LENGTH,
+} = require('./constants');
 
 const output = ({ bulls, cows }) => {
-  const message = bullsMessage(bulls) + cowsMessage(cows);
-
-  if (!message) {
-    return OUTPUT_MESSAGE.noMatch;
-  } else {
-    return message;
+  if (bulls.length === NUMBER_LENGTH) {
+    return OUTPUT_MESSAGE.win;
   }
+
+  if (!bulls.length && !cows.length) {
+    return OUTPUT_MESSAGE.noMatch;
+  }
+
+  return OUTPUT_MESSAGE.roundResult
+    + `${bullsMessage(bulls)} and ${cowsMessage(cows)}`;
 };
 
 module.exports = {
