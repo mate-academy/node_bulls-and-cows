@@ -7,7 +7,6 @@ const { bullAndCowCounter } = require('./bullAndCowCounter');
 const { NUMBER_LENGTH } = require('../constants');
 
 const randomNumber = numberGenerator();
-const arrayOfRandomNumbers = randomNumber.split('');
 
 let userNumber;
 
@@ -24,7 +23,8 @@ function question() {
 
     const arrayOfUserNumbers = userNumber.split('');
 
-    if (arrayOfUserNumbers.length !== NUMBER_LENGTH || isNaN(+userNumber)) {
+    if (arrayOfUserNumbers.length !== NUMBER_LENGTH
+      || Number.isNaN(+userNumber)) {
       console.log(
         `Your answer must be a number and the length must be ${NUMBER_LENGTH}.`
       );
@@ -45,7 +45,7 @@ function question() {
     }
 
     const bullAndCow = bullAndCowCounter(
-      arrayOfRandomNumbers, arrayOfUserNumbers
+      randomNumber.split(''), arrayOfUserNumbers
     );
 
     console.log(`Bull: ${bullAndCow.bull}. Cow: ${bullAndCow.cow}!`);

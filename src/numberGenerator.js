@@ -6,7 +6,7 @@ function numberGenerator() {
   const arrayOfRandomNumbers = [];
 
   while (arrayOfRandomNumbers.length < NUMBER_LENGTH) {
-    const randomDigit = 0 + Math.random() * (9 + 1 - 0);
+    const randomDigit = Math.random() * 10;
     const preparedRandomDigit = Math.floor(randomDigit).toString();
 
     if (arrayOfRandomNumbers.includes(preparedRandomDigit)) {

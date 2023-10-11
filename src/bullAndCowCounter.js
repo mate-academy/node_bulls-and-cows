@@ -5,8 +5,10 @@ function bullAndCowCounter(arrayOfRandomNumbers, arrayOfUserNumbers) {
   let cow = 0;
 
   for (let i = 0; i < arrayOfUserNumbers.length; i++) {
-    if (arrayOfRandomNumbers.includes(arrayOfUserNumbers[i])) {
-      if (arrayOfRandomNumbers.indexOf(arrayOfUserNumbers[i]) === i) {
+    const numberPosition  = arrayOfRandomNumbers.indexOf(arrayOfUserNumbers[i]);
+
+    if (numberPosition !== -1) {
+      if (numberPosition === i) {
         bull++;
       } else {
         cow++;
