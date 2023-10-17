@@ -1,13 +1,19 @@
 'use strict';
 
-const prompt = require('prompt-sync')();
+function userInput() {
+  const numberRegex = /^\d+$/;
 
-const userNumber = prompt('Guess and write number:  ');
+  const prompt = require('prompt-sync')();
 
-if (userNumber.length !== 4) {
-  // eslint-disable-next-line no-console
-  console.log('Incorrect number');
-  process.exit(1);
+  let userNumber = prompt('Guess and write number:  ');
+
+  while (userNumber.length !== 4 || !numberRegex.test(userNumber)) {
+    // eslint-disable-next-line no-console
+    console.log('Incorrect number');
+    userNumber = prompt('Guess and write number:  ');
+    // eslint-disable-next-line no-console
+  }
+
+  return userNumber;
 }
-
-module.exports = { userNumber };
+module.exports = { userInput };
