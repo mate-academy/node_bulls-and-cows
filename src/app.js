@@ -5,8 +5,9 @@ const { random } = require('./randomNumberFunction');
 const { bullsAndCows } = require('./bullsAndCowsFunction');
 
 const randomNumber = random();
+let win = false;
 
-while (true) {
+while (!win) {
   const userNumber = userInput();
   const result = bullsAndCows(userNumber, randomNumber);
 
@@ -16,6 +17,7 @@ while (true) {
   if (randomNumber === userNumber) {
     // eslint-disable-next-line no-console
     console.log('Win!');
+    win = true;
     break;
   }
 }
