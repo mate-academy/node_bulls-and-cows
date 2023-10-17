@@ -6,7 +6,7 @@ const readline = require('readline');
 
 const digitsToGuess = numGenerator();
 
-const termianl = readline.createInterface({
+const terminal = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
@@ -17,7 +17,7 @@ const ask = () => {
   let bull = 0;
   let cow = 0;
 
-  termianl.question('Guess a 4 digit number: ', (num) => {
+  terminal.question('Guess a 4 digit number: ', (num) => {
     for (let i = 0; i < 4; i++) {
       if (num[i] === digitsToGuess[i]) {
         bull++;
@@ -27,6 +27,13 @@ const ask = () => {
         cow++;
       }
     }
+
+    if (num.length !== 4 || isNaN(+num)) {
+      console.log('You must enter a 4 digit number');
+      ask();
+
+      return;
+    }
     cow -= bull;
     console.log('bull: ', bull, ', cow: ', cow);
 
@@ -34,7 +41,7 @@ const ask = () => {
       ask();
     } else {
       console.log('You won! Number is:', digitsToGuess, '\n');
-      termianl.close();
+      terminal.close();
     }
   });
 };
