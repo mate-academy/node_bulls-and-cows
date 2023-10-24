@@ -1,7 +1,9 @@
 'use strict';
 
+const MAX_NUMBER = 10;
+
 module.exports = function generateRandomNumber() {
-  let numbers = [...Array(10).keys()];
+  let numbers = [...Array(MAX_NUMBER).keys()];
 
   numbers = numbers.sort(() => Math.random() - 0.5);
 

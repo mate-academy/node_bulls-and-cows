@@ -4,6 +4,9 @@ const generateRandomNumber = require('./numberGenerator');
 const calculateBullsAndCows = require('./bullsAndCowsCalculator');
 const { askQuestion, close } = require('./io');
 
+const MAX_DIGITS = 4;
+const MAX_ATTEMPTS = 10;
+
 async function playGame() {
   const secretNumber = generateRandomNumber();
   let tries = 0;
@@ -11,10 +14,10 @@ async function playGame() {
   /* eslint-disable no-console */
   console.log('Welcome to Bulls and Cows! Try to guess the 4-digit number.');
 
-  while (true) {
+  while (tries < MAX_ATTEMPTS) {
     const guess = await askQuestion(`Attempt ${++tries}: `);
 
-    if (guess.length !== 4 || [...new Set(guess)].length !== 4
+    if (guess.length !== MAX_DIGITS || [...new Set(guess)].length !== MAX_DIGITS
     || isNaN(guess)) {
       /* eslint-disable no-console */
       console.log(
@@ -24,7 +27,7 @@ async function playGame() {
 
     const result = calculateBullsAndCows(secretNumber, guess);
 
-    if (result.bulls === 4) {
+    if (result.bulls === MAX_DIGITS) {
       /* eslint-disable no-console */
       console.log(`Congratulations! You've guessed the number (
         ${secretNumber}) in ${tries} tries.`);
@@ -32,6 +35,11 @@ async function playGame() {
     }
 
     console.log(`Bulls: ${result.bulls}, Cows: ${result.cows}`);
+  }
+
+  if (tries === MAX_ATTEMPTS) {
+    console.log(`You've used all
+    ${MAX_ATTEMPTS} attempts. The secret number was ${secretNumber}.`);
   }
 
   close();
