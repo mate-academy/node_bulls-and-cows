@@ -18,8 +18,8 @@ async function message(attemptsCounter, userName, level) {
 
     setInterval(() => {
       clearInterval(loader);
-    }, 2000);
-    await sleep(2000);
+    }, 3000);
+    await sleep(3000);
   }
 
   if (attemptsCounter === 2) {

@@ -4,15 +4,16 @@
 
 const Selector = require('node-option');
 const readline = require('readline');
-const { sleep } = require('./components/utils/delay');
+const { sleep } = require('./utils/delay');
+const { rules } = require('./components/rules');
 
 const { bullsAndCows } = require('./components/game');
 
 (async function askName() {
   console.log(`
-  ||  ||  ||||||  ||       |||||
-  ||||||  ||==    ||      ||   ||
-  ||  ||  ||||||  ||||||   |||||
+  ||  ||  ||||||  ||      ||       |||||
+  ||||||  ||==    ||      ||      ||   ||
+  ||  ||  ||||||  ||||||  ||||||   |||||
   `);
 
   await sleep(1500);
@@ -36,13 +37,14 @@ const { bullsAndCows } = require('./components/game');
     terminal.close();
 
     console.log(`
-  > Farmer: Nice to meet you ${userName}!
+  > Farmer: Nice to meet you ${userName || 'no_name_player'}!
     `);
 
     await sleep(1000);
 
     console.log(`
-  > Farmer: OK ${userName}, let's choose the level of difficulty!
+  > Farmer: OK ${userName
+      || 'no_name_player'}, let's choose the level of difficulty!
 
     `);
 
@@ -81,6 +83,10 @@ const { bullsAndCows } = require('./components/game');
   userName}
   `);
       }
+      await sleep(1000);
+
+      rules();
+
       await sleep(1000);
 
       await bullsAndCows(value[0], userName);

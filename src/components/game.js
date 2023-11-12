@@ -3,8 +3,10 @@
 /* eslint no-console: ["error", { allow: ["log"] }] */
 
 const readline = require('readline');
-const { sleep } = require('./utils/delay');
-const { message } = require('./utils/messages');
+const { sleep } = require('../utils/delay');
+const { message } = require('../utils/messages');
+const { guessChecker } = require('../utils/guessChecker');
+const { randomNumberGenerator } = require('../utils/randomNumberGenerator');
 
 const EnumCounter = {
   0: 'zero',
@@ -14,51 +16,53 @@ const EnumCounter = {
   4: 'four',
 };
 
-const guessChecker = (numbersToGuess, userInput) => {
-  const userNumbers = String(userInput).split('');
-  const result = {
-    bull: 0,
-    cow: 0,
-    childrenMade: [],
-  };
+// const guessChecker = (numbersToGuess, userInput) => {
+//   const userNumbers = String(userInput).split('');
+//   const result = {
+//     bull: 0,
+//     cow: 0,
+//     childrenMade: [],
+//   };
 
-  userNumbers.forEach((num, index) => {
-    if (numbersToGuess.includes(num)) {
-      if (numbersToGuess.indexOf(num) === index) {
-        result.bull++;
-        result.childrenMade.push('BULL');
-      } else {
-        result.cow++;
-        result.childrenMade.push('COW');
-      }
-    } else {
-      result.childrenMade.push('wolf');
-    }
-  });
+//   userNumbers.forEach((num, index) => {
+//     if (numbersToGuess.includes(num)) {
+//       if (numbersToGuess.indexOf(num) === index) {
+//         result.bull++;
+//         result.childrenMade.push('BULL');
+//       } else {
+//         result.cow++;
+//         result.childrenMade.push('COW');
+//       }
+//     } else {
+//       result.childrenMade.push('wolf');
+//     }
+//   });
 
-  return result;
-};
+//   return result;
+// };
 
-const randomNumberGenerator = () => {
-  const uniqueNumbers = [];
+// const randomNumberGenerator = () => {
+//   const uniqueNumbers = [];
 
-  while (uniqueNumbers.length < 4) {
-    const number = Math.floor(Math.random() * 10);
+//   while (uniqueNumbers.length < 4) {
+//     const number = Math.floor(Math.random() * 10);
 
-    if (!uniqueNumbers.includes(number)) {
-      uniqueNumbers.push(number);
-    }
-  }
+//     if (!uniqueNumbers.includes(number)) {
+//       uniqueNumbers.push(number);
+//     }
+//   }
 
-  return uniqueNumbers.map(String);
-};
+//   return uniqueNumbers.map(String);
+// };
 
 const randomNumber = randomNumberGenerator();
 let attemptsCounter = 0;
 
 // GAME
 
-const bullsAndCows = async(level, userName) => {
+const bullsAndCows = async(level, name) => {
+  const userName = name || 'no_name_player';
+
   attemptsCounter++;
 
   await message(attemptsCounter, userName, level);
