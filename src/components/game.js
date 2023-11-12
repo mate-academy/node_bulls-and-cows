@@ -16,45 +16,6 @@ const EnumCounter = {
   4: 'four',
 };
 
-// const guessChecker = (numbersToGuess, userInput) => {
-//   const userNumbers = String(userInput).split('');
-//   const result = {
-//     bull: 0,
-//     cow: 0,
-//     childrenMade: [],
-//   };
-
-//   userNumbers.forEach((num, index) => {
-//     if (numbersToGuess.includes(num)) {
-//       if (numbersToGuess.indexOf(num) === index) {
-//         result.bull++;
-//         result.childrenMade.push('BULL');
-//       } else {
-//         result.cow++;
-//         result.childrenMade.push('COW');
-//       }
-//     } else {
-//       result.childrenMade.push('wolf');
-//     }
-//   });
-
-//   return result;
-// };
-
-// const randomNumberGenerator = () => {
-//   const uniqueNumbers = [];
-
-//   while (uniqueNumbers.length < 4) {
-//     const number = Math.floor(Math.random() * 10);
-
-//     if (!uniqueNumbers.includes(number)) {
-//       uniqueNumbers.push(number);
-//     }
-//   }
-
-//   return uniqueNumbers.map(String);
-// };
-
 const randomNumber = randomNumberGenerator();
 let attemptsCounter = 0;
 
