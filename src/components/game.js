@@ -5,6 +5,7 @@
 const readline = require('readline');
 const { sleep } = require('../utils/delay');
 const { message } = require('../utils/messages');
+const { checkUnique } = require('../utils/checkUnique');
 const { guessChecker } = require('../utils/guessChecker');
 const { randomNumberGenerator } = require('../utils/randomNumberGenerator');
 
@@ -68,6 +69,15 @@ const bullsAndCows = async(level, name) => {
       return;
     }
 
+    if (!checkUnique(userStr)) {
+      console.log(`
+    ***Numbers are not unique dude!***
+      `);
+      bullsAndCows(level, userName);
+
+      return;
+    }
+
     const result = guessChecker(randomNumber, userStr);
 
     if (result.bull < 4) {
@@ -111,6 +121,7 @@ const bullsAndCows = async(level, name) => {
 
     console.log(`
   > Farmer: Ability to clean my farm! Ha-ha-ha!
+  
   > Farmer: Are you happy ${userName}?`);
 
     sleep(1000);

@@ -5,11 +5,15 @@
 const rules = () => {
   console.log(`
 
+--------------------------------------------------------------------------------
+
         |||||   ||   ||  ||     ||||||    |||||
         ||  ||  ||   ||  ||     ||       ||
         |||||   ||   ||  ||     ||||||    |||
         || ||   ||   ||  ||     ||           ||
         ||  ||   |||||   |||||  ||||||   |||||
+
+--------------------------------------------------------------------------------
 
 `);
 
@@ -18,6 +22,11 @@ const rules = () => {
     Players try to guess 4 random unique digits
     by entering 4 unique digits, farmer will give tips after every attempt.
 
+    Two difficulty levels are available to choose from:
+    - HARD. Easy tips. More detailed tips,
+            'wolf' is a place without cows and bulls.
+    - FOR CHILDREN (default)
+
     For instance:
 
     Computer makes "1234", user prints "1345".
@@ -25,6 +34,9 @@ const rules = () => {
     The result is:
       - one bull (guessed digit 1 is on it's place)
       - 2 cows (digits 3 and 4 are present but on wrong places).
+
+
+--------------------------------------------------------------------------------
 
     `
   );

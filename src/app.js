@@ -11,12 +11,16 @@ const { bullsAndCows } = require('./components/game');
 
 (async function askName() {
   console.log(`
-  ||  ||  ||||||  ||      ||       |||||
-  ||||||  ||==    ||      ||      ||   ||
-  ||  ||  ||||||  ||||||  ||||||   |||||
+        ||  ||  ||||||  ||      ||       |||||
+        ||||||  ||==    ||      ||      ||   ||
+        ||  ||  ||||||  ||||||  ||||||   |||||
   `);
 
   await sleep(1500);
+
+  rules();
+
+  await sleep(1000);
 
   console.log(`
   > Farmer: I'm a farmer!
@@ -83,10 +87,6 @@ const { bullsAndCows } = require('./components/game');
   userName}
   `);
       }
-      await sleep(1000);
-
-      rules();
-
       await sleep(1000);
 
       await bullsAndCows(value[0], userName);

@@ -67,7 +67,7 @@ async function message(attemptsCounter, userName, level) {
 }
 
 function loadingAnimation(
-  text = 'Loading: ',
+  text = ' Loading:',
   chars = ['⠙', '⠘', '⠰', '⠴', '⠤', '⠦', '⠆', '⠃', '⠋', '⠉'],
   delay = 100
 ) {
