@@ -1,9 +1,9 @@
 'use strict';
 
-const randomNumberGenerator = () => {
+const randomNumberGenerator = (digitsLength) => {
   const uniqueNumbers = [];
 
-  while (uniqueNumbers.length < 4) {
+  while (uniqueNumbers.length < digitsLength) {
     const number = Math.floor(Math.random() * 10);
 
     if (!uniqueNumbers.includes(number)) {

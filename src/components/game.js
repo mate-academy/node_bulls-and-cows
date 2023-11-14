@@ -9,6 +9,8 @@ const { checkUnique } = require('../utils/checkUnique');
 const { guessChecker } = require('../utils/guessChecker');
 const { randomNumberGenerator } = require('../utils/randomNumberGenerator');
 
+const DIGITS_LENGTH = 4;
+
 const EnumCounter = {
   0: 'zero',
   1: 'one',
@@ -17,7 +19,7 @@ const EnumCounter = {
   4: 'four',
 };
 
-const randomNumber = randomNumberGenerator();
+const randomNumber = randomNumberGenerator(DIGITS_LENGTH);
 let attemptsCounter = 0;
 
 // GAME
@@ -60,7 +62,7 @@ const bullsAndCows = async(level, name) => {
       return;
     }
 
-    if (userStr.length !== 4) {
+    if (userStr.length !== DIGITS_LENGTH) {
       console.log(`
     ***Number length is not - 10***
       `);
@@ -121,7 +123,7 @@ const bullsAndCows = async(level, name) => {
 
     console.log(`
   > Farmer: Ability to clean my farm! Ha-ha-ha!
-  
+
   > Farmer: Are you happy ${userName}?`);
 
     sleep(1000);
