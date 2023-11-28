@@ -4,7 +4,7 @@
 
 Implement `Bulls and cows` game so the user can run and play it using command line.
 
-- the program randomly generates a number of 4 different digits
+- the program randomly generates a number of 4 different digits34
 - and asks a player to guess
 - the player enters a number of 4 different digits
 - the program check the entered number (if it has exactly 4 different digits)
