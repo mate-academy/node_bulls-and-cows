@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 'use strict';
 
-const randomNum = require('./randomNumber');
+const randomNumber = require('./randomNumber');
 const prompt = require('./prompt');
 const calculator = require('./calculator');
 
 (async() => {
-  const num = randomNum();
+  const num = +randomNumber();
 
   console.log(num);
 
@@ -16,6 +16,11 @@ const calculator = require('./calculator');
 
     if (answer.length !== 4) {
       console.log('You need to enter exact 4 digits');
+      break;
+    }
+
+    if (new Set(answer).size !== 4) {
+      console.log('All digits must be unique');
       break;
     }
 

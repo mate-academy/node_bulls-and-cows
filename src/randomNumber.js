@@ -1,7 +1,9 @@
 'use strict';
 
-const randomNum = () => parseInt([...Array(4)]
-  .map(() => Math
-    .floor(Math.random() * 10)).join(''), 10);
+const randomNumber = () => [...Array(10)]
+  .map((_, i) => i)
+  .sort(() => 0.5 - Math.random())
+  .slice(0, 4)
+  .join('');
 
-module.exports = randomNum;
+module.exports = randomNumber;
