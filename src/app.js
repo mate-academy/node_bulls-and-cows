@@ -46,12 +46,12 @@ function validatePlayerInput(input) {
   }
 }
 
-function displayGameResult(result) {
-  if (result === true) {
+function displayGameResult(interimResult) {
+  if (!interimResult) {
     console.log('You won!');
     terminal.close();
   } else {
-    console.log(result);
+    console.log(interimResult);
 
     terminal.question('Try again \n', (input) => {
       validatePlayerInput(input);

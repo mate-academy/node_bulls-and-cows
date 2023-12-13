@@ -2,7 +2,7 @@
 
 function calculateGameResult(randomNumbers, playerInput) {
   if (playerInput.every((_, i) => +playerInput[i] === randomNumbers[i])) {
-    return true;
+    return;
   }
 
   const result = [];
