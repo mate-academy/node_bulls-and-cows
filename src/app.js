@@ -1,4 +1,5 @@
 'use strict';
+  /* eslint-disable */
 
 const readline = require('readline');
 const { getRandomNumbers } = require('./services/getRandomNumbers');
@@ -10,8 +11,8 @@ const MAX = 9;
 const randomNumbers = getRandomNumbers(MIN, MAX);
 
 terminal.question(
-  /* eslint-disable */
-  `In this game you should guess the number. Please enter number of 4 unique digits from ${MIN} to ${MAX} \n`,
+  `In this game you should guess the number.
+  Please enter number of 4 unique digits from ${MIN} to ${MAX} \n`,
   (input) => {
     validatePlayerInput(input);
   }
