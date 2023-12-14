@@ -9,8 +9,6 @@ const { terminal } = require('./inputOutput');
 const startGame = () => {
   const guessedNumber = generateNumber();
 
-  console.log(guessedNumber);
-
   const getNumber = () => {
     terminal.question(
       'Please, enter number with 4 unique digits: ',
