@@ -3,8 +3,8 @@
 const _ = require('lodash');
 const { getNumbers } = require('./getNumbers');
 
-const generateNumber = () => {
-  const randomDigits = _.sampleSize(getNumbers(0, 9), 4);
+const generateNumber = (digitsCount) => {
+  const randomDigits = _.sampleSize(getNumbers(0, 9), digitsCount);
 
   if (randomDigits[0] === '0') {
     generateNumber();

@@ -4,30 +4,46 @@
 const { generateNumber } = require('./generateNumber');
 const { getBullsAndCows } = require('./getBullsAndCows');
 const { getValidationError } = require('./getValidationError');
-const { terminal } = require('./inputOutput');
+const readlineSync = require('readline-sync');
 
 const startGame = () => {
-  const guessedNumber = generateNumber();
+  const getDigitsCount = () => {
+    const numberOfDigits = readlineSync.question(
+      'Please, enter how long should number be (from 2 to 10): '
+    );
+
+    const count = +numberOfDigits;
+
+    if (!isNaN(count) && count >= 2 && count <= 10) {
+      console.log(`You choose ${numberOfDigits} digits`);
+
+      return +numberOfDigits;
+    }
+
+    console.log('Unknown input! 4 digits by default was chosen');
+
+    return 4;
+  };
 
   const getNumber = () => {
-    terminal.question(
-      'Please, enter number with 4 unique digits: ',
-      (number) => {
-        const validationError = getValidationError(number);
+    const number = readlineSync.question(
+      `Please, enter number with ${digitsCount} unique digits: `
+    );
 
-        if (!validationError) {
-          checkGameOver(number);
-        } else {
-          console.log(validationError);
-          getNumber();
-        }
-      });
+    const validationError = getValidationError(number, digitsCount);
+
+    if (!validationError) {
+      checkGameOver(number);
+    } else {
+      console.log(validationError);
+      getNumber();
+    }
   };
 
   const checkGameOver = (inputNumber) => {
     if (inputNumber === guessedNumber) {
       console.log('Congratulations!');
-      terminal.close();
+      process.exit();
     } else {
       const bullsAndCows = getBullsAndCows(inputNumber, guessedNumber);
 
@@ -38,6 +54,9 @@ const startGame = () => {
       getNumber();
     }
   };
+
+  const digitsCount = getDigitsCount();
+  const guessedNumber = generateNumber(digitsCount);
 
   getNumber();
 };

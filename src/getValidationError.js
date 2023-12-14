@@ -1,20 +1,18 @@
 'use strict';
 
-const digitsCount = 4;
-
-const getValidationError = (number) => {
+const getValidationError = (number, digitsCount) => {
   if (isNaN(+number)) {
     return 'Please, enter only numbers!';
   }
 
   if (number.length !== digitsCount) {
-    return 'Please, enter number with 4 digits!';
+    return `Sorry, your number doesn't have ${digitsCount} digits!`;
   }
 
   const digitsSet = new Set(number);
 
   if (digitsSet.size !== digitsCount) {
-    return 'Please, enter number with 4 unique digits!';
+    return `Sorry, your number doesn't have ${digitsCount} unique digits!`;
   }
 
   return '';
