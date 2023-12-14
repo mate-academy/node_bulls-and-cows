@@ -10,12 +10,8 @@ const generateNumber = () => {
     generateNumber();
   }
 
-  const randomNumber = randomDigits.join('');
-
-  return randomNumber;
+  return randomDigits.join('');
 };
-
-generateNumber();
 
 module.exports = {
   generateNumber,

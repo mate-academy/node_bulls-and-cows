@@ -9,9 +9,9 @@ const getBullsAndCows = (inputNumber, guessedNumber) => {
 
   for (let i = 0; i < inputDigits.length; i++) {
     if (inputDigits[i] === guessedDigits[i]) {
-      bulls += 1;
+      bulls++;
     } else if (guessedDigits.includes(inputDigits[i])) {
-      cows += 1;
+      cows++;
     }
   }
 
