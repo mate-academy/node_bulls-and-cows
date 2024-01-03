@@ -2,32 +2,47 @@
 
 /* eslint-disable no-console */
 
-const readline = require('readline');
+const inquirer = require('inquirer');
 const countBulls = require('./modules/countBulls');
 const countCows = require('./modules/countCows');
 const generateNum = require('./modules/generateNum');
 
-const terminal = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
 const num = generateNum(1000, 9999);
+const stats = {};
 let isFound = false;
 
-terminal.question('Type 4-digit number: ', (input) => {
-  do {
-    if (+input === num) {
-      isFound = true;
-      console.log('Yeah, you win!');
-    } else {
-      const bulls = countBulls(num, +input);
-      const cows = countCows(num, +input);
+const questions = [
+  {
+    type: 'input',
+    name: 'attempt',
+    message: `Type 4-digit number: `,
+  },
+];
 
-      console.log(`Bulls: ${bulls}`);
-      console.log(`Cows: ${cows}`);
+const attempt = async() => {
+  return new Promise((resolve) => {
+    inquirer.prompt(questions).then(answers => {
+      stats.bulls = countBulls(num, +answers.attempt);
+      stats.cows = countCows(num, +answers.attempt);
+      resolve(+answers.attempt === num);
+    });
+  });
+};
+
+const found = async() => {
+  while (true) {
+    isFound = await attempt();
+
+    if (isFound) {
+      console.log('You win!');
+      break;
     }
-  } while (!isFound);
 
-  terminal.close();
-});
+    const { bulls, cows } = stats;
+
+    console.log(`Bulls: ${bulls}`);
+    console.log(`Cows: ${cows}`);
+  }
+};
+
+found();
