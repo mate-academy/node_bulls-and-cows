@@ -15,7 +15,7 @@ const questions = [
   {
     type: 'input',
     name: 'attempt',
-    message: `Type 4-digit number: `,
+    message: `Type 4-digit number:`,
   },
 ];
 
@@ -35,6 +35,7 @@ const found = async() => {
 
     if (isFound) {
       console.log('You win!');
+      console.log(num);
       break;
     }
 
