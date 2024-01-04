@@ -3,6 +3,7 @@
 import createRandomNumber from './modules/createRandomNumber.js';
 import hasUniqueDigits from './modules/hasUniqueDigits.js';
 import handleTerminal from './modules/handleTerminal.js';
+import calculatingBullsAndCows from './modules/calculatingBullsAndCows.js';
 
 const randomNumber = createRandomNumber();
 let userNumber = '';
@@ -15,27 +16,6 @@ const setIsNeedRefresh = (value) => {
 const setUserNumber = (str) => {
   userNumber = str;
   isNeedRefresh = true;
-};
-
-const handleMath = () => {
-  let bulls = 0;
-  let cows = 0;
-
-  userNumber.split('').forEach((_, i) => {
-    if (userNumber[i] === randomNumber[i]) {
-      bulls += 1;
-    }
-  });
-
-  userNumber.split('').forEach((el) => {
-    if (randomNumber.includes(el)) {
-      cows += 1;
-    }
-  });
-
-  return {
-    bulls, cows,
-  };
 };
 
 const start = setInterval(() => {
@@ -55,7 +35,7 @@ const start = setInterval(() => {
       isNeedRefresh,
       setIsNeedRefresh);
   } else if (hasUniqueDigits(userNumber)) {
-    const { bulls, cows } = handleMath();
+    const { bulls, cows } = calculatingBullsAndCows(userNumber, randomNumber);
 
     console.log(`Buls ${bulls}, cows ${cows}`);
 
