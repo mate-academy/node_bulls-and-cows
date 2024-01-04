@@ -15,6 +15,10 @@ const getBullsAndCows = (generatedNumber, userInput) => {
     throw new Error('Please, enter a 4 digit number');
   }
 
+  if (generatedNumber === +userInput) {
+    return 'Congratulations! You`ve guessed the number';
+  }
+
   userInputArray.forEach(string => {
     const userInputIndex = userInputArray.indexOf(string);
     const generatedNumberIndex = generatedNumberArray.indexOf(string);
