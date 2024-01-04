@@ -9,8 +9,6 @@ const generateNum = require('./modules/generateNum');
 
 const num = generateNum(1000, 9999);
 const stats = {};
-let isFound = false;
-
 const questions = [
   {
     type: 'input',
@@ -31,15 +29,15 @@ const attempt = async() => {
 
 const found = async() => {
   while (true) {
-    isFound = await attempt();
+    stats.isFound = await attempt();
+
+    const { bulls, cows, isFound } = stats;
 
     if (isFound) {
       console.log('You win!');
       console.log(num);
       break;
     }
-
-    const { bulls, cows } = stats;
 
     console.log(`Bulls: ${bulls}`);
     console.log(`Cows: ${cows}`);
