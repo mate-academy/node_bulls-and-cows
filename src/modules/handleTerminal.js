@@ -1,21 +1,19 @@
 import readline from 'readline';
 
-const handleTerminal = (question, actions, isNeedRefresh, setIsNeedRefresh) => {
-  if (isNeedRefresh) {
-    return;
-  }
-  setIsNeedRefresh(false);
-
+const handleTerminal = (question, actions) => {
   const terminal = readline.createInterface(
     process.stdin,
     process.stdout
   );
 
-  terminal.question(question, (str) => {
-    actions(str);
-    setIsNeedRefresh(true);
-    terminal.close();
-  });
+  return new Promise((resolve) => {
+    terminal.question(question, (str) => {
+      actions(str);
+      terminal.close();
+
+      resolve();
+    });
+  })
 };
 
 export default handleTerminal;
