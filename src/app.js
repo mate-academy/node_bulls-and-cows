@@ -2,7 +2,7 @@
 
 import createRandomNumber from './modules/createRandomNumber.js';
 import hasUniqueDigits from './modules/hasUniqueDigits.js';
-import handleTerminal from './modules/handleTerminal.js';
+import terminalPromptHandler from './modules/terminalPromptHandler.js';
 import calculatingBullsAndCows from './modules/calculatingBullsAndCows.js';
 
 const randomNumber = createRandomNumber();
@@ -29,7 +29,7 @@ const processGame = async () => {
   while (userNumber !== randomNumber) {
 
     if (userNumber === '') {
-      await handleTerminal(
+      await terminalPromptHandler(
         '---Hello!---\n---Let\'s go!---\nPlease write 4 different digits - ',
         setUserNumber,
       );
@@ -38,12 +38,12 @@ const processGame = async () => {
 
       console.log(`Buls ${bulls}, cows ${cows}`);
 
-      await handleTerminal(
+      await terminalPromptHandler(
         'Please write new numbers - ',
         setUserNumber,
       );
     } else {
-      await handleTerminal(
+      await terminalPromptHandler(
         'Please write correct 4 different digits - ',
         setUserNumber,
       );

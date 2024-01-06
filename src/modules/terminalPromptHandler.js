@@ -1,6 +1,6 @@
 import readline from 'readline';
 
-const handleTerminal = (question, actions) => {
+const terminalPromptHandler = (question, actions) => {
   const terminal = readline.createInterface(
     process.stdin,
     process.stdout
@@ -16,4 +16,4 @@ const handleTerminal = (question, actions) => {
   })
 };
 
-export default handleTerminal;
+export default terminalPromptHandler;
