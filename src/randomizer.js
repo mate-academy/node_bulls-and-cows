@@ -1,10 +1,14 @@
 'use strict';
 
 const getRandomNumber = () => {
-  let randomNumber = Math.floor(Math.random() * 10000).toString();
+  let randomNumber = '';
 
   while (randomNumber.length < 4) {
-    randomNumber = '0' + randomNumber;
+    const randomDigit = Math.floor(Math.random() * 10).toString();
+
+    if (!randomNumber.includes(randomDigit)) {
+      randomNumber += randomDigit;
+    }
   }
 
   return randomNumber;

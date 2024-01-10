@@ -9,6 +9,12 @@ const validateGuess = guessNumber => {
     return 'The number should consist of 4 digits!';
   }
 
+  if (!guessNumber
+    .split('')
+    .every((digit, _, arr) => arr.indexOf(digit) === arr.lastIndexOf(digit))) {
+    return 'The digits should be unique!';
+  }
+
   return 'OK';
 };
 
