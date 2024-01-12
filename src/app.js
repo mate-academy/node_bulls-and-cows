@@ -9,12 +9,14 @@ const numberToGuess = generateNumber();
 let resultOfGuess = '';
 
 while (true) {
-  resultOfGuess = calculateBullsCows(ioClient(), numberToGuess);
+  const guess = ioClient();
+
+  resultOfGuess = calculateBullsCows(guess, numberToGuess);
+
+  if (resultOfGuess === -1) {
+    break;
+  }
 
   console.log(resultOfGuess);
 
-  if (resultOfGuess === numberToGuess) {
-    console.log('Congratulations, you won!');
-    break;
-  }
 }

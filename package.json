@@ -26,7 +26,6 @@
     "projectType": "javascript"
   },
   "dependencies": {
-    "readline": "^1.3.0",
     "readline-sync": "^1.4.10"
   }
 }

@@ -11,13 +11,20 @@ function calculateBullsCows(attempt, rightNumber) {
     console.log('Enter a 4-digit number!');
   }
 
+  if (attempt === rightNumber) {
+    console.log('Congratulations, you won!');
+
+    return -1;
+  }
+
   for (let i = 0; i < attempt.length; i++) {
     if (attempt[i] === rightNumber[i]) {
       result.bulls++;
-    } else {
-      if (rightNumber.includes(attempt[i])) {
-        result.cows++;
-      }
+      continue;
+    }
+
+    if (rightNumber.includes(attempt[i])) {
+      result.cows++;
     }
   }
 
