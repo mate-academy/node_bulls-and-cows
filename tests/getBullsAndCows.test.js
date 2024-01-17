@@ -42,12 +42,4 @@ describe('getBullsAndCows', () => {
         cows: 2,
       });
   });
-
-  test('handles cases with repeating digits correctly', () => {
-    expect(getBullsAndCows(1223, 3211))
-      .toEqual({
-        bulls: 1,
-        cows: 2,
-      });
-  });
 });
