@@ -9,15 +9,17 @@ const terminal = readline.createInterface({
 });
 const { generateRandomNumber } = require('./generateNumber');
 const { countBullsAndCows } = require('./countBullsAndCows');
+const { NUMBER_SIZE } = require('./variables');
+
 let generatedNumber = generateRandomNumber();
 
 function runNewRound() {
   terminal.question('Can you guess the number?', (answer) => {
-    const isAnswerInvalid = answer.length !== 4
-    || new Set(answer).size !== 4 || !(+answer);
+    const isAnswerInvalid = answer.length !== NUMBER_SIZE
+    || new Set(answer).size !== NUMBER_SIZE || !(+answer);
 
     if (isAnswerInvalid) {
-      console.log('Your guess must consist of 4 different digits');
+      console.log(`Your guess must consist of ${NUMBER_SIZE} different digits`);
       runNewRound();
     } else {
       const { bulls, cows } = countBullsAndCows(generatedNumber, answer);
@@ -38,7 +40,7 @@ function restart() {
     'Want to start again? Press Y for "yes", anything else for "no".',
     (answer) => {
       if (answer === 'Y') {
-        console.log('I have generated a 4-digit number.');
+        console.log(`I have generated a ${NUMBER_SIZE}-digit number.`);
         generatedNumber = generateRandomNumber();
         runNewRound();
       } else {
