@@ -1,5 +1,6 @@
 'use strict';
 
+/* eslint-disable no-console */
 const { generateRandomNumber } = require('./modules/generateRandomNumber');
 const { getBullsAndCows } = require('./modules/getBullsAndCows');
 const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
@@ -63,8 +64,8 @@ function runRound(numberToGuess) {
     });
 }
 
-console// eslint-disable-line
-  .log(`Welcome to 'Bulls and cows' game.
+console.log(
+  `Welcome to 'Bulls and cows' game.
 
   I generate a random 4-digit number that does not start with 0
   and does not contain any duplicate digits.
@@ -74,5 +75,6 @@ console// eslint-disable-line
   'bull' - guessed digit is on its place (index).
   'cow' - guessed digit exists in the number but the place (index) is wrong.
   The game ends when the numbers is found.\n\n`);
+/* eslint-unable no-console */
 
 playGame(messages.toInvite);
