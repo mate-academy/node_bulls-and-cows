@@ -41,11 +41,6 @@ function runRound(numberToGuess) {
     messages.toInput,
     (userInput) => {
       if (checkIsValidUserInput(userInput)) {
-        console.log(
-          `\n\tuserInput = ${userInput}\n`,
-          `\n\tguessedNum = ${numberToGuess}\n`,
-        );
-
         const bullsAndCows = getBullsAndCows(userInput, numberToGuess);
 
         console.log(bullsAndCows);
