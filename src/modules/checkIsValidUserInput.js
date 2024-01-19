@@ -6,10 +6,14 @@
  * and does not contain any duplicate digits.
  *
  * @param {string} userInput - The user input
- * @return {boolean} - True if the user input is valid, false otherwise
- */
+ * @return {boolean} - True if the user input is valid, false otherwise */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  return userInput
+    .match(/^0|\D|([0-9])(?=.*\1)/g) === null;
 }
 
 module.exports = {
