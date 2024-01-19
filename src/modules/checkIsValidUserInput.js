@@ -9,7 +9,11 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const regex = /^[1-9]\d{3}$/;
+
+  const hasDuplicateDigits = new Set(userInput).size !== userInput.length;
+
+  return regex.test(userInput) && !hasDuplicateDigits;
 }
 
 module.exports = {
