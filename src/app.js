@@ -19,8 +19,10 @@ function guessTheNumber(terminal, numberToGuess) {
   const { getBullsAndCows } = require('./modules/getBullsAndCows.js');
 
   terminal.question('Guess the number: ', userInput => {
-    if (checkIsValidUserInput(userInput)) {
+    if (!checkIsValidUserInput(userInput)) {
       console.log('That\'s not a valid guess! Try again.');
+
+      return guessTheNumber(terminal, numberToGuess);
     }
 
     const bullsAndCows = getBullsAndCows(userInput, numberToGuess);
@@ -34,14 +36,16 @@ function guessTheNumber(terminal, numberToGuess) {
           terminal.close();
         } else {
           terminal.close();
-          playBullsAndCows();
+
+          return playBullsAndCows();
         }
       });
     } else {
       console.log(`That's not the correct answer!
-          You've got ${bullsAndCows.bulls} bulls and ${bullsAndCows.cows} cows.
-          Try again!`);
-      guessTheNumber(terminal, numberToGuess);
+      You've got ${bullsAndCows.bulls} bulls and ${bullsAndCows.cows} cows.
+      Try again!`);
+
+      return guessTheNumber(terminal, numberToGuess);
     }
   });
 }
