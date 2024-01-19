@@ -41,21 +41,17 @@ function runRound(numberToGuess) {
     messages.toInput,
     (userInput) => {
       if (checkIsValidUserInput(userInput)) {
-        console.log(
-          `\n\tuserInput = ${userInput}\n`,
-          `\n\tguessedNum = ${numberToGuess}\n`,
-        );
-
         const bullsAndCows = getBullsAndCows(userInput, numberToGuess);
-
-        console.log(bullsAndCows);
 
         if (bullsAndCows.bulls === 4) {
           console.log(messages.toCongratulate);
 
           playGame(messages.toContin);
         } else {
-
+          console.log(
+            `${bullsAndCows.bulls} bulls and ${bullsAndCows.cows} cows`,
+            'walk in the pasture.\n\tTry again.'
+          );
         }
 
         runRound(numberToGuess);
