@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -9,9 +10,25 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const uniqueNumbers = new Set(userInput);
+
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  if (isNaN(+userInput)) {
+    return false;
+  }
+
+  if (+userInput < 1000) {
+    return false;
+  }
+
+  if (uniqueNumbers.size !== userInput.length) {
+    return false;
+  }
+
+  return true;
 }
 
-module.exports = {
-  checkIsValidUserInput,
-};
+module.exports = { checkIsValidUserInput };

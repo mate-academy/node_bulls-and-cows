@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
 'use strict';
 
-// Write your code here
+const { newGame } = require('./modules/getGame');
+
+newGame();
