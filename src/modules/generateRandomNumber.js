@@ -16,9 +16,9 @@ function generateRandomNumber() {
     uniqueNums.add(Math.floor(Math.random() * 10));
   }
 
-  const wynik = Array.from(uniqueNums).join('');
+  const result = Array.from(uniqueNums).join('');
 
-  return +wynik;
+  return +result;
 }
 
 module.exports = {
