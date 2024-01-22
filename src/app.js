@@ -14,23 +14,17 @@ const bcGame = () => {
     output: process.stdout,
   });
 
-  const askUser = () => {
-    rl.question('Write a 4 digit number: ', (answer) => {
-      if (checkIsValidUserInput(answer)) {
-        const result = getBullsAndCows(+answer, generatedNum);
+  rl.question('Write a 4 digit number: ', (answer) => {
+    if (checkIsValidUserInput(answer)) {
+      const result = getBullsAndCows(+answer, generatedNum);
 
-        if (result.bulls === 4) {
-          rl.close();
-        } else {
-          askUser();
-        }
-      } else {
-        askUser();
+      if (result.bulls === 4) {
+        rl.close();
       }
-    });
-  };
-
-  askUser();
+    } else {
+      throw new Error('Invalid number');
+    }
+  });
 };
 
 bcGame();
