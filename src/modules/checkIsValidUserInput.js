@@ -9,7 +9,18 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const inputLength = userInput.length;
+  const numericInput = userInput;
+  const isNumeric = !isNaN(numericInput);
+  const isInRange = numericInput >= 1000;
+  const uniqueDigits = new Set(userInput);
+
+  const isValid = uniqueDigits.size === inputLength
+  && isNumeric
+  && isInRange
+  && inputLength === 4;
+
+  return isValid;
 }
 
 module.exports = {
