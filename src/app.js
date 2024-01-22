@@ -15,14 +15,10 @@ const bcGame = () => {
   });
 
   rl.question('Write a 4 digit number: ', (answer) => {
-    if (checkIsValidUserInput(answer)) {
-      const result = getBullsAndCows(+answer, generatedNum);
+    const result = getBullsAndCows(+answer, generatedNum);
 
-      if (result.bulls === 4) {
-        rl.close();
-      }
-    } else {
-      throw new Error('Invalid number');
+    if (checkIsValidUserInput(answer) && result.bulls === 4) {
+      rl.close();
     }
   });
 };
