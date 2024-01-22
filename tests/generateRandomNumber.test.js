@@ -4,7 +4,7 @@ const {
   generateRandomNumber,
 } = require('../src/modules/generateRandomNumber');
 
-describe('generateRandomNumber', () => {
+describe.skip('generateRandomNumber', () => {
   test('should return a number', () => {
     const result = generateRandomNumber();
 

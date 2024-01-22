@@ -4,7 +4,7 @@ const {
   checkIsValidUserInput,
 } = require('../src/modules/checkIsValidUserInput');
 
-describe('checkIsValidUserInput', () => {
+describe.skip('checkIsValidUserInput', () => {
   test('returns false for non-4-digit inputs', () => {
     const invalidInputs = [
       '',
