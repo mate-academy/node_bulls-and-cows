@@ -1,20 +1,49 @@
+/* eslint-disable no-console */
 'use strict';
 
-/**
- * Calculate the number of bulls and cows for a given user input.
- * Bulls are digits that are in the correct position.
- * Cows are digits that are in the wrong position.
- * Assume that the user input and the number to guess
- * are always 4-digit numbers.
- *
- * @param {number} userInput - The user input
- * @param {number} numberToGuess - The number to guess
- * @return {object} An object containing the number of bulls and cows.
- * Example: { bulls: 1, cows: 2 }
- */
-function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
-}
+const readline = require('readline');
+
+const getBullsAndCows = () => {
+  const terminal = readline.createInterface(
+    process.stdin,
+    process.stdout
+  );
+
+  return new Promise((resolve) => {
+    terminal.question('\x1b[36mYour number is: \x1b[0m', (number) => {
+      terminal.close();
+
+      for (let i = 0; i < number.length; i++) {
+        if (isNaN(parseInt(number[i]))) {
+          console.log('\x1b[31m%s\x1b[0m',
+            'All digits must be numbers');
+          getBullsAndCows().then(resolve);
+
+          return;
+        }
+      }
+
+      if (number.length !== 4) {
+        console.log('\x1b[31m%s\x1b[0m',
+          'The number must consists of 4 digits');
+        getBullsAndCows().then(resolve);
+
+        return;
+      }
+
+      for (let i = 0; i < number.length; i++) {
+        if (number.slice(i + 1).includes(number[i])) {
+          console.log('\x1b[31m%s\x1b[0m', 'Digits must be different');
+          getBullsAndCows().then(resolve);
+
+          return;
+        }
+      }
+
+      resolve(number);
+    });
+  });
+};
 
 module.exports = {
   getBullsAndCows,
