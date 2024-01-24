@@ -13,8 +13,8 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  const input = userInput.split('');
-  const number = userInput.split('');
+  const input = userInput.toString();
+  const number = numberToGuess.toString();
   const result = {
     bulls: 0,
     cows: 0,
