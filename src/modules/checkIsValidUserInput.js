@@ -9,7 +9,21 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const numberLength = 4;
+  const input = userInput.split('');
+  const notRepeatedChs = [];
+
+  for (const ch of input) {
+    if (notRepeatedChs.includes(ch)) {
+      return false;
+    }
+
+    notRepeatedChs.push(ch);
+  }
+
+  return input.length === numberLength
+    && input[0] !== '0'
+    && input.every(ch => !isNaN(Number(ch)));
 }
 
 module.exports = {
