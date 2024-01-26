@@ -9,7 +9,13 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  return /^[0-9]{4}$/.test(userInput)
+  && userInput[0] !== '0'
+  && !hasDuplicates(userInput);
+}
+
+function hasDuplicates(numberArr) {
+  return new Set(numberArr).size !== numberArr.length;
 }
 
 module.exports = {
