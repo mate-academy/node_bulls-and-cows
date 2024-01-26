@@ -1,11 +1,11 @@
 'use strict';
 
-const readline = require.resolve('readline');
+const readline = require('readline');
 const { checkIsValidUserInput }
-  = require.resolve('./modules/checkIsValidUserInput.js');
+  = require('./modules/checkIsValidUserInput.js');
 const { generateRandomNumber }
-  = require.resolve('./modules/generateRandomNumber.js');
-const { getBullsAndCows } = require.resolve('./modules/getBullsAndCows.js');
+  = require('./modules/generateRandomNumber.js');
+const { getBullsAndCows } = require('./modules/getBullsAndCows.js');
 
 const randomNumber = generateRandomNumber();
 
@@ -19,7 +19,7 @@ function playBullsAndCows() {
     if (checkIsValidUserInput(userAnswer)) {
       const result = getBullsAndCows(userAnswer, randomNumber);
 
-      terminal.write(`Bulls: ${result.bulls}, cows: ${result.cows}`);
+      terminal.write(`Bulls: ${result.bulls}, cows: ${result.cows} \n`);
 
       if (result.bulls === 4) {
         terminal.write('You won!');
@@ -28,7 +28,7 @@ function playBullsAndCows() {
         playBullsAndCows();
       }
     } else {
-      terminal.write('Please enter valid 4 digit number!');
+      terminal.write('Please enter valid 4 digit number! \n');
       playBullsAndCows();
     }
   });
