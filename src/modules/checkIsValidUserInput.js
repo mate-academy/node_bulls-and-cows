@@ -9,7 +9,15 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  if (+userInput[0] === 0 || userInput.length !== 4) {
+  if (+userInput[0] === 0) {
+    process.stdout.write('Input shouldn\'t start with zero\n');
+
+    return false;
+  }
+
+  if (userInput.length !== 4) {
+    process.stdout.write('Input should contain exactly 4 digits\n');
+
     return false;
   }
 
@@ -17,6 +25,8 @@ function checkIsValidUserInput(userInput) {
 
   for (const digit of userInput) {
     if (isNaN(+digit) || previousNumbers.includes(digit)) {
+      process.stdout.write('All digits should be unique\n');
+
       return false;
     }
 

@@ -14,14 +14,13 @@ let userInput = null;
 
 function askForNumber() {
   return new Promise((resolve) => {
-    terminal.question('Enter a 4-digit(unique) number: ', (number) => {
+    terminal.question('Enter a 4-digit (unique) number: ', (number) => {
       if (checkIsValidUserInput(number)) {
         userInput = number;
+        resolve();
       } else {
-        terminal.write('Invalid input\n');
         askForNumber().then(resolve);
       }
-      resolve();
     });
   });
 }
