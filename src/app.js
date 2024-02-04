@@ -12,17 +12,17 @@ const terminal = readline.createInterface({
 
 let userInput = null;
 
-function askForNumber() {
-  return new Promise((resolve) => {
-    terminal.question('Enter a 4-digit (unique) number: ', (number) => {
-      if (checkIsValidUserInput(number)) {
-        userInput = number;
-        resolve();
-      } else {
-        askForNumber().then(resolve);
-      }
+async function askForNumber() {
+  while (true) {
+    const number = await new Promise((resolve) => {
+      terminal.question('Enter a 4-digit (unique) number: ', resolve);
     });
-  });
+
+    if (checkIsValidUserInput(number)) {
+      userInput = number;
+      break;
+    }
+  }
 }
 
 const generatedNumber = generateRandomNumber();

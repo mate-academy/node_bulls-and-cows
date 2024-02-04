@@ -6,29 +6,25 @@
  *
  * @return {number} A random 4-digit number
  */
-function generateRandomNumber() {
-  let randomNumber = '';
-  const previousNumbers = [];
 
-  for (let i = 0; i < 4;) {
-    const randomNum = Math.floor(Math.random() * 10);
+const assignRandomNumber = (secretCode) => {
+  const number = Math.floor(Math.random() * 9 + 1);
 
-    if (randomNum === 0 && i === 0) {
-      continue;
-    }
-
-    if (previousNumbers.includes(randomNum)) {
-      continue;
-    }
-
-    previousNumbers.push(randomNum);
-    randomNumber += randomNum.toString();
-    i++;
+  if (secretCode.includes(number)) {
+    return assignRandomNumber(secretCode);
   }
 
-  return +randomNumber;
+  return number;
+};
+
+function generateRandomNumber() {
+  const secretCode = Array.from({ length: 4 }, (el) => 'x');
+
+  for (let i = 0; i < secretCode.length; i++) {
+    secretCode[i] = assignRandomNumber(secretCode);
+  }
+
+  return Number(secretCode.join(''));
 }
 
-module.exports = {
-  generateRandomNumber,
-};
+module.exports = { generateRandomNumber };
