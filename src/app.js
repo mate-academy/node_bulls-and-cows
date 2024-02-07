@@ -1,3 +1,12 @@
 'use strict';
 
-// Write your code here
+const readline = require('readline');
+
+const terminal = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+terminal.question('', () => {
+  terminal.close();
+});
