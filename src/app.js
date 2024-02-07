@@ -10,5 +10,3 @@ const terminal = readline.createInterface({
 terminal.question('', () => {
   terminal.close();
 });
-
-// Write your code here
