@@ -12,8 +12,31 @@
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
+
+const { checkIsValidUserInput } = require('./checkIsValidUserInput.js');
+
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const userInputStr = userInput.toString();
+  const numberToGuessStr = numberToGuess.toString();
+
+  if (!checkIsValidUserInput(userInputStr)) {
+    return false;
+  }
+
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  for (let i = 0; i < numberToGuessStr.length; i++) {
+    if (numberToGuessStr[i] === userInputStr[i]) {
+      result.bulls++;
+    } else if (userInputStr.includes(numberToGuessStr[i])) {
+      result.cows++;
+    }
+  }
+
+  return result;
 }
 
 module.exports = {
