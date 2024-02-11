@@ -11,9 +11,34 @@
  * @param {number} numberToGuess - The number to guess
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
+ *
+
  */
+
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const arrToGues = numberToGuess.toString().split('');
+  const arrInput = userInput.toString().split('');
+
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  arrToGues.forEach((digit, index) => {
+    if (digit === arrInput[index]) {
+      result.bulls++;
+    }
+  });
+
+  arrToGues.forEach((digit) => {
+    if (arrInput.includes(digit)) {
+      result.cows++;
+    }
+  });
+
+  result.cows = result.cows - result.bulls;
+
+  return result;
 }
 
 module.exports = {
