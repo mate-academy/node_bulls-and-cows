@@ -11,19 +11,44 @@ const terminal = readline.createInterface(
   process.stdout
 );
 
-terminal.question(
-  'Type 4 digits',
-  (digits) => {
-    const randomNumber = generateRandomNumber();
-    const isValid = checkIsValidUserInput(digits);
+const randomNumber = generateRandomNumber();
+let input = null;
+
+async function ask() {
+  while (true) {
+    const number = await new Promise((resolve) => {
+      terminal.question(
+        'Type 4 digits',
+        resolve
+      );
+    });
+
+    const isValid = checkIsValidUserInput(number);
 
     if (isValid) {
-      console.log(`Program generate: ${randomNumber}`);
-      console.log(getBullsAndCows(digits, randomNumber));
+      input = number;
+      break;
     } else {
       console.log('Invalid value');
     }
-
-    terminal.close();
   }
-);
+}
+
+async function play() {
+  while (true) {
+    await ask();
+
+    if (+input === randomNumber) {
+      terminal.write('You win!');
+      break;
+    }
+
+    const result = getBullsAndCows(input, randomNumber);
+
+    console.log(result);
+  }
+
+  terminal.close();
+}
+
+play();
