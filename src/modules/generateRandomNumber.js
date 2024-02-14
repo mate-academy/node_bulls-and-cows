@@ -7,7 +7,21 @@
  * @return {number} A random 4-digit number
  */
 function generateRandomNumber() {
-  /* Write your code here */
+  while (true) {
+    const number = [];
+
+    while (number.length < 4) {
+      const digit = Math.floor(Math.random() * 10);
+
+      if (!number.includes(digit)) {
+        number.push(digit);
+      }
+    }
+
+    if (number[0] !== 0) {
+      return parseInt(number.join(''));
+    }
+  }
 }
 
 module.exports = {

@@ -9,7 +9,26 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const digits = userInput.split('');
+
+  if (digits.length !== 4) {
+    return false;
+  }
+
+  if (digits[0] === '0') {
+    return false;
+  }
+
+  const isNotValid = digits
+    .some((number, index) => digits
+      .lastIndexOf(number) !== index
+      || isNaN(number));
+
+  if (isNotValid) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
