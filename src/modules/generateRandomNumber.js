@@ -6,10 +6,24 @@
  *
  * @return {number} A random 4-digit number
  */
+
+function checkAreDuplicateDigits(number) {
+  const stringedNumber = String(number);
+
+  return stringedNumber.length !== new Set(stringedNumber).size;
+};
+
 function generateRandomNumber() {
-  /* Write your code here */
-}
+  let number;
+
+  do {
+    number = 1000 + Math.round(Math.random() * 8999);
+  } while (checkAreDuplicateDigits(number));
+
+  return number;
+};
 
 module.exports = {
   generateRandomNumber,
+  checkAreDuplicateDigits,
 };
