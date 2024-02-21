@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -8,8 +9,29 @@
  * @param {string} userInput - The user input
  * @return {boolean} - True if the user input is valid, false otherwise
  */
+
+const { checkAreDuplicateDigits } = require('./generateRandomNumber');
+
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4 || isNaN(userInput)) {
+    console.log('You should input 4-digit number');
+
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    console.log('Number cannot start with 0');
+
+    return false;
+  }
+
+  if (checkAreDuplicateDigits(userInput)) {
+    console.log('Number cannot have duplicate digits');
+
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {

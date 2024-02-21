@@ -12,8 +12,25 @@
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
+
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const stringedUserInput = String(userInput);
+  const stringedNumberToGuess = String(numberToGuess);
+  let bulls = 0;
+  let cows = 0;
+
+  for (let i = 0; i < 4; i++) {
+    if (stringedUserInput[i] === stringedNumberToGuess[i]) {
+      bulls++;
+    } else if (stringedNumberToGuess.includes(stringedUserInput[i])) {
+      cows++;
+    }
+  }
+
+  return {
+    bulls,
+    cows,
+  };
 }
 
 module.exports = {
