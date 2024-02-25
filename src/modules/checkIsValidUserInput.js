@@ -9,17 +9,10 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  if (!isFinite(userInput) || userInput.length !== 4 || userInput[0] === '0') {
+  if (!isFinite(userInput)
+    || userInput[0] === '0'
+    || new Set(userInput).size !== 4) {
     return false;
-  }
-
-  for (const num of userInput) {
-    const index = userInput.indexOf(num);
-    const lastIndex = userInput.lastIndexOf(num);
-
-    if (index !== lastIndex) {
-      return false;
-    }
   }
 
   return true;

@@ -18,16 +18,16 @@ function getBullsAndCows(userInput, numberToGuess) {
     cows: 0,
   };
 
-  const inputArr = userInput.toString().split('');
-  const terinalArray = numberToGuess.toString().split('');
+  const inputNumToString = userInput.toString();
+  const guessNumToString = numberToGuess.toString();
 
-  inputArr.forEach((_, i) => {
-    if (inputArr[i] === terinalArray[i]) {
+  for (let i = 0; i < guessNumToString.length; i++) {
+    if (inputNumToString[i] === guessNumToString[i]) {
       result.bulls++;
-    } else if (terinalArray.includes(inputArr[i])) {
+    } else if (guessNumToString.includes(inputNumToString[i])) {
       result.cows++;
     }
-  });
+  }
 
   return result;
 }
