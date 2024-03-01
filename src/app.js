@@ -16,10 +16,10 @@ const gameNumber = generateRandomNumber();
 console.log(gameNumber);
 
 function startGame() {
-  rl.question('Вгадайте число від 1 до 10: ', (guess) => {
+  rl.question('Guess number: ', (guess) => {
     if (checkIsValidUserInput(guess)) {
       if (parseInt(guess) === gameNumber) {
-        console.log('Ви вгадали!');
+        console.log('Winner');
         rl.close();
       } else {
         const answer = getBullsAndCows(guess, gameNumber);
