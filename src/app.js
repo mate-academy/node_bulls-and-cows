@@ -1,3 +1,7 @@
+/* eslint-disable no-console */
+/* eslint-disable no-undef */
 'use strict';
 
-// Write your code here
+const { bullsAndCowsGame } = require('./modules/bullsAndCowsGame');
+
+bullsAndCowsGame();
