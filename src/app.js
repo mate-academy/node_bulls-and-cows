@@ -21,13 +21,23 @@ function getUserInput() {
   terminal.question('Enter a 4-digit number: ', (input) => {
     const numberToGuess = generateRandomNumber();
 
+    const {
+      bulls,
+    } = getBullsAndCows(input, numberToGuess);
+
     if (!checkIsValidUserInput(input)) {
       console.log('Invalid input. Please enter a correct 4-digit number.');
       getUserInput();
     } else {
       console.log(`The number to guess is ${numberToGuess}`);
       console.log(getBullsAndCows(+input, numberToGuess));
-      terminal.close();
+
+      if (bulls === 4) {
+        console.log(`You won!`);
+        terminal.close();
+      } else {
+        getUserInput();
+      }
     }
   });
 }
