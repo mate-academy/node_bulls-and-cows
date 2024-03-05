@@ -7,7 +7,28 @@
  * @return {number} A random 4-digit number
  */
 function generateRandomNumber() {
-  /* Write your code here */
+  let randomNum = getRandomNumber();
+  let randomNumArr = formatToArray(randomNum);
+
+  while (new Set(randomNumArr).size !== randomNumArr.length) {
+    randomNum = getRandomNumber();
+    randomNumArr = formatToArray(randomNum);
+  }
+
+  while (randomNumArr[0] === '0') {
+    randomNum = getRandomNumber();
+    randomNumArr = formatToArray(randomNum);
+  }
+
+  return randomNum;
+}
+
+function getRandomNumber() {
+  return Math.floor(1000 + Math.random() * 9000);
+}
+
+function formatToArray(num) {
+  return num.toString().split('');
 }
 
 module.exports = {
