@@ -9,7 +9,21 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const userInputString = userInput.toString();
+
+  if (isNaN(userInput)
+    || userInput < 0
+    || userInputString.length !== 4
+    || userInputString[0] === '0'
+    || hasDuplicates(userInputString)) {
+    return false;
+  }
+
+  return true;
+}
+
+function hasDuplicates(str) {
+  return new Set(str).size !== str.length;
 }
 
 module.exports = {
