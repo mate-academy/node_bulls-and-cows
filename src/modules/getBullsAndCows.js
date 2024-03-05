@@ -31,8 +31,8 @@ function getBullsAndCows(userInput, numberToGuess) {
     if (inputArray[i] === numberArray[i]) {
       result.bulls++;
     } else if (
-      numberArray.includes(inputArray[i])
-      && inputArray[i] !== numberArray[i]
+      numberArray.includes(inputArray[i]) &&
+      inputArray[i] !== numberArray[i]
     ) {
       result.cows++;
     }

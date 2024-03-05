@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-"use strict";
+'use strict';
 
-const readline = require("readline");
-const { generateRandomNumber } = require("./modules/generateRandomNumber");
-const { checkIsValidUserInput } = require("./modules/checkIsValidUserInput");
-const { getBullsAndCows } = require("./modules/getBullsAndCows");
+const readline = require('readline');
+const { generateRandomNumber } = require('./modules/generateRandomNumber');
+const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
+const { getBullsAndCows } = require('./modules/getBullsAndCows');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -16,10 +16,10 @@ const gameNumber = generateRandomNumber();
 console.log(gameNumber);
 
 function startGame() {
-  rl.question("Guess number: ", (guess) => {
+  rl.question('Guess number: ', (guess) => {
     if (checkIsValidUserInput(guess)) {
       if (parseInt(guess) === gameNumber) {
-        console.log("Winner");
+        console.log('Winner');
         rl.close();
       } else {
         const answer = getBullsAndCows(guess, gameNumber);
@@ -28,7 +28,7 @@ function startGame() {
         startGame();
       }
     } else {
-      console.log("Invalid number");
+      console.log('Invalid number');
       startGame();
     }
   });
