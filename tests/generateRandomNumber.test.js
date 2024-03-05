@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-  generateRandomNumber,
-} = require('../src/modules/generateRandomNumber');
+const { generateRandomNumber } = require('../src/modules/generateRandomNumber');
 
 describe('generateRandomNumber', () => {
   test('should return a number', () => {
