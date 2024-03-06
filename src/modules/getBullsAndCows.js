@@ -13,7 +13,26 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const userInputString = userInput.toString();
+  const numberToGuessString = numberToGuess.toString();
+
+  let bulls = 0;
+  let cows = 0;
+
+  for (let i = 0; i < userInputString.length; i++) {
+    if (userInputString[i] === numberToGuessString[i]) {
+      bulls++;
+    } else {
+      if (numberToGuessString.includes(userInputString[i])) {
+        cows++;
+      }
+    }
+  }
+
+  return {
+    bulls,
+    cows,
+  };
 }
 
 module.exports = {
