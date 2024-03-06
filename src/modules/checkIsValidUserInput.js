@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -8,13 +9,21 @@
  * @param {string} userInput - The user input
  * @return {boolean} - True if the user input is valid, false otherwise
  */
+
+const invalidFirstDigit = '0';
+const correctInputLength = 4;
+
 function checkIsValidUserInput(userInput) {
-  if (userInput.length !== 4 || isNaN(userInput) || userInput[0] === '0') {
+  if (
+    userInput.length !== correctInputLength ||
+    isNaN(userInput) ||
+    userInput[0] === invalidFirstDigit
+  ) {
     return false;
   }
 
   const userInputArray = userInput.split('');
-  const uniqueUserInputArray = [...new Set(userInput.split(''))];
+  const uniqueUserInputArray = [...new Set(userInputArray)];
 
   if (userInputArray.length !== uniqueUserInputArray.length) {
     return false;
@@ -23,6 +32,4 @@ function checkIsValidUserInput(userInput) {
   return true;
 }
 
-module.exports = {
-  checkIsValidUserInput,
-};
+module.exports = { checkIsValidUserInput, invalidFirstDigit };

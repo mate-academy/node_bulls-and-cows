@@ -6,6 +6,10 @@
  *
  * @return {number} A random 4-digit number
  */
+
+const { invalidFirstDigit } = require('./checkIsValidUserInput');
+const range = [1000, 9000];
+
 function generateRandomNumber() {
   let randomNum = getRandomNumber();
   let randomNumArr = formatToArray(randomNum);
@@ -15,7 +19,7 @@ function generateRandomNumber() {
     randomNumArr = formatToArray(randomNum);
   }
 
-  while (randomNumArr[0] === '0') {
+  while (randomNumArr[0] === invalidFirstDigit) {
     randomNum = getRandomNumber();
     randomNumArr = formatToArray(randomNum);
   }
@@ -24,13 +28,11 @@ function generateRandomNumber() {
 }
 
 function getRandomNumber() {
-  return Math.floor(1000 + Math.random() * 9000);
+  return Math.floor(range[0] + Math.random() * range[1]);
 }
 
 function formatToArray(num) {
   return num.toString().split('');
 }
 
-module.exports = {
-  generateRandomNumber,
-};
+module.exports = { generateRandomNumber };
