@@ -9,7 +9,32 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  function hasDuplicates(str) {
+    const digitsSeen = {};
+
+    for (let i = 0; i < str.length; i++) {
+      const digit = str[i];
+
+      if (digitsSeen[digit]) {
+        return true;
+      }
+
+      digitsSeen[digit] = true;
+    }
+
+    return false;
+  }
+
+  if (
+    userInput.length === 4 &&
+    userInput[0] !== '0' &&
+    !isNaN(+userInput) &&
+    !hasDuplicates(userInput)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = {
