@@ -18,7 +18,7 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "@mate-academy/eslint-config": "latest",
-    "@mate-academy/scripts": "^1.7.3",
+    "@mate-academy/scripts": "^1.7.9",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-node": "^8.0.1",
@@ -27,5 +27,9 @@
   },
   "mateAcademy": {
     "projectType": "javascript"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "lodash": "^4.17.21"
   }
 }
