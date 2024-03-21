@@ -2,7 +2,7 @@
 
 const readline = require('readline');
 
-const inputFunc = (question, callback) => {
+const inputFunction = (question, callback) => {
   const terminal = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -14,4 +14,4 @@ const inputFunc = (question, callback) => {
   });
 };
 
-module.exports.inputFunc = inputFunc;
+module.exports.inputFunction = inputFunction;

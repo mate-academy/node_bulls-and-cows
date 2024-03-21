@@ -1,13 +1,13 @@
 'use strict';
 
-const { generateNumber } = require('./numGenerator');
+const { generateNumber } = require('./numberGenerator');
 const { bullsAndCows } = require('./bullsAndCows');
-const { inputFunc } = require('./inputOutput');
+const { inputFunction } = require('./inputOutput');
 
 const secretNumber = generateNumber();
 
 function game() {
-  inputFunc('Enter a 4-digit number: ', (guess) => {
+  inputFunction('Enter a 4-digit number: ', (guess) => {
     if (!isValidGuess(guess)) {
       game();
 
@@ -16,12 +16,16 @@ function game() {
 
     const result = bullsAndCows(secretNumber, guess);
 
-    !result.bulls === 4 && game();
+    if (!result.bulls === 4) {
+      game();
+    }
   });
 };
 
+const VALID_GUESS_PATTERN = /^\d{4}$/;
+
 function isValidGuess(guess) {
-  return /^\d{4}$/.test(guess) && new Set(guess).size === 4;
+  return VALID_GUESS_PATTERN.test(guess) && new Set(guess).size === 4;
 }
 
 game();
