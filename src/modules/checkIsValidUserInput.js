@@ -9,7 +9,14 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const VALID_GUESS_PATTERN = /^\d{4}$/;
+  const startFromZero = userInput[0] === '0';
+
+  if (startFromZero) {
+    return false;
+  }
+
+  return VALID_GUESS_PATTERN.test(userInput) && new Set(userInput).size === 4;
 }
 
 module.exports = {
