@@ -10,11 +10,12 @@
  */
 function checkIsValidUserInput(userInput) {
   const userInputArr = userInput.split('').map((el) => Number(el));
+  const allowedLength = 4;
   let isValid = true;
 
   if (
-    userInputArr.length !== 4 ||
-    new Set(userInputArr).size !== userInputArr.length
+    userInputArr.length !== allowedLength ||
+    new Set(userInputArr).size !== allowedLength
   ) {
     return false;
   }
