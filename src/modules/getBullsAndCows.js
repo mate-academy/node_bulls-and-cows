@@ -16,8 +16,8 @@ function getBullsAndCows(userInput, numberToGuess) {
   let bulls = 0;
   let cows = 0;
 
-  const userArray = userInput.split('');
-  const guessArray = numberToGuess.split('');
+  const userArray = String(userInput).split('');
+  const guessArray = String(numberToGuess).split('');
 
   for (let i = 0; i < userArray.length; i++) {
     if (guessArray.includes(userArray[i])) {

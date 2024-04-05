@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -9,30 +10,29 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  let isValid = true;
-  let errorMessage = '';
+  if (isNaN(userInput)) {
+    console.log('Invalid input. Please enter a 4-digit number.');
 
-  if (isNaN(Number(userInput))) {
-    isValid = false;
-    errorMessage = 'Invalid input. Please enter a 4-digit number.';
+    return false;
   }
 
-  const numbers = userInput.split('').map((n) => Number(n));
+  const numbers = String(userInput)
+    .split('')
+    .map((n) => Number(n));
 
   if (numbers[0] === 0 || numbers.length !== 4) {
-    isValid = false;
-    errorMessage = 'Error. Enter a 4-digit number that doesnt start with 0.';
+    console.log('Error. Enter a 4-digit number that doesnt start with 0.');
+
+    return false;
   }
 
   if (new Set(numbers).size !== numbers.length) {
-    isValid = false;
-    errorMessage = 'Error. Enter a 4-digit number that has only unique digits.';
+    console.log('Error. Enter a 4-digit number that has only unique digits.');
+
+    return false;
   }
 
-  return {
-    isValid,
-    errorMessage,
-  };
+  return true;
 }
 
 module.exports = {

@@ -19,7 +19,7 @@ function generateRandomNumber() {
     }
   }
 
-  return digits.join('');
+  return Number(digits.join(''));
 }
 
 module.exports = {

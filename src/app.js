@@ -12,23 +12,21 @@ const randomNumber = generateRandomNumber();
 
 function tryGuess() {
   terminal.question('Enter a 4-digit number: ', (userInput) => {
-    const trimmedInput = userInput.trim();
-    const { isValid, errorMessage } = checkIsValidUserInput(trimmedInput);
+    const userNumber = Number(userInput.trim());
+    const isValid = checkIsValidUserInput(userNumber);
 
     if (isValid) {
-      if (Number(trimmedInput) === Number(randomNumber)) {
+      if (userNumber === randomNumber) {
         console.log('Congratulations! You guessed the number.');
 
         terminal.close();
 
         return;
       } else {
-        const result = getBullsAndCows(trimmedInput, randomNumber);
+        const result = getBullsAndCows(userNumber, randomNumber);
 
         console.log(`Result: \nbulls: ${result.bulls} \ncows: ${result.cows}`);
       }
-    } else {
-      console.log(errorMessage || 'Error');
     }
 
     return tryGuess();
