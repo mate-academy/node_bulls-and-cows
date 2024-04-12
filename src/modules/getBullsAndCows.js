@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -13,7 +14,23 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  let bulls = 0;
+  let cows = 0;
+
+  const userInputString = userInput.toString();
+  const numberToGuessString = numberToGuess.toString();
+
+  for (let i = 0; i < userInputString.length; i++) {
+    const digit = userInputString[i];
+
+    if (digit === numberToGuessString[i]) {
+      bulls++;
+    } else if (numberToGuessString.includes(digit)) {
+      cows++;
+    }
+  }
+
+  return { bulls, cows };
 }
 
 module.exports = {
