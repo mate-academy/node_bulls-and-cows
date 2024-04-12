@@ -9,7 +9,29 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (isNaN(userInput)) {
+    return false;
+  }
+
+  if (userInput < 1000 || userInput > 9999) {
+    return false;
+  }
+
+  const userInputString = userInput.toString();
+
+  for (let i = 0; i < userInputString.length; i++) {
+    for (let j = i + 1; j < userInputString.length; j++) {
+      if (userInputString[i] === userInputString[j]) {
+        return false;
+      }
+    }
+  }
+
+  if (userInputString[0] === '0') {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
