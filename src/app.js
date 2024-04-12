@@ -26,9 +26,21 @@ function askUser() {
 
       const { bulls, cows } = getBullsAndCows(digits, generatedDigits);
 
-      console.log(
-        `Your result: ${bulls > 0 ? `${bulls > 1 ? `${bulls} bulls` : `${bulls} bull`}` : ''}${bulls > 0 && cows > 0 ? ` and ` : ``}${cows > 0 ? `${cows > 1 ? `${cows} cows` : `${cows} cow`}` : ''}`,
-      );
+      let resultString = 'Your result: ';
+
+      if (bulls > 0) {
+        resultString += bulls > 1 ? `${bulls} bulls` : `${bulls} bull`;
+      }
+
+      if (bulls > 0 && cows > 0) {
+        resultString += ' and ';
+      }
+
+      if (cows > 0) {
+        resultString += cows > 1 ? `${cows} cows` : `${cows} cow`;
+      }
+
+      console.log(resultString);
 
       if (bulls === 4) {
         console.log('Congratulations. You guessed it.');
