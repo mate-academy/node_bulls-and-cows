@@ -9,7 +9,15 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const uniq = [...new Set(String(userInput))].length;
+  const isNum = userInput.replace(/[^0-9]/g, '').length;
+
+  return (
+    String(userInput)[0] !== '0' &&
+    userInput.length === 4 &&
+    uniq === 4 &&
+    isNum === 4
+  );
 }
 
 module.exports = {
