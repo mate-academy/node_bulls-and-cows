@@ -12,7 +12,7 @@ const terminal = readline.createInterface({
   output: process.stdout,
 });
 
-function play(message = 'Please, enter a 4-digit number:\n') {
+function play(message) {
   terminal.question(message, (userInput) => {
     if (checkIsValidUserInput(userInput)) {
       const { bulls, cows } = getBullsAndCows(userInput, randomNumber);
@@ -30,4 +30,4 @@ function play(message = 'Please, enter a 4-digit number:\n') {
   });
 }
 
-play();
+play('Please, enter a 4-digit number:\n');
