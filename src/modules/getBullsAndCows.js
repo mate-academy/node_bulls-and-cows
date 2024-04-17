@@ -9,12 +9,37 @@
  *
  * @param {number} userInput - The user input
  * @param {number} numberToGuess - The number to guess
+ // eslint-disable-next-line max-len, max-len
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const userInputArr = userInput.toString().split('');
+  const numberToGuessArr = numberToGuess.toString().split('');
+
+  let bulls = 0;
+  let cows = 0;
+
+  userInputArr.forEach((num, i) => {
+    if (numberToGuessArr.includes(num)) {
+      if (numberToGuessArr[i] === num) {
+        bulls++;
+      } else {
+        cows++;
+      }
+    }
+  });
+
+  return { bulls, cows };
 }
+
+// if (numberToGuessArr.includes(num)) {
+//   if (numberToGuessArr[i] === num) {
+//     bulls += 1;
+//   } else {
+//     cows++;
+//   }
+// }
 
 module.exports = {
   getBullsAndCows,
