@@ -33,14 +33,6 @@ function getBullsAndCows(userInput, numberToGuess) {
   return { bulls, cows };
 }
 
-// if (numberToGuessArr.includes(num)) {
-//   if (numberToGuessArr[i] === num) {
-//     bulls += 1;
-//   } else {
-//     cows++;
-//   }
-// }
-
 module.exports = {
   getBullsAndCows,
 };
