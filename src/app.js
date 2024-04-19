@@ -8,7 +8,7 @@ const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
 const { getBullsAndCows } = require('./modules/getBullsAndCows');
 
 const terminal = readline.createInterface(process.stdin, process.stdout);
-const amountToWin = 4;
+const winningBullCount = 4;
 
 function bullsAndCows() {
   const numberToGuess = generateRandomNumber();
@@ -29,7 +29,7 @@ function playGame(numberToGuess) {
 
       console.log(`Result:`, result);
 
-      if (result.bulls === amountToWin) {
+      if (result.bulls === winningBullCount) {
         console.log('You won! Guesses number:', numberToGuess);
 
         terminal.close();

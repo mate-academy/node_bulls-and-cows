@@ -14,10 +14,7 @@ function generateRandomNumber() {
   while (digits.length < 4) {
     const randomDigit = Math.floor(Math.random() * 10);
 
-    if (
-      !digits.includes(randomDigit) &&
-      (digits.length !== 0 || randomDigit !== 0)
-    ) {
+    if (!digits.includes(randomDigit)) {
       digits.push(randomDigit);
     }
   }
