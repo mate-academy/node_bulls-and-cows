@@ -9,7 +9,25 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4 || userInput[0] === '0') {
+    return false;
+  }
+
+  if (userInput.toLowerCase() !== userInput.toUpperCase()) {
+    return false;
+  }
+
+  const digitSet = new Set();
+
+  for (const digit of userInput) {
+    if (digitSet.has(digit)) {
+      return false;
+    } else {
+      digitSet.add(digit);
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
