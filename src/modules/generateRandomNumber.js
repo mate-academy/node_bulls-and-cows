@@ -10,17 +10,15 @@ function generateRandomNumber() {
   let randomNumber;
 
   do {
-    randomNumber = Math.floor(Math.random() * 9000) + 1000;
-  } while (randomNumber.toString().charAt(0) === '0');
+    randomNumber = Math.floor(1000 + Math.random() * 9000);
 
-  const digits = randomNumber.toString().split('');
-  const isDuplicate = digits.some(
-    (digit, index) => digits.indexOf(digit) !== index,
-  );
+    const digits = randomNumber.toString().split('');
+    const uniqueDigits = new Set(digits);
 
-  if (isDuplicate) {
-    return generateRandomNumber();
-  }
+    if (uniqueDigits.size !== 4) {
+      randomNumber = 0;
+    }
+  } while (randomNumber === 0);
 
   return randomNumber;
 }
