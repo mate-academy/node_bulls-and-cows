@@ -9,7 +9,20 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (!/^\d{4}$/.test(userInput)) {
+    return false;
+  }
+
+  if (userInput.charAt(0) === '0') {
+    return false;
+  }
+
+  const digits = userInput.split('');
+  const isDuplicate = digits.some(
+    (digit, index) => digits.indexOf(digit) !== index,
+  );
+
+  return !isDuplicate;
 }
 
 module.exports = {
