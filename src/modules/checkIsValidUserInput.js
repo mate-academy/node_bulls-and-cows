@@ -11,7 +11,6 @@
 function checkIsValidUserInput(userInput) {
   const userInputArr = userInput.split('').map((el) => Number(el));
   const allowedLength = 4;
-  let isValid = true;
 
   if (
     userInputArr.length !== allowedLength ||
@@ -20,13 +19,13 @@ function checkIsValidUserInput(userInput) {
     return false;
   }
 
-  userInputArr.forEach((el, i, arr) => {
-    if (isNaN(el) || arr[0] === 0) {
-      isValid = false;
-    }
-  });
+  if (userInputArr[0] === 0) {
+    return false;
+  }
 
-  return isValid;
+  return userInputArr.every((el) => {
+    return !isNaN(el);
+  });
 }
 
 module.exports = {
