@@ -1,5 +1,11 @@
 'use strict';
 
+const createArrFromNum = (num) => {
+  return String(num)
+    .split('')
+    .map((el) => Number(el));
+};
+
 /**
  * Calculate the number of bulls and cows for a given user input.
  * Bulls are digits that are in the correct position.
@@ -13,7 +19,23 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const userInputArr = createArrFromNum(userInput);
+  const numberToGuessArr = createArrFromNum(numberToGuess);
+
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  userInputArr.forEach((item, index) => {
+    if (item === numberToGuessArr[index]) {
+      result.bulls++;
+    } else if (numberToGuessArr.includes(item)) {
+      result.cows++;
+    }
+  });
+
+  return result;
 }
 
 module.exports = {
