@@ -9,7 +9,9 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  return (
+    new Set(userInput).size === 4 && userInput >= 1000 && userInput <= 9999
+  );
 }
 
 module.exports = {
