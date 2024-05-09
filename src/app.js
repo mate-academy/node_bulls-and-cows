@@ -14,6 +14,7 @@ function startGame() {
     'Enter a 4-digit number with no repeating digits: ',
     (userInput) => {
       if (!checkIsValidUserInput(userInput)) {
+        // eslint-disable-next-line no-console
         console.log(
           'Invalid input.',
           'Please enter a 4-digit number with no repeating',
@@ -26,11 +27,13 @@ function startGame() {
       const result = getBullsAndCows(parseInt(userInput), numberToGuess);
 
       if (result.bulls === 4) {
+        // eslint-disable-next-line no-console
         console.log('Congratulations! You guessed the number!');
 
         return terminal.close();
       }
 
+      // eslint-disable-next-line no-console
       console.log(`Bulls: ${result.bulls}, Cows: ${result.cows}`);
       startGame();
     },
