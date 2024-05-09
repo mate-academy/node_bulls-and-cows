@@ -27,6 +27,7 @@ function startGame() {
 
       if (result.bulls === 4) {
         console.log('Congratulations! You guessed the number!');
+
         return terminal.close();
       }
 
