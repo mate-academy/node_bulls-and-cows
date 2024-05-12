@@ -16,8 +16,8 @@ function question(message) {
   terminal.question(message, (numberFromUser) => {
     const validInput = checkIsValidUserInput(numberFromUser);
 
-    if (!validInput) {
-      return question('Please input only numbers.');
+    if (validInput !== 'valid') {
+      return question(validInput);
     }
 
     const result = getBullsAndCows(Number(numberFromUser), numberToGuess);

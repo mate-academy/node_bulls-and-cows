@@ -9,27 +9,25 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  let isValid = true;
-
   let validNums = '';
 
   if (userInput.length !== 4 || userInput[0] === '0') {
-    return false;
+    return 'You should input 4 digits and first one should not be "0".';
   }
 
   for (const char of userInput) {
     if (isNaN(char)) {
-      isValid = false;
+      return 'Only digits are allowed.';
     }
 
     if (validNums.includes(char)) {
-      return false;
+      return 'All digits should be unique.';
     }
 
     validNums += char;
   }
 
-  return isValid;
+  return 'valid';
 }
 
 module.exports = {
