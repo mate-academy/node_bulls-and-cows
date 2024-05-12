@@ -16,8 +16,10 @@ function question(message) {
   terminal.question(message, (numberFromUser) => {
     const validInput = checkIsValidUserInput(numberFromUser);
 
-    if (validInput !== 'valid') {
-      return question(validInput);
+    if (!validInput) {
+      return question(
+        'You should input 4 digits, first one should not be "0", all unique.',
+      );
     }
 
     const result = getBullsAndCows(Number(numberFromUser), numberToGuess);
