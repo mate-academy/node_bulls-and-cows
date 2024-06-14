@@ -9,7 +9,13 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (!/^[1-9][0-9]{3}$/.test(userInput)) {
+    return false;
+  }
+
+  const digits = new Set(userInput);
+
+  return digits.size === 4;
 }
 
 module.exports = {
