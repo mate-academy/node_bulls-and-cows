@@ -31,13 +31,14 @@ function getBullsAndCows(userInput, numberToGuess) {
       if (counts[userDigit] < 0) {
         cows++;
       }
-    }
 
-    if (counts[guessDigit] > 0) {
-      cows++;
+      if (counts[guessDigit] > 0) {
+        cows++;
+      }
+
+      counts[userDigit]++;
+      counts[guessDigit]--;
     }
-    counts[userDigit]++;
-    counts[guessDigit]--;
   }
 
   return { bulls, cows };
