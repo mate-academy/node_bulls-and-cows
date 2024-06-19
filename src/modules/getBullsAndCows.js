@@ -18,29 +18,26 @@ function getBullsAndCows(userInput, numberToGuess) {
 
   let bulls = 0;
   let cows = 0;
-  const guessDigitCount = {};
-  const userDigitCount = {};
+
+  const counts = new Array(10).fill(0);
 
   for (let i = 0; i < 4; i++) {
+    const userDigit = parseInt(userStr[i]);
+    const guessDigit = parseInt(guessStr[i]);
+
     if (userStr[i] === guessStr[i]) {
       bulls++;
     } else {
-      if (!guessDigitCount[guessStr[i]]) {
-        guessDigitCount[guessStr[i]] = 0;
+      if (counts[userDigit] < 0) {
+        cows++;
       }
-
-      if (!userDigitCount[userStr[i]]) {
-        userDigitCount[userStr[i]] = 0;
-      }
-      guessDigitCount[guessStr[i]]++;
-      userDigitCount[userStr[i]]++;
     }
-  }
 
-  for (const digit in userDigitCount) {
-    if (guessDigitCount[digit]) {
-      cows += Math.min(userDigitCount[digit], guessDigitCount[digit]);
+    if (counts[guessDigit] > 0) {
+      cows++;
     }
+    counts[userDigit]++;
+    counts[guessDigit]--;
   }
 
   return { bulls, cows };

@@ -21,7 +21,7 @@ function promptUser() {
   rl.question('Enter your guess: ', (userInput) => {
     if (!checkIsValidUserInput(userInput)) {
       console.log(
-        'Invalid input. Please enter a 4-digit numberthat does not start with 0 and has no duplicate digits.',
+        'Invalid input. Please enter a 4-digit number that does not start with 0 and has no duplicate digits.',
       );
       promptUser();
     } else {

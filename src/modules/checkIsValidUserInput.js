@@ -9,27 +9,21 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  if (typeof userInput !== 'string') {
+  if (
+    typeof userInput !== 'string' ||
+    userInput.length !== 4 ||
+    userInput[0] === '0'
+  ) {
     return false;
-  }
-
-  if (userInput.length !== 4) {
-    return false;
-  }
-
-  if (userInput[0] === '0') {
-    return false;
-  }
-
-  for (let i = 0; i < userInput.length; i++) {
-    if (userInput[i] < '0' || userInput[i] > '9') {
-      return false;
-    }
   }
 
   const digitSet = new Set();
 
   for (let i = 0; i < userInput.length; i++) {
+    if (userInput[i] < '0' || userInput[i] > '9') {
+      return false;
+    }
+
     if (digitSet.has(userInput[i])) {
       return false;
     }
