@@ -6,9 +6,23 @@
  *
  * @return {number} A random 4-digit number
  */
-function generateRandomNumber() {
-  /* Write your code here */
-}
+const generateRandomNumber = () => {
+  const numberArr = [];
+
+  numberArr.push(Math.floor(Math.random() * 9) + 1);
+
+  while (numberArr.length < 4) {
+    const char = Math.floor(Math.random() * 10);
+
+    if (!numberArr.includes(char)) {
+      numberArr.push(char);
+    }
+  }
+
+  const number = +numberArr.join('');
+
+  return number;
+};
 
 module.exports = {
   generateRandomNumber,

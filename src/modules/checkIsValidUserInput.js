@@ -9,7 +9,26 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  const numberArr = [];
+
+  for (let i = 0; i < userInput.length; i++) {
+    const char = userInput[i];
+
+    if (isNaN(char) || numberArr.includes(char)) {
+      return false;
+    }
+    numberArr.push(char);
+  }
+
+  return true;
 }
 
 module.exports = {
