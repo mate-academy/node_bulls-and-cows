@@ -9,7 +9,11 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  return (
+    new Set(userInput).size === 4 &&
+    userInput[0] !== '0' &&
+    [...userInput].every((e) => +e - +e === 0)
+  );
 }
 
 module.exports = {

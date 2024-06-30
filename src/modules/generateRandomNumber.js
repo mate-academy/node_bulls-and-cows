@@ -7,7 +7,13 @@
  * @return {number} A random 4-digit number
  */
 function generateRandomNumber() {
-  /* Write your code here */
+  while (true) {
+    const number = Math.floor(Math.random() * 10000);
+
+    if (new Set(number.toString()).size === 4) {
+      return number;
+    }
+  }
 }
 
 module.exports = {
