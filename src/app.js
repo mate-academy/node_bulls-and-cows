@@ -11,13 +11,14 @@ const terminal = readline.createInterface(process.stdin, process.stdout);
 function start() {
   terminal.question('Guess a 4 digit number: \n', (userInput) => {
     if (!checkIsValidUserInput(userInput)) {
+      console.log("Invorrect input");
       start();
     } else {
       if (numberToGuess === userInput) {
-        getBullsAndCows(userInput, numberToGuess);
+        console.log("Congrats, winner!");
         terminal.close();
       } else {
-        getBullsAndCows(userInput, numberToGuess);
+        console.log(getBullsAndCows(userInput, numberToGuess));
         start();
       }
     }
