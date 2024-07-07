@@ -9,7 +9,28 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (!Number(userInput)) {
+    return false;
+  }
+
+  const stringifiedInput = String(userInput);
+
+  if (stringifiedInput.length !== 4 || stringifiedInput[0] === '0') {
+    return false;
+  }
+
+  const numbers = stringifiedInput.split('');
+  const numbersFilter = {};
+
+  for (const i of numbers) {
+    if (!numbersFilter[i]) {
+      numbersFilter[i] = true;
+    } else {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
