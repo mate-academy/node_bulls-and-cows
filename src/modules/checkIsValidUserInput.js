@@ -15,11 +15,7 @@ function checkIsValidUserInput(userInput) {
 
   const stringifiedInput = String(userInput);
 
-  if (stringifiedInput[0] === '0') {
-    return false;
-  }
-
-  if (stringifiedInput.length !== 4) {
+  if (stringifiedInput.length !== 4 || stringifiedInput[0] === '0') {
     return false;
   }
 
