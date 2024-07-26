@@ -8,9 +8,11 @@
  * @param {string} userInput - The user input
  * @return {boolean} - True if the user input is valid, false otherwise
  */
-function checkIsValidUserInput(userInput) {
-  /* Write your code here */
-}
+const checkIsValidUserInput = (userInput) =>
+  /^[1-9][0-9]{3}$/.test(userInput) && !hasDuplicates(userInput);
+
+const hasDuplicates = (numberArr) =>
+  new Set(numberArr).size !== numberArr.length;
 
 module.exports = {
   checkIsValidUserInput,
