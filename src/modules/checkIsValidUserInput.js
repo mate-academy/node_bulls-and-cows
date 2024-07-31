@@ -9,7 +9,20 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const isNumber = !isNaN(+userInput);
+  const hasZeroValue = String(+userInput).length < 4;
+  const hasFourChars = userInput.length === 4;
+
+  let hasUniqDigits = true;
+
+  for (let i = 0; i < 4; i++) {
+    if (userInput.lastIndexOf(userInput[i]) !== i) {
+      hasUniqDigits = false;
+      break;
+    }
+  }
+
+  return isNumber && !hasZeroValue && hasFourChars && hasUniqDigits;
 }
 
 module.exports = {
