@@ -16,8 +16,6 @@ const BULLS = 4;
 
 const numberToGuess = generateRandomNumber();
 
-console.log(numberToGuess);
-
 const handleUserInput = (userInput) => {
   if (!checkIsValidUserInput(userInput)) {
     console.log('You enter a non-valid number. Try again.\n');
