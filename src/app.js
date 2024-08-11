@@ -30,11 +30,11 @@ function askQuestion() {
     }
 
     console.log('Right number!!');
-    // terminal.close();
-    process.exit(0);
+    terminal.close();
+    // process.exit(0);
   });
 }
 
-// console.log('randomNumber', randomNumber);
+console.log('randomNumber', randomNumber);
 
 askQuestion();
