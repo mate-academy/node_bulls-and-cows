@@ -20,7 +20,7 @@ function generateRandomNumber() {
   return number;
 }
 
-setInterval(generateRandomNumber, 500);
+// setInterval(generateRandomNumber, 500);
 
 module.exports = {
   generateRandomNumber,
