@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -12,8 +13,27 @@
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
+
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  const user = userInput.toString().split('');
+  const number = numberToGuess.toString().split('');
+
+  for (let i = 0; i < user.length; i++) {
+    if (user[i] === number[i]) {
+      result.bulls = result.bulls + 1;
+    } else if (number.includes(user[i])) {
+      result.cows = result.cows + 1;
+    }
+  }
+
+  console.log('result', result);
+
+  return result;
 }
 
 module.exports = {
