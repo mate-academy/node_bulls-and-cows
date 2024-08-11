@@ -19,14 +19,14 @@ function askQuestion() {
     if (!checkIsValidUserInput(num)) {
       console.log('Invalid input. Please enter a valid 4-digit number.');
 
-      return askQuestion(num);
+      return askQuestion();
     }
 
     if (number !== randomNumber) {
       getBullsAndCows(number, randomNumber);
       console.log('Try again.');
 
-      return askQuestion(num);
+      return askQuestion();
     }
 
     console.log('Right number!!');
