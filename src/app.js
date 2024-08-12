@@ -7,6 +7,7 @@ const { generateRandomNumber } = require('./modules/generateRandomNumber.js');
 const { getBullsAndCows } = require('./modules/getBullsAndCows.js');
 
 const randomNumber = generateRandomNumber();
+
 const terminal = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -31,7 +32,6 @@ function askQuestion() {
 
     console.log('Right number!!');
     terminal.close();
-    // process.exit(0);
   });
 }
 
