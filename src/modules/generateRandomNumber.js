@@ -6,8 +6,28 @@
  *
  * @return {number} A random 4-digit number
  */
+const LENGTH = 4;
+
+function generateDigit() {
+  return Math.floor(Math.random() * 10);
+}
+
 function generateRandomNumber() {
-  /* Write your code here */
+  let strNum = '';
+
+  while (strNum.length < LENGTH) {
+    const digit = generateDigit().toString();
+
+    if (strNum.length === 0 && digit === '0') {
+      continue;
+    }
+
+    if (!strNum.includes(digit)) {
+      strNum += digit;
+    }
+  }
+
+  return parseFloat(strNum);
 }
 
 module.exports = {
