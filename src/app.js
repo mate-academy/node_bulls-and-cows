@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const {
@@ -19,7 +20,7 @@ function game() {
     } else {
       if (+writtenNumber === randomNumber) {
         console.log('you win');
-        terminal.close()
+        terminal.close();
       } else {
         console.log(getBullsAndCows(writtenNumber, randomNumber));
         game();
