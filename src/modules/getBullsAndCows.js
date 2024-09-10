@@ -13,7 +13,32 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const mapper = { bulls: 0, cows: 0 };
+  const userInputStr = userInput.toString();
+  const numberToGuessStr = numberToGuess.toString();
+
+  const unmatchedUserInput = [];
+  const unmatchedNumberToGuess = [];
+
+  for (let i = 0; i < 4; i++) {
+    if (userInputStr[i] === numberToGuessStr[i]) {
+      mapper.bulls++;
+    } else {
+      unmatchedUserInput.push(userInputStr[i]);
+      unmatchedNumberToGuess.push(numberToGuessStr[i]);
+    }
+  }
+
+  unmatchedUserInput.forEach((digit) => {
+    const index = unmatchedNumberToGuess.indexOf(digit);
+
+    if (index !== -1) {
+      mapper.cows++;
+      unmatchedNumberToGuess.splice(index, 1);
+    }
+  });
+
+  return mapper;
 }
 
 module.exports = {
