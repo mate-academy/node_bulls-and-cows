@@ -1,7 +1,7 @@
 'use strict';
 
 function checkIsValidUserInput(userInput) {
-  if (userInput < 1000 || userInput > 9999) {
+  if (userInput < 1000 || userInput > 9999 || isNaN(userInput)) {
     return false;
   }
 

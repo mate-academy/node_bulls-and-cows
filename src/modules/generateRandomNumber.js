@@ -15,7 +15,7 @@ function generateRandomNumber() {
     output.push(randomNum);
   }
 
-  return output;
+  return +output.join('');
 }
 
 module.exports = {
