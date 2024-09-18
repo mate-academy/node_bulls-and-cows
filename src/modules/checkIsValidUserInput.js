@@ -9,7 +9,11 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (/(.).*\1/.test(userInput)) {
+    return false;
+  }
+
+  return /^[1-9][0-9]{3}$/.test(userInput);
 }
 
 module.exports = {
