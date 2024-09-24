@@ -5,29 +5,49 @@ import chalk from 'chalk';
 import checkIsValidUserInput from './modules/checkIsValidUserInput.js';
 import getBullsAndCows from './modules/getBullsAndCows.js';
 
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      name: 'guessedNumbers',
-      message: "Let's start game! Write four numbers in field:\n",
-      validate: (result) => {
-        const check = checkIsValidUserInput(result);
+const playGame = () => {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'guessedNumbers',
+        message: "Let's start game! Write four numbers in field:\n",
+        validate: (result) => {
+          const check = checkIsValidUserInput(result);
 
-        if (!check) {
-          return 'Please try again';
-        }
+          if (!check) {
+            return 'Please try again';
+          }
 
-        return true;
+          return true;
+        },
       },
-    },
-  ])
-  .then((answers) => {
-    console.log(
-      chalk.green('Your result is:'),
-      getBullsAndCows(answers.guessedNumbers),
-    );
-  });
+    ])
+    .then((answers) => {
+      console.log(
+        chalk.green('Your result is:'),
+        getBullsAndCows(answers.guessedNumbers),
+      );
+
+      return inquirer.prompt([
+        {
+          type: 'confirm',
+          name: 'continue',
+          message: 'Do you want to play again?',
+          default: false,
+        },
+      ]);
+    })
+    .then((answers) => {
+      if (answers.continue) {
+        playGame();
+      } else {
+        console.log(chalk.blue('Thanks for playing!'));
+      }
+    });
+};
+
+playGame();
 
 // const readline = require('node:readline');
 
