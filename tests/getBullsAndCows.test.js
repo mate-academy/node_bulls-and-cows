@@ -1,6 +1,6 @@
 'use strict';
 
-const { getBullsAndCows } = require('../src/modules/getBullsAndCows');
+import getBullsAndCows from '../src/modules/getBullsAndCows.js';
 
 describe('getBullsAndCows', () => {
   test('returns 0 bulls and 0 cows when there are no matches', () => {

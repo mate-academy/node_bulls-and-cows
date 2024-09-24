@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-  checkIsValidUserInput,
-} = require('../src/modules/checkIsValidUserInput');
+import checkIsValidUserInput from '../src/modules/checkIsValidUserInput.js';
 
 describe('checkIsValidUserInput', () => {
   test('returns false for non-4-digit inputs', () => {
