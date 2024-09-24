@@ -9,7 +9,25 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4 || userInput[0] === '0') {
+    return false;
+  }
+
+  const numbers = '0123456789';
+
+  for (const ch of userInput) {
+    if (!numbers.includes(ch)) {
+      return false;
+    }
+  }
+
+  for (const n of numbers) {
+    if (userInput.indexOf(n) !== userInput.lastIndexOf(n)) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
