@@ -1,5 +1,7 @@
 'use strict';
 
+const { generateRandomNumber } = require('./generateRandomNumber');
+
 /**
  * Calculate the number of bulls and cows for a given user input.
  * Bulls are digits that are in the correct position.
@@ -12,8 +14,24 @@
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
-function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+function getBullsAndCows(userInput, numberToGuess = generateRandomNumber()) {
+  const convert = (v) => String(v).split('');
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+  const userGuessed = convert(userInput);
+  const secretNum = convert(numberToGuess);
+
+  for (let i = 0; i < userGuessed.length; i++) {
+    if (userGuessed[i] === secretNum[i]) {
+      result.bulls += 1;
+    } else if (userGuessed.includes(secretNum[i])) {
+      result.cows += 1;
+    }
+  }
+
+  return result;
 }
 
 module.exports = {

@@ -9,7 +9,19 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const usersNum = String(userInput).split('');
+  const unic = new Set(userInput);
+
+  if (
+    usersNum.length !== 4 ||
+    !/^\d+$/.test(userInput) ||
+    userInput[0].includes('0') ||
+    unic.size < 4
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
