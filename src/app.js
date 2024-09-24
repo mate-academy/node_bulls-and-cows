@@ -1,42 +1,72 @@
+/* eslint-disable no-console */
 'use strict';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import checkIsValidUserInput from './modules/checkIsValidUserInput.js';
+import getBullsAndCows from './modules/getBullsAndCows.js';
 
-const readline = require('node:readline');
-const terminal = readline.createInterface(process.stdin, process.stdout);
-const { getBullsAndCows } = require('./modules/getBullsAndCows');
-const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      name: 'guessedNumbers',
+      message: "Let's start game! Write four numbers in field:\n",
+      validate: (result) => {
+        const check = checkIsValidUserInput(result);
 
-async function runTerminal() {
-  while (true) {
-    const numbers = await new Promise((resolve) => {
-      terminal.question(
-        "Let's start game! Write four numbers in field:\n",
-        resolve,
-      );
-    });
+        if (!check) {
+          return 'Please try again';
+        }
 
-    const check = await checkIsValidUserInput(numbers);
+        return true;
+      },
+    },
+  ])
+  .then((answers) => {
+    console.log(
+      chalk.green('Your result is:'),
+      getBullsAndCows(answers.guessedNumbers),
+    );
+  });
 
-    if (!check) {
-      process.stdout.write('False, check numbers, try again!\n');
+// const readline = require('node:readline');
 
-      continue;
-    }
+// const terminal = inquirer.createInterface(process.stdin, process.stdout);
+// const { getBullsAndCows } = require('./modules/getBullsAndCows');
+// const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
 
-    const result = await getBullsAndCows(numbers);
-    const resStr = JSON.stringify(result);
+// async function runTerminal() {
+//   while (true) {
+//     const numbers = await new Promise((resolve) => {
+//       terminal.question(
+//         "Let's start game! Write four numbers in field:\n",
+//         resolve,
+//       );
+//     });
 
-    process.stdout.write(`Result is ${resStr}\n`);
+//     const check = await checkIsValidUserInput(numbers);
 
-    const continueGame = await new Promise((resolve) => {
-      terminal.question('Do you want to continue GAME, Yes/No ?', resolve);
-    });
+//     if (!check) {
+//       process.stdout.write('False, check numbers, try again!\n');
 
-    if (continueGame.toLowerCase() === 'no') {
-      break;
-    }
-  }
+//       continue;
+//     }
 
-  terminal.close();
-}
+//     const result = await getBullsAndCows(numbers);
+//     const resStr = JSON.stringify(result);
 
-runTerminal();
+//     process.stdout.write(`Result is ${resStr}\n`);
+
+//     const continueGame = await new Promise((resolve) => {
+//       terminal.question('Do you want to continue GAME, Yes/No ?', resolve);
+//     });
+
+//     if (continueGame.toLowerCase() === 'no') {
+//       break;
+//     }
+//   }
+
+//   terminal.close();
+// }
+
+// runTerminal();

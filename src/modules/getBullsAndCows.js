@@ -1,6 +1,6 @@
 'use strict';
 
-const { generateRandomNumber } = require('./generateRandomNumber');
+import generateRandomNumber from './generateRandomNumber.js';
 
 /**
  * Calculate the number of bulls and cows for a given user input.
@@ -14,7 +14,10 @@ const { generateRandomNumber } = require('./generateRandomNumber');
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
-function getBullsAndCows(userInput, numberToGuess = generateRandomNumber()) {
+export default function getBullsAndCows(
+  userInput,
+  numberToGuess = generateRandomNumber(),
+) {
   const convert = (v) => String(v).split('');
   const result = {
     bulls: 0,
@@ -33,7 +36,3 @@ function getBullsAndCows(userInput, numberToGuess = generateRandomNumber()) {
 
   return result;
 }
-
-module.exports = {
-  getBullsAndCows,
-};

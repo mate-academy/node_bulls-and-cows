@@ -8,7 +8,7 @@
  * @param {string} userInput - The user input
  * @return {boolean} - True if the user input is valid, false otherwise
  */
-function checkIsValidUserInput(userInput) {
+export default function checkIsValidUserInput(userInput) {
   const usersNum = String(userInput).split('');
   const unic = new Set(userInput);
 
@@ -23,7 +23,3 @@ function checkIsValidUserInput(userInput) {
 
   return true;
 }
-
-module.exports = {
-  checkIsValidUserInput,
-};

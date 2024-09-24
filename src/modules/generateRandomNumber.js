@@ -6,7 +6,7 @@
  *
  * @return {number} A random 4-digit number
  */
-function generateRandomNumber() {
+export default function generateRandomNumber() {
   const n = new Set();
 
   while (n.size < 4) {
@@ -15,7 +15,3 @@ function generateRandomNumber() {
 
   return +Array.from(n).join('');
 }
-
-module.exports = {
-  generateRandomNumber,
-};
