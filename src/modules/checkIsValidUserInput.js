@@ -10,6 +10,29 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  const numbers = '0123456789';
+
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  for (let i = 0; i < userInput.length - 1; i++) {
+    if (!numbers.includes(userInput[i])) {
+      return false;
+    }
+
+    for (let j = i + 1; j < userInput.length; j++) {
+      if (userInput[i] === userInput[j]) {
+        return false;
+      }
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
