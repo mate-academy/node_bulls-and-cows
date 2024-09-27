@@ -1,6 +1,6 @@
 # The "Bulls & Cows" game
 
-**Read [the guideline](https://github.com/mate-academy/js_task-guideline/blob/master/README.md) before start**
+**Read [the guideline](https://github.com/mate-academy/js_tasknpm-guideline/blob/master/README.md) before start**
 
 Implement `Bulls and cows` game so the user can run and play it using command line.
 
