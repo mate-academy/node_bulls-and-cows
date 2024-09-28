@@ -10,6 +10,26 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+
+  if (userInput.length !== 4 || Number(userInput[0]) === 0) {
+    return false;
+  }
+
+  const amount = {};
+
+  for (let i = 0; i < userInput.length; i++) {
+    if (isNaN(Number(userInput[i]))) {
+      return false;
+    }
+
+    if (!amount[userInput[i]]) {
+      amount[userInput[i]] = 1;
+    } else {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
