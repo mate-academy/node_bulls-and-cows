@@ -7,9 +7,18 @@
  * @return {number} A random 4-digit number
  */
 function generateRandomNumber() {
-  /* Write your code here */
+  const randomArr = [];
+  let n;
+
+  for (let i = 0; i < 4; i++) {
+    do {
+      n = Math.floor(Math.random() * 9) + 1;
+    } while (randomArr.indexOf(n) !== -1);
+
+    randomArr[i] = n;
+  }
+
+  return +randomArr.join('');
 }
 
-module.exports = {
-  generateRandomNumber,
-};
+module.exports = { generateRandomNumber };
