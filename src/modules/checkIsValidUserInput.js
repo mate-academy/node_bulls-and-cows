@@ -9,7 +9,18 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const is4digitNumber = userInput.length === 4;
+  const isAllAreNumbers = userInput.split('').every((x) => /^[0-9]$/.test(x));
+  const isNotStartZero = userInput[0] !== '0';
+  const isNotDuplicates = userInput
+    .split('')
+    .every((x, _, arr) => arr.indexOf(x) === arr.lastIndexOf(x));
+
+  if (is4digitNumber && isAllAreNumbers && isNotStartZero && isNotDuplicates) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = {
