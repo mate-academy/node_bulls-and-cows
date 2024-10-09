@@ -21,6 +21,4 @@ function generateRandomNumber() {
   return +randomArr.join('');
 }
 
-module.exports = {
-  generateRandomNumber,
-};
+module.exports = generateRandomNumber;

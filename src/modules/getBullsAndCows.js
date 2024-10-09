@@ -30,6 +30,4 @@ function getBullsAndCows(userInput, numberToGuess) {
   return resultObj;
 }
 
-module.exports = {
-  getBullsAndCows,
-};
+module.exports = getBullsAndCows;

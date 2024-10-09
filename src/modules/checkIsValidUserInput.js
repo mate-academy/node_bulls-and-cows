@@ -24,6 +24,4 @@ function checkIsValidUserInput(userInput) {
   return checkNumber.length === 4;
 }
 
-module.exports = {
-  checkIsValidUserInput,
-};
+module.exports = checkIsValidUserInput;
