@@ -24,6 +24,8 @@ function getBullsAndCows(userInput, numberToGuess) {
       resultObj.cows += 1;
     }
   }
+  // eslint-disable-next-line no-console
+  console.log(resultObj);
 
   return resultObj;
 }

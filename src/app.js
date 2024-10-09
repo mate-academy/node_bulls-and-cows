@@ -1,10 +1,12 @@
 'use strict';
-import readline from 'readline';
-import { generateRandomNumber } from './modules/generateRandomNumber';
-import { getBullsAndCows } from './modules/getBullsAndCows';
-module.require(generateRandomNumber);
-module.require(getBullsAndCows);
+// import readline from 'readline';
+// import { generateRandomNumber }
+// from '../src/modules/generateRandomNumber.js';
+// import { getBullsAndCows } from './modules/getBullsAndCows.js';
 
+const readline = require('readline');
+const generateRandomNumber = require('./modules/generateRandomNumber.js');
+const getBullsAndCows = require('./modules/getBullsAndCows.js');
 const terminal = readline.createInterface({
   input: process.stdin,
   output: process.stdout,

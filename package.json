@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Bulls and cows game",
   "main": "src/app.js",
+  "type": "commonjs",
   "scripts": {
     "init": "mate-scripts init",
     "start": "mate-scripts start",
