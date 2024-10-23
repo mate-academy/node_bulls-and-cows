@@ -10,6 +10,24 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  const numbers = userInput.split('');
+
+  if (!numbers.every((num) => /^\d$/.test(num))) {
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  const uniqueNumber = new Set(numbers);
+
+  return uniqueNumber.size === 4;
 }
 
 module.exports = {
