@@ -7,13 +7,39 @@
  * Assume that the user input and the number to guess
  * are always 4-digit numbers.
  *
- * @param {number} userInput - The user input
- * @param {number} numberToGuess - The number to guess
- * @return {object} An object containing the number of bulls and cows.
- * Example: { bulls: 1, cows: 2 }
+ * @param {string} userInput
+ * @param {string} numberToGuess
+ * @return {object}
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const fixedUserInput = String(userInput);
+  const fixedNumberToGuess = String(numberToGuess);
+
+  let bulls = 0;
+  let cows = 0;
+
+  const userNumbers = [];
+  const guessNumbers = [];
+
+  for (let i = 0; i < 4; i++) {
+    if (fixedUserInput[i] === fixedNumberToGuess[i]) {
+      bulls++;
+    } else {
+      userNumbers.push(fixedUserInput[i]);
+      guessNumbers.push(fixedNumberToGuess[i]);
+    }
+  }
+
+  guessNumbers.forEach((number) => {
+    const cowIndex = userNumbers.indexOf(number);
+
+    if (cowIndex !== -1) {
+      cows++;
+      userNumbers.splice(cowIndex, 1);
+    }
+  });
+
+  return { bulls, cows };
 }
 
 module.exports = {
