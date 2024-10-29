@@ -8,8 +8,29 @@
  * @param {string} userInput - The user input
  * @return {boolean} - True if the user input is valid, false otherwise
  */
+
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const digits = userInput.split('').map((digit) => +digit);
+
+  if (digits.length !== 4) {
+    return false;
+  }
+
+  if (digits[0] === 0) {
+    return false;
+  }
+
+  const digitsSet = new Set(digits);
+
+  if (digitsSet.size !== 4) {
+    return false;
+  }
+
+  if (!/^\d+$/.test(userInput)) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
