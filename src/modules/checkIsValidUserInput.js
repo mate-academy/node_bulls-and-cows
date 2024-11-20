@@ -9,7 +9,21 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4 || Number(userInput[0]) === 0) {
+    return false;
+  }
+
+  const value = userInput.split('');
+
+  for (const item of value) {
+    if (!Number.isInteger(Number(item))) {
+      return false;
+    }
+  }
+
+  const uniq = new Set(value);
+
+  return uniq.size === value.length;
 }
 
 module.exports = {
