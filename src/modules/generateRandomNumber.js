@@ -1,13 +1,23 @@
 'use strict';
 
-/**
- * Generate a random 4-digit number that does not start with 0
- * and does not contain any duplicate digits.
- *
- * @return {number} A random 4-digit number
- */
 function generateRandomNumber() {
-  /* Write your code here */
+  function getRandomDigit(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  const digits = [];
+
+  digits.push(getRandomDigit(1, 9));
+
+  while (digits.length < 4) {
+    const newDigit = getRandomDigit(0, 9);
+
+    if (!digits.includes(newDigit)) {
+      digits.push(newDigit);
+    }
+  }
+
+  return parseInt(digits.join(''), 10);
 }
 
 module.exports = {

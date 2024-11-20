@@ -1,19 +1,41 @@
 'use strict';
 
-/**
- * Calculate the number of bulls and cows for a given user input.
- * Bulls are digits that are in the correct position.
- * Cows are digits that are in the wrong position.
- * Assume that the user input and the number to guess
- * are always 4-digit numbers.
- *
- * @param {number} userInput - The user input
- * @param {number} numberToGuess - The number to guess
- * @return {object} An object containing the number of bulls and cows.
- * Example: { bulls: 1, cows: 2 }
- */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const bullsAndCows = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  const userInputStr = userInput.toString();
+  const userInputSplited = userInputStr.split('');
+
+  const numberToGuessStr = numberToGuess.toString();
+  const numberToGuessSplited = numberToGuessStr.split('');
+
+  const bullsMarked = Array(4).fill(false);
+  const cowsMarked = Array(4).fill(false);
+
+  for (let i = 0; i < 4; i++) {
+    if (userInputSplited[i] === numberToGuessSplited[i]) {
+      bullsAndCows.bulls++;
+      bullsMarked[i] = true;
+      cowsMarked[i] = true;
+    }
+  }
+
+  for (let i = 0; i < 4; i++) {
+    if (!bullsMarked[i]) {
+      for (let j = 0; j < 4; j++) {
+        if (!cowsMarked[j] && userInputSplited[i] === numberToGuessSplited[j]) {
+          bullsAndCows.cows++;
+          cowsMarked[j] = true;
+          break;
+        }
+      }
+    }
+  }
+
+  return bullsAndCows;
 }
 
 module.exports = {
