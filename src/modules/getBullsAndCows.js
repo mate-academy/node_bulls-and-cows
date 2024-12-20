@@ -18,8 +18,6 @@ function getBullsAndCows(userInput, numberToGuess) {
   const numberToGuessArr = numberToGuess.toString().split('');
   const result = { bulls: 0, cows: 0 };
 
-  console.log(userInputArr, numberToGuessArr);
-
   for (let i = 0; i < userInputArr.length; i++) {
     if (userInputArr[i] === numberToGuessArr[i]) {
       result.bulls += 1;
@@ -37,8 +35,6 @@ function getBullsAndCows(userInput, numberToGuess) {
 
   //   return;
   // }
-
-  console.log(result);
 
   return result;
 }
