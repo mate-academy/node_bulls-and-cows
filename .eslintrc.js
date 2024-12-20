@@ -1,11 +1,10 @@
 module.exports = {
   extends: '@mate-academy/eslint-config',
   env: {
-    jest: true,
+    jest: true
   },
   rules: {
-    'no-proto': 0,
-    'prettier/prettier': ['error', { endOfLine: 'lf' }],
+    'no-proto': 0
   },
-  plugins: ['jest'],
+  plugins: ['jest']
 };

@@ -11,6 +11,8 @@ const rl = readline.createInterface({
 const hiddenNumber = generateRandomNumber();
 
 const requestANumber = () => {
+  console.log(hiddenNumber);
+
   rl.question('Write your number? ', (userValue) => {
     const isValidUserInput = checkIsValidUserInput(userValue);
 

@@ -19,12 +19,14 @@ const checkIsUniqueNumbers = (value) => {
     return false;
   }
 
+  const arrayValueToCheck = [...arrayValue];
+
   for (let i = 0; i < arrayValue.length; i++) {
-    const numberToCheck = arrayValue[i];
+    const numberToCheck = arrayValueToCheck[i];
 
-    arrayValue.splice(i, 1);
+    arrayValueToCheck.splice(i, 1);
 
-    if (arrayValue.includes(numberToCheck)) {
+    if (arrayValueToCheck.includes(numberToCheck)) {
       return false;
     }
 
