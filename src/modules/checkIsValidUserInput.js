@@ -10,6 +10,15 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  if (userInput.length > 4 || isNaN(userInput)) {
+    return false;
+  }
+
+  if (userInput.charAt(0) === '0' || new Set(userInput).size < 4) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
