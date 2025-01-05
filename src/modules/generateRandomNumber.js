@@ -8,6 +8,17 @@
  */
 function generateRandomNumber() {
   /* Write your code here */
+  let numbers = '';
+
+  while (numbers.length < 4) {
+    const number = Math.floor(Math.random() * 9) + 1;
+
+    if (!numbers.includes(number)) {
+      numbers += number;
+    }
+  }
+
+  return Number(numbers);
 }
 
 module.exports = {
