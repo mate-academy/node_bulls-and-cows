@@ -3,26 +3,25 @@
 
 // Write your code here
 // import readline from 'readline';
-const { readline } = require('readline');
+const readline = require('readline');
 // import generateRandomNumber from './modules/generateRandomNumber.js';
 // import checkIsValidUserInput from './modules/checkIsValidUserInput.js';
 // import getBullsAndCows from './modules/getBullsAndCows.js';
 
 const {
   generateRandomNumber,
-} = require('/src/modules/generateRandomNumber.mjs');
+} = require('/src/modules/generateRandomNumber.js');
 const {
   checkIsValidUserInput,
-} = require('/src/modules/checkIsValidUserInput.mjs');
-const { getBullsAndCows } = require('./modules/getBullsAndCows.mjs');
+} = require('/src/modules/checkIsValidUserInput.js');
+const { getBullsAndCows } = require('./modules/getBullsAndCows.js');
 const terminal = readline.createInterface(process.stdin, process.stdout);
 const randomNumber = generateRandomNumber();
 
 function promptUserForGuess() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     terminal.question('Enter your 4-digit number: ', (userInput) => {
       resolve(userInput);
-      reject(new Error('Some error'));
     });
   });
 }
