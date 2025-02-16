@@ -9,7 +9,20 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.startsWith('0') || userInput.length !== 4 || isNaN(userInput)) {
+    return false;
+  }
+
+  const checkUserInput = {};
+
+  for (const char of userInput.split('')) {
+    if (checkUserInput[char]) {
+      return false;
+    }
+    checkUserInput[char] = true;
+  }
+
+  return true;
 }
 
 module.exports = {
