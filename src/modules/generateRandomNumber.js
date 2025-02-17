@@ -8,6 +8,15 @@
  */
 function generateRandomNumber() {
   /* Write your code here */
+  let number = new Set();
+
+  number.add(Math.floor(Math.random() * 9) + 1);
+
+  while (number.size < 4) {
+    number.add(Math.floor(Math.random() * 10));
+  }
+
+  return +Array.from(number).join('');
 }
 
 module.exports = {

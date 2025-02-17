@@ -10,6 +10,17 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  const set = new Set(userInput);
+
+  if (!/^\d{4}$/.test(userInput)) {
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  return set.size === 4;
 }
 
 module.exports = {
