@@ -9,7 +9,19 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (new Set(userInput).size !== 4 || userInput.startsWith('0')) {
+    return false;
+  }
+
+  const digits = '0123456789';
+
+  for (const ch of userInput) {
+    if (!digits.includes(ch)) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
