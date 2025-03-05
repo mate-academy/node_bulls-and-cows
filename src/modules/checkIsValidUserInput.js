@@ -12,11 +12,8 @@ function checkIsValidUserInput(userInput) {
   if (
     Number(userInput[0]) === 0 ||
     userInput.length !== 4 ||
-    userInput
-      .split('')
-      .map(Number)
-      .sort((a, b) => a - b)
-      .find((equal, index) => equal === Number(userInput[index + 1]))
+    isNaN(userInput) ||
+    new Set(userInput.split('')).size !== 4
   ) {
     return false;
   }

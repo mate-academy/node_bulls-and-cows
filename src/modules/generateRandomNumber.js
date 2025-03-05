@@ -13,11 +13,11 @@ function generateRandomNumber() {
     const digit = Math.floor(Math.random() * 10);
 
     if (!digits.includes(digit)) {
-      digits.push(Math.floor(Math.random() * 10));
+      digits.push(digit);
     }
   }
 
-  return digits.join('');
+  return +digits.join('');
 }
 
 module.exports = {

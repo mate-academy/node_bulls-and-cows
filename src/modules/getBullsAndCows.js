@@ -19,13 +19,13 @@ function getBullsAndCows(userInput, numberToGuess) {
   };
 
   for (let i = 0; i < 4; i++) {
-    if (userInput[i] === numberToGuess[i]) {
+    if (userInput.toString()[i] === numberToGuess.toString()[i]) {
       data.bulls += 1;
     }
 
     if (
-      userInput[i] !== numberToGuess[i] &&
-      userInput.includes(numberToGuess[i])
+      userInput.toString()[i] !== numberToGuess.toString()[i] &&
+      userInput.toString().includes(numberToGuess.toString()[i])
     ) {
       data.cows += 1;
     }
