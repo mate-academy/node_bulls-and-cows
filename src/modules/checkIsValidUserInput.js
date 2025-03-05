@@ -9,7 +9,15 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  return !!(
+    Number(userInput[0]) === 0 ||
+    userInput.length !== 4 ||
+    userInput
+      .split('')
+      .map(Number)
+      .sort((a, b) => a - b)
+      .find((equal, index) => equal === Number(userInput[index + 1]))
+  );
 }
 
 module.exports = {
