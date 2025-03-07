@@ -1,5 +1,7 @@
 'use strict';
 
+const COUNT = 4;
+
 /**
  * Checks that the user input is valid.
  * Valid user input is a 4-digit number that does not start with 0
@@ -9,7 +11,15 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (
+    userInput.length !== COUNT ||
+    userInput[0] === '0' ||
+    !/^\d+$/.test(userInput)
+  ) {
+    return false;
+  }
+
+  return new Set(userInput).size === COUNT;
 }
 
 module.exports = {
