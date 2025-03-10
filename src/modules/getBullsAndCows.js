@@ -13,8 +13,22 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const strUserInput = String(userInput);
+  const strNumberToGuess = String(numberToGuess);
+  const result = { bulls: 0, cows: 0 };
+
+  for (const u of String(userInput)) {
+    if (strUserInput.indexOf(u) === strNumberToGuess.indexOf(u)) {
+      result.bulls++;
+    } else if (strNumberToGuess.includes(u)) {
+      result.cows++;
+    }
+  }
+
+  return result;
 }
+
+// blablabla. AI is stupid.
 
 module.exports = {
   getBullsAndCows,
