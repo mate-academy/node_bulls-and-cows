@@ -9,7 +9,15 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const uniqueNumbers = [...new Set(userInput)];
+  const DIGITS = 4;
+
+  const isUnique =
+    uniqueNumbers.length === DIGITS &&
+    uniqueNumbers.every((n) => !isNaN(Number(n)));
+  const isStartWithNull = +`${userInput}`[0] !== 0;
+
+  return isUnique && isStartWithNull;
 }
 
 module.exports = {
