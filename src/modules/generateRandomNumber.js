@@ -8,6 +8,17 @@
  */
 function generateRandomNumber() {
   /* Write your code here */
+  const randomNumbers = [];
+
+  while (randomNumbers.length < 4) {
+    const randomNumber = 1 + Math.floor(Math.random() * 9);
+
+    if (randomNumbers.indexOf(randomNumber) === -1) {
+      randomNumbers.push(randomNumber);
+    }
+  }
+
+  return +randomNumbers.join('');
 }
 
 module.exports = {
