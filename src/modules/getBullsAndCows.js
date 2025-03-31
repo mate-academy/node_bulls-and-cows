@@ -14,6 +14,30 @@
  */
 function getBullsAndCows(userInput, numberToGuess) {
   /* Write your code here */
+  let bulls = 0;
+  let cows = 0;
+
+  const sUserInput = userInput.toString();
+  const sNumberToGuess = numberToGuess.toString();
+
+  for (let i = 0; i < 4; i++) {
+    const n = sUserInput[i];
+    const p = sNumberToGuess.indexOf(n);
+
+    if (i === p) {
+      // bull
+      bulls++;
+    } else {
+      if (p >= 0) {
+        cows++;
+      }
+    }
+  }
+
+  return {
+    bulls: bulls,
+    cows: cows,
+  };
 }
 
 module.exports = {

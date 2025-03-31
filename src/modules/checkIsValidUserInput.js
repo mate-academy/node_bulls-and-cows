@@ -10,6 +10,29 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  const sUserInput = userInput.toString();
+
+  if (sUserInput[0] === '0') {
+    return false;
+  }
+
+  if (sUserInput.length !== 4) {
+    return false;
+  }
+
+  for (let i = 0; i < 4; i++) {
+    const n = sUserInput[i];
+
+    if (isNaN(+n)) {
+      return false;
+    }
+
+    if (sUserInput.indexOf(n, i + 1) > 0) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
