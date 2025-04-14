@@ -9,7 +9,22 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4 || +userInput[0] === 0) {
+    return false;
+  }
+
+  const sortUserInput = userInput.split('').sort((a, b) => +a - +b);
+
+  for (let i = 0; i < sortUserInput.length; i++) {
+    if (
+      isNaN(+sortUserInput[i]) ||
+      +sortUserInput[i] === +sortUserInput[i - 1]
+    ) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
