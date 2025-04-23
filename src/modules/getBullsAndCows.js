@@ -13,7 +13,29 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  const ifValidUserInput = require('./checkIsValidUserInput');
+
+  if (!ifValidUserInput.checkIsValidUserInput(userInput)) {
+    throw new Error('Invalid user input');
+  }
+
+  const userInputNumbers = userInput.toString().split('').map(Number);
+  const numberToGuessNumbers = numberToGuess.toString().split('').map(Number);
+
+  for (let i = 0; i < 4; i++) {
+    if (userInputNumbers[i] === numberToGuessNumbers[i]) {
+      result.bulls++;
+    } else if (numberToGuessNumbers.includes(userInputNumbers[i])) {
+      result.cows++;
+    }
+  }
+
+  return result;
 }
 
 module.exports = {
