@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable no-console */
 
 /**
  * Calculate the number of bulls and cows for a given user input.
@@ -13,7 +14,23 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  let cows = 0;
+  let bulls = 0;
+  const splittedGuess = String(userInput).split('');
+  const splittedNumber = String(numberToGuess).split('');
+
+  for (let i = 0; i < splittedGuess.length; i++) {
+    if (splittedNumber.includes(splittedGuess[i])) {
+      cows++;
+
+      if (splittedNumber[i] === splittedGuess[i]) {
+        cows--;
+        bulls++;
+      }
+    }
+  }
+
+  return { bulls, cows };
 }
 
 module.exports = {
