@@ -8,8 +8,23 @@
  * @param {string} userInput - The user input
  * @return {boolean} - True if the user input is valid, false otherwise
  */
+
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4 || userInput[0] === '0') {
+    return false;
+  }
+
+  if (!/^\d+$/.test(userInput)) {
+    return false;
+  }
+
+  const check = Array.from(new Set([...userInput]));
+
+  if (check.length !== userInput.length) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
