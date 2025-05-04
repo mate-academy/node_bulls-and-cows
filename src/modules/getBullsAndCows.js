@@ -14,6 +14,31 @@
  */
 function getBullsAndCows(userInput, numberToGuess) {
   /* Write your code here */
+  // Here we get userInput that was validated in checkIsValidUserInput.js
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  const userInputString = `${userInput}`.split('');
+  const numberToGuessString = `${numberToGuess}`.split('');
+
+  function checkDigit(digit, index) {
+    if (digit === numberToGuessString[index]) {
+      result.bulls++;
+    }
+
+    if (
+      numberToGuessString.includes(digit) &&
+      digit !== numberToGuessString[index]
+    ) {
+      result.cows++;
+    }
+  }
+
+  userInputString.forEach(checkDigit);
+
+  return result;
 }
 
 module.exports = {

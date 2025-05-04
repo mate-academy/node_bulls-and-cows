@@ -10,6 +10,18 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+
+  if (userInput.length !== 4 || userInput[0] === '0' || isNaN(userInput)) {
+    return false;
+  }
+
+  for (let i = 0; i < userInput.length; i++) {
+    if (userInput.slice(i + 1).includes(userInput[i])) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
