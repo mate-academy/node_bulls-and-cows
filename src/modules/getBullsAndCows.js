@@ -13,8 +13,42 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  let bulls = 0;
+  let cows = 0;
+
+  const userInputArray = userInput.toString().split('');
+  const numberToGuessArray = numberToGuess.toString().split('');
+
+  const userInputChecked = [];
+  const numberToGuessChecked = [];
+
+  for (let i = 0; i < 4; i++) {
+    if (userInputArray[i] === numberToGuessArray[i]) {
+      bulls++;
+      userInputChecked[i] = true;
+      numberToGuessChecked[i] = true;
+    } else {
+      userInputChecked[i] = false;
+      numberToGuessChecked[i] = false;
+    }
+  }
+
+  for (let i = 0; i < 4; i++) {
+    if (!userInputChecked[i]) {
+      for (let j = 0; j < 4; j++) {
+        if (userInputArray[i] === numberToGuessArray[j]) {
+          cows++;
+          break;
+        }
+      }
+    }
+  }
+
+  return { bulls, cows };
 }
+
+// console.log(getBullsAndCows('1234', '1243'));
+// console.log(getBullsAndCows('1245', '1243'));
 
 module.exports = {
   getBullsAndCows,
