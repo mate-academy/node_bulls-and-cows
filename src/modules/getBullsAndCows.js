@@ -36,12 +36,8 @@ function getBullsAndCows(userInput, numberToGuess) {
   for (let i = 0; i < 4; i++) {
     if (!userInputChecked[i]) {
       for (let j = 0; j < 4; j++) {
-        if (
-          !numberToGuessChecked[j] &&
-          userInputArray[i] === numberToGuessArray[j]
-        ) {
+        if (userInputArray[i] === numberToGuessArray[j]) {
           cows++;
-          numberToGuessChecked[j] = true;
           break;
         }
       }
@@ -50,6 +46,9 @@ function getBullsAndCows(userInput, numberToGuess) {
 
   return { bulls, cows };
 }
+
+// console.log(getBullsAndCows('1234', '1243'));
+// console.log(getBullsAndCows('1245', '1243'));
 
 module.exports = {
   getBullsAndCows,

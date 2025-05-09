@@ -17,9 +17,9 @@ function checkIsValidUserInput(userInput) {
     return false;
   }
 
-  const digits = new Set(userInput);
+  const inputSet = new Set(userInput);
 
-  if (digits.size !== 4) {
+  if (inputSet.size < 4) {
     return false;
   }
 

@@ -1,56 +1,35 @@
 'use strict';
 
-import readline from 'node:readline';
+const readline = require('node:readline');
 
-import { generateRandomNumber } from './modules/generateRandomNumber.js';
-import { checkIsValidUserInput } from './modules/checkIsValidUserInput.js';
-import { getBullsAndCows } from './modules/getBullsAndCows.js';
+const { generateRandomNumber } = require('./modules/generateRandomNumber');
+const { getBullsAndCows } = require('./modules/getBullsAndCows');
+const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
+const terminal = readline.createInterface(process.stdin, process.stdout);
 const numberToGuess = generateRandomNumber();
 
-function check(userInput) {
-  if (!checkIsValidUserInput(userInput)) {
-    return {
-      error: 'Invalid input! Enter a 4-digit number with unique digits.',
-    };
-  }
+function play() {
+  terminal.question('Please enter your quess: ', (userInput) => {
+    if (!checkIsValidUserInput(userInput)) {
+      terminal.write(
+        '!! Please enter a 4-digit number with unique digits(not start 0).\n',
+      );
+      play();
+    }
 
-  const { bulls, cows } = getBullsAndCows(userInput, numberToGuess);
+    const { bulls, cows } = getBullsAndCows(userInput, numberToGuess);
 
-  return { bulls, cows, isWin: bulls === 4 };
+    if (bulls.length === 4) {
+      terminal.write(
+        `Congratulations! You guessed the number ${numberToGuess} correctly!\n`,
+      );
+      terminal.close();
+    } else {
+      terminal.write(`Try again! You guessed ${bulls} bulls, ${cows} cows\n`);
+      play();
+    }
+  });
 }
 
-function ask() {
-  rl.question(
-    'Try to guess the 4-digit number. Enter your guess? ',
-    (userInput) => {
-      const checkResult = check(userInput);
-
-      if (checkResult.error) {
-        rl.write('!!Enter a 4-digit number with unique digits(not start 0).\n');
-        ask();
-
-        return;
-      }
-
-      if (checkResult.isWin) {
-        rl.write(
-          `Congratulations! You guessed the number ${numberToGuess} correctly!\n`,
-        );
-        rl.close();
-      } else {
-        rl.write(
-          `Try again! You guessed ${checkResult.bulls} bulls, ${checkResult.cows} cows\n`,
-        );
-        ask();
-      }
-    },
-  );
-}
-
-ask();
+play();
