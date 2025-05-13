@@ -10,6 +10,21 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  if (!/^\d{4}$/.test(userInput)) {
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  const digits = new Set(userInput);
+
+  return digits.size === 4;
 }
 
 module.exports = {

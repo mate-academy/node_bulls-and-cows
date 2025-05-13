@@ -1,7 +1,6 @@
 'use strict';
 
-/**
- * Calculate the number of bulls and cows for a given user input.
+/** * Calculate the number of bulls and cows for a given user input.
  * Bulls are digits that are in the correct position.
  * Cows are digits that are in the wrong position.
  * Assume that the user input and the number to guess
@@ -9,11 +8,28 @@
  *
  * @param {number} userInput - The user input
  * @param {number} numberToGuess - The number to guess
- * @return {object} An object containing the number of bulls and cows.
+ * @return {object} An object containing the number of bulls and cows.`
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
   /* Write your code here */
+  let bulls = 0;
+  let cows = 0;
+
+  // eslint-disable-next-line
+  userInput = userInput.toString();
+  // eslint-disable-next-line no-param-reassign
+  numberToGuess = numberToGuess.toString();
+
+  for (let i = 0; i < 4; i++) {
+    if (userInput[i] === numberToGuess[i]) {
+      bulls++;
+    } else if (numberToGuess.includes(userInput[i])) {
+      cows++;
+    }
+  }
+
+  return { bulls, cows };
 }
 
 module.exports = {
