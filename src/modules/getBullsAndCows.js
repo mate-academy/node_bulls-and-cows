@@ -13,7 +13,30 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const inputStr = userInput.toString();
+  const guessStr = numberToGuess.toString();
+
+  let bulls = 0;
+  let cows = 0;
+
+  // Рахуємо бики (правильна цифра на правильній позиції)
+  for (let i = 0; i < 4; i++) {
+    if (inputStr[i] === guessStr[i]) {
+      bulls++;
+    }
+  }
+
+  // Рахуємо загальну кількість співпадінь цифр
+  const inputDigits = inputStr.split('');
+  const guessDigits = guessStr.split('');
+  const totalMatches = inputDigits.reduce((acc, digit) => {
+    return acc + (guessDigits.includes(digit) ? 1 : 0);
+  }, 0);
+
+  // Кількість корів = загальні співпадіння - бики
+  cows = totalMatches - bulls;
+
+  return { bulls, cows };
 }
 
 module.exports = {
