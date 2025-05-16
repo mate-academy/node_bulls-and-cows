@@ -9,7 +9,20 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  // Перевіряємо, чи введене значення є рядком із 4 цифр
+  if (!/^\d{4}$/.test(userInput)) {
+    return false;
+  }
+
+  // Перевіряємо, чи не починається з 0
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  // Перевіряємо, чи немає повторюваних цифр
+  const digits = new Set(userInput);
+
+  return digits.size === 4;
 }
 
 module.exports = {
