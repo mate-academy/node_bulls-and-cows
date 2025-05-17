@@ -9,7 +9,22 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4 || userInput[0] === '0') {
+    return false;
+  }
+
+  const uniqueDigits = new Set();
+
+  for (let i = 0; i < userInput.length; i++) {
+    const digit = userInput[i];
+
+    if (isNaN(Number(digit))) {
+      return false;
+    }
+    uniqueDigits.add(digit);
+  }
+
+  return uniqueDigits.size === userInput.length;
 }
 
 module.exports = {
