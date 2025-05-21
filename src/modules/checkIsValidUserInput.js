@@ -9,7 +9,19 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const number = +userInput;
+
+  if (!(typeof number === 'number' && number >= 1000 && number <= 9999)) {
+    return false;
+  }
+
+  for (const digit of userInput) {
+    if (userInput.split('').filter((n) => n === digit).length !== 1) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
