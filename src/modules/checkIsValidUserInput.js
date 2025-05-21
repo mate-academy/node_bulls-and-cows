@@ -16,7 +16,8 @@ function checkIsValidUserInput(userInput) {
     Number.isNaN(number) ||
     number < 1000 ||
     number > 9999 ||
-    numberSet.size !== 4
+    numberSet.size !== 4 ||
+    userInput[0] === '0'
   ) {
     return false;
   }

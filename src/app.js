@@ -17,7 +17,10 @@ function bullsAndCows() {
       return bullsAndCows();
     }
 
-    getBullsAndCows(number, randomNumnber);
+    const res = getBullsAndCows(number, randomNumnber);
+
+    // eslint-disable-next-line no-console
+    console.log(`The result is ${res.bulls} bull(s) and ${res.cows} cow(s)`);
 
     if (+number !== randomNumnber) {
       bullsAndCows();
