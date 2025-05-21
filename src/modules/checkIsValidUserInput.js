@@ -9,7 +9,19 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const number = Number(userInput);
+  const numberSet = new Set(userInput.toString());
+
+  if (
+    Number.isNaN(number) ||
+    number < 1000 ||
+    number > 9999 ||
+    numberSet.size !== 4
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
