@@ -7,7 +7,7 @@ const { getBullsAndCows } = require('./modules/getBullsAndCows');
 
 const terminal = readline.createInterface(process.stdin, process.stdout);
 
-const randomNumnber = generateRandomNumber();
+const randomNumber = generateRandomNumber();
 
 function bullsAndCows() {
   terminal.question('Guess a number\n', (number) => {
@@ -17,12 +17,12 @@ function bullsAndCows() {
       return bullsAndCows();
     }
 
-    const res = getBullsAndCows(number, randomNumnber);
+    const res = getBullsAndCows(number, randomNumber);
 
     // eslint-disable-next-line no-console
     console.log(`The result is ${res.bulls} bull(s) and ${res.cows} cow(s)`);
 
-    if (+number !== randomNumnber) {
+    if (+number !== randomNumber) {
       bullsAndCows();
     } else {
       terminal.close();
