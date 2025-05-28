@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -9,7 +10,41 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length > 4) {
+    console.log('There are too many digits!');
+
+    return false;
+  }
+
+  if (userInput.length < 4) {
+    console.log('There are need more digits!');
+
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    console.log("First digit can't be '0'!");
+
+    return false;
+  }
+
+  for (const char of userInput) {
+    if (isNaN(+char)) {
+      console.log('Input must contain only digits!');
+
+      return false;
+    }
+  }
+
+  const uniqueDigits = new Set(userInput);
+
+  if (uniqueDigits.size < 4) {
+    console.log('All digits must be unique!');
+
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
