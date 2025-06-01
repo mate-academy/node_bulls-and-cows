@@ -10,6 +10,19 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  if (!/^\d{4}$/.test(userInput)) {
+    return false;
+  }
+
+  // si cela commence par 0
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  // Vérifier les chiffres en double ou pair
+  const digits = new Set(userInput);
+
+  return digits.size === 4;
 }
 
 module.exports = {
