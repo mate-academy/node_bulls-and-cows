@@ -23,12 +23,10 @@ function getBullsAndCows(userInput, numberToGuess) {
   for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] === input[i]) {
       bulls++;
+      cows--;
     }
 
-    if (
-      userInput.toString().includes(numberToGuess.toString()[i]) &&
-      numbers[i] !== input[i]
-    ) {
+    if (userInput.toString().includes(numberToGuess.toString()[i])) {
       cows++;
     }
   }
@@ -38,8 +36,6 @@ function getBullsAndCows(userInput, numberToGuess) {
     cows,
   };
 }
-
-console.log(process.argv.slice(2));
 
 module.exports = {
   getBullsAndCows,

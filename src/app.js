@@ -28,9 +28,6 @@ function askUser() {
     const userNumber = +input;
     const { bulls, cows } = getBullsAndCows(userNumber, number);
 
-    console.log(userNumber);
-    console.log(number);
-
     if (bulls === 4) {
       console.log('You won!');
 
