@@ -12,11 +12,13 @@ function generateRandomNumber() {
   while (digits.length < 4) {
     const digit = Math.floor(Math.random() * 10);
 
-    if ((digits.length === 0 && digit === 0) || digits.includes(digit)) {
+    if (digit === 0 && digits.length === 0) {
       continue;
     }
 
-    digits.push(digit);
+    if (!digits.includes(digit)) {
+      digits.push(digit);
+    }
   }
 
   return Number(digits.join(''));
