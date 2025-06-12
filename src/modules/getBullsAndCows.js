@@ -13,7 +13,33 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const userNums = String(userInput).split('');
+  const targetNums = String(numberToGuess).split('');
+  let bulls = 0;
+  let cows = 0;
+
+  const unmatchedUser = [];
+  const unmatchedTarget = [];
+
+  for (let i = 0; i < userNums.length; i++) {
+    if (userNums[i] === targetNums[i]) {
+      bulls++;
+    } else {
+      unmatchedUser.push(userNums[i]);
+      unmatchedTarget.push(targetNums[i]);
+    }
+  }
+
+  for (let i = 0; i < unmatchedUser.length; i++) {
+    const index = unmatchedTarget.indexOf(unmatchedUser[i]);
+
+    if (index !== -1) {
+      cows++;
+      unmatchedTarget.splice(index, 1);
+    }
+  }
+
+  return { bulls, cows };
 }
 
 module.exports = {
