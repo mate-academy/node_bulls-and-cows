@@ -9,7 +9,12 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const isValidLength = userInput.length === 4;
+  const noZero = userInput[0] !== '0';
+  const areNumbers = Number(userInput) || false;
+  const noDuplicates = userInput.length === new Set(userInput.split('')).size;
+
+  return isValidLength && noZero && areNumbers && noDuplicates;
 }
 
 module.exports = {
