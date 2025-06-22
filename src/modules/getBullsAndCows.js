@@ -14,15 +14,31 @@
  */
 function getBullsAndCows(userInput, numberToGuess) {
   const resultObj = { bulls: 0, cows: 0 };
+
   const userInputArr = String(userInput).split('').map(Number);
   const numberToGuessArr = String(numberToGuess).split('').map(Number);
 
-  for (let i = 0; i < userInputArr.length; i++) {
-    if (numberToGuessArr.includes(userInputArr[i])) {
-      if (userInputArr[i] === numberToGuessArr[i]) {
-        resultObj.bulls++;
-      } else {
+  const usedInGuess = Array(4).fill(false);
+  const usedInInput = Array(4).fill(false);
+
+  for (let i = 0; i < 4; i++) {
+    if (userInputArr[i] === numberToGuessArr[i]) {
+      resultObj.bulls++;
+      usedInGuess[i] = true;
+      usedInInput[i] = true;
+    }
+  }
+
+  for (let i = 0; i < 4; i++) {
+    if (usedInInput[i]) {
+      continue;
+    }
+
+    for (let j = 0; j < 4; j++) {
+      if (!usedInGuess[j] && userInputArr[i] === numberToGuessArr[j]) {
         resultObj.cows++;
+        usedInGuess[j] = true;
+        break;
       }
     }
   }

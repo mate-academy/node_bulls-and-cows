@@ -9,6 +9,10 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
+  if (userInput.length !== 4) {
+    return false;
+  }
+
   if (userInput[0] === '0') {
     return false;
   }
