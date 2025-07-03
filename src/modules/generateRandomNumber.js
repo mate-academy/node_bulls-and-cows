@@ -7,17 +7,23 @@
  * @return {number} A random 4-digit number
  */
 function generateRandomNumber() {
-  const digits = [Math.floor(Math.random() * 9) + 1];
+  const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-  while (digits.length < 4) {
-    const digit = Math.floor(Math.random() * 10);
+  const firstIndex = Math.floor(Math.random() * 9) + 1;
+  const firstDigit = digits[firstIndex];
 
-    if (!digits.includes(digit)) {
-      digits.push(digit);
-    }
+  const resultDigits = [firstDigit];
+
+  digits.splice(firstIndex, 1);
+
+  for (let i = 0; i < 3; i++) {
+    const randomIndex = Math.floor(Math.random() * digits.length);
+
+    resultDigits.push(digits[randomIndex]);
+    digits.splice(randomIndex, 1);
   }
 
-  return parseInt(digits.join('')); // Convert to number
+  return parseInt(resultDigits.join(''), 10);
 }
 
 module.exports = {

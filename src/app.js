@@ -1,41 +1,55 @@
-/* eslint-disable no-console */
 'use strict';
-import readline from 'node:readline';
-import { generateRandomNumber } from './modules/generateRandomNumber.js';
-import { checkIsValidUserInput } from './modules/checkIsValidUserInput.js';
-import { getBullsAndCows } from './modules/getBullsAndCows.js';
+
+const readline = require('readline');
+const { generateRandomNumber } = require('./modules/generateRandomNumber');
+const { getBullsAndCows } = require('./modules/getBullsAndCows');
+const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const randomNumber = generateRandomNumber();
+const secretNumber = generateRandomNumber();
 
-const main = (isFirstTry) => {
-  if (isFirstTry) {
-    console.log('guess the number (1000 - 9999)');
-  } else {
-    console.log('Try again');
+function printIntro() {
+  rl.write('Welcome to Bulls and Cows!\n');
+
+  rl.write(
+    'I have generated a 4-digit number with all different digits.\n' +
+      'Try to guess it!\n',
+  );
+}
+
+function promptUser() {
+  rl.question('Enter your guess (4 different digits): ', handleUserInput);
+}
+
+function handleUserInput(userInput) {
+  if (!checkIsValidUserInput(userInput)) {
+    rl.write(
+      'Invalid input! Enter a 4-digit number that:\n' +
+        '- does not start with 0\n' +
+        '- contains only digits\n' +
+        '- has no duplicate digits\n\n',
+    );
+
+    return promptUser();
   }
 
-  rl.once('line', (input) => {
-    if (!checkIsValidUserInput(input)) {
-      console.log('Input should be 4-digit number that does not start with 0');
-      main(false);
-    } else {
-      const result = getBullsAndCows(+input, randomNumber);
+  const { bulls, cows } = getBullsAndCows(userInput, secretNumber);
 
-      console.log(result);
+  rl.write(`Bulls: ${bulls}, Cows: ${cows}\n`);
 
-      if (result.bulls === 4) {
-        console.log('Great job, you have guessed the number. Goodbye!');
-        rl.close();
-      } else {
-        main(false);
-      }
-    }
-  });
-};
+  const isVictory = bulls === 4;
 
-main(true);
+  if (isVictory) {
+    rl.write(`🎉 Congratulations! You found the number: ${secretNumber}\n`);
+    rl.close();
+  } else {
+    promptUser();
+  }
+}
+
+printIntro();
+promptUser();
