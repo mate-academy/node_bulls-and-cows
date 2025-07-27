@@ -9,9 +9,25 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const userNumber = userInput.trim();
+
+  if (userNumber.length !== 4) {
+    return false;
+  }
+
+  if (isNaN(+userNumber)) {
+    return false;
+  }
+
+  if (userNumber.startsWith('0')) {
+    return false;
+  }
+
+  if (new Set(userNumber.split('')).size !== userNumber.length) {
+    return false;
+  }
+
+  return true;
 }
 
-module.exports = {
-  checkIsValidUserInput,
-};
+module.exports = { checkIsValidUserInput };
