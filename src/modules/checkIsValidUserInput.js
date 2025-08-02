@@ -10,6 +10,31 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+
+  if (!/^\d{4}$/.test(userInput)) {
+    return false;
+  }
+
+  if (userInput.toString()[0] === '0') {
+    return false;
+  }
+
+  const uniqueNumber = userInput
+    .toString()
+    .split('')
+    .reduce((acum, value) => {
+      if (!acum.includes(value)) {
+        return acum.concat(value);
+      }
+
+      return acum;
+    });
+
+  if (uniqueNumber.length < 4) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 module.exports = {
