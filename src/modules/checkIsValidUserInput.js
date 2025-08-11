@@ -9,7 +9,23 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4 || userInput[0] === '0') {
+    return false;
+  }
+
+  for (const ch of userInput) {
+    if (ch < '0' || ch > '9') {
+      return false;
+    }
+  }
+
+  const uniqueNums = new Set(userInput);
+
+  if (uniqueNums.size !== 4) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
