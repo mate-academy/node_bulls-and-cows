@@ -9,11 +9,33 @@
  *
  * @param {number} userInput - The user input
  * @param {number} numberToGuess - The number to guess
- * @return {object} An object containing the number of bulls and cows.
+ * @return {object} An object containing the number of bu lls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
+
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const input = userInput.toString().split('');
+  const randomNumber = numberToGuess.toString().split('');
+  const result = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  for (let i = 0; i < 4; i++) {
+    const numbersBefore = [];
+
+    if (input[i] === randomNumber[i]) {
+      result.bulls += 1;
+      numbersBefore.push(input[i]);
+    } else if (
+      randomNumber.includes(input[i]) &&
+      !numbersBefore.includes(input[i])
+    ) {
+      result.cows += 1;
+    }
+  }
+
+  return result;
 }
 
 module.exports = {
