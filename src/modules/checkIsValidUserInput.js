@@ -9,7 +9,24 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (
+    userInput.length !== 4 ||
+    userInput[0] === '0' ||
+    !/^\d+$/.test(userInput)
+  ) {
+    return false;
+  }
+
+  const digits = new Set();
+
+  for (const digit of userInput) {
+    if (digits.has(digit)) {
+      return false;
+    }
+    digits.add(digit);
+  }
+
+  return true;
 }
 
 module.exports = {
