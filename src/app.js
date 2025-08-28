@@ -9,7 +9,7 @@ let attempts = 0;
 
 function makeGuess(userInput) {
   if (!checkIsValidUserInput(userInput)) {
-    return 'Invalid input! Enter 4 digits(no leading 0 and no duplicates plz )';
+    return 'Invalid input! Enter 4 digits, no duplicates plz )';
   }
 
   attempts++;
