@@ -9,12 +9,13 @@ let attempts = 0;
 
 function makeGuess(userInput) {
   if (!checkIsValidUserInput(userInput)) {
-    return 'Invalid input! Enter exactly 4 distinct digits.';
+    return 'Invalid input! Enter 4 digits, no duplicates, no leading zero.';
   }
 
   attempts++;
 
-  const result = getBullsAndCows(userInput, secretNumber);
+  const userNumber = parseInt(userInput);
+  const result = getBullsAndCows(userNumber, secretNumber);
 
   if (result.bulls === 4) {
     return `You won in ${attempts} attempts!`;

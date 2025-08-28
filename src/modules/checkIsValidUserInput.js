@@ -9,6 +9,10 @@ function checkIsValidUserInput(userInput) {
     return false;
   }
 
+  if (userInput[0] === '0') {
+    return false;
+  }
+
   if (!/^\d+$/.test(userInput)) {
     return false;
   }
