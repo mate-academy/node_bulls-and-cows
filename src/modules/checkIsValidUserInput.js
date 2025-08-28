@@ -9,7 +9,31 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (typeof userInput !== 'string') {
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  for (const ch of userInput) {
+    if (ch < '0' || ch > '9') {
+      return false;
+    }
+  }
+
+  for (const ch of userInput) {
+    if (userInput.indexOf(ch) !== userInput.lastIndexOf(ch)) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
