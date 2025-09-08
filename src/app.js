@@ -1,61 +1,42 @@
 /* eslint-disable no-console */
-/* eslint-disable max-len */
 'use strict';
 
-// Импортируем необходимые модули
-const readline = require('readline'); // Для работы с вводом/выводом в консоли
+const readline = require('readline');
+const { generateNumber } = require('./modules/generateNumber');
+const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
+const { getBullsAndCows } = require('./modules/getBullsAndCows');
 
-const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput'); // Валидатор ввода
+const numberToGuess = generateNumber();
 
-const { generateRandomNumber } = require('./modules/generateRandomNumber'); // Генератор числа
+console.log('Bulls & Cows');
+console.log('Guess the 4-digit number with unique digits.');
 
-const { getBullsAndCows } = require('./modules/getBullsAndCows'); // Логика "быков и коров"
-
-// Создаём интерфейс для ввода/вывода в консоли
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-// Генерируем случайное число в начале игры
-const secretNumber = generateRandomNumber();
-
-console.log('Добро пожаловать в игру "Быки и Коровы"! 🎯');
-console.log('Я загадал 4-значное число. Попробуй угадать!');
-
-// Основная функция игры — спрашиваем пользователя и обрабатываем ввод
-function askUser() {
-  rl.question('Введи 4-значное число: ', (answer) => {
-    // Убираем лишние пробелы
-    const input = answer.trim();
-
-    // Проверяем корректность ввода: 4 уникальные цифры, первая не 0
-    if (!checkIsValidUserInput(input)) {
+function ask() {
+  rl.question('Your guess: ', (answer) => {
+    if (!checkIsValidUserInput(answer)) {
       console.log(
-        '❌ Неверный ввод! Введи 4 уникальные цифры, первая не может быть 0.',
+        'Invalid input. Must be 4 unique digits, not starting with 0.',
       );
-      // Если ввод некорректный, спрашиваем снова
 
-      return askUser();
+      return ask();
     }
 
-    // Вычисляем количество быков и коров
-    // Используем строки, чтобы избежать проблем с ведущими нулями
-    const { bulls, cows } = getBullsAndCows(input, secretNumber);
+    const { bulls, cows } = getBullsAndCows(answer, numberToGuess);
 
-    // Показываем пользователю результат
-    console.log(`Быки: ${bulls}, Коровы: ${cows}`);
+    console.log(`${bulls} Bulls, ${cows} Cows`);
 
-    // Если пользователь угадал все цифры, завершаем игру
     if (bulls === 4) {
-      console.log(`🎉 Поздравляю! Ты угадал число ${secretNumber}!`);
+      console.log(`You win! The number was ${numberToGuess}`);
       rl.close();
     } else {
-      // Иначе спрашиваем снова
-      askUser();
+      ask();
     }
   });
 }
 
-// Запускаем первый вопрос
-askUser();
+ask();

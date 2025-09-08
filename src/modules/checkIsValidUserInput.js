@@ -9,27 +9,22 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
-  // Проверка: должно быть ровно 4 символа
-  if (userInput.length !== 4) {
+  const userInputStr = userInput.toString();
+
+  if (userInputStr.length !== 4 || userInputStr[0] === '0') {
     return false;
   }
 
-  // Проверка: все символы — цифры
-  if (!/^\d+$/.test(userInput)) {
+  if (!/^\d{4}$/.test(userInput)) {
     return false;
   }
 
-  // Проверка: первая цифра не "0"
-  if (userInput[0] === '0') {
-    return false;
-  }
-
-  // Проверка: все цифры уникальные
-  const digits = new Set(userInput);
-
-  if (digits.size !== 4) {
-    return false;
+  for (let i = 0; i < userInputStr.length; i++) {
+    for (let j = i + 1; j < userInputStr.length; j++) {
+      if (userInputStr[i] === userInputStr[j]) {
+        return false;
+      }
+    }
   }
 
   return true;
