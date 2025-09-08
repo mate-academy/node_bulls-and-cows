@@ -10,6 +10,29 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  // Проверка: должно быть ровно 4 символа
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  // Проверка: все символы — цифры
+  if (!/^\d+$/.test(userInput)) {
+    return false;
+  }
+
+  // Проверка: первая цифра не "0"
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  // Проверка: все цифры уникальные
+  const digits = new Set(userInput);
+
+  if (digits.size !== 4) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
