@@ -14,6 +14,27 @@
  */
 function getBullsAndCows(userInput, numberToGuess) {
   /* Write your code here */
+  const userDigits = String(userInput).split('');
+  const computerDigits = String(numberToGuess).split('');
+
+  let bulls = 0;
+  let cows = 0;
+
+  for (let i = 0; i < userDigits.length; i++) {
+    if (userDigits[i] === computerDigits[i]) {
+      bulls++;
+      continue;
+    }
+
+    if (computerDigits.includes(userDigits[i])) {
+      cows++;
+    }
+  }
+
+  return {
+    bulls: bulls,
+    cows: cows,
+  };
 }
 
 module.exports = {

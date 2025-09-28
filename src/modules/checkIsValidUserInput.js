@@ -10,6 +10,17 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  if (!/^[1-9]\d{3}$/.test(userInput)) {
+    return false;
+  }
+
+  const uniqueDigits = new Set(userInput);
+
+  if (uniqueDigits.size !== 4) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
