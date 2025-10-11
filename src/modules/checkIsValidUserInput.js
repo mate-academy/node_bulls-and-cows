@@ -9,17 +9,18 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  const isFourDigits = /^\d{4}$/.test(userInput);
+  const input = String(userInput).trim();
+  const isFourDigits = /^\d{4}$/.test(input);
 
   if (!isFourDigits) {
     return false;
   }
 
-  if (userInput[0] === '0') {
+  if (input[0] === '0') {
     return false;
   }
 
-  const digits = new Set(userInput);
+  const digits = new Set(input);
 
   return digits.size === 4;
 }
