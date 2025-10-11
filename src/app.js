@@ -1,48 +1,49 @@
 'use strict';
 
-const readline = require('readline');
 const { generateRandomNumber } = require('./modules/generateRandomNumber');
 const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
 const { getBullsAndCows } = require('./modules/getBullsAndCows');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const { writeMessage, askQuestion, closeIO } = require('./modules/io');
 
 const secretNumber = generateRandomNumber();
 
-process.stdout.write('Welcome to Bulls and Cows!\n');
+writeMessage('Welcome to Bulls and Cows!');
+writeMessage('I have generated a random 4-digit number for you to guess.\n');
+writeMessage('Each digit is unique.\n');
+writeMessage('Try to guess the number!\n');
 
-process.stdout.write(
-  'I have generated a random 4-digit number for you to guess.\n',
-);
-process.stdout.write('Each digit is unique.\n');
-process.stdout.write('Try to guess the number!\n');
+const gameLoop = async () => {
+  let trimmedInput = '';
+  let isValid = false;
 
-const gameLoop = () => {
-  rl.question('Your guess (4 unique digits):', (userInput) => {
-    const isValid = checkIsValidUserInput(userInput);
+  while (!isValid) {
+    const userInput = await askQuestion(
+      'Your guess (4 unique digits, no leading zero): ',
+    );
+
+    trimmedInput = userInput.trim();
+    isValid = checkIsValidUserInput(trimmedInput);
 
     if (!isValid) {
-      process.stdout.write(
-        'Invalid input. Please enter a 4-digit number with unique digits.\n',
+      writeMessage(
+        'Invalid input. Please enter 4 unique digits, without leading zero.\n',
       );
-      gameLoop();
-    } else {
-      const { bulls, cows } = getBullsAndCows(userInput, secretNumber);
-
-      process.stdout.write(`Bulls: ${bulls}, Cows: ${cows}\n`);
-
-      if (bulls === 4) {
-        process.stdout.write('Congratulations! You guessed the number!\n');
-        rl.close();
-
-        return;
-      }
-      gameLoop();
     }
-  });
+  }
+
+  const { bulls, cows } = getBullsAndCows(trimmedInput, secretNumber);
+
+  writeMessage(`Bulls: ${bulls}, Cows: ${cows}`);
+
+  if (bulls === 4) {
+    writeMessage('Congratulations! You guessed the number!');
+    closeIO();
+
+    return;
+  }
+
+  gameLoop();
 };
 
 gameLoop();

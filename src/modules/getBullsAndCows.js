@@ -7,29 +7,31 @@
  * Assume that the user input and the number to guess
  * are always 4-digit numbers.
  *
- * @param {number} userInput - The user input
- * @param {number} numberToGuess - The number to guess
+ * @param {string|number} userInput - The user input
+ * @param {string|number} numberToGuess - The number to guess
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  let bulls = 0;
-  let cows = 0;
-  let totalMatches = 0;
-  const userInputStr = userInput.toString();
-  const numberToGuessStr = numberToGuess.toString();
+  const secret = String(numberToGuess);
+  const guess = String(userInput);
 
-  for (let i = 0; i < 4; i++) {
-    if (userInputStr[i] === numberToGuessStr[i]) {
+  let bulls = 0;
+  let totalMatches = 0;
+
+  const len = Math.min(secret.length, guess.length);
+
+  for (let i = 0; i < len; i++) {
+    if (guess[i] === secret[i]) {
       bulls++;
     }
 
-    if (numberToGuessStr.includes(userInputStr[i])) {
+    if (secret.includes(guess[i])) {
       totalMatches++;
     }
   }
 
-  cows = totalMatches - bulls;
+  const cows = totalMatches - bulls;
 
   return { bulls, cows };
 }
