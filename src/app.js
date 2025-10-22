@@ -14,29 +14,29 @@ const terminal = readline.createInterface({
 function startGame() {
   const randomNumber = generateRandomNumber();
 
+  console.log('Welcome to the Bulls and Cows game!');
+  console.log('Try to guess the 4-digit number with unique digits.');
+
   function ask() {
-    terminal.question(
-      'Welcome to the game! Please enter your number: ',
-      (personNumber) => {
-        if (!checkIsValidUserInput(personNumber)) {
-          console.log('Invalid number. Please enter a valid 4-digit number.');
-          ask();
+    terminal.question('Enter your number: ', (personNumber) => {
+      if (!checkIsValidUserInput(personNumber)) {
+        console.log('Invalid number. Please enter a valid 4-digit number.');
+        ask();
+      } else {
+        const result = getBullsAndCows(personNumber, randomNumber);
+
+        if (result.bulls === 4) {
+          console.log('Congratulations! You guessed the number!');
+          terminal.close();
         } else {
-          const result = getBullsAndCows(personNumber, randomNumber);
+          const bulls = result.bulls;
+          const cows = result.cows;
 
-          if (result.bulls === 4) {
-            console.log('Congratulations! You guessed the number!');
-            terminal.close();
-          } else {
-            const bulls = result.bulls;
-            const cows = result.cows;
-
-            console.log(`Bulls: ${bulls}, Cows: ${cows}`);
-            ask();
-          }
+          console.log(`Bulls: ${bulls}, Cows: ${cows}`);
+          ask();
         }
-      },
-    );
+      }
+    });
   }
   ask();
 }
