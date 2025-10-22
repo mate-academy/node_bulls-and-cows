@@ -9,7 +9,18 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const unique = new Set(userInput);
+
+  if (
+    userInput.length !== 4 ||
+    isNaN(userInput) ||
+    userInput[0] === '0' ||
+    unique.size !== 4
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
