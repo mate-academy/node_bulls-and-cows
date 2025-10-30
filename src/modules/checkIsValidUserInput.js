@@ -9,7 +9,7 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  return /^[1-9]\d{3}$/.test(userInput) && new Set(userInput).size === 4;
 }
 
 module.exports = {
