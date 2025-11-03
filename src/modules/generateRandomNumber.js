@@ -12,13 +12,13 @@ function generateRandomNumber() {
   const firstIndex = 1 + Math.floor(Math.random() * 9);
   const firstValue = value.splice(firstIndex, 1)[0];
 
-  const secondIndex = Math.floor(Math.random() * 8);
+  const secondIndex = Math.floor(Math.random() * value.length);
   const secondValue = value.splice(secondIndex, 1)[0];
 
-  const thirdIndex = Math.floor(Math.random() * 7);
+  const thirdIndex = Math.floor(Math.random() * value.length);
   const thirdValue = value.splice(thirdIndex, 1)[0];
 
-  const fourthIndex = Math.floor(Math.random() * 6);
+  const fourthIndex = Math.floor(Math.random() * value.length);
   const fourthValue = value.splice(fourthIndex, 1)[0];
 
   const numberStr = firstValue + secondValue + thirdValue + fourthValue;
