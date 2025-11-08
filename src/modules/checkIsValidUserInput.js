@@ -10,6 +10,33 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  // Remove espaços em branco
+  const cleaned = userInput.trim();
+
+  // Verifica se tem exatamente 4 caracteres
+  if (cleaned.length !== 4) {
+    return false;
+  }
+
+  // Verifica se todos são dígitos
+  if (!/^\d{4}$/.test(cleaned)) {
+    return false;
+  }
+
+  // Verifica se começa com 0
+  if (cleaned[0] === '0') {
+    return false;
+  }
+
+  // Verifica se há dígitos repetidos
+  const digits = cleaned.split('');
+  const uniqueDigits = new Set(digits);
+
+  if (uniqueDigits.size !== 4) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
