@@ -17,10 +17,14 @@ function getBullsAndCows(userInput, numberToGuess) {
   let bulls = 0;
   let cows = 0;
 
+  // Converte os números para strings
+  const userInputStr = userInput.toString();
+  const numberToGuessStr = numberToGuess.toString();
+
   for (let i = 0; i < 4; i++) {
-    if (userInput[i] === numberToGuess[i]) {
+    if (userInputStr[i] === numberToGuessStr[i]) {
       bulls++;
-    } else if (userInput.includes(numberToGuess[i])) {
+    } else if (userInputStr.includes(numberToGuessStr[i])) {
       cows++;
     }
   }

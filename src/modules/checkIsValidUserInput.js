@@ -15,18 +15,17 @@ function checkIsValidUserInput(userInput) {
 
   // Verifica se tem exatamente 4 caracteres
   if (cleaned.length !== 4) {
-    return {
-      valid: false,
-      error: 'O número deve ter exatamente 4 dígitos',
-    };
+    return false;
   }
 
   // Verifica se todos são dígitos
   if (!/^\d{4}$/.test(cleaned)) {
-    return {
-      valid: false,
-      error: 'O número deve conter apenas dígitos (0-9)',
-    };
+    return false;
+  }
+
+  // Verifica se começa com 0
+  if (cleaned[0] === '0') {
+    return false;
   }
 
   // Verifica se há dígitos repetidos
@@ -34,13 +33,10 @@ function checkIsValidUserInput(userInput) {
   const uniqueDigits = new Set(digits);
 
   if (uniqueDigits.size !== 4) {
-    return {
-      valid: false,
-      error: 'O número deve ter 4 dígitos diferentes (sem repetição)',
-    };
+    return false;
   }
 
-  return { valid: true };
+  return true;
 }
 
 module.exports = {
