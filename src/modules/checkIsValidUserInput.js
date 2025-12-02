@@ -9,7 +9,16 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const isFourDigits =
+    typeof userInput === 'string' &&
+    userInput.length === 4 &&
+    userInput[0] !== '0' &&
+    [...userInput].every((ch) => ch >= '0' && ch <= '9');
+
+  const digits = userInput.split('');
+  const hasNoDuplicates = new Set(digits).size === digits.length;
+
+  return isFourDigits && hasNoDuplicates;
 }
 
 module.exports = {
