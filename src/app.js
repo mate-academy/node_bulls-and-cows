@@ -24,7 +24,7 @@ const print = (message) => terminal.write(message + '\n');
       }
 
       const userNumber = Number(userInput);
-      const bullsAndCows = getBullsAndCows(numberToGuess, userNumber);
+      const bullsAndCows = getBullsAndCows(userNumber, numberToGuess);
 
       print(`Bulls: ${bullsAndCows.bulls}, Cows: ${bullsAndCows.cows}`);
 
