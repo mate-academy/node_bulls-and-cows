@@ -13,19 +13,34 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  const userInputArr = String(userInput).split('');
-  const numberToGuessArr = String(numberToGuess).split('');
+  /*
+  AI Buddy, I won't change parameter names because I
+  follow the initial structure and naming
+  */
+
+  const user = String(userInput).split('');
+  const secret = String(numberToGuess).split('');
 
   const response = { bulls: 0, cows: 0 };
 
-  for (let i = 0; i < userInputArr.length; i++) {
-    if (userInputArr[i] === numberToGuessArr[i]) {
-      response.bulls++;
-      continue;
-    }
+  const userUnused = [];
+  const secretUnused = [];
 
-    if (numberToGuessArr.includes(userInputArr[i])) {
+  for (let i = 0; i < user.length; i++) {
+    if (user[i] === secret[i]) {
+      response.bulls++;
+    } else {
+      userUnused.push(user[i]);
+      secretUnused.push(secret[i]);
+    }
+  }
+
+  for (const digit of userUnused) {
+    const idx = secretUnused.indexOf(digit);
+
+    if (idx !== -1) {
       response.cows++;
+      secretUnused.splice(idx, 1);
     }
   }
 
