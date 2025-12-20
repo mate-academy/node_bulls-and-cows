@@ -9,7 +9,29 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (typeof userInput !== 'string' || userInput.length !== 4) {
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  const digits = userInput.split('');
+
+  for (const digit of digits) {
+    if (!/^[0-9]$/.test(digit)) {
+      return false;
+    }
+  }
+
+  const uniqueDigits = new Set(digits);
+
+  if (uniqueDigits.size !== 4) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
