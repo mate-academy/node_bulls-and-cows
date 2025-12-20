@@ -13,14 +13,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const numberToGuess = [
-  generateRandomNumber(),
-  generateRandomNumber(),
-  generateRandomNumber(),
-  generateRandomNumber(),
-];
-
-console.log(numberToGuess);
+const numberToGuess = generateRandomNumber();
 
 function ask() {
   rl.question('Введи число: ', (answer) => {
