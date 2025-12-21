@@ -35,7 +35,7 @@ function game() {
       console.log(`You Win! Number was ${randomNumber}`);
       rl.close();
     } else {
-      game();
+      console.log('Try Again: ');
     }
   });
 }
