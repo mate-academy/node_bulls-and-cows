@@ -10,6 +10,13 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  const guess = userInput.trim();
+
+  if (!/^\d{4}$/.test(guess) || new Set(guess).size !== 4 || guess[0] === '0') {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
