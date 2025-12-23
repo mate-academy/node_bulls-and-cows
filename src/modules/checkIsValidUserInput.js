@@ -10,6 +10,31 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  const digitSeen = [];
+
+  for (let i = 0; i < 4; i++) {
+    const char = userInput[i];
+
+    if (isNaN(Number(char))) {
+      return false;
+    }
+
+    if (digitSeen.includes(char)) {
+      return false;
+    }
+
+    digitSeen.push(char);
+  }
+
+  return true;
 }
 
 module.exports = {
