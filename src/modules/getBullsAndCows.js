@@ -20,11 +20,24 @@ function getBullsAndCows(userInput, numberToGuess) {
   let bulls = 0;
   let cows = 0;
 
+  const remainingInputDigits = [];
+  const remainingGuessDigits = [];
+
   for (let i = 0; i < 4; i++) {
     if (inputArr[i] === guessArr[i]) {
       bulls++;
-    } else if (guessArr.includes(inputArr[i])) {
+    } else {
+      remainingInputDigits.push(inputArr[i]);
+      remainingGuessDigits.push(guessArr[i]);
+    }
+  }
+
+  for (const digit of remainingInputDigits) {
+    const index = remainingGuessDigits.indexOf(digit);
+
+    if (index !== -1) {
       cows++;
+      remainingGuessDigits.splice(index, 1);
     }
   }
 
