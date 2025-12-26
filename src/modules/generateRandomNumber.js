@@ -7,7 +7,23 @@
  * @return {number} A random 4-digit number
  */
 function generateRandomNumber() {
-  /* Write your code here */
+  const numberToGuess = [];
+
+  while (numberToGuess.length < 4) {
+    const digit = Math.floor(Math.random() * 10).toString();
+
+    // Ensure the first digit is not '0' and no duplicate digits
+    if (
+      (numberToGuess.length === 0 && digit === '0') ||
+      numberToGuess.includes(digit)
+    ) {
+      continue;
+    }
+
+    numberToGuess.push(digit);
+  }
+
+  return Number(numberToGuess.join(''));
 }
 
 module.exports = {
