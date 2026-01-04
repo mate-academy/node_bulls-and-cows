@@ -1,5 +1,21 @@
 'use strict';
 
+const errors = {
+  amount: '4 digits expected, received:',
+  firstZero: 'First digit can not be 0',
+  wrongChar: 'Invalid character',
+  uniq: 'All 4 digits must be unique',
+};
+
+const getError = (err, tip = '') => {
+  const errMsg = tip === '' ? err : `${err} ${tip}`;
+
+  return {
+    ok: false,
+    err: errMsg,
+  };
+};
+
 /**
  * Checks that the user input is valid.
  * Valid user input is a 4-digit number that does not start with 0
@@ -8,8 +24,35 @@
  * @param {string} userInput - The user input
  * @return {boolean} - True if the user input is valid, false otherwise
  */
+
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput.length !== 4) {
+    return getError(errors.amount, userInput.length);
+  }
+
+  if (userInput[0] === '0') {
+    return getError(errors.firstZero);
+  }
+
+  const digits = [];
+
+  for (let i = 0; i < 4; i++) {
+    const dg = parseInt(userInput[i]);
+
+    if (isNaN(dg)) {
+      return getError(errors.wrongChar, `'${userInput[i]}' on position ${i}`);
+    }
+
+    digits.push(dg);
+  }
+
+  const uniq = new Set(digits);
+
+  if (uniq.size !== 4) {
+    return getError(errors.uniq);
+  }
+
+  return { ok: true, data: +digits.join('') };
 }
 
 module.exports = {
