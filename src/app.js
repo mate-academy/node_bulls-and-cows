@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 'use strict';
-import readline from 'readline';
 
+const readline = require('readline');
 const { generateRandomNumber } = require('./modules/generateRandomNumber');
 const { getBullsAndCows } = require('./modules/getBullsAndCows');
 const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
