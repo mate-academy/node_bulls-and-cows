@@ -13,7 +13,43 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const x = userInput.toString();
+  const y = numberToGuess.toString();
+
+  let bulls = 0;
+  let cows = 0;
+
+  const usedInUser = [false, false, false, false];
+  const usedInGuess = [false, false, false, false];
+
+  for (let i = 0; i < 4; i++) {
+    if (x[i] === y[i]) {
+      bulls++;
+      usedInUser[i] = true;
+      usedInGuess[i] = true;
+    }
+  }
+
+  for (let i = 0; i < 4; i++) {
+    if (usedInUser[i]) {
+      continue;
+    }
+
+    for (let j = 0; j < 4; j++) {
+      if (usedInGuess[j]) {
+        continue;
+      }
+
+      if (x[i] === y[j]) {
+        cows++;
+        usedInUser[i] = true;
+        usedInGuess[j] = true;
+        break;
+      }
+    }
+  }
+
+  return { bulls, cows };
 }
 
 module.exports = {
