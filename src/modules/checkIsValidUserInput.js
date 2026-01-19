@@ -8,10 +8,14 @@
  * @param {string} userInput - The user input
  * @return {boolean} - True if the user input is valid, false otherwise
  */
-function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+export function checkIsValidUserInput(userInput) {
+  if (userInput.length !== 4 || userInput[0] === 0) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
-module.exports = {
-  checkIsValidUserInput,
-};
+// module.exports = {
+//   checkIsValidUserInput,
+// };
