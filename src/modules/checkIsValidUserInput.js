@@ -8,14 +8,28 @@
  * @param {string} userInput - The user input
  * @return {boolean} - True if the user input is valid, false otherwise
  */
-export function checkIsValidUserInput(userInput) {
-  if (userInput.length !== 4 || userInput[0] === 0) {
+function checkIsValidUserInput(userInput) {
+  if (Number.isNaN(+userInput)) {
     return false;
-  } else {
-    return true;
   }
+
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  if (userInput.length !== 4) {
+    return false;
+  }
+
+  const uniqueChars = new Set(userInput);
+
+  if (uniqueChars.size !== userInput.length) {
+    return false;
+  }
+
+  return true;
 }
 
-// module.exports = {
-//   checkIsValidUserInput,
-// };
+module.exports = {
+  checkIsValidUserInput,
+};

@@ -1,9 +1,10 @@
 'use strict';
 
 import readline from 'node:readline';
-import { generateRandomNumber } from './modules/generateRandomNumber.js';
-import { checkIsValidUserInput } from './modules/checkIsValidUserInput.js';
-import { getBullsAndCows } from './modules/getBullsAndCows.js';
+
+const { generateRandomNumber } = require('./modules/generateRandomNumber');
+const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
+const { getBullsAndCows } = require('./modules/getBullsAndCows');
 
 const terminal = readline.createInterface({
   input: process.stdin,

@@ -12,7 +12,7 @@
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
-export function getBullsAndCows(userInput, numberToGuess) {
+function getBullsAndCows(userInput, numberToGuess) {
   const result = {
     bulls: 0,
     cows: 0,
@@ -36,6 +36,6 @@ export function getBullsAndCows(userInput, numberToGuess) {
   return result;
 }
 
-// module.exports = {
-//   getBullsAndCows,
-// };
+module.exports = {
+  getBullsAndCows,
+};
