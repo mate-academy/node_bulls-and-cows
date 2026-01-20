@@ -1,7 +1,7 @@
 const readline = require('readline');
-const generateNumber = require('./modules/generateNumber');
-const validateInput = require('./modules/validateInput');
-const getBullsAndCows = require('./modules/getBullsAndCows');
+const { generateNumber } = require('./modules/generateNumber');
+const { validateInput } = require('./modules/validateInput');
+const { getBullsAndCows } = require('./modules/getBullsAndCows');
 
 const terminal = readline.createInterface({
   input: process.stdin,
@@ -18,7 +18,7 @@ function ask() {
       return;
     }
 
-    const { bulls, cows } = getBullsAndCows(secretNumber, input);
+    const { bulls, cows } = getBullsAndCows(input, secretNumber);
 
     /* eslint-disable no-console */
     console.log(`Bulls: ${bulls}, Cows: ${cows}`);
