@@ -1,15 +1,18 @@
 'use strict';
 
-/**
- * Checks that the user input is valid.
- * Valid user input is a 4-digit number that does not start with 0
- * and does not contain any duplicate digits.
- *
- * @param {string} userInput - The user input
- * @return {boolean} - True if the user input is valid, false otherwise
- */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (typeof userInput !== 'string') {
+    return false;
+  }
+
+  if (!/^[1-9]\d{3}$/.test(userInput)) {
+    return false;
+  }
+
+  const digits = userInput.split('');
+  const uniqueDigits = new Set(digits);
+
+  return uniqueDigits.size === 4;
 }
 
 module.exports = {
