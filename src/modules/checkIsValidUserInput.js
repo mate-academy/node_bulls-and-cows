@@ -10,6 +10,9 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  const regex = /^[1-9]\d{3}$/;
+
+  return regex.test(userInput) && new Set(userInput).size === 4;
 }
 
 module.exports = {
