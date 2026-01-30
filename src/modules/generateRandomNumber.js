@@ -11,7 +11,13 @@ function generateRandomNumber() {
   const digits = new Set();
 
   while (digits.size < 4) {
-    digits.add(Math.floor(Math.random() * 10));
+    const digit = Math.floor(Math.random() * 10);
+
+    if (digits.size === 0 && digit === 0) {
+      continue;
+    }
+
+    digits.add(digit);
   }
 
   return parseInt(Array.from(digits).join(''), 10);
