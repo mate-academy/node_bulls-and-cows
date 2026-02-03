@@ -10,6 +10,30 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+
+  const userParams = userInput.split('');
+
+  if (userParams.length !== 4) {
+    return false;
+  }
+
+  if (userParams[0] === '0') {
+    return false;
+  }
+
+  for (const param of userParams) {
+    if (isNaN(Number(param))) {
+      return false;
+    }
+  }
+
+  const uniqueDigits = new Set(userParams);
+
+  if (uniqueDigits.size !== 4) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
