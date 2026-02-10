@@ -6,10 +6,26 @@
  * and does not contain any duplicate digits.
  *
  * @param {string} userInput - The user input
- * @return {boolean} - True if the user input is valid, false otherwise
+ * @return {boolean} True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (typeof userInput !== 'string') {
+    return false;
+  }
+
+  const input = userInput.trim();
+
+  if (!/^\d{4}$/.test(input)) {
+    return false;
+  }
+
+  if (input[0] === '0') {
+    return false;
+  }
+
+  const unique = new Set(input.split(''));
+
+  return unique.size === 4;
 }
 
 module.exports = {
