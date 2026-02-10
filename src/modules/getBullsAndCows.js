@@ -26,7 +26,6 @@ function getBullsAndCows(userInput, numberToGuess) {
     }
   }
 
-  // cows: digit exists but not on the same index
   const secretSet = new Set(secret.split(''));
 
   for (let i = 0; i < 4; i += 1) {

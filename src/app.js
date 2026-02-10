@@ -9,7 +9,6 @@ function ask(rl, question) {
   return new Promise((resolve) => rl.question(question, resolve));
 }
 
-// Write your code here
 async function run() {
   const numberToGuess = generateRandomNumber();
 
@@ -25,7 +24,6 @@ async function run() {
   );
 
   try {
-    // game loop
     while (true) {
       const input = await ask(rl, 'Your guess: ');
 

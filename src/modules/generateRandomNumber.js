@@ -9,10 +9,8 @@
 function generateRandomNumber() {
   const digits = [];
 
-  // first digit: 1..9
   digits.push(String(Math.floor(Math.random() * 9) + 1));
 
-  // remaining digits: 0..9, unique
   while (digits.length < 4) {
     const d = String(Math.floor(Math.random() * 10));
 

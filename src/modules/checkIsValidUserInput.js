@@ -15,17 +15,14 @@ function checkIsValidUserInput(userInput) {
 
   const input = userInput.trim();
 
-  // must be exactly 4 digits
   if (!/^\d{4}$/.test(input)) {
     return false;
   }
 
-  // must not start with 0
   if (input[0] === '0') {
     return false;
   }
 
-  // must not have duplicates
   const unique = new Set(input.split(''));
 
   return unique.size === 4;
