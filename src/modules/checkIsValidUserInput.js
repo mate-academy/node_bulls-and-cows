@@ -10,6 +10,16 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  const isFourDigits = userInput.length === 4;
+  const startsWithZero = userInput.startsWith('0');
+  const isNumeric = /^\d+$/.test(userInput);
+  const isUnique = new Set(userInput).size === userInput.length;
+
+  if (isFourDigits && !startsWithZero && isNumeric && isUnique) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = {
