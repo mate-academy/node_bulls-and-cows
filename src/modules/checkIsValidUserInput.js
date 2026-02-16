@@ -9,20 +9,10 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  if (userInput !== String(+userInput)) {
-    return false;
-  }
+  const isNotContainDuplicate = new Set(userInput).size === 4;
 
-  const partsOfNumber = userInput.split('');
-
-  const isFourDigitNumber = partsOfNumber.length === 4;
-  const isFirstDigitValid = partsOfNumber[0] !== '0';
-  const isNotContainDuplicate = new Set(partsOfNumber).size === 4;
-
-  return isFourDigitNumber && isFirstDigitValid && isNotContainDuplicate;
+  return /^[1-9]\d{3}$/.test(userInput) && isNotContainDuplicate;
 }
-
-checkIsValidUserInput('1548');
 
 module.exports = {
   checkIsValidUserInput,

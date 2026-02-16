@@ -30,8 +30,6 @@ function getBullsAndCows(userInput, numberToGuess) {
   return { bulls, cows };
 }
 
-getBullsAndCows(4587, 2548);
-
 module.exports = {
   getBullsAndCows,
 };
