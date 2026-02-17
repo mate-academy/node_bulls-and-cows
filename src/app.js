@@ -1,6 +1,6 @@
 'use strict';
 
-import readline from 'node:readline';
+const readline = require('node:readline');
 
 const { generateRandomNumber } = require('./modules/generateRandomNumber');
 const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
@@ -39,6 +39,4 @@ function ask() {
   });
 }
 
-module.exports = {
-  ask,
-};
+ask();

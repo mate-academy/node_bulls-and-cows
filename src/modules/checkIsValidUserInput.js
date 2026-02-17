@@ -10,7 +10,7 @@
  */
 function checkIsValidUserInput(userInput) {
   if (
-    userInput.startsWith('0') ||
+    userInput.toString().startsWith('0') ||
     /^\d{4}$/.test(userInput) === false ||
     new Set(userInput).size !== 4
   ) {
