@@ -13,16 +13,40 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  const userInputStr = userInput.toString();
-  const numberToGuessStr = numberToGuess.toString();
   let bulls = 0;
   let cows = 0;
 
+  const secretArr = numberToGuess.toString().split('');
+  const guessArr = userInput.toString().split('');
+
+  const usedSecretIndexes = new Set();
+  const usedGuessIndexes = new Set();
+
+  // bulls
   for (let i = 0; i < 4; i++) {
-    if (userInputStr[i] === numberToGuessStr[i]) {
+    if (guessArr[i] === secretArr[i]) {
       bulls++;
-    } else if (numberToGuessStr.includes(userInputStr[i])) {
-      cows++;
+      usedSecretIndexes.add(i);
+      usedGuessIndexes.add(i);
+    }
+  }
+
+  // cows
+  for (let i = 0; i < 4; i++) {
+    if (usedGuessIndexes.has(i)) {
+      continue;
+    }
+
+    for (let j = 0; j < 4; j++) {
+      if (usedSecretIndexes.has(j)) {
+        continue;
+      }
+
+      if (guessArr[i] === secretArr[j]) {
+        cows++;
+        usedSecretIndexes.add(j);
+        break;
+      }
     }
   }
 
