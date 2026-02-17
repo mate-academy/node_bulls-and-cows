@@ -9,7 +9,15 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (
+    userInput.startsWith('0') ||
+    /^\d{4}$/.test(userInput) === false ||
+    new Set(userInput).size !== 4
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
