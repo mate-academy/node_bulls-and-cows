@@ -9,7 +9,9 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const isNotContainDuplicate = new Set(userInput).size === 4;
+
+  return /^[1-9]\d{3}$/.test(userInput) && isNotContainDuplicate;
 }
 
 module.exports = {
