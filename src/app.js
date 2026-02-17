@@ -18,13 +18,13 @@ console.log('Your task is to guess a number from 4 different digits.');
 
 function ask() {
   rl.question('Enter a number: ', (number) => {
-    if (!checkIsValidUserInput(number)) {
+    if (!checkIsValidUserInput(number.trim())) {
       console.log('Number is not valid!');
 
       return ask();
     }
 
-    const { bulls, cows } = getBullsAndCows(+number, numberToGuess);
+    const { bulls, cows } = getBullsAndCows(+number.trim(), numberToGuess);
 
     console.log('');
     console.log(`bulls: ${bulls}`);
