@@ -1,17 +1,22 @@
 'use strict';
 
-/**
- * Checks that the user input is valid.
- * Valid user input is a 4-digit number that does not start with 0
- * and does not contain any duplicate digits.
- *
- * @param {string} userInput - The user input
- * @return {boolean} - True if the user input is valid, false otherwise
- */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
-}
+  if (userInput.length !== 4) {
+    throw new Error('Input must be 4 digits long');
+  }
+
+  if (isNaN(+userInput)) {
+    throw new Error('Input must be a number');
+  }
+
+  const digits = new Set(userInput.split(''));
+
+  if (digits.size !== 4) {
+    throw new Error('Input must have 4 unique digits');
+  }
+} 
 
 module.exports = {
   checkIsValidUserInput,
 };
+
