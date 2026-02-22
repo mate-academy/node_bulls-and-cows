@@ -1,3 +1,6 @@
-'use strict';
+const { generateRandomNumber } = require('./modules/generateRandomNumber');
+const { prompt } = require('./modules/io');
 
-// Write your code here
+const numberToGuess = generateRandomNumber();
+
+prompt(numberToGuess);
