@@ -6,8 +6,28 @@
  *
  * @return {number} A random 4-digit number
  */
+
+function getRandomInt(minValue, maxValue) {
+  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+}
+
 function generateRandomNumber() {
-  /* Write your code here */
+  const randomNumberComponents = [];
+
+  randomNumberComponents.push(getRandomInt(1, 9));
+
+  while (randomNumberComponents.length < 4) {
+    const valueToPush = getRandomInt(0, 9);
+    const isAlreadyInArray = randomNumberComponents.includes(valueToPush);
+
+    if (isAlreadyInArray) {
+      continue;
+    }
+
+    randomNumberComponents.push(valueToPush);
+  }
+
+  return +randomNumberComponents.join('');
 }
 
 module.exports = {
