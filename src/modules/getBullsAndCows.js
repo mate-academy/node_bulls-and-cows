@@ -15,7 +15,7 @@
 
 function checkIsBull(itemToCheck, index, wholeNumber) {
   const wholeNumberDigits = wholeNumber.split('');
-  
+
   if (wholeNumberDigits[index] === itemToCheck) {
     return true;
   }
@@ -24,8 +24,8 @@ function checkIsBull(itemToCheck, index, wholeNumber) {
 function getBullsAndCows(userInput, numberToGuess) {
   let bullsAmount = 0;
   let cowsAmount = 0;
-  
-  const userInputStrChars = userInput.toString().split(''); 
+
+  const userInputStrChars = userInput.toString().split('');
   const numberToGuessStr = numberToGuess.toString();
 
   userInputStrChars.forEach((item, index) => {
@@ -43,7 +43,7 @@ function getBullsAndCows(userInput, numberToGuess) {
   return {
     bulls: bullsAmount,
     cows: cowsAmount,
-  }
+  };
 }
 
 module.exports = {

@@ -18,11 +18,11 @@ function hasDuplicateDigits(number) {
   }
 
   return true;
-};
+}
 
 function checkIsValidUserInput(userInput) {
   const checkIsNumber = !Number.isNaN(+userInput);
-  
+
   if (!checkIsNumber || userInput.length !== 4) {
     return false;
   }
