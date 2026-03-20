@@ -23,7 +23,7 @@ function hasDuplicateDigits(number) {
 function checkIsValidUserInput(userInput) {
   const fourDigitsRegex = /^[0-9]{4}$/;
 
-  if (!fourDigitsRegex.test(+userInput) || userInput.length !== 4) {
+  if (!fourDigitsRegex.test(+userInput)) {
     return false;
   }
 
