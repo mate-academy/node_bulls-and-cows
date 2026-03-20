@@ -12,8 +12,38 @@
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
+
+function checkIsBull(itemToCheck, index, wholeNumber) {
+  const wholeNumberDigits = wholeNumber.split('');
+
+  if (wholeNumberDigits[index] === itemToCheck) {
+    return true;
+  }
+}
+
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  let bullsAmount = 0;
+  let cowsAmount = 0;
+
+  const userInputStrChars = userInput.toString().split('');
+  const numberToGuessStr = numberToGuess.toString();
+
+  userInputStrChars.forEach((item, index) => {
+    if (numberToGuessStr.includes(item)) {
+      const isBull = checkIsBull(item, index, numberToGuessStr);
+
+      if (isBull) {
+        bullsAmount++;
+      } else {
+        cowsAmount++;
+      }
+    }
+  });
+
+  return {
+    bulls: bullsAmount,
+    cows: cowsAmount,
+  };
 }
 
 module.exports = {
