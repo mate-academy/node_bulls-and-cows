@@ -21,9 +21,9 @@ function hasDuplicateDigits(number) {
 }
 
 function checkIsValidUserInput(userInput) {
-  const checkIsNumber = !Number.isNaN(+userInput);
+  const fourDigitsRegex = /^[0-9]{4}$/;
 
-  if (!checkIsNumber || userInput.length !== 4) {
+  if (!fourDigitsRegex.test(+userInput) || userInput.length !== 4) {
     return false;
   }
 
