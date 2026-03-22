@@ -22,7 +22,7 @@ function askUserGuess() {
       return;
     }
 
-    const { bulls, cows } = getBullsAndCows(userInput, numberToGuess);
+    const { bulls, cows } = getBullsAndCows(Number(userInput), numberToGuess);
 
     if (bulls === 4) {
       console.log('You guessed the number!');

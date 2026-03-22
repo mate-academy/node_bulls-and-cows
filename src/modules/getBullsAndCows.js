@@ -15,6 +15,8 @@
 function getBullsAndCows(userInput, numberToGuess) {
   const userInputDigits = userInput.toString().split('');
   const numberToGuessDigits = numberToGuess.toString().split('');
+  const unmatchedUserDigits = [];
+  const unmatchedGuessDigits = [];
 
   let bulls = 0;
   let cows = 0;
@@ -22,8 +24,18 @@ function getBullsAndCows(userInput, numberToGuess) {
   for (let i = 0; i < userInputDigits.length; i++) {
     if (userInputDigits[i] === numberToGuessDigits[i]) {
       bulls++;
-    } else if (numberToGuessDigits.includes(userInputDigits[i])) {
+    } else {
+      unmatchedUserDigits.push(userInputDigits[i]);
+      unmatchedGuessDigits.push(numberToGuessDigits[i]);
+    }
+  }
+
+  for (const digit of unmatchedUserDigits) {
+    const guessDigitIndex = unmatchedGuessDigits.indexOf(digit);
+
+    if (guessDigitIndex !== -1) {
       cows++;
+      unmatchedGuessDigits.splice(guessDigitIndex, 1);
     }
   }
 
