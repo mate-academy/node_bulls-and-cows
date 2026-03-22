@@ -9,7 +9,24 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (userInput[0] === '0') {
+    return false;
+  }
+  // check if the input is a 4-digit number
+
+  if (!/^\d{4}$/.test(userInput)) {
+    return false;
+  }
+
+  for (let i = 0; i < userInput.length; i++) {
+    for (let j = i + 1; j < userInput.length; j++) {
+      if (userInput[i] === userInput[j]) {
+        return false;
+      }
+    }
+  }
+
+  return true;
 }
 
 module.exports = {
