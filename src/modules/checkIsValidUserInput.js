@@ -9,7 +9,20 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  // Check if the input is a 4-digit number
+  if (!/^\d{4}$/.test(userInput)) {
+    return false;
+  }
+
+  // Check if the number starts with 0
+  if (userInput[0] === '0') {
+    return false;
+  }
+
+  const numbers = userInput.split('');
+  const hasDuplicates = new Set(numbers).size !== numbers.length;
+
+  return !hasDuplicates;
 }
 
 module.exports = {
