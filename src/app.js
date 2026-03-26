@@ -21,6 +21,7 @@ function main() {
         parseInt(userInput, 10),
         randomNumber,
       );
+
       // eslint-disable-next-line no-console
       console.log(`Bulls: ${bulls}, Cows: ${cows}`);
 
