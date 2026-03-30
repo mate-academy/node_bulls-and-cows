@@ -9,7 +9,16 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (
+    isNaN(Number(userInput)) ||
+    userInput.length !== 4 ||
+    userInput[0] === '0' ||
+    new Set(userInput).size !== 4
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
