@@ -10,11 +10,6 @@ const { getBullsAndCows } = require('./modules/getBullsAndCows');
 
 const numberToGuess = generateRandomNumber();
 
-console.log('Welcome to Bulls and Cows!');
-console.log('I have generated a random 4-digit number for you to guess.');
-
-console.log('Try to guess the number.');
-
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -26,6 +21,7 @@ function askForGuess() {
       console.log(
         'Invalid input. Please enter a 4-digit number that does not start with 0 and does not contain duplicate digits.',
       );
+
       askForGuess();
 
       return;
@@ -43,5 +39,10 @@ function askForGuess() {
     }
   });
 }
+
+console.log('Welcome to Bulls and Cows!');
+console.log('I have generated a random 4-digit number for you to guess.');
+
+console.log('Try to guess the number.');
 
 askForGuess();

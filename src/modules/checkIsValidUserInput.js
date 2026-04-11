@@ -10,8 +10,7 @@
  */
 function checkIsValidUserInput(userInput) {
   if (
-    Number.isInteger(Number(userInput)) &&
-    userInput.length === 4 &&
+    /^\d{4}$/.test(userInput) &&
     userInput[0] !== '0' &&
     new Set(userInput).size === userInput.length
   ) {
