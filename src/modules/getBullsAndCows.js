@@ -14,8 +14,8 @@
  */
 function getBullsAndCows(userInput, numberToGuess) {
   const result = { bulls: 0, cows: 0 };
-  const input = userInput.toString().split('');
-  const answer = numberToGuess.toString().split('');
+  const input = String(userInput).trim().split('');
+  const answer = String(numberToGuess).trim().split('');
 
   for (let i = 0; i < 4; i++) {
     if (input[i] === answer[i]) {

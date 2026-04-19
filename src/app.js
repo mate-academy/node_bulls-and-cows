@@ -4,37 +4,37 @@
 const { generateRandomNumber } = require('./modules/generateRandomNumber');
 const { getBullsAndCows } = require('./modules/getBullsAndCows');
 const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
-
-const readline = require('readline/promises');
-const { stdin, stdout } = require('process');
+const { ask, print, close } = require('./modules/io');
 
 async function startGame() {
-  const rl = readline.createInterface({ input: stdin, output: stdout });
-
-  console.log("Let's play Bulls and Cows!");
+  print("Let's play Bulls and Cows!");
 
   const secret = generateRandomNumber();
 
   try {
     while (true) {
-      const guess = await rl.question('Enter your guess: ');
+      const guess = await ask('Enter your guess: ');
 
       if (!checkIsValidUserInput(guess)) {
-        console.log('Invalid input. Please enter a 4-digit number.');
+        print(
+          'Invalid input. ' +
+            'Please enter a 4-digit number with unique digits, ' +
+            'not starting with 0.',
+        );
         continue;
       }
 
       if (guess === secret.toString()) {
-        console.log(`Congratulations! You guessed the number.`);
+        print(`Congratulations! You guessed the number.`);
         break;
       } else {
         const result = getBullsAndCows(guess, secret);
 
-        console.log('Wrong guess, try again!', result);
+        print('Wrong guess, try again!', result);
       }
     }
   } finally {
-    rl.close();
+    close();
   }
 }
 startGame();
