@@ -30,7 +30,10 @@ async function startGame() {
       } else {
         const result = getBullsAndCows(guess, secret);
 
-        print('Wrong guess, try again!', result);
+        print(
+          `Wrong guess, try again! Bulls: ${result.bulls}, ` +
+            `Cows: ${result.cows}`,
+        );
       }
     }
   } finally {

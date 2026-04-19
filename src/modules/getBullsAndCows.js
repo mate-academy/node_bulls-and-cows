@@ -7,8 +7,8 @@
  * Assume that the user input and the number to guess
  * are always 4-digit numbers.
  *
- * @param {number} userInput - The user input
- * @param {number} numberToGuess - The number to guess
+ * @param {string|number} userInput - The user input
+ * @param {string|number} numberToGuess - The number to guess
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
