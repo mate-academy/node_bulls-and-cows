@@ -9,7 +9,27 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const guess = userInput.trim();
+  const number = Number(guess);
+
+  // Ensure input is an actual number
+  if (Number.isNaN(number)) {
+    return false;
+  }
+
+  // Ensure valid number is passed
+  if (number < 1000 || number > 9999 || +userInput[0] === 0) {
+    return false;
+  }
+
+  // Ensure no duplicate digits are present
+  const quickSet = new Set(userInput.split(''));
+
+  if (quickSet.size < 4) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
