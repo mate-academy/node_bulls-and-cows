@@ -29,4 +29,4 @@ function getBullsAndCows(userInput, numberToGuess) {
   return result;
 }
 
-export default getBullsAndCows;
+module.exports = { getBullsAndCows };

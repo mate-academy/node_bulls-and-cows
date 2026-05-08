@@ -27,4 +27,4 @@ function generateRandomNumber() {
   return parseInt(randomNumber, 10);
 }
 
-export default generateRandomNumber;
+module.exports = { generateRandomNumber };

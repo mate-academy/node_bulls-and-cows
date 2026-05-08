@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 'use strict';
-
-import { generateRandomNumber } from './modules/generateRandomNumber.js';
-import { checkIsValidUserInput } from './modules/checkIsValidUserInput.js';
-import { getBullsAndCows } from './modules/getBullsAndCows.js';
 import readline from 'readline';
+
+const { generateRandomNumber } = require('./modules/generateRandomNumber.js');
+const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput.js');
+const { getBullsAndCows } = require('./modules/getBullsAndCows.js');
 
 function main() {
   const numberToGuess = generateRandomNumber();

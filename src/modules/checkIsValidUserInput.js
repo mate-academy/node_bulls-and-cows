@@ -17,4 +17,4 @@ function checkIsValidUserInput(userInput) {
   return new Set(userInput).size === 4;
 }
 
-export default checkIsValidUserInput;
+module.exports = { checkIsValidUserInput };
