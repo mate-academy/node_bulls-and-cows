@@ -18,24 +18,15 @@ function getBullsAndCows(userInput, numberToGuess) {
   const userInputArr = userInput.toString().split('');
   const numberToGuessArr = numberToGuess.toString().split('');
 
-  for (const inputDigit of userInputArr) {
-    for (const guessDigit of numberToGuessArr) {
-      if (inputDigit === guessDigit) {
-        if (
-          userInputArr.indexOf(inputDigit) ===
-          numberToGuessArr.indexOf(guessDigit)
-        ) {
-          result.bulls++;
-        } else {
-          result.cows++;
-        }
-      }
+  for (let i = 0; i < 4; i++) {
+    if (userInputArr[i] === numberToGuessArr[i]) {
+      result.bulls++;
+    } else if (numberToGuessArr.includes(userInputArr[i])) {
+      result.cows++;
     }
   }
 
   return result;
 }
 
-module.exports = {
-  getBullsAndCows,
-};
+export default getBullsAndCows;

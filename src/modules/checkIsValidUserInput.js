@@ -10,27 +10,11 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
-  if (userInput.length !== 4) {
+  if (!/^[1-9]\d{3}$/.test(userInput)) {
     return false;
   }
 
-  if (userInput[0] === '0') {
-    return false;
-  }
-
-  if (isFinite(userInput) === false) {
-    return false;
-  }
-
-  const uniqueDigits = new Set(userInput);
-
-  if (uniqueDigits.size !== 4) {
-    return false;
-  }
-
-  return true;
+  return new Set(userInput).size === 4;
 }
 
-module.exports = {
-  checkIsValidUserInput,
-};
+export default checkIsValidUserInput;
