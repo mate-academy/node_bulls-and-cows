@@ -9,7 +9,22 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const input = new Set(userInput.split(''));
+  const keys = input.keys();
+  const hasNoneNumeric = [...input].some((value) => {
+    return !Number.isFinite(Number(value));
+  });
+
+  if (
+    hasNoneNumeric ||
+    input.size !== 4 ||
+    userInput.startsWith('0') ||
+    keys.next().value === '0'
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
