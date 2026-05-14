@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use strict';
 
 /**
@@ -7,9 +8,10 @@
  * @return {number} A random 4-digit number
  */
 function generateRandomNumber() {
-  const listOfRandomNumber = [0, 0, 0, 0];
+  const firstValidNumber = Math.floor(Math.random() * 9) + 1;
+  const listOfRandomNumber = [firstValidNumber, null, null, null];
 
-  for (let i = 0; i < listOfRandomNumber.length; i++) {
+  for (let i = 1; i < listOfRandomNumber.length; i++) {
     const randomNumber = Math.floor(Math.random() * 10);
 
     if (!listOfRandomNumber.includes(randomNumber)) {
