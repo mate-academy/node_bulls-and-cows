@@ -9,7 +9,17 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const listOfUserNumbers = Array.from(userInput, Number);
+
+  if (
+    listOfUserNumbers[0] === 0 ||
+    new Set(userInput).size !== 4 ||
+    !Number.isFinite(Number(userInput))
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {

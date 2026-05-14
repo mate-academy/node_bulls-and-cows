@@ -13,7 +13,24 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const listOfUserNumbers = Array.from(String(userInput), Number);
+  const listOfGuessNumbers = Array.from(String(numberToGuess), Number);
+
+  let bulls = 0;
+  let cows = 0;
+
+  for (let i = 0; i < listOfGuessNumbers.length; i++) {
+    if (listOfGuessNumbers[i] === listOfUserNumbers[i]) {
+      bulls += 1;
+      continue;
+    }
+
+    if (listOfUserNumbers.includes(listOfGuessNumbers[i])) {
+      cows += 1;
+    }
+  }
+
+  return { bulls, cows };
 }
 
 module.exports = {
