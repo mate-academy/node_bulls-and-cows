@@ -6,6 +6,7 @@
  *
  * @return {number} A random 4-digit number
  */
+
 function randomDigit(min, max) {
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
