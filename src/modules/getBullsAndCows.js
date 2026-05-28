@@ -23,7 +23,9 @@ function getBullsAndCows(userInput, numberToGuess) {
     for (let j = 0; j < 4; j++) {
       if (random[i] === input[j] && i === j) {
         bullsCounter++;
-      } else if (random[i] === input[j] && i !== j) {
+      }
+
+      if (random[i] === input[j] && i !== j) {
         cowsCounter++;
       }
     }
