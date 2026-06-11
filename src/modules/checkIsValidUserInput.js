@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -9,7 +10,10 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const isValidFormat = /^[1-9]\d{3}$/.test(userInput);
+  const hasUniqueDigits = new Set(userInput).size === 4;
+
+  return isValidFormat && hasUniqueDigits;
 }
 
 module.exports = {
