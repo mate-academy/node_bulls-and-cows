@@ -9,7 +9,14 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  return !(
+    userInput.toLowerCase() !== userInput.toUpperCase() ||
+    userInput[0] === '0' ||
+    userInput.length !== 4 ||
+    [...userInput].some(
+      (char) => userInput.indexOf(char) !== userInput.lastIndexOf(char),
+    )
+  );
 }
 
 module.exports = {
