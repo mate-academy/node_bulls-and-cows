@@ -9,7 +9,33 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question('Generating random number from random number?', (userInput) => {
-  checkIsValidUserInput(userInput);
-  getBullsAndCows(userInput, generateRandomNumber());
-});
+const numberToGuess = generateRandomNumber();
+
+function bullsAndCows() {
+  rl.question('Введіть число: ', (answer) => {
+    if (!checkIsValidUserInput(answer)) {
+      // eslint-disable-next-line no-console
+      console.log('Помилка при вводі');
+
+      return bullsAndCows();
+    }
+
+    const { bulls, cows } = getBullsAndCows(answer, numberToGuess);
+
+    // eslint-disable-next-line no-console
+    console.log('Биків: ', bulls, 'Корів: ', cows);
+
+    if (bulls === 4) {
+      // eslint-disable-next-line no-console
+      console.log('Ти переміг');
+
+      rl.close();
+
+      return;
+    }
+
+    bullsAndCows();
+  });
+}
+
+bullsAndCows();

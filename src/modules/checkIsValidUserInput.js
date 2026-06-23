@@ -3,10 +3,6 @@
 function checkIsValidUserInput(userInput) {
   const digits = userInput.toString().split('');
 
-  if (isNaN(Number(userInput))) {
-    return false;
-  }
-
   if (digits.length !== 4) {
     return false;
   }
@@ -15,20 +11,13 @@ function checkIsValidUserInput(userInput) {
     return false;
   }
 
-  for (let i = 0; i < 4; i++) {
-    const matches = digits.filter((digit) => digit === digits[i]);
-
-    if (matches.length > 1) {
-      return false;
-    }
+  if (new Set(digits).size !== 4) {
+    return false;
   }
 
-  digits.forEach((digit) => {
-    if (isNaN(Number(digit))) {
-      // throw new Error('Це має бути число');
-      return false;
-    }
-  });
+  if (isNaN(Number(userInput))) {
+    return false;
+  }
 
   return true;
 }

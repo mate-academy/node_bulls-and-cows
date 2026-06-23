@@ -7,7 +7,7 @@ function getBullsAndCows(userInput, numberToGuess) {
   let countCows = 0;
   let countBulls = 0;
 
-  for (let i = 0; i <= 4; i++) {
+  for (let i = 0; i < 4; i++) {
     if (+digits[i] === +digitsToGuess[i]) {
       countBulls += 1;
       digitsToGuess[i] = null;
@@ -15,7 +15,7 @@ function getBullsAndCows(userInput, numberToGuess) {
   }
 
   digits.forEach((digit) => {
-    if (digitsToGuess.includes(digit)) {
+    if ([...digitsToGuess].includes(digit)) {
       countCows += 1;
     }
   });
