@@ -1,15 +1,36 @@
 'use strict';
 
-/**
- * Checks that the user input is valid.
- * Valid user input is a 4-digit number that does not start with 0
- * and does not contain any duplicate digits.
- *
- * @param {string} userInput - The user input
- * @return {boolean} - True if the user input is valid, false otherwise
- */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const digits = userInput.toString().split('');
+
+  if (isNaN(Number(userInput))) {
+    return false;
+  }
+
+  if (digits.length !== 4) {
+    return false;
+  }
+
+  if (digits[0] === '0') {
+    return false;
+  }
+
+  for (let i = 0; i < 4; i++) {
+    const matches = digits.filter((digit) => digit === digits[i]);
+
+    if (matches.length > 1) {
+      return false;
+    }
+  }
+
+  digits.forEach((digit) => {
+    if (isNaN(Number(digit))) {
+      // throw new Error('Це має бути число');
+      return false;
+    }
+  });
+
+  return true;
 }
 
 module.exports = {
