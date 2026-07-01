@@ -11,11 +11,11 @@ const rl = readline.createInterface({ input, output });
 const ask = (question) => {
   rl.question(question, (num) => {
     if (!checkIsValidUserInput(num)) {
-      ask('Invalid input: enter 4 unique digits. Try again.');
+      return ask('Invalid input: enter 4 unique digits. Try again.');
     }
 
-    const usetNum = Number(num);
-    const { bulls, cows } = getBullsAndCows(usetNum, randomNum);
+    const userNum = Number(num);
+    const { bulls, cows } = getBullsAndCows(userNum, randomNum);
 
     if (bulls === 4) {
       process.stdout.write('🎉 You win!');
