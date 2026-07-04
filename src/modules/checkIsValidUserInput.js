@@ -1,17 +1,23 @@
 'use strict';
 
-/**
- * Checks that the user input is valid.
- * Valid user input is a 4-digit number that does not start with 0
- * and does not contain any duplicate digits.
- *
- * @param {string} userInput - The user input
- * @return {boolean} - True if the user input is valid, false otherwise
- */
-function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+function checkIsValidUserInput(input) {
+  // Перетворюємо ввід на рядок для зручності
+  const strInput = String(input);
+
+  // Перевірка на довжину та те, що це тільки цифри
+  if (strInput.length !== 4 || !/^\d{4}$/.test(strInput)) {
+    return false;
+  }
+
+  // Перевірка: число не може починатися з нуля
+  if (strInput[0] === '0') {
+    return false;
+  }
+
+  // Перевірка на унікальність цифр
+  const uniqueDigits = new Set(strInput.split(''));
+
+  return uniqueDigits.size === 4;
 }
 
-module.exports = {
-  checkIsValidUserInput,
-};
+module.exports = { checkIsValidUserInput };
