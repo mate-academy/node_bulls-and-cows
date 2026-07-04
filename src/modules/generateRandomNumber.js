@@ -1,15 +1,17 @@
 'use strict';
 
-/**
- * Generate a random 4-digit number that does not start with 0
- * and does not contain any duplicate digits.
- *
- * @return {number} A random 4-digit number
- */
 function generateRandomNumber() {
-  /* Write your code here */
+  while (true) {
+    // Генеруємо число від 1000 до 9999 (щоб не було нуля на початку)
+    const num = Math.floor(Math.random() * 9000) + 1000;
+
+    // Перевіряємо унікальність цифр
+    const digits = new Set(String(num).split(''));
+
+    if (digits.size === 4) {
+      return num; // Повертаємо саме число, як просять тести
+    }
+  }
 }
 
-module.exports = {
-  generateRandomNumber,
-};
+module.exports = { generateRandomNumber };
