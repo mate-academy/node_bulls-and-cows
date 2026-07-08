@@ -9,7 +9,13 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const cleanInput = String(userInput || '').trim();
+
+  const hasFourDigits = /^\d{4}$/.test(cleanInput);
+  const doesNotStartWithZero = cleanInput[0] !== '0';
+  const hasUniqueDigits = new Set(cleanInput).size === 4;
+
+  return hasFourDigits && doesNotStartWithZero && hasUniqueDigits;
 }
 
 module.exports = {
