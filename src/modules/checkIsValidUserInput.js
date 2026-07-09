@@ -9,7 +9,17 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  if (typeof userInput !== 'string' || userInput.length !== 4) {
+    return false;
+  }
+
+  if (!/^[1-9]\d{3}$/.test(userInput)) {
+    return false;
+  }
+
+  const validValue = new Set(userInput);
+
+  return validValue.size === 4;
 }
 
 module.exports = {
