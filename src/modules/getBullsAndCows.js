@@ -19,11 +19,26 @@ function getBullsAndCows(userInput, numberToGuess) {
   let bulls = 0;
   let cows = 0;
 
+  const usedSecretPositions = [false, false, false, false];
+  const usedUserPositions = [false, false, false, false];
+
   for (let i = 0; i < 4; i++) {
     if (userStr[i] === guessStr[i]) {
       bulls++;
-    } else if (guessStr.includes(userStr[i])) {
-      cows++;
+      usedSecretPositions[i] = true;
+      usedUserPositions[i] = true;
+    }
+  }
+
+  for (let i = 0; i < 4; i++) {
+    if (!usedUserPositions[i]) {
+      for (let j = 0; j < 4; j++) {
+        if (!usedSecretPositions[j] && userStr[i] === guessStr[j]) {
+          cows++;
+          usedSecretPositions[j] = true;
+          break;
+        }
+      }
     }
   }
 
