@@ -1,5 +1,7 @@
 'use strict';
 
+const DIGITS_COUNT = 4;
+
 /**
  * Calculate the number of bulls and cows for a given user input.
  * Bulls are digits that are in the correct position.
@@ -12,8 +14,30 @@
  * @return {object} An object containing the number of bulls and cows.
  * Example: { bulls: 1, cows: 2 }
  */
+
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const userString = userInput.toString();
+  const randomString = numberToGuess.toString();
+  let bulls = 0;
+  let cows = 0;
+
+  for (let i = 0; i < DIGITS_COUNT; i++) {
+    if (randomString[i] === userString[i]) {
+      bulls++;
+    }
+  }
+
+  const uniqueDigit = new Set(randomString);
+
+  for (const e of userString) {
+    if (uniqueDigit.has(e)) {
+      cows++;
+    }
+  }
+
+  cows -= bulls;
+
+  return { bulls, cows };
 }
 
 module.exports = {
