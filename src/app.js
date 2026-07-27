@@ -11,20 +11,27 @@ const rl = readline.createInterface({
 });
 
 const randomNumber = generateRandomNumber().toString();
-let isWin = false;
 
-while (isWin) {
+function askQuestion() {
   rl.question('Input 4-digit number', (userInput) => {
     if (!checkIsValidUserInput(userInput)) {
-      throw new Error('Invalid input');
+      console.log('Invalid input');
+      askQuestion();
+
+      return;
     }
 
     const result = getBullsAndCows(userInput, randomNumber);
 
     console.log(result);
 
-    isWin = result.bulls === 4;
-
-    rl.close();
+    if (result.bulls === 4) {
+      console.log('You win');
+      rl.close();
+    } else {
+      askQuestion();
+    }
   });
 }
+
+askQuestion();
