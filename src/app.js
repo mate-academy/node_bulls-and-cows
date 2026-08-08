@@ -12,20 +12,24 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-function palpite() {
-  rl.question('digite 4 numeros inteiros de 0 a 9: ', (res) => {
+function prediction() {
+  rl.question('Enter a 4 digits number', (res) => {
     if (checkIsValidUserInput(res)) {
       const result = getBullsAndCows(res, numberRandom);
 
+      process.stdout.write(`Bulls: ${result.bulls}, Cows: ${result.cows}\n`);
+
       if (result.bulls === 4) {
+        process.stdout.write('Congratulations, you got it.');
         rl.close();
       } else {
-        palpite();
+        prediction();
       }
     } else {
-      palpite();
+      process.stdout.white('Invalid! Please enter a 4 digits number again.');
+      prediction();
     }
   });
 }
 
-palpite();
+prediction();
