@@ -17,12 +17,12 @@ function checkIsValidUserInput(userInput) {
     return false;
   }
 
-  for (const numero of userInput) {
-    if (isNaN(numero)) {
+  for (const number of userInput) {
+    if (isNaN(number)) {
       return false;
     }
 
-    if (userInput.indexOf(numero) !== userInput.lastIndexOf(numero)) {
+    if (userInput.indexOf(number) !== userInput.lastIndexOf(number)) {
       return false;
     }
   }

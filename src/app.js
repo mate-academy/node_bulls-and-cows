@@ -5,7 +5,7 @@ const { generateRandomNumber } = require('./modules/generateRandomNumber');
 const { getBullsAndCows } = require('./modules/getBullsAndCows');
 const readline = require('readline');
 
-const numeroAleatorio = generateRandomNumber();
+const numberRandom = generateRandomNumber();
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -15,9 +15,9 @@ const rl = readline.createInterface({
 function palpite() {
   rl.question('digite 4 numeros inteiros de 0 a 9: ', (res) => {
     if (checkIsValidUserInput(res)) {
-      const resultado = getBullsAndCows(res, numeroAleatorio);
+      const result = getBullsAndCows(res, numberRandom);
 
-      if (resultado.bulls === 4) {
+      if (result.bulls === 4) {
         rl.close();
       } else {
         palpite();

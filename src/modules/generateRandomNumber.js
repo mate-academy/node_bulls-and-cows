@@ -7,19 +7,19 @@
  * @return {number} A random 4-digit number
  */
 function generateRandomNumber() {
-  const numerosGerados = [Math.floor(Math.random() * 9) + 1];
+  const numbersGenerated = [Math.floor(Math.random() * 9) + 1];
 
-  while (numerosGerados.length < 4) {
-    const numeroGerado = Math.floor(Math.random() * 10);
+  while (numbersGenerated.length < 4) {
+    const numberGenerated = Math.floor(Math.random() * 10);
 
-    const verificarDuplicatas = numerosGerados.includes(numeroGerado);
+    const checkDuplicates = numbersGenerated.includes(numberGenerated);
 
-    if (!verificarDuplicatas) {
-      numerosGerados.push(numeroGerado);
+    if (!checkDuplicates) {
+      numbersGenerated.push(numberGenerated);
     }
   }
 
-  return Number(numerosGerados.join(''));
+  return Number(numbersGenerated.join(''));
 }
 
 module.exports = {
