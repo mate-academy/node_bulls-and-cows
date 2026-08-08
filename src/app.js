@@ -13,7 +13,7 @@ const rl = readline.createInterface({
 });
 
 function prediction() {
-  rl.question('Enter a 4 digits number', (res) => {
+  rl.question('Enter a 4 digits number: ', (res) => {
     if (checkIsValidUserInput(res)) {
       const result = getBullsAndCows(res, numberRandom);
 
