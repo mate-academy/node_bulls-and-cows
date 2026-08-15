@@ -1,9 +1,9 @@
 'use strict';
-import readline from 'node:readline';
 
-const checkIsValidUserInput = require('./modules/checkIsValidUserInput.js');
-const getBullsAndCows = require('./modules/getBullsAndCows.js');
-const generateRandomNumber = require('./modules/generateRandomNumber.js');
+const { readline } = require('node:readline');
+const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput.js');
+const { getBullsAndCows } = require('./modules/getBullsAndCows.js');
+const { generateRandomNumber } = require('./modules/generateRandomNumber.js');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -23,7 +23,7 @@ function askQuestion() {
       return;
     }
 
-    const { bulls, cows } = getBullsAndCows(+number, genereteNum);
+    const { bulls, cows } = getBullsAndCows(number.trim(), genereteNum);
 
     if (bulls === 4) {
       // eslint-disable-next-line no-console
