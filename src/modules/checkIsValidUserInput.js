@@ -10,6 +10,29 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+  if (typeof userInput !== 'string') {
+    return false;
+  }
+
+  const input = userInput.trim();
+
+  if (input.length !== 4) {
+    return false;
+  }
+
+  if (new Set(input).size !== 4) {
+    return false;
+  }
+
+  if (input[0] === '0') {
+    return false;
+  }
+
+  if (!/^[0-9]{4}$/.test(input)) {
+    return false;
+  }
+
+  return true;
 }
 
 module.exports = {
