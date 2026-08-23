@@ -24,6 +24,9 @@ function askQuestion() {
       } else {
         askQuestion();
       }
+    } else {
+      rl.write('Invalid input. Try again.\n');
+      askQuestion();
     }
   });
 }
