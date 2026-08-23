@@ -12,11 +12,20 @@ const rl = readline.createInterface({
 
 const numberToGuess = generateRandomNumber();
 
-rl.question('Enter your 4-digit number here! ', (guessNumber) => {
-  if (checkIsValidUserInput(guessNumber)) {
-    const result = getBullsAndCows(guessNumber, numberToGuess);
+function askQuestion() {
+  rl.question('Enter your 4-digit number here! ', (guessNumber) => {
+    if (checkIsValidUserInput(guessNumber)) {
+      const result = getBullsAndCows(guessNumber, numberToGuess);
 
-    rl.write(`Bulls: ${result.bulls}, Cows: ${result.cows}\n`);
-  }
-  rl.close();
-});
+      rl.write(`Bulls: ${result.bulls}, Cows: ${result.cows}\n`);
+
+      if (result.bulls === 4) {
+        rl.close();
+      } else {
+        askQuestion();
+      }
+    }
+  });
+}
+
+askQuestion();

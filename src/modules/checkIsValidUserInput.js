@@ -10,19 +10,21 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
-  if (userInput[0] === '0') {
+  const input = userInput.trim();
+
+  if (input.length !== 4) {
     return false;
   }
 
-  if (userInput.length !== 4) {
+  if (new Set(input).size !== 4) {
     return false;
   }
 
-  if (Number.isNaN(Number(userInput))) {
+  if (input[0] === '0') {
     return false;
   }
 
-  if (new Set(userInput).size !== 4) {
+  if (Number.isNaN(Number(input))) {
     return false;
   }
 
