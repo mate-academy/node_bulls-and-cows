@@ -14,7 +14,7 @@ function checkIsValidUserInput(userInput) {
 
   const userValue = userInput.split('');
 
-  if (userInput < 1000 || userInput > 9999 || !Number(userInput)) {
+  if (userInput < 1000 || userInput > 9999 || Number.isNaN(Number(userInput))) {
     return false;
   }
 

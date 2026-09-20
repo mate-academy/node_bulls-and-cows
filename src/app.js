@@ -13,11 +13,29 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const rundomNumber = generateRandomNumber();
+const randomNumber = generateRandomNumber();
 
-rl.question('Enter a 4-digit number: ', (userInput) => {
-  checkIsValidUserInput(userInput);
-  getBullsAndCows(userInput, rundomNumber);
+const question = () =>
+  rl.question('Enter a 4-digit number: ', (userInput) => {
+    const isValid = checkIsValidUserInput(userInput);
 
-  rl.close();
-});
+    if (!isValid) {
+      console.log('Invalid input. Please enter a valid 4-digit number.');
+
+      question();
+    } else {
+      const bullsAndCows = getBullsAndCows(userInput, randomNumber);
+
+      if (bullsAndCows.bulls === 4) {
+        console.log('Congratulations! You guessed the number correctly.');
+        rl.close();
+      } else {
+        console.log('Try again!');
+        console.log(`Bulls: ${bullsAndCows.bulls}, Cows: ${bullsAndCows.cows}`);
+
+        question();
+      }
+    }
+  });
+
+question();
