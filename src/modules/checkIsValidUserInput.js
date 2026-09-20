@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 /**
@@ -10,6 +11,25 @@
  */
 function checkIsValidUserInput(userInput) {
   /* Write your code here */
+
+  const userValue = userInput.split('');
+
+  if (userInput < 1000 || userInput > 9999 || Number.isNaN(Number(userInput))) {
+    return false;
+  }
+
+  const result = userValue
+    .sort((a, b) => a - b)
+    .map((val, idx) => {
+      if (val === userValue[idx + 1]) {
+        return false;
+      }
+
+      return true;
+    })
+    .some((val) => val === false);
+
+  return !result;
 }
 
 module.exports = {
