@@ -1,6 +1,6 @@
 'use strict';
+/* eslint-disable no-console */
 
-// Write your code here
 const { getBullsAndCows } = require('./modules/getBullsAndCows');
 const { generateRandomNumber } = require('./modules/generateRandomNumber');
 const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');

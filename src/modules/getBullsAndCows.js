@@ -17,15 +17,19 @@ function getBullsAndCows(userInput, numberToGuess) {
   const userStr = String(userInput);
   const secretStr = String(numberToGuess);
   let bulls = 0;
-  let cows = 0;
+  let matches = 0;
 
   for (let i = 0; i < userStr.length; i++) {
     if (userStr[i] === secretStr[i]) {
       bulls++;
-    } else if (secretStr.includes(userStr[i])) {
-      cows++;
+    }
+
+    if (userStr.includes(secretStr[i])) {
+      matches++;
     }
   }
+
+  const cows = matches - bulls;
 
   return { bulls, cows };
 }
