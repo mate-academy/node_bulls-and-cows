@@ -8,6 +8,23 @@
  */
 function generateRandomNumber() {
   /* Write your code here */
+  const result = [];
+
+  while (result.length < 4) {
+    const randomNumber = Math.floor(Math.random() * 10);
+
+    if (result.includes(randomNumber)) {
+      continue;
+    }
+
+    if (result.length === 0 && randomNumber === 0) {
+      continue;
+    }
+
+    result.push(randomNumber);
+  }
+
+  return Number(result.join(''));
 }
 
 module.exports = {
