@@ -9,7 +9,15 @@
  * @return {boolean} - True if the user input is valid, false otherwise
  */
 function checkIsValidUserInput(userInput) {
-  /* Write your code here */
+  const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const is4Digits = userInput.length === 4;
+  const doesNotStartWith0 = userInput[0] !== '0';
+  const hasNoDuplicates = new Set(userInput).size === 4;
+  const isAllNumeric = userInput
+    .split('')
+    .every((char) => digits.includes(char));
+
+  return is4Digits && doesNotStartWith0 && hasNoDuplicates && isAllNumeric;
 }
 
 module.exports = {
