@@ -1,24 +1,15 @@
 'use strict';
 
-const readline = require('readline');
 const { generateRandomNumber } = require('./modules/generateRandomNumber');
 const { checkIsValidUserInput } = require('./modules/checkIsValidUserInput');
 const { getBullsAndCows } = require('./modules/getBullsAndCows');
-
-const terminal = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const { print, ask, closeTerminal } = require('./modules/terminal');
 
 const numberToGuess = generateRandomNumber();
 let attempts = 0;
 
-function print(message) {
-  terminal.write(`${message}\n`);
-}
-
 function askGuess() {
-  terminal.question('Enter a 4-digit number: ', (userInput) => {
+  ask('Enter a 4-digit number: ', (userInput) => {
     const guess = userInput.trim();
 
     if (!checkIsValidUserInput(guess)) {
@@ -38,7 +29,7 @@ function askGuess() {
 
     if (bulls === 4) {
       print(`You won! The number was ${numberToGuess}. Attempts: ${attempts}`);
-      terminal.close();
+      closeTerminal();
 
       return;
     }
